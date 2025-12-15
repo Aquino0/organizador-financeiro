@@ -1,14 +1,15 @@
+<?php
 // index.php
 require_once 'src/auth.php'; // Ensure auth functions are available
 
 if (isset($_GET['logout'])) {
-logoutUser();
-header('Location: index.php');
-exit;
+    logoutUser();
+    header('Location: index.php');
+    exit;
 }
 if (isLoggedIn()) {
-header('Location: dashboard.php');
-exit;
+    header('Location: dashboard.php');
+    exit;
 }
 ?>
 <!DOCTYPE html>
