@@ -1,6 +1,6 @@
 <?php
 // api/migrate_pago.php
-require_once '../src/db.php';
+require_once __DIR__ . '/../src/db.php';
 
 try {
     // Add columns if they don't exist

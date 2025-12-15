@@ -1,6 +1,6 @@
 <?php
 // api/migration_categories.php
-require_once '../src/db.php';
+require_once __DIR__ . '/../src/db.php';
 
 try {
     // 1. Create Table (PostgreSQL Syntax)

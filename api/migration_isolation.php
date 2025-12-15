@@ -1,6 +1,6 @@
 <?php
 // api/migration_isolation.php
-require_once '../src/db.php';
+require_once __DIR__ . '/../src/db.php';
 
 try {
     // Add is_forecast column to receitas

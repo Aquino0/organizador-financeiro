@@ -4,9 +4,9 @@
 error_reporting(0);
 ini_set('display_errors', 0);
 
-require_once '../src/db.php';
-require_once '../src/auth.php';
-require_once '../src/utils.php';
+require_once __DIR__ . '/../src/db.php';
+require_once __DIR__ . '/../src/auth.php';
+require_once __DIR__ . '/../src/utils.php';
 
 requireAuth();
 $user_id = getCurrentUserId();

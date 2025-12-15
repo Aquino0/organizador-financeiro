@@ -1,5 +1,5 @@
 <?php
-require '../src/auth.php';
+require __DIR__ . '/../src/auth.php';
 session_start();
 header('Content-Type: application/json');
 echo json_encode([
