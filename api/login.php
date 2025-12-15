@@ -23,9 +23,8 @@ try {
     $user = $stmt->fetch();
 
     if ($user && password_verify($senha, $user['senha_hash'])) {
-        $_SESSION['user_id'] = $user['id'];
-        $_SESSION['user_name'] = $user['nome'];
-        $_SESSION['role'] = $user['role'];
+        // Use Stateless Auth
+        loginUser($user['id'], $user['nome'], $user['role']);
 
         jsonResponse(['success' => true, 'message' => 'Login realizado com sucesso']);
     } else {
