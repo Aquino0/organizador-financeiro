@@ -1,0 +1,20 @@
+{
+    "name": "ORGANIZADOR FINANCEIRO",
+    "short_name": "Organizador",
+    "start_url": "index.php",
+    "display": "standalone",
+    "background_color": "#0f172a",
+    "theme_color": "#0f172a",
+    "icons": [
+        {
+            "src": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiBmaWxsPSIjM2I4MmY2Ij48cGF0aCBkPSJNNDQ4IDgwSDY0Yy0xNy43IDAtMzIgMTQuMy0zMiAzMnYzODRjMCAxNy43IDE0LjMgMzIgMzIgMzJoMzg0YzE3LjcgMCAzMi0xNC4zIDMyLTMyVjExMmMwLTE3LjctMTQuMy0zMi0zMi0zMnpNMjU2IDQwMGMtNDQuMiAwLTgwLTM1LjgtODAtODBzMzUuOC04MCA4MC04MCA4MCAzNS44IDgwIDgwLTM1LjggODAtODAgODB6bTAtMTkyYy0xNy43IDAtMzItMTQuMy0zMi0zMnMxNC4zLTMyIDMyLTMyIDMyIDE0LjMgMzIgMzItMTQuMyAzMi0zMiAzMnoiLz48L3N2Zz4=",
+            "type": "image/svg+xml",
+            "sizes": "192x192"
+        },
+        {
+            "src": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiBmaWxsPSIjM2I4MmY2Ij48cGF0aCBkPSJNNDQ4IDgwSDY0Yy0xNy43IDAtMzIgMTQuMy0zMiAzMnYzODRjMCAxNy43IDE0LjMgMzIgMzIgMzJoMzg0YzE3LjcgMCAzMi0xNC4zIDMyLTMyVjExMmMwLTE3LjctMTQuMy0zMi0zMi0zMnpNMjU2IDQwMGMtNDQuMiAwLTgwLTM1LjgtODAtODBzMzUuOC04MCA4MC04MCA4MCAzNS44IDgwIDgwLTM1LjggODAtODAgODB6bTAtMTkyYy0xNy43IDAtMzItMTQuMy0zMi0zMnMxNC4zLTMyIDMyLTMyIDMyIDE0LjMgMzIgMzItMTQuMyAzMi0zMiAzMnoiLz48L3N2Zz4=",
+            "type": "image/svg+xml",
+            "sizes": "512x512"
+        }
+    ]
+}
