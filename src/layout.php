@@ -651,13 +651,13 @@ function renderFooter()
 
                 <!-- FAB Button (Center) -->
                 <div class="relative -top-5">
-                    <a href="lancamentos.php"
-                        class="flex items-center justify-center w-14 h-14 rounded-full bg-blue-600 dark:bg-blue-500 text-white shadow-lg shadow-blue-600/30 hover:bg-blue-700 dark:hover:bg-blue-600 transition-all transform hover:scale-105">
+                    <button onclick="openQuickAddModal()"
+                        class="flex items-center justify-center w-14 h-14 rounded-full bg-blue-600 dark:bg-blue-500 text-white shadow-lg shadow-blue-600/30 hover:bg-blue-700 dark:hover:bg-blue-600 transition-all transform hover:scale-105 active:scale-95">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24"
                             stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
                         </svg>
-                    </a>
+                    </button>
                 </div>
 
                 <a href="lancamentos.php"
@@ -706,6 +706,10 @@ function renderFooter()
                 <?php endif; ?>
             </div>
         </nav>
+        <?php
+        // Include Global Quick Add Modal
+        require_once __DIR__ . '/components/quick_add_modal.php';
+        ?>
     </body>
 
     </html>
