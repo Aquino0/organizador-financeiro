@@ -709,6 +709,9 @@ function renderFooter()
         <?php
         // Include Global Quick Add Modal
         require_once __DIR__ . '/components/quick_add_modal.php';
+
+        // Includes Toast Component
+        require_once __DIR__ . '/components/toast.php';
         ?>
     </body>
 
