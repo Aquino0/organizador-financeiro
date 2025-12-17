@@ -209,7 +209,7 @@ renderHeader('Dashboard');
             const badge = document.getElementById('statusBadge');
             if (stats.saldo_acumulado >= 0) {
                 badge.className = 'px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide bg-green-100 text-green-700 dark:bg-green-900/50 dark:text-green-400';
-                badge.textContent = 'Empresa Positiva';
+                badge.textContent = 'CAIXA POSITIVO';
             } else {
                 badge.className = 'px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide bg-red-100 text-red-700 dark:bg-red-900/50 dark:text-red-400';
                 badge.textContent = 'Caixa no Vermelho';
