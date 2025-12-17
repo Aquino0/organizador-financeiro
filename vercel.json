@@ -17,5 +17,11 @@
             "src": "/(.*)",
             "dest": "/api/index.php"
         }
+    ],
+    "crons": [
+        {
+            "path": "/api/cron/daily_notifications.php",
+            "schedule": "0 9 * * *"
+        }
     ]
 }
