@@ -14,7 +14,7 @@ renderHeader('Lançamentos');
         class="bg-white dark:bg-slate-800 rounded-2xl shadow-sm p-4 mb-6 flex flex-col md:flex-row justify-between items-center gap-4">
         <div class="flex items-center gap-3 w-full md:w-auto">
             <h1 class="text-xl font-bold text-slate-800 dark:text-white">Lançamentos</h1>
-            <button onclick="openAddModal()"
+            <button onclick="openQuickAddModal()"
                 class="p-1 rounded-full text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
                     stroke="currentColor">
@@ -768,13 +768,13 @@ renderHeader('Lançamentos');
                     const isFiltered = filterState.tipo !== 'all' || document.getElementById('searchInput').value !== '';
 
                     // Get closing balance from the last item of the day (first in DESC list)
-            let closingBalance = 0;
-            let closingPrevisto = 0;
-            if (items.length > 0) {
-                closingBalance = parseFloat(items[0].saldo_acumulado);
-                // Fallback to 0 if undefined (backend not updated yet in dev)
-                closingPrevisto = items[0].saldo_previsto ? parseFloat(items[0].saldo_previsto) : 0;
-            }
+                    let closingBalance = 0;
+                    let closingPrevisto = 0;
+                    if (items.length > 0) {
+                        closingBalance = parseFloat(items[0].saldo_acumulado);
+                        // Fallback to 0 if undefined (backend not updated yet in dev)
+                        closingPrevisto = items[0].saldo_previsto ? parseFloat(items[0].saldo_previsto) : 0;
+                    }
 
                     // Saldo do dia row (agora com acumulado e previsto)
                     let summaryHtml = '';
