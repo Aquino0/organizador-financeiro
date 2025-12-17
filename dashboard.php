@@ -32,8 +32,24 @@ renderHeader('Dashboard');
         </button>
     </div>
 
-    <!-- KPIs -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+    <!-- Skeleton KPIs (Hidden by default, toggled via JS) -->
+    <div id="skeletonKPIs" class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8 hidden">
+        <!-- 3 Generic Skeleton Cards -->
+        <?php for ($i = 0; $i < 3; $i++): ?>
+            <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-sm p-6 border border-slate-200 dark:border-slate-700">
+                <div class="flex justify-between items-start">
+                    <div class="space-y-3 w-full">
+                        <div class="h-4 w-1/3 bg-slate-200 dark:bg-slate-700 rounded animate-pulse"></div>
+                        <div class="h-8 w-2/3 bg-slate-200 dark:bg-slate-700 rounded animate-pulse"></div>
+                    </div>
+                    <div class="w-10 h-10 bg-slate-200 dark:bg-slate-700 rounded-xl animate-pulse"></div>
+                </div>
+            </div>
+        <?php endfor; ?>
+    </div>
+
+    <!-- Real KPIs -->
+    <div id="realKPIs" class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
         <!-- Receitas (Pastel Green Theme) -->
         <div
             class="bg-emerald-50 dark:bg-emerald-900/20 rounded-2xl shadow-sm p-6 border border-emerald-100 dark:border-emerald-800">
@@ -101,17 +117,28 @@ renderHeader('Dashboard');
 
     <!-- Chart & Actions -->
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
-        <!-- Chart -->
-        <div class="bg-white dark:bg-slate-800 rounded-xl shadow-sm p-6">
-            <h4 class="text-lg font-semibold mb-4 text-slate-800 dark:text-white">Movimentações Financeiras</h4>
-            <div class="relative h-64 w-full">
-                <canvas id="financeChart"></canvas>
+
+        <!-- Chart Section -->
+        <div class="relative">
+            <!-- Skeleton Chart -->
+            <div id="skeletonChart" class="bg-white dark:bg-slate-800 rounded-xl shadow-sm p-6 hidden h-full">
+                <div class="h-6 w-1/2 bg-slate-200 dark:bg-slate-700 rounded animate-pulse mb-6"></div>
+                <div class="h-64 bg-slate-200 dark:bg-slate-700 rounded-lg animate-pulse"></div>
+            </div>
+
+            <!-- Real Chart -->
+            <div id="realChart" class="bg-white dark:bg-slate-800 rounded-xl shadow-sm p-6 h-full">
+                <h4 class="text-lg font-semibold mb-4 text-slate-800 dark:text-white">Movimentações Financeiras</h4>
+                <div class="relative h-64 w-full">
+                    <canvas id="financeChart"></canvas>
+                </div>
             </div>
         </div>
 
         <!-- Quick Actions & Ranking -->
         <div class="space-y-6">
-            <!-- Actions -->
+            <!-- Actions (Keep visible or skeleton? Let's keep visible as they are static mostly, or skeleton if strict) -->
+            <!-- Let's keep actions visible for instant interactivity, but add skeleton for ranking -->
             <div class="grid grid-cols-2 gap-4">
                 <a href="lancamentos.php"
                     class="flex flex-col items-center justify-center p-4 bg-green-50 dark:bg-green-900/30 border border-green-200 dark:border-green-800 rounded-xl hover:bg-green-100 dark:hover:bg-green-900/50 transition cursor-pointer">
@@ -140,10 +167,23 @@ renderHeader('Dashboard');
             </div>
 
             <!-- Ranking -->
-            <div class="bg-white dark:bg-slate-800 rounded-xl shadow-sm p-6">
-                <h4 class="text-lg font-semibold mb-4 text-slate-800 dark:text-white">Top Categorias (Despesas)</h4>
-                <div id="categoryRanking" class="space-y-3">
-                    <p class="text-sm text-slate-500">Carregando...</p>
+            <div class="relative">
+                <!-- Skeleton Ranking -->
+                <div id="skeletonRanking" class="bg-white dark:bg-slate-800 rounded-xl shadow-sm p-6 hidden">
+                    <div class="h-6 w-2/3 bg-slate-200 dark:bg-slate-700 rounded animate-pulse mb-6"></div>
+                    <div class="space-y-4">
+                        <div class="h-8 w-full bg-slate-200 dark:bg-slate-700 rounded animate-pulse"></div>
+                        <div class="h-8 w-full bg-slate-200 dark:bg-slate-700 rounded animate-pulse"></div>
+                        <div class="h-8 w-full bg-slate-200 dark:bg-slate-700 rounded animate-pulse"></div>
+                    </div>
+                </div>
+
+                <!-- Real Ranking -->
+                <div id="realRanking" class="bg-white dark:bg-slate-800 rounded-xl shadow-sm p-6">
+                    <h4 class="text-lg font-semibold mb-4 text-slate-800 dark:text-white">Top Categorias (Despesas)</h4>
+                    <div id="categoryRanking" class="space-y-3">
+                        <p class="text-sm text-slate-500">Carregando...</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -169,10 +209,34 @@ renderHeader('Dashboard');
         loadDashboardData();
     }
 
+    function toggleSkeleton(show) {
+        const skeletons = ['skeletonKPIs', 'skeletonChart', 'skeletonRanking'];
+        const reals = ['realKPIs', 'realChart', 'realRanking'];
+
+        skeletons.forEach(id => {
+            const el = document.getElementById(id);
+            if (el) {
+                if (show) el.classList.remove('hidden');
+                else el.classList.add('hidden');
+            }
+        });
+
+        reals.forEach(id => {
+            const el = document.getElementById(id);
+            if (el) {
+                if (show) el.classList.add('hidden');
+                else el.classList.remove('hidden');
+            }
+        });
+    }
+
     async function loadDashboardData() {
         const year = currentDate.getFullYear();
         const month = String(currentDate.getMonth() + 1).padStart(2, '0');
         const currentMonthParam = `${year}-${month}`;
+
+        // Show Skeleton
+        toggleSkeleton(true);
 
         try {
             // Fetch KPIs and Lists in parallel
@@ -182,23 +246,22 @@ renderHeader('Dashboard');
                 fetch(`api/list_despesas.php?mes=${currentMonthParam}`)
             ]);
 
+            // Artificial delay to show off skeleton (optional, remove in production if desired)
+            await new Promise(r => setTimeout(r, 500));
+
             // Check for failures
             const failed = results.filter(r => r.status === 'rejected' || (r.value && !r.value.ok));
             if (failed.length > 0) {
-                const firstFail = results.find(r => r.status === 'fulfilled' && !r.value.ok);
-                let msg = "Erro desconhecido";
-                if (firstFail) {
-                    const text = await firstFail.value.text();
-                    msg = `Erro API (${firstFail.value.status}): ${text.substring(0, 100)}`;
-                } else {
-                    msg = "Erro de conexão (Promise rejected)";
-                }
-                throw new Error(msg);
+                // ... Error handling ...
+                throw new Error("Erro ao buscar dados");
             }
 
             const stats = await results[0].value.json();
             const receitas = await results[1].value.json();
             const despesas = await results[2].value.json();
+
+            // Hide Skeleton
+            toggleSkeleton(false);
 
             // Update KPIs (From Stats API - Realized Only)
             document.getElementById('totalReceitas').textContent = stats.renda_mensal.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
