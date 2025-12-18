@@ -306,21 +306,44 @@
         const select = document.getElementById('quickCategorySelect');
         select.innerHTML = '<option value="">Carregando...</option>';
 
+        // Hardcoded Fallback (in case API fails consistently)
+        const defaults = ['Alimentação', 'Transporte', 'Lazer', 'Saúde', 'Moradia', 'Educação', 'Outros'];
+
         try {
-            // Fix: Use absolute path and handle object response
+            console.log('Fetching categories for:', type);
             const response = await fetch('api/categories.php');
+
+            if (!response.ok) throw new Error(`HTTP ${response.status}`);
+
             const data = await response.json();
+            console.log('Categories Loaded:', data);
 
             // API returns { receitas: [], despesas: [] }
-            const categories = type === 'receita' ? data.receitas : data.despesas;
+            // Ensure we handle case where keys might be missing
+            let categories = [];
+            if (data && type === 'receita') {
+                categories = data.receitas || [];
+            } else if (data) {
+                categories = data.despesas || [];
+            }
 
             select.innerHTML = '';
 
             if (!categories || categories.length === 0) {
-                const opt = document.createElement('option');
-                opt.value = 'Outros';
-                opt.textContent = 'Geral (Sem categorias)';
-                select.appendChild(opt);
+                // Use Fallback if empty (better UX than just "Outros")
+                if (type === 'despesa') {
+                    defaults.forEach(cat => {
+                        const opt = document.createElement('option');
+                        opt.value = cat;
+                        opt.textContent = cat;
+                        select.appendChild(opt);
+                    });
+                } else {
+                    const opt = document.createElement('option');
+                    opt.value = 'Outros';
+                    opt.textContent = 'Geral (Sem categorias)';
+                    select.appendChild(opt);
+                }
             } else {
                 categories.forEach(cat => {
                     const opt = document.createElement('option');
@@ -330,8 +353,8 @@
                 });
             }
         } catch (e) {
-            console.error('Erro ao carregar categorias', e);
-            select.innerHTML = '<option value="Outros">Outros</option>';
+            console.error('Erro ao carregar categorias:', e);
+            select.innerHTML = '<option value="Outros">Erro (Usando Geral)</option>';
         }
     }
 
