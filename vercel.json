@@ -10,6 +10,14 @@
             "dest": "/assets/$1"
         },
         {
+            "src": "/manifest.json",
+            "dest": "/manifest.json"
+        },
+        {
+            "src": "/service-worker.js",
+            "dest": "/service-worker.js"
+        },
+        {
             "src": "/api/(.*)",
             "dest": "/api/$1"
         },
