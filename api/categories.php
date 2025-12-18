@@ -10,6 +10,8 @@ $method = $_SERVER['REQUEST_METHOD'];
 
 // GET: List Categories
 if ($method === 'GET') {
+    file_put_contents('/Users/aquino/Desktop/CRM FINANCEIRO/debug_log.txt', "API Categories HIT. UserID: " . $user_id . "\n", FILE_APPEND);
+
     // Include total usage sum for each category
     $stmt = $pdo->prepare("
         SELECT c.id, c.nome, c.tipo, c.cor, c.ordem,
@@ -27,9 +29,11 @@ if ($method === 'GET') {
     $all = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     $receitas = array_filter($all, function ($c) {
-        return $c['tipo'] === 'receita'; });
+        return $c['tipo'] === 'receita';
+    });
     $despesas = array_filter($all, function ($c) {
-        return $c['tipo'] === 'despesa'; });
+        return $c['tipo'] === 'despesa';
+    });
 
     jsonResponse([
         'receitas' => array_values($receitas),

@@ -311,11 +311,19 @@
 
         try {
             console.log('Fetching categories for:', type);
-            const response = await fetch('api/categories.php');
-
-            if (!response.ok) throw new Error(`HTTP ${response.status}`);
-
-            const data = await response.json();
+            // Added credentials: include to ensure session cookies are passed
+            const response = await fetch('api/categories.php', { credentials: 'include' });
+            
+            // Debug: Check text before JSON if needed, but let's try standard flow with alert on error
+            if (!response.ok) throw new Error(`HTTP Error ${response.status}`);
+            
+            const text = await response.text();
+            try {
+                var data = JSON.parse(text);
+            } catch (e) {
+                console.error('JSON Parse Error:', text);
+                throw new Error('Resposta inválida do servidor (não é JSON). Veja console.');
+            }
             console.log('Categories Loaded:', data);
 
             // API returns { receitas: [], despesas: [] }
