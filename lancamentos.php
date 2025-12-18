@@ -649,12 +649,11 @@ renderHeader('Lançamentos');
                     const res = await fetch('api/bulk_delete_transactions.php', {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ items })
+                    body: JSON.stringify({ items })
                     });
                     const json = await res.json();
                     if (json.success) {
                         // Success
-                        toggleSelectionMode(); // Exit mode
                         fetchLancamentos(); // Refresh items
                     } else {
                         alert('Erro: ' + (json.error || 'Falha desconhecida'));
