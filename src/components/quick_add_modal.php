@@ -233,7 +233,7 @@
             }
 
             const dateInput = document.querySelector('#globalAddForm input[name="data"]');
-            
+
             // Default to today
             if (dateInput && !dateInput.value) {
                 dateInput.value = new Date().toISOString().split('T')[0];
@@ -271,7 +271,7 @@
             // Reset form partly
             document.querySelector('#globalAddForm input[name="descricao"]').value = '';
             document.querySelector('#globalAddForm input[name="valor"]').value = '';
-            
+
             // Reset toggles
             document.getElementById('globalObsField').classList.add('hidden');
             document.getElementById('globalRepeatField').classList.add('hidden');
@@ -315,10 +315,10 @@
             console.log('Fetching categories for (Global):', type);
             // Added credentials: include to ensure session cookies are passed
             const response = await fetch('api/categories.php', { credentials: 'include' });
-            
+
             // Debug: Check text before JSON if needed
             if (!response.ok) throw new Error(`HTTP Error ${response.status}`);
-            
+
             const text = await response.text();
             try {
                 var data = JSON.parse(text);
@@ -331,28 +331,28 @@
             // API returns { receitas: [], despesas: [] }
             let categories = [];
             if (data && type === 'receita') {
-                 categories = data.receitas || [];
+                categories = data.receitas || [];
             } else if (data) {
-                 categories = data.despesas || [];
+                categories = data.despesas || [];
             }
 
             select.innerHTML = '';
-            
+
             if (!categories || categories.length === 0) {
-                 // Use Fallback if empty
-                 if (type === 'despesa') {
-                     defaults.forEach(cat => {
+                // Use Fallback if empty
+                if (type === 'despesa') {
+                    defaults.forEach(cat => {
                         const opt = document.createElement('option');
                         opt.value = cat;
                         opt.textContent = cat;
                         select.appendChild(opt);
-                     });
-                 } else {
-                     const opt = document.createElement('option');
-                     opt.value = 'Outros';
-                     opt.textContent = 'Geral (Sem categorias)';
-                     select.appendChild(opt);
-                 }
+                    });
+                } else {
+                    const opt = document.createElement('option');
+                    opt.value = 'Outros';
+                    opt.textContent = 'Geral (Sem categorias)';
+                    select.appendChild(opt);
+                }
             } else {
                 categories.forEach(cat => {
                     const opt = document.createElement('option');
@@ -426,6 +426,15 @@
                     showToast('Lançamento salvo com sucesso! 🚀', 'success');
                 } else {
                     alert('Salvo com sucesso!');
+                }
+
+                // Trigger Confetti 🎉
+                if (window.confetti) {
+                    confetti({
+                        particleCount: 100,
+                        spread: 70,
+                        origin: { y: 0.6 }
+                    });
                 }
 
                 closeGlobalAddModal();
