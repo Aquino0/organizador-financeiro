@@ -646,95 +646,95 @@ renderHeader('Orçamento Anual');
              * Render Comparison moved to orcado_realizado.php
              */
 
-                } catch (e) {
+        } catch (e) {
             console.error("Error i            n updateUI:", e);
             alert("Erro ao atualizar interface: " + e.message);
         }
     } // End of updateUI
 
     function renderCharts(data) {
-            // Colors
-            const colors = {
-                blue: '#3b82f6',
-                emerald: '#10b981',
-                rose: '#f43f5e',
-                slate: '#64748b',
-                purple: '#8b5cf6',
-                orange: '#f97316'
-            };
-            const months = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'];
+        // Colors
+        const colors = {
+            blue: '#3b82f6',
+            emerald: '#10b981',
+            rose: '#f43f5e',
+            slate: '#64748b',
+            purple: '#8b5cf6',
+            orange: '#f97316'
+        };
+        const months = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'];
 
-            // Destroy old
-            if (charts.pie) charts.pie.destroy();
-            if (charts.line) charts.line.destroy();
-            if (charts.bar) charts.bar.destroy();
+        // Destroy old
+        if (charts.pie) charts.pie.destroy();
+        if (charts.line) charts.line.destroy();
+        if (charts.bar) charts.bar.destroy();
 
-            // 1. Pie Chart (Fixed vs Variable)
-            const totalFixed = (data.monthly_expenses_fixed || []).reduce((a, b) => a + b, 0);
-            const totalVariable = (data.monthly_expenses_variable || []).reduce((a, b) => a + b, 0);
-            const totalAll = totalFixed + totalVariable;
+        // 1. Pie Chart (Fixed vs Variable)
+        const totalFixed = (data.monthly_expenses_fixed || []).reduce((a, b) => a + b, 0);
+        const totalVariable = (data.monthly_expenses_variable || []).reduce((a, b) => a + b, 0);
+        const totalAll = totalFixed + totalVariable;
 
-            const catLabels = ['Despesas Fixas', 'Despesas Variáveis'];
-            const catValues = [totalFixed, totalVariable];
-            const pieColors = [colors.rose, colors.purple];
+        const catLabels = ['Despesas Fixas', 'Despesas Variáveis'];
+        const catValues = [totalFixed, totalVariable];
+        const pieColors = [colors.rose, colors.purple];
 
-            // Register Plugin if not globally registered (safe to try)
-            if (typeof ChartDataLabels !== 'undefined') {
-                Chart.register(ChartDataLabels);
-            }
+        // Register Plugin if not globally registered (safe to try)
+        if (typeof ChartDataLabels !== 'undefined') {
+            Chart.register(ChartDataLabels);
+        }
 
-            charts.pie = new Chart(document.getElementById('chartPie'), {
-                type: 'pie',
-                data: {
-                    labels: catLabels,
-                    datasets: [{
-                        data: catValues,
-                        backgroundColor: pieColors,
-                        borderWidth: 1,
-                        borderColor: '#fff'
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: { display: false }, // Hide default legend
-                        datalabels: {
-                            color: '#fff',
-                            font: { weight: 'bold', size: 12 },
-                            formatter: (value, ctx) => {
-                                if (totalAll === 0) return '0%';
-                                let sum = 0;
-                                let dataArr = ctx.chart.data.datasets[0].data;
-                                dataArr.map(data => { sum += data; });
-                                let percentage = (value * 100 / sum).toFixed(1) + "%";
-                                return percentage;
-                            },
-                            display: (context) => {
-                                return context.dataset.data[context.dataIndex] > 0; // Only show if > 0
-                            }
+        charts.pie = new Chart(document.getElementById('chartPie'), {
+            type: 'pie',
+            data: {
+                labels: catLabels,
+                datasets: [{
+                    data: catValues,
+                    backgroundColor: pieColors,
+                    borderWidth: 1,
+                    borderColor: '#fff'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }, // Hide default legend
+                    datalabels: {
+                        color: '#fff',
+                        font: { weight: 'bold', size: 12 },
+                        formatter: (value, ctx) => {
+                            if (totalAll === 0) return '0%';
+                            let sum = 0;
+                            let dataArr = ctx.chart.data.datasets[0].data;
+                            dataArr.map(data => { sum += data; });
+                            let percentage = (value * 100 / sum).toFixed(1) + "%";
+                            return percentage;
                         },
-                        tooltip: {
-                            callbacks: {
-                                label: function (context) {
-                                    let label = context.label || '';
-                                    if (label) { label += ': '; }
-                                    if (context.parsed !== null) {
-                                        label += fMoney(context.parsed);
-                                    }
-                                    return label;
-                                }
-                            }
+                        display: (context) => {
+                            return context.dataset.data[context.dataIndex] > 0; // Only show if > 0
                         }
                     },
-                    cutout: '0%' // Full Pie
-                }
-            });
+                    tooltip: {
+                        callbacks: {
+                            label: function (context) {
+                                let label = context.label || '';
+                                if (label) { label += ': '; }
+                                if (context.parsed !== null) {
+                                    label += fMoney(context.parsed);
+                                }
+                                return label;
+                            }
+                        }
+                    }
+                },
+                cutout: '0%' // Full Pie
+            }
+        });
 
-            // Custom Legend HTML
-            const legendContainer = document.getElementById('chartPieLegend'); // Ensure this element exists!
-            if (legendContainer) {
-                legendContainer.innerHTML = `
+        // Custom Legend HTML
+        const legendContainer = document.getElementById('chartPieLegend'); // Ensure this element exists!
+        if (legendContainer) {
+            legendContainer.innerHTML = `
                 <div class="flex flex-col gap-2 justify-center mt-2">
                     <div class="flex items-center justify-between text-xs">
                         <div class="flex items-center gap-2">
@@ -752,447 +752,447 @@ renderHeader('Orçamento Anual');
                     </div>
                 </div>
             `;
-            }
+        }
 
-            // 2. Line Chart (Balance)
-            charts.line = new Chart(document.getElementById('chartLine'), {
-                type: 'line',
-                data: {
-                    labels: months,
-                    datasets: [
-                        {
-                            label: 'Acumulado', // Index 0
-                            data: data.accumulated_balance,
-                            borderColor: '#eab308', // Amber/Yellow
-                            tension: 0.4,
-                            fill: true,
-                            backgroundColor: (ctx) => {
-                                const grad = ctx.chart.ctx.createLinearGradient(0, 0, 0, 300);
-                                grad.addColorStop(0, 'rgba(234, 179, 8, 0.2)');
-                                grad.addColorStop(1, 'rgba(234, 179, 8, 0)');
-                                return grad;
-                            },
-                            hidden: false // Default
+        // 2. Line Chart (Balance)
+        charts.line = new Chart(document.getElementById('chartLine'), {
+            type: 'line',
+            data: {
+                labels: months,
+                datasets: [
+                    {
+                        label: 'Acumulado', // Index 0
+                        data: data.accumulated_balance,
+                        borderColor: '#eab308', // Amber/Yellow
+                        tension: 0.4,
+                        fill: true,
+                        backgroundColor: (ctx) => {
+                            const grad = ctx.chart.ctx.createLinearGradient(0, 0, 0, 300);
+                            grad.addColorStop(0, 'rgba(234, 179, 8, 0.2)');
+                            grad.addColorStop(1, 'rgba(234, 179, 8, 0)');
+                            return grad;
                         },
-                        {
-                            label: 'Saldo Mensal', // Index 1
-                            data: data.monthly_balance,
-                            borderColor: colors.blue,
-                            backgroundColor: colors.blue,
-                            tension: 0.4,
-                            fill: false,
-                            hidden: true
-                        },
-                        {
-                            label: 'Despesas', // Index 2
-                            data: data.monthly_expenses,
-                            borderColor: colors.rose,
-                            backgroundColor: colors.rose,
-                            tension: 0.4,
-                            fill: false,
-                            hidden: true
-                        }
-                    ]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: { display: false },
-                        datalabels: { display: false } // Disable values on chart
+                        hidden: false // Default
                     },
-                    scales: {
-                        x: { grid: { display: false } },
-                        y: { grid: { borderDash: [2, 4] } }
-                    }
-                }
-            });
-
-            // 3. Bar Chart (Income vs Expense)
-            charts.bar = new Chart(document.getElementById('chartBar'), {
-                type: 'bar',
-                data: {
-                    labels: months,
-                    datasets: [
-                        {
-                            label: 'Renda',
-                            data: data.monthly_income,
-                            backgroundColor: colors.emerald,
-                            borderRadius: 4,
-                            barPercentage: 0.4
-                        },
-                        {
-                            label: 'Despesas',
-                            data: data.monthly_expenses,
-                            backgroundColor: colors.rose,
-                            borderRadius: 4,
-                            barPercentage: 0.4
-                        }
-                    ]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: { position: 'bottom' },
-                        datalabels: { display: false } // Disable values on chart
+                    {
+                        label: 'Saldo Mensal', // Index 1
+                        data: data.monthly_balance,
+                        borderColor: colors.blue,
+                        backgroundColor: colors.blue,
+                        tension: 0.4,
+                        fill: false,
+                        hidden: true
                     },
-                    scales: {
-                        x: { grid: { display: false } },
-                        y: { grid: { display: false } }
+                    {
+                        label: 'Despesas', // Index 2
+                        data: data.monthly_expenses,
+                        borderColor: colors.rose,
+                        backgroundColor: colors.rose,
+                        tension: 0.4,
+                        fill: false,
+                        hidden: true
                     }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    datalabels: { display: false } // Disable values on chart
+                },
+                scales: {
+                    x: { grid: { display: false } },
+                    y: { grid: { borderDash: [2, 4] } }
                 }
-            });
-        }
-
-        function updateChartMode(mode) {
-            if (!charts.line) return;
-
-            const chart = charts.line;
-            const btnM = document.getElementById('btnChartMensal');
-            const btnA = document.getElementById('btnChartAcumulado');
-            const btnD = document.getElementById('btnChartDespesas');
-
-            // Reset Buttons
-            const baseClass = "px-3 py-1 text-xs font-medium rounded-md transition-all text-slate-500 hover:text-slate-700 bg-transparent shadow-none";
-            const activeClass = "px-3 py-1 text-xs font-medium rounded-md transition-all bg-white dark:bg-slate-600 text-blue-600 shadow-sm";
-
-            btnM.className = baseClass;
-            btnA.className = baseClass;
-            btnD.className = baseClass;
-
-            // Hide all first
-            chart.data.datasets.forEach(ds => ds.hidden = true);
-
-            if (mode === 'acumulado') {
-                chart.data.datasets[0].hidden = false; // Acumulado
-                btnA.className = activeClass;
-                // Style adjustment if needed
-                chart.data.datasets[0].fill = true;
-            } else if (mode === 'mensal') {
-                chart.data.datasets[1].hidden = false; // Mensal
-                btnM.className = activeClass;
-            } else if (mode === 'despesas') {
-                chart.data.datasets[2].hidden = false; // Despesas
-                btnD.className = activeClass;
             }
+        });
 
-            chart.update();
+        // 3. Bar Chart (Income vs Expense)
+        charts.bar = new Chart(document.getElementById('chartBar'), {
+            type: 'bar',
+            data: {
+                labels: months,
+                datasets: [
+                    {
+                        label: 'Renda',
+                        data: data.monthly_income,
+                        backgroundColor: colors.emerald,
+                        borderRadius: 4,
+                        barPercentage: 0.4
+                    },
+                    {
+                        label: 'Despesas',
+                        data: data.monthly_expenses,
+                        backgroundColor: colors.rose,
+                        borderRadius: 4,
+                        barPercentage: 0.4
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { position: 'bottom' },
+                    datalabels: { display: false } // Disable values on chart
+                },
+                scales: {
+                    x: { grid: { display: false } },
+                    y: { grid: { display: false } }
+                }
+            }
+        });
+    }
+
+    function updateChartMode(mode) {
+        if (!charts.line) return;
+
+        const chart = charts.line;
+        const btnM = document.getElementById('btnChartMensal');
+        const btnA = document.getElementById('btnChartAcumulado');
+        const btnD = document.getElementById('btnChartDespesas');
+
+        // Reset Buttons
+        const baseClass = "px-3 py-1 text-xs font-medium rounded-md transition-all text-slate-500 hover:text-slate-700 bg-transparent shadow-none";
+        const activeClass = "px-3 py-1 text-xs font-medium rounded-md transition-all bg-white dark:bg-slate-600 text-blue-600 shadow-sm";
+
+        btnM.className = baseClass;
+        btnA.className = baseClass;
+        btnD.className = baseClass;
+
+        // Hide all first
+        chart.data.datasets.forEach(ds => ds.hidden = true);
+
+        if (mode === 'acumulado') {
+            chart.data.datasets[0].hidden = false; // Acumulado
+            btnA.className = activeClass;
+            // Style adjustment if needed
+            chart.data.datasets[0].fill = true;
+        } else if (mode === 'mensal') {
+            chart.data.datasets[1].hidden = false; // Mensal
+            btnM.className = activeClass;
+        } else if (mode === 'despesas') {
+            chart.data.datasets[2].hidden = false; // Despesas
+            btnD.className = activeClass;
         }
 
-        // --- UI/UX Helpers ---
-        let dragSrcEl = null;
+        chart.update();
+    }
 
-        function handleDragStart(e) {
-            console.log('Drag Start', this);
-            dragSrcEl = this;
-            e.dataTransfer.effectAllowed = 'move';
-            e.dataTransfer.setData('text/html', this.innerHTML);
-            this.classList.add('opacity-50');
-        }
+    // --- UI/UX Helpers ---
+    let dragSrcEl = null;
 
-        function handleDragOver(e) {
-            if (e.preventDefault) e.preventDefault();
-            e.dataTransfer.dropEffect = 'move';
+    function handleDragStart(e) {
+        console.log('Drag Start', this);
+        dragSrcEl = this;
+        e.dataTransfer.effectAllowed = 'move';
+        e.dataTransfer.setData('text/html', this.innerHTML);
+        this.classList.add('opacity-50');
+    }
+
+    function handleDragOver(e) {
+        if (e.preventDefault) e.preventDefault();
+        e.dataTransfer.dropEffect = 'move';
+        return false;
+    }
+
+    function handleDrop(e) {
+        if (e.stopPropagation) e.stopPropagation();
+
+        const targetRow = this;
+        // Check if valid drop
+        if (dragSrcEl === targetRow || dragSrcEl.dataset.type !== targetRow.dataset.type) {
             return false;
         }
 
-        function handleDrop(e) {
-            if (e.stopPropagation) e.stopPropagation();
+        // DOM Swap Logic
+        const tbody = targetRow.parentNode;
+        const rect = targetRow.getBoundingClientRect();
+        const relY = e.clientY - rect.top;
 
-            const targetRow = this;
-            // Check if valid drop
-            if (dragSrcEl === targetRow || dragSrcEl.dataset.type !== targetRow.dataset.type) {
-                return false;
-            }
+        if (relY < rect.height / 2) {
+            tbody.insertBefore(dragSrcEl, targetRow);
+        } else {
+            tbody.insertBefore(dragSrcEl, targetRow.nextSibling);
+        }
 
-            // DOM Swap Logic
-            const tbody = targetRow.parentNode;
-            const rect = targetRow.getBoundingClientRect();
-            const relY = e.clientY - rect.top;
+        dragSrcEl.classList.remove('opacity-50');
 
-            if (relY < rect.height / 2) {
-                tbody.insertBefore(dragSrcEl, targetRow);
+        // Save immediately
+        saveOrder(dragSrcEl.dataset.type);
+        return false;
+    }
+
+    async function saveOrder(type) {
+        const rows = document.querySelectorAll(`tr[data-type="${type}"]`);
+        const orderData = [];
+
+        // Offset Logic:
+        // Income (receita) and Fixed Expenses (despesa_fixa) start at 0 (or close to).
+        // Variable Expenses (despesa_variavel) start at 1000.
+        // This ensures unique ordering in the DB.
+        let offset = 0;
+        if (type === 'despesa_variavel') {
+            offset = 1000;
+        }
+
+        // Show saving state
+        if (rows.length > 0) {
+            const originalOpacity = rows[0].style.opacity;
+            rows.forEach((r, idx) => {
+                r.style.opacity = '0.7';
+                orderData.push({ id: parseInt(r.dataset.id), ordem: idx + offset });
+            });
+        }
+
+        console.log('Saving order...', type, orderData);
+
+        try {
+            const res = await fetch('api/categories.php', {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ order: orderData })
+            });
+            const json = await res.json();
+
+            if (json.success) {
+                console.log('Order saved. Reloading table...');
+                // Slight delay to let DB settle if replicated, then reload full UI
+                setTimeout(() => {
+                    updateUI();
+                }, 200);
             } else {
-                tbody.insertBefore(dragSrcEl, targetRow.nextSibling);
+                alert('Erro ao salvar ordem: ' + (json.error || 'Erro desconhecido'));
+                updateUI();
             }
-
-            dragSrcEl.classList.remove('opacity-50');
-
-            // Save immediately
-            saveOrder(dragSrcEl.dataset.type);
-            return false;
+        } catch (e) {
+            console.error(e);
+            alert('Erro de conexão ao salvar ordem');
+            updateUI();
         }
+    }
 
-        async function saveOrder(type) {
-            const rows = document.querySelectorAll(`tr[data-type="${type}"]`);
-            const orderData = [];
+    async function moveCategory(id, direction) {
+        // Find row
+        const row = document.querySelector(`tr[data-id="${id}"]`);
+        if (!row) return;
 
-            // Offset Logic:
-            // Income (receita) and Fixed Expenses (despesa_fixa) start at 0 (or close to).
-            // Variable Expenses (despesa_variavel) start at 1000.
-            // This ensures unique ordering in the DB.
-            let offset = 0;
-            if (type === 'despesa_variavel') {
-                offset = 1000;
+        const parent = row.parentNode;
+        const type = row.dataset.type;
+
+        // Find sibling to swap with
+        if (direction === -1) {
+            // Move Up
+            const prev = row.previousElementSibling;
+            // Check if prev is same type AND not a header/spacer
+            if (prev && prev.dataset.type === type) {
+                parent.insertBefore(row, prev);
+                saveOrder(type);
+            }
+        } else {
+            // Move Down
+            const next = row.nextElementSibling;
+            if (next && next.dataset.type === type) {
+                parent.insertBefore(next, row); // Insert next before row = swap
+                saveOrder(type);
+            }
+        }
+    }
+
+
+
+    async function duplicateCategory(id) {
+        if (!confirm('Duplicar esta categoria e seus lançamentos?')) return;
+        try {
+            const res = await fetch('api/duplicate_category_row.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ id: id, year: currentYear })
+            });
+            if (res.ok) updateUI();
+        } catch (e) { console.error(e); }
+    }
+
+    async function deleteCategory(id) {
+        if (!confirm('Tem certeza? Isso apagará a categoria da lista.')) return;
+        try {
+            const res = await fetch(`api/categories.php?id=${id}`, { method: 'DELETE' });
+            if (res.ok) updateUI();
+        } catch (e) { console.error(e); }
+    }
+
+    // --- Editing Logic ---
+    function makeEditable(td) {
+        if (td.querySelector('input')) return;
+
+        const originalValue = td.innerText;
+        const numericValue = parseMoney(originalValue);
+
+        const input = document.createElement('input');
+        input.type = 'number';
+        input.step = '0.01';
+        input.value = numericValue;
+        input.className = 'w-full text-right p-1 rounded bg-white dark:bg-slate-900 border border-blue-400 focus:outline-none text-xs';
+
+        const save = async (applyAll = false) => {
+            const newVal = parseFloat(input.value);
+            if (isNaN(newVal)) { td.innerText = originalValue; return; }
+
+            // Optimistic UI
+            td.innerText = fNum(newVal);
+            if (applyAll) {
+                // Update all siblings for visual feedback instantly? 
+                // Hard to find them all cleanly without reload. 
+                // Let's just wait for API.
+                td.innerText = "Salving...";
             }
 
-            // Show saving state
-            if (rows.length > 0) {
-                const originalOpacity = rows[0].style.opacity;
-                rows.forEach((r, idx) => {
-                    r.style.opacity = '0.7';
-                    orderData.push({ id: parseInt(r.dataset.id), ordem: idx + offset });
+            const cat = td.dataset.cat;
+            const month = td.dataset.month;
+            const type = td.dataset.reqtype; // 'receita' or 'despesa'
+
+            try {
+                const res = await fetch('api/update_forecast_cell.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        category: cat,
+                        month: month,
+                        year: currentYear,
+                        type: type,
+                        value: newVal,
+                        apply_all: applyAll
+                    })
                 });
+                if (res.ok) {
+                    await updateUI();
+                } else {
+                    td.innerText = originalValue;
+                }
+            } catch (e) {
+                console.error(e);
+                td.innerText = originalValue;
             }
+        };
 
-            console.log('Saving order...', type, orderData);
+        // Single robust listener setup
+        input.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                if (e.shiftKey) {
+                    save(true); // Default behavior for Shift+Enter (Apply All)
+                } else {
+                    input.blur(); // Default behavior (Save Single)
+                }
+            }
+        });
+
+        // Blur always saves
+        input.addEventListener('blur', () => save(false));
+
+        td.innerHTML = '';
+        td.appendChild(input);
+        input.focus();
+    }
+
+    function makeCategoryEditable(span, id) {
+        if (span.querySelector('input')) return;
+
+        const originalName = span.textContent;
+        const input = document.createElement('input');
+        input.type = 'text';
+        input.value = originalName;
+        input.className = 'w-full px-1 text-xs border border-blue-400 rounded focus:outline-none bg-white text-slate-800';
+
+        const save = async () => {
+            const newName = input.value.trim();
+            if (!newName || newName === originalName) {
+                span.textContent = originalName;
+                return;
+            }
 
             try {
                 const res = await fetch('api/categories.php', {
                     method: 'PUT',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ order: orderData })
+                    body: JSON.stringify({ id: id, nome: newName })
                 });
                 const json = await res.json();
-
                 if (json.success) {
-                    console.log('Order saved. Reloading table...');
-                    // Slight delay to let DB settle if replicated, then reload full UI
-                    setTimeout(() => {
-                        updateUI();
-                    }, 200);
+                    updateUI(); // Refresh to ensure backend match
                 } else {
-                    alert('Erro ao salvar ordem: ' + (json.error || 'Erro desconhecido'));
-                    updateUI();
+                    alert('Erro: ' + (json.error || 'Falha ao renomear'));
+                    span.textContent = originalName;
                 }
             } catch (e) {
                 console.error(e);
-                alert('Erro de conexão ao salvar ordem');
-                updateUI();
+                span.textContent = originalName;
             }
-        }
+        };
 
-        async function moveCategory(id, direction) {
-            // Find row
-            const row = document.querySelector(`tr[data-id="${id}"]`);
-            if (!row) return;
-
-            const parent = row.parentNode;
-            const type = row.dataset.type;
-
-            // Find sibling to swap with
-            if (direction === -1) {
-                // Move Up
-                const prev = row.previousElementSibling;
-                // Check if prev is same type AND not a header/spacer
-                if (prev && prev.dataset.type === type) {
-                    parent.insertBefore(row, prev);
-                    saveOrder(type);
-                }
-            } else {
-                // Move Down
-                const next = row.nextElementSibling;
-                if (next && next.dataset.type === type) {
-                    parent.insertBefore(next, row); // Insert next before row = swap
-                    saveOrder(type);
-                }
+        input.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                input.blur();
             }
-        }
+        });
 
+        input.addEventListener('blur', save);
+        span.innerHTML = '';
+        span.appendChild(input);
+        input.focus();
+    }
 
+    function parseMoney(str) {
+        if (!str) return 0;
+        return parseFloat(str.replace(/\./g, '').replace(',', '.'));
+    }
 
-        async function duplicateCategory(id) {
-            if (!confirm('Duplicar esta categoria e seus lançamentos?')) return;
-            try {
-                const res = await fetch('api/duplicate_category_row.php', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ id: id, year: currentYear })
-                });
-                if (res.ok) updateUI();
-            } catch (e) { console.error(e); }
-        }
+    let reservePercentage = 20;
 
-        async function deleteCategory(id) {
-            if (!confirm('Tem certeza? Isso apagará a categoria da lista.')) return;
-            try {
-                const res = await fetch(`api/categories.php?id=${id}`, { method: 'DELETE' });
-                if (res.ok) updateUI();
-            } catch (e) { console.error(e); }
-        }
+    function renderTable(data) {
+        const tbody = document.getElementById('tableBody');
+        tbody.innerHTML = '';
 
-        // --- Editing Logic ---
-        function makeEditable(td) {
-            if (td.querySelector('input')) return;
+        // Instruction Header (Outside TBODY or First Row?)
+        // Let's put it as a first row for visibility
+        // Actually better to have it in the HTML structure above table, checking user request logic.
+        // User image shows it above headers. 
+        // We will inject it via HTML, but here we can add it as a row if needed.
+        // Let's stick to standard rows.
 
-            const originalValue = td.innerText;
-            const numericValue = parseMoney(originalValue);
-
-            const input = document.createElement('input');
-            input.type = 'number';
-            input.step = '0.01';
-            input.value = numericValue;
-            input.className = 'w-full text-right p-1 rounded bg-white dark:bg-slate-900 border border-blue-400 focus:outline-none text-xs';
-
-            const save = async (applyAll = false) => {
-                const newVal = parseFloat(input.value);
-                if (isNaN(newVal)) { td.innerText = originalValue; return; }
-
-                // Optimistic UI
-                td.innerText = fNum(newVal);
-                if (applyAll) {
-                    // Update all siblings for visual feedback instantly? 
-                    // Hard to find them all cleanly without reload. 
-                    // Let's just wait for API.
-                    td.innerText = "Salving...";
-                }
-
-                const cat = td.dataset.cat;
-                const month = td.dataset.month;
-                const type = td.dataset.reqtype; // 'receita' or 'despesa'
-
-                try {
-                    const res = await fetch('api/update_forecast_cell.php', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({
-                            category: cat,
-                            month: month,
-                            year: currentYear,
-                            type: type,
-                            value: newVal,
-                            apply_all: applyAll
-                        })
-                    });
-                    if (res.ok) {
-                        await updateUI();
-                    } else {
-                        td.innerText = originalValue;
-                    }
-                } catch (e) {
-                    console.error(e);
-                    td.innerText = originalValue;
-                }
-            };
-
-            // Single robust listener setup
-            input.addEventListener('keydown', (e) => {
-                if (e.key === 'Enter') {
-                    e.preventDefault();
-                    if (e.shiftKey) {
-                        save(true); // Default behavior for Shift+Enter (Apply All)
-                    } else {
-                        input.blur(); // Default behavior (Save Single)
-                    }
-                }
-            });
-
-            // Blur always saves
-            input.addEventListener('blur', () => save(false));
-
-            td.innerHTML = '';
-            td.appendChild(input);
-            input.focus();
-        }
-
-        function makeCategoryEditable(span, id) {
-            if (span.querySelector('input')) return;
-
-            const originalName = span.textContent;
-            const input = document.createElement('input');
-            input.type = 'text';
-            input.value = originalName;
-            input.className = 'w-full px-1 text-xs border border-blue-400 rounded focus:outline-none bg-white text-slate-800';
-
-            const save = async () => {
-                const newName = input.value.trim();
-                if (!newName || newName === originalName) {
-                    span.textContent = originalName;
-                    return;
-                }
-
-                try {
-                    const res = await fetch('api/categories.php', {
-                        method: 'PUT',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ id: id, nome: newName })
-                    });
-                    const json = await res.json();
-                    if (json.success) {
-                        updateUI(); // Refresh to ensure backend match
-                    } else {
-                        alert('Erro: ' + (json.error || 'Falha ao renomear'));
-                        span.textContent = originalName;
-                    }
-                } catch (e) {
-                    console.error(e);
-                    span.textContent = originalName;
-                }
-            };
-
-            input.addEventListener('keydown', (e) => {
-                if (e.key === 'Enter') {
-                    e.preventDefault();
-                    input.blur();
-                }
-            });
-
-            input.addEventListener('blur', save);
-            span.innerHTML = '';
-            span.appendChild(input);
-            input.focus();
-        }
-
-        function parseMoney(str) {
-            if (!str) return 0;
-            return parseFloat(str.replace(/\./g, '').replace(',', '.'));
-        }
-
-        let reservePercentage = 20;
-
-        function renderTable(data) {
-            const tbody = document.getElementById('tableBody');
-            tbody.innerHTML = '';
-
-            // Instruction Header (Outside TBODY or First Row?)
-            // Let's put it as a first row for visibility
-            // Actually better to have it in the HTML structure above table, checking user request logic.
-            // User image shows it above headers. 
-            // We will inject it via HTML, but here we can add it as a row if needed.
-            // Let's stick to standard rows.
-
-            // 1. TOTAL RENDA HEADER
-            const trIncHeader = document.createElement('tr');
-            trIncHeader.className = 'bg-emerald-50 dark:bg-emerald-900/20 font-bold border-b border-emerald-100 dark:border-emerald-800';
-            let htmlInc = `
+        // 1. TOTAL RENDA HEADER
+        const trIncHeader = document.createElement('tr');
+        trIncHeader.className = 'bg-emerald-50 dark:bg-emerald-900/20 font-bold border-b border-emerald-100 dark:border-emerald-800';
+        let htmlInc = `
             <td class="px-4 py-3 text-emerald-700 dark:text-emerald-400 text-sm flex items-center justify-between group">
                 <span>TOTAL RENDA</span>
                 <button onclick="openModalCategory('receita')" class="text-[9px] uppercase bg-white dark:bg-emerald-900 border border-emerald-200 rounded px-1.5 py-0 hover:bg-emerald-100 transition shadow-sm opacity-100 font-normal">+ Add</button>
             </td>
         `;
-            data.monthly_income.forEach(val => {
-                htmlInc += `<td class="px-1 py-2 text-right text-emerald-700 dark:text-emerald-400 text-[10px] sm:text-xs font-mono">${fNum(val)}</td>`;
-            });
-            trIncHeader.innerHTML = htmlInc;
-            tbody.appendChild(trIncHeader);
+        data.monthly_income.forEach(val => {
+            htmlInc += `<td class="px-1 py-2 text-right text-emerald-700 dark:text-emerald-400 text-[10px] sm:text-xs font-mono">${fNum(val)}</td>`;
+        });
+        trIncHeader.innerHTML = htmlInc;
+        tbody.appendChild(trIncHeader);
 
-            // 2. INCOME CATEGORIES (Children)
-            // Sort by 'id' or 'index'? API returns sorted array 'category_income'
-            if (data.category_income) {
-                data.category_income.forEach(cat => {
-                    const tr = document.createElement('tr');
-                    tr.className = 'hover:bg-slate-50 dark:hover:bg-slate-800/50 border-b border-slate-50 dark:border-slate-800 transition-colors group';
-                    tr.draggable = true;
-                    tr.dataset.id = cat.id;
-                    tr.dataset.type = 'receita'; // For sorting group
+        // 2. INCOME CATEGORIES (Children)
+        // Sort by 'id' or 'index'? API returns sorted array 'category_income'
+        if (data.category_income) {
+            data.category_income.forEach(cat => {
+                const tr = document.createElement('tr');
+                tr.className = 'hover:bg-slate-50 dark:hover:bg-slate-800/50 border-b border-slate-50 dark:border-slate-800 transition-colors group';
+                tr.draggable = true;
+                tr.dataset.id = cat.id;
+                tr.dataset.type = 'receita'; // For sorting group
 
-                    tr.addEventListener('dragstart', handleDragStart);
-                    tr.addEventListener('dragover', handleDragOver);
-                    tr.addEventListener('drop', handleDrop);
+                tr.addEventListener('dragstart', handleDragStart);
+                tr.addEventListener('dragover', handleDragOver);
+                tr.addEventListener('drop', handleDrop);
 
-                    // Meta Cell
-                    const metaHtml = `
+                // Meta Cell
+                const metaHtml = `
                     <div class="flex items-center gap-1 pl-2">
                         <!-- Drag Handle -->
                         <span class="cursor-move text-slate-300 hover:text-slate-500 opacity-0 group-hover:opacity-100 transition-opacity">
@@ -1223,41 +1223,41 @@ renderHeader('Orçamento Anual');
                     </div>
                 `;
 
-                    let html = `<td class="py-2 w-48 max-w-[200px]">${metaHtml}</td>`;
+                let html = `<td class="py-2 w-48 max-w-[200px]">${metaHtml}</td>`;
 
-                    // Values
-                    cat.values.forEach((val, idx) => {
-                        html += `<td 
+                // Values
+                cat.values.forEach((val, idx) => {
+                    html += `<td 
                         class="px-1 py-1 text-right text-slate-700 dark:text-slate-300 text-[11px] sm:text-xs tabular-nums cursor-pointer hover:bg-emerald-50/50 dark:hover:bg-emerald-900/10 transition-colors"
                         ondblclick="makeEditable(this)"
                         data-cat="${cat.name}"
                         data-month="${idx + 1}"
                         data-reqtype="receita"
                    >${fNum(val)}</td>`;
-                    });
-
-                    tr.innerHTML = html;
-                    tbody.appendChild(tr);
                 });
-            }
+
+                tr.innerHTML = html;
+                tbody.appendChild(tr);
+            });
+        }
 
 
-            // --- HELPER FOR RENDERING CATEGORY ROWS ---
-            const renderCategoryRows = (list, type) => {
-                if (!list) return;
-                list.forEach(cat => {
-                    const tr = document.createElement('tr');
-                    tr.className = 'hover:bg-slate-50 dark:hover:bg-slate-800/50 border-b border-slate-50 dark:border-slate-800 transition-colors group';
-                    tr.draggable = true;
-                    tr.dataset.id = cat.id;
-                    tr.dataset.type = type;
+        // --- HELPER FOR RENDERING CATEGORY ROWS ---
+        const renderCategoryRows = (list, type) => {
+            if (!list) return;
+            list.forEach(cat => {
+                const tr = document.createElement('tr');
+                tr.className = 'hover:bg-slate-50 dark:hover:bg-slate-800/50 border-b border-slate-50 dark:border-slate-800 transition-colors group';
+                tr.draggable = true;
+                tr.dataset.id = cat.id;
+                tr.dataset.type = type;
 
-                    tr.addEventListener('dragstart', handleDragStart);
-                    tr.addEventListener('dragover', handleDragOver);
-                    tr.addEventListener('drop', handleDrop);
+                tr.addEventListener('dragstart', handleDragStart);
+                tr.addEventListener('dragover', handleDragOver);
+                tr.addEventListener('drop', handleDrop);
 
-                    // Meta Cell
-                    const metaHtml = `
+                // Meta Cell
+                const metaHtml = `
                     <div class="flex items-center gap-1 pl-2">
                         <!-- Drag Handle -->
                         <span class="cursor-move text-slate-300 hover:text-slate-500 opacity-0 group-hover:opacity-100 transition-opacity">
@@ -1288,94 +1288,94 @@ renderHeader('Orçamento Anual');
                     </div>
                 `;
 
-                    let html = `<td class="py-2 w-48 max-w-[200px]">${metaHtml}</td>`;
+                let html = `<td class="py-2 w-48 max-w-[200px]">${metaHtml}</td>`;
 
-                    // Values
-                    cat.values.forEach((val, idx) => {
-                        html += `<td 
+                // Values
+                cat.values.forEach((val, idx) => {
+                    html += `<td 
                         class="px-1 py-1 text-right text-slate-700 dark:text-slate-300 text-[11px] sm:text-xs tabular-nums cursor-pointer hover:bg-rose-50/50 dark:hover:bg-rose-900/10 transition-colors"
                         ondblclick="makeEditable(this)"
                         data-cat="${cat.name}"
                         data-month="${idx + 1}"
                         data-reqtype="despesa"
                    >${fNum(val)}</td>`;
-                    });
-
-                    tr.innerHTML = html;
-                    tbody.appendChild(tr);
                 });
-            };
 
-            // Spacer
-            tbody.innerHTML += '<tr><td colspan="13" class="h-4"></td></tr>';
+                tr.innerHTML = html;
+                tbody.appendChild(tr);
+            });
+        };
 
-            // 3. TOTAL DESPESAS FIXAS HEADER
-            const trExpHeader = document.createElement('tr');
-            trExpHeader.className = 'bg-rose-50 dark:bg-rose-900/20 font-bold border-b border-rose-100 dark:border-rose-800';
-            let htmlExp = `
+        // Spacer
+        tbody.innerHTML += '<tr><td colspan="13" class="h-4"></td></tr>';
+
+        // 3. TOTAL DESPESAS FIXAS HEADER
+        const trExpHeader = document.createElement('tr');
+        trExpHeader.className = 'bg-rose-50 dark:bg-rose-900/20 font-bold border-b border-rose-100 dark:border-rose-800';
+        let htmlExp = `
             <td class="px-4 py-3 text-rose-700 dark:text-rose-400 text-sm flex items-center justify-between group">
                 <span class="uppercase">TOTAL DESPESAS FIXAS</span>
                 <button onclick="openModalCategory('despesa')" class="text-[9px] uppercase bg-white dark:bg-rose-900 border border-rose-200 rounded px-1.5 py-0 hover:bg-rose-100 transition shadow-sm opacity-100 font-normal">+ Add</button>
             </td>
         `;
 
-            // FIXED Expenses Totals
-            data.monthly_expenses_fixed.forEach(val => {
-                htmlExp += `<td class="px-1 py-2 text-right text-rose-700 dark:text-rose-400 text-[10px] sm:text-xs font-mono">${fNum(val)}</td>`;
-            });
-            trExpHeader.innerHTML = htmlExp;
-            tbody.appendChild(trExpHeader);
+        // FIXED Expenses Totals
+        data.monthly_expenses_fixed.forEach(val => {
+            htmlExp += `<td class="px-1 py-2 text-right text-rose-700 dark:text-rose-400 text-[10px] sm:text-xs font-mono">${fNum(val)}</td>`;
+        });
+        trExpHeader.innerHTML = htmlExp;
+        tbody.appendChild(trExpHeader);
 
-            // 4a. FIXED EXPENSE CATEGORIES
-            renderCategoryRows(data.category_expenses_fixed, 'despesa_fixa'); // Assuming 'despesa' type for common logic
+        // 4a. FIXED EXPENSE CATEGORIES
+        renderCategoryRows(data.category_expenses_fixed, 'despesa_fixa'); // Assuming 'despesa' type for common logic
 
-            // 5. TOTAL CARTÕES (VARIABLE) HEADER (New Section)
-            // Only render if there are variable expenses to show, or always? Always for consistency with user request
-            const trVarHeader = document.createElement('tr');
-            trVarHeader.className = 'bg-purple-50 dark:bg-purple-900/20 font-bold border-b border-purple-100 dark:border-purple-800';
-            let htmlVar = `
+        // 5. TOTAL CARTÕES (VARIABLE) HEADER (New Section)
+        // Only render if there are variable expenses to show, or always? Always for consistency with user request
+        const trVarHeader = document.createElement('tr');
+        trVarHeader.className = 'bg-purple-50 dark:bg-purple-900/20 font-bold border-b border-purple-100 dark:border-purple-800';
+        let htmlVar = `
             <td class="px-4 py-3 text-purple-700 dark:text-purple-400 text-sm flex items-center justify-between group">
                 <span class="uppercase">TOTAL CARTÕES (Variável)</span>
                 <button onclick="openModalCategory('despesa')" class="text-[9px] uppercase bg-white dark:bg-purple-900 border border-purple-200 rounded px-1.5 py-0 hover:bg-purple-100 transition shadow-sm opacity-100 font-normal">+ Add</button>
             </td>
         `;
-            // VARIABLE Expenses Totals
-            data.monthly_expenses_variable.forEach(val => {
-                htmlVar += `<td class="px-1 py-2 text-right text-purple-700 dark:text-purple-400 text-[10px] sm:text-xs font-mono">${fNum(val)}</td>`;
-            });
-            trVarHeader.innerHTML = htmlVar;
-            tbody.appendChild(trVarHeader); // Append the variable header
+        // VARIABLE Expenses Totals
+        data.monthly_expenses_variable.forEach(val => {
+            htmlVar += `<td class="px-1 py-2 text-right text-purple-700 dark:text-purple-400 text-[10px] sm:text-xs font-mono">${fNum(val)}</td>`;
+        });
+        trVarHeader.innerHTML = htmlVar;
+        tbody.appendChild(trVarHeader); // Append the variable header
 
-            // 5b. VARIABLE EXPENSE CATEGORIES
-            renderCategoryRows(data.category_expenses_variable, 'despesa_variavel');
+        // 5b. VARIABLE EXPENSE CATEGORIES
+        renderCategoryRows(data.category_expenses_variable, 'despesa_variavel');
 
 
-            // Spacer
-            tbody.innerHTML += '<tr><td colspan="13" class="h-6"></td></tr>';
+        // Spacer
+        tbody.innerHTML += '<tr><td colspan="13" class="h-6"></td></tr>';
 
-            // --- SUMMARY SECTION (RESUMO MENSAL) ---
+        // --- SUMMARY SECTION (RESUMO MENSAL) ---
 
-            // Header
-            const trSum = document.createElement('tr');
-            trSum.className = 'bg-slate-100 dark:bg-slate-800 border-b border-slate-200 dark:border-slate-700';
-            trSum.innerHTML = '<td colspan="13" class="px-4 py-2 text-slate-800 dark:text-slate-200 uppercase tracking-wider text-[10px] font-bold">RESUMO MENSAL</td>';
-            tbody.appendChild(trSum);
+        // Header
+        const trSum = document.createElement('tr');
+        trSum.className = 'bg-slate-100 dark:bg-slate-800 border-b border-slate-200 dark:border-slate-700';
+        trSum.innerHTML = '<td colspan="13" class="px-4 py-2 text-slate-800 dark:text-slate-200 uppercase tracking-wider text-[10px] font-bold">RESUMO MENSAL</td>';
+        tbody.appendChild(trSum);
 
-            const createSummaryRow = (title, values, type) => {
-                const tr = document.createElement('tr');
-                let bgClass = '', textClass = 'font-bold';
+        const createSummaryRow = (title, values, type) => {
+            const tr = document.createElement('tr');
+            let bgClass = '', textClass = 'font-bold';
 
-                if (type === 'income') { bgClass = 'bg-emerald-50 dark:bg-emerald-900/20'; textClass = 'text-emerald-700 dark:text-emerald-400 font-bold'; }
-                if (type === 'expense') { bgClass = 'bg-rose-50 dark:bg-rose-900/20'; textClass = 'text-rose-700 dark:text-rose-400 font-bold'; }
-                if (type === 'balance') { bgClass = 'bg-slate-50 dark:bg-slate-800/50'; textClass = 'text-slate-900 dark:text-white font-bold'; }
-                if (type === 'accumulated') { bgClass = 'bg-white dark:bg-slate-900'; textClass = 'text-blue-600 dark:text-blue-400 font-bold'; }
-                if (type === 'reserve') { bgClass = 'bg-amber-50 dark:bg-amber-900/20'; textClass = 'text-amber-700 dark:text-amber-500 font-bold'; }
+            if (type === 'income') { bgClass = 'bg-emerald-50 dark:bg-emerald-900/20'; textClass = 'text-emerald-700 dark:text-emerald-400 font-bold'; }
+            if (type === 'expense') { bgClass = 'bg-rose-50 dark:bg-rose-900/20'; textClass = 'text-rose-700 dark:text-rose-400 font-bold'; }
+            if (type === 'balance') { bgClass = 'bg-slate-50 dark:bg-slate-800/50'; textClass = 'text-slate-900 dark:text-white font-bold'; }
+            if (type === 'accumulated') { bgClass = 'bg-white dark:bg-slate-900'; textClass = 'text-blue-600 dark:text-blue-400 font-bold'; }
+            if (type === 'reserve') { bgClass = 'bg-amber-50 dark:bg-amber-900/20'; textClass = 'text-amber-700 dark:text-amber-500 font-bold'; }
 
-                tr.className = `${bgClass} border-b border-slate-100 dark:border-slate-700/50`;
+            tr.className = `${bgClass} border-b border-slate-100 dark:border-slate-700/50`;
 
-                let titleHtml = title;
-                if (type === 'reserve') {
-                    titleHtml = `
+            let titleHtml = title;
+            if (type === 'reserve') {
+                titleHtml = `
                     <div class="flex items-center gap-2">
                         <span>RESERVA</span>
                         <input type="number" id="inputReserve" value="${reservePercentage}" min="0" max="100" 
@@ -1384,160 +1384,160 @@ renderHeader('Orçamento Anual');
                         <span>%</span>
                     </div>
                 `;
-                }
-
-                let html = `<td class="px-4 py-2 text-xs ${textClass} whitespace-nowrap">${titleHtml}</td>`;
-                values.forEach(val => {
-                    html += `<td class="px-2 py-2 text-right text-xs font-mono ${textClass}">${fNum(val)}</td>`;
-                });
-                tr.innerHTML = html;
-                tbody.appendChild(tr);
-            };
-
-            createSummaryRow('Renda', data.monthly_income, 'income');
-            createSummaryRow('Despesas', data.monthly_expenses, 'expense');
-            createSummaryRow('Saldo do Mês', data.monthly_balance, 'balance');
-            createSummaryRow('Saldo Acumulado', data.accumulated_balance, 'accumulated');
-
-            if (data.user_config_reserve !== undefined) {
-                if (!window.reserveLoaded) {
-                    reservePercentage = parseFloat(data.user_config_reserve);
-                    // document.getElementById('inputReserve').value = reservePercentage; // Removed: Element doesn't exist yet!
-                    window.reserveLoaded = true;
-                }
             }
 
-            let totalReserveAnnual = 0;
-            const reserveValues = data.monthly_income.map(inc => {
-                const r = (inc * reservePercentage / 100);
-                totalReserveAnnual += r;
-                return r;
+            let html = `<td class="px-4 py-2 text-xs ${textClass} whitespace-nowrap">${titleHtml}</td>`;
+            values.forEach(val => {
+                html += `<td class="px-2 py-2 text-right text-xs font-mono ${textClass}">${fNum(val)}</td>`;
             });
-            createSummaryRow('RESERVA', reserveValues, 'reserve');
+            tr.innerHTML = html;
+            tbody.appendChild(tr);
+        };
 
-            const elTotalReserve = document.getElementById('valReserveTotal');
-            if (elTotalReserve) elTotalReserve.textContent = fMoney(totalReserveAnnual);
-        }
+        createSummaryRow('Renda', data.monthly_income, 'income');
+        createSummaryRow('Despesas', data.monthly_expenses, 'expense');
+        createSummaryRow('Saldo do Mês', data.monthly_balance, 'balance');
+        createSummaryRow('Saldo Acumulado', data.accumulated_balance, 'accumulated');
 
-        async function updateReserve(val) {
-            reservePercentage = parseFloat(val) || 0;
-            // Recalculate only local UI first for speed
-            // Actually we need to re-run renderTableArrays logic... which is inside updateUI
-            // But updateUI fetches data. We should separate render.
-            // For now, let's just re-fetch or use local cache of data? 
-            // We have `currentData` global? No, `updateUI` fetches.
-            // Let's just save to DB and then refresh.
-
-            try {
-                await fetch('api/update_reserve.php', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ valor: reservePercentage })
-                });
-                updateUI();
-            } catch (e) { console.error(e); }
-        }
-
-        // --- Modal & Actions Logic ---
-
-        function toggleModal(id) {
-            const el = document.getElementById(id);
-            if (el) {
-                if (el.classList.contains('hidden')) {
-                    el.classList.remove('hidden');
-                    el.classList.add('flex');
-                } else {
-                    el.classList.add('hidden');
-                    el.classList.remove('flex');
-                }
+        if (data.user_config_reserve !== undefined) {
+            if (!window.reserveLoaded) {
+                reservePercentage = parseFloat(data.user_config_reserve);
+                // document.getElementById('inputReserve').value = reservePercentage; // Removed: Element doesn't exist yet!
+                window.reserveLoaded = true;
             }
         }
 
-        function openModalAdd() {
-            toggleModal('modalAdd');
-            // Reset and init
-            document.getElementById('formAdd').reset();
-            // Default to Despesa
-            setAddType('despesa');
-        }
+        let totalReserveAnnual = 0;
+        const reserveValues = data.monthly_income.map(inc => {
+            const r = (inc * reservePercentage / 100);
+            totalReserveAnnual += r;
+            return r;
+        });
+        createSummaryRow('RESERVA', reserveValues, 'reserve');
 
-        function setAddType(type) {
-            document.getElementById('inputType').value = type;
-            const btnRec = document.getElementById('btnAddReceita');
-            const btnDes = document.getElementById('btnAddDespesa');
+        const elTotalReserve = document.getElementById('valReserveTotal');
+        if (elTotalReserve) elTotalReserve.textContent = fMoney(totalReserveAnnual);
+    }
 
-            const activeClass = "flex-1 py-1.5 rounded-md text-sm font-medium transition-colors bg-white dark:bg-slate-600 text-slate-800 dark:text-white shadow-sm";
-            const inactiveClass = "flex-1 py-1.5 rounded-md text-sm font-medium transition-colors text-slate-500 hover:bg-slate-200 dark:hover:bg-slate-600";
+    async function updateReserve(val) {
+        reservePercentage = parseFloat(val) || 0;
+        // Recalculate only local UI first for speed
+        // Actually we need to re-run renderTableArrays logic... which is inside updateUI
+        // But updateUI fetches data. We should separate render.
+        // For now, let's just re-fetch or use local cache of data? 
+        // We have `currentData` global? No, `updateUI` fetches.
+        // Let's just save to DB and then refresh.
 
-            if (type === 'receita') {
-                btnRec.className = activeClass;
-                btnDes.className = inactiveClass;
+        try {
+            await fetch('api/update_reserve.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ valor: reservePercentage })
+            });
+            updateUI();
+        } catch (e) { console.error(e); }
+    }
+
+    // --- Modal & Actions Logic ---
+
+    function toggleModal(id) {
+        const el = document.getElementById(id);
+        if (el) {
+            if (el.classList.contains('hidden')) {
+                el.classList.remove('hidden');
+                el.classList.add('flex');
             } else {
-                btnDes.className = activeClass;
-                btnRec.className = inactiveClass;
+                el.classList.add('hidden');
+                el.classList.remove('flex');
             }
+        }
+    }
 
-            // Refresh categories in the select
-            loadCategoriesSelect(type);
+    function openModalAdd() {
+        toggleModal('modalAdd');
+        // Reset and init
+        document.getElementById('formAdd').reset();
+        // Default to Despesa
+        setAddType('despesa');
+    }
+
+    function setAddType(type) {
+        document.getElementById('inputType').value = type;
+        const btnRec = document.getElementById('btnAddReceita');
+        const btnDes = document.getElementById('btnAddDespesa');
+
+        const activeClass = "flex-1 py-1.5 rounded-md text-sm font-medium transition-colors bg-white dark:bg-slate-600 text-slate-800 dark:text-white shadow-sm";
+        const inactiveClass = "flex-1 py-1.5 rounded-md text-sm font-medium transition-colors text-slate-500 hover:bg-slate-200 dark:hover:bg-slate-600";
+
+        if (type === 'receita') {
+            btnRec.className = activeClass;
+            btnDes.className = inactiveClass;
+        } else {
+            btnDes.className = activeClass;
+            btnRec.className = inactiveClass;
         }
 
-        // Initial load for Add Modal Select
-        async function loadCategoriesSelect(type) {
-            const sel = document.getElementById('selectCategoria');
-            sel.innerHTML = '<option>Carregando...</option>';
-            try {
-                const res = await fetch('api/categories.php');
-                const data = await res.json();
-                sel.innerHTML = '';
+        // Refresh categories in the select
+        loadCategoriesSelect(type);
+    }
 
-                const list = type === 'receita' ? (data.receitas || []) : (data.despesas || []);
+    // Initial load for Add Modal Select
+    async function loadCategoriesSelect(type) {
+        const sel = document.getElementById('selectCategoria');
+        sel.innerHTML = '<option>Carregando...</option>';
+        try {
+            const res = await fetch('api/categories.php');
+            const data = await res.json();
+            sel.innerHTML = '';
 
-                if (list.length === 0) {
+            const list = type === 'receita' ? (data.receitas || []) : (data.despesas || []);
+
+            if (list.length === 0) {
+                const opt = document.createElement('option');
+                opt.value = "";
+                opt.textContent = "Nenhuma categoria cadastrada";
+                sel.appendChild(opt);
+            } else {
+                list.forEach(c => {
                     const opt = document.createElement('option');
-                    opt.value = "";
-                    opt.textContent = "Nenhuma categoria cadastrada";
+                    opt.value = c.nome;
+                    opt.textContent = c.nome;
                     sel.appendChild(opt);
-                } else {
-                    list.forEach(c => {
-                        const opt = document.createElement('option');
-                        opt.value = c.nome;
-                        opt.textContent = c.nome;
-                        sel.appendChild(opt);
-                    });
-                }
-            } catch (e) {
-                console.error(e);
-                sel.innerHTML = '<option value="">Erro ao carregar</option>';
+                });
             }
+        } catch (e) {
+            console.error(e);
+            sel.innerHTML = '<option value="">Erro ao carregar</option>';
         }
+    }
 
-        // Config Modal
-        async function openModalCategory(type) {
-            // Pre-select tab logic if needed, for now just open and list
-            toggleModal('modalConfig');
-            loadCategoriesList();
-        }
+    // Config Modal
+    async function openModalCategory(type) {
+        // Pre-select tab logic if needed, for now just open and list
+        toggleModal('modalConfig');
+        loadCategoriesList();
+    }
 
-        async function loadCategoriesList() {
-            // Fetch all
-            try {
-                const res = await fetch('api/categories.php');
-                const data = await res.json();
+    async function loadCategoriesList() {
+        // Fetch all
+        try {
+            const res = await fetch('api/categories.php');
+            const data = await res.json();
 
-                const listRec = document.getElementById('listCatReceita');
-                const listDes = document.getElementById('listCatDespesa');
-                listRec.innerHTML = '';
-                listDes.innerHTML = '';
+            const listRec = document.getElementById('listCatReceita');
+            const listDes = document.getElementById('listCatDespesa');
+            listRec.innerHTML = '';
+            listDes.innerHTML = '';
 
-                // Helper to render items
-                const renderItem = (c, list) => {
-                    const li = document.createElement('li');
-                    li.className = 'flex justify-between items-center text-sm p-2 bg-slate-50 dark:bg-slate-700/50 rounded';
+            // Helper to render items
+            const renderItem = (c, list) => {
+                const li = document.createElement('li');
+                li.className = 'flex justify-between items-center text-sm p-2 bg-slate-50 dark:bg-slate-700/50 rounded';
 
-                    const usedVal = parseFloat(c.total_used) || 0;
-                    const usedDisplay = usedVal > 0 ? `<span class="text-xs text-slate-400 mr-2 font-mono">(${fMoney(usedVal)})</span>` : '';
+                const usedVal = parseFloat(c.total_used) || 0;
+                const usedDisplay = usedVal > 0 ? `<span class="text-xs text-slate-400 mr-2 font-mono">(${fMoney(usedVal)})</span>` : '';
 
-                    li.innerHTML = `
+                li.innerHTML = `
                     <span class="text-slate-700 dark:text-slate-300 flex-1">${c.nome}</span>
                     <div class="flex items-center">
                         ${usedDisplay}
@@ -1546,146 +1546,147 @@ renderHeader('Orçamento Anual');
                         </button>
                     </div>
                 `;
-                    list.appendChild(li);
-                };
+                list.appendChild(li);
+            };
 
-                if (data.receitas) data.receitas.forEach(c => renderItem(c, listRec));
-                if (data.despesas) data.despesas.forEach(c => renderItem(c, listDes));
+            if (data.receitas) data.receitas.forEach(c => renderItem(c, listRec));
+            if (data.despesas) data.despesas.forEach(c => renderItem(c, listDes));
 
-            } catch (e) { console.error(e); }
+        } catch (e) { console.error(e); }
+    }
+
+    // Forms
+    document.getElementById('formAdd').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const fd = new FormData(e.target);
+
+        // Handle Month Input (YYYY-MM)
+        const dateInput = fd.get('data_mes'); // e.g., 2025-12
+        let yearOfInput = currentYear;
+        if (dateInput && dateInput.length >= 4) {
+            yearOfInput = parseInt(dateInput.substring(0, 4));
         }
 
-        // Forms
-        document.getElementById('formAdd').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const fd = new FormData(e.target);
+        const data = Object.fromEntries(fd.entries());
 
-            // Handle Month Input (YYYY-MM)
-            const dateInput = fd.get('data_mes'); // e.g., 2025-12
-            let yearOfInput = currentYear;
-            if (dateInput && dateInput.length >= 4) {
-                yearOfInput = parseInt(dateInput.substring(0, 4));
-            }
+        // Context: Orcamento Page -> Always Forecast
+        data.is_forecast = true;
 
-            const data = Object.fromEntries(fd.entries());
+        try {
+            const res = await fetch('api/add_transaction.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            });
+            const json = await res.json();
+            if (json.success) {
+                toggleModal('modalAdd');
+                e.target.reset();
 
-            // Context: Orcamento Page -> Always Forecast
-            data.is_forecast = true;
-
-            try {
-                const res = await fetch('api/add_transaction.php', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(data)
-                });
-                const json = await res.json();
-                if (json.success) {
-                    toggleModal('modalAdd');
-                    e.target.reset();
-
-                    // If added for a different year, switch to it?
-                    if (yearOfInput !== currentYear) {
-                        if (confirm(`Lançamento adicionado em ${yearOfInput}. Deseja visualizar este ano?`)) {
-                            currentYear = yearOfInput;
-                            // Update URL
-                            const newUrl = new URL(window.location);
-                            newUrl.searchParams.set('year', currentYear);
-                            window.history.pushState({}, '', newUrl);
-                        }
+                // If added for a different year, switch to it?
+                if (yearOfInput !== currentYear) {
+                    if (confirm(`Lançamento adicionado em ${yearOfInput}. Deseja visualizar este ano?`)) {
+                        currentYear = yearOfInput;
+                        // Update URL
+                        const newUrl = new URL(window.location);
+                        newUrl.searchParams.set('year', currentYear);
+                        window.history.pushState({}, '', newUrl);
                     }
-
-                    updateUI(); // Refresh dash
-                    // alert('Adicionado com sucesso!');
-                } else {
-                    alert('Erro: ' + (json.error || 'Falha ao salvar.'));
                 }
-            } catch (err) {
-                console.error(err);
-                alert('Erro de conexão.');
-            }
-        });
 
-        document.getElementById('formNewCat').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const fd = new FormData(e.target);
-            const data = Object.fromEntries(fd.entries()); // nome, tipo
-
-            try {
-                const res = await fetch('api/categories.php', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ action: 'create', ...data })
-                });
-                const json = await res.json();
-                if (json.success) {
-                    document.getElementById('formNewCat').reset();
-                    loadCategoriesList(); // Refresh list inside modal
-                    updateUI(); // Refresh main table to show new cat row
-                } else {
-                    alert('Erro: ' + json.error);
-                }
-            } catch (err) { console.error(err); }
-        });
-
-        // Placeholders for Table Actions
-        function duplicateCategory(id) {
-            // To Implement: Backend duplication
-            alert("Funcionalidade em desenvolvimento: Duplicar Categoria " + id);
-        }
-        async function deleteCategory(id) {
-            if (!confirm('Tem certeza que deseja excluir esta categoria?')) return;
-
-            try {
-                const res = await fetch(`api/categories.php?id=${id}`, { method: 'DELETE' });
-                const json = await res.json();
-                if (json.success) {
-                    // Remove from local list or just reload
-                    loadCategoriesList();
-                    // Update select in other modal if open?
-                } else {
-                    alert('Erro: ' + (json.error || 'Falha ao excluir'));
-                }
-            } catch (e) {
-                console.error(e);
-                alert('Erro de conexão');
-            }
-        }
-
-        async function deleteCategoryReal(id) {
-            if (!confirm("Excluir categoria permanentemente?")) return;
-            try {
-                const res = await fetch(`api/categories.php?id=${id}`, {
-                    method: 'DELETE'
-                });
-                const json = await res.json();
-                if (json.success) {
-                    loadCategoriesList();
-                    updateUI();
-                } else {
-                    alert(json.error);
-                }
-            } catch (e) { console.error(e); }
-        }
-
-
-        // Initialize
-        updateUI();
-        // Fullscreen Logic
-        function toggleFullscreen() {
-            const container = document.getElementById('tableContainer');
-            const btn = document.getElementById('btnFullscreen');
-
-            if (!container.classList.contains('fullscreen-active')) {
-                // Enter Fullscreen
-                container.classList.add('fullscreen-active');
-                btn.textContent = 'Sair da Tela Cheia';
-                document.body.style.overflow = 'hidden'; // Prevent scrolling background
+                updateUI(); // Refresh dash
+                // alert('Adicionado com sucesso!');
             } else {
-                // Exit Fullscreen
-                container.classList.remove('fullscreen-active');
-                btn.textContent = 'Ver tudo';
-                document.body.style.overflow = '';
+                alert('Erro: ' + (json.error || 'Falha ao salvar.'));
             }
+        } catch (err) {
+            console.error(err);
+            alert('Erro de conexão.');
         }
+    });
+
+    document.getElementById('formNewCat').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const fd = new FormData(e.target);
+        const data = Object.fromEntries(fd.entries()); // nome, tipo
+
+        try {
+            const res = await fetch('api/categories.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ action: 'create', ...data })
+            });
+            const json = await res.json();
+            if (json.success) {
+                document.getElementById('formNewCat').reset();
+                loadCategoriesList(); // Refresh list inside modal
+                updateUI(); // Refresh main table to show new cat row
+            } else {
+                alert('Erro: ' + json.error);
+            }
+        } catch (err) { console.error(err); }
+    });
+
+    // Placeholders for Table Actions
+    function duplicateCategory(id) {
+        // To Implement: Backend duplication
+        alert("Funcionalidade em desenvolvimento: Duplicar Categoria " + id);
+    }
+    async function deleteCategory(id) {
+        if (!confirm('Tem certeza que deseja excluir esta categoria?')) return;
+
+        try {
+            const res = await fetch(`api/categories.php?id=${id}`, { method: 'DELETE' });
+            const json = await res.json();
+            if (json.success) {
+                // Remove from local list or just reload
+                loadCategoriesList();
+                // Update select in other modal if open?
+            } else {
+                alert('Erro: ' + (json.error || 'Falha ao excluir'));
+            }
+        } catch (e) {
+            console.error(e);
+            alert('Erro de conexão');
+        }
+    }
+
+    async function deleteCategoryReal(id) {
+        if (!confirm("Excluir categoria permanentemente?")) return;
+        try {
+            const res = await fetch(`api/categories.php?id=${id}`, {
+                method: 'DELETE'
+            });
+            const json = await res.json();
+            if (json.success) {
+                loadCategoriesList();
+                updateUI();
+            } else {
+                alert(json.error);
+            }
+        } catch (e) { console.error(e); }
+    }
+
+
+    // Initialize
+    updateUI();
+    // Fullscreen Logic
+    function toggleFullscreen() {
+        const container = document.getElementById('tableContainer');
+        const btn = document.getElementById('btnFullscreen');
+
+        if (!container.classList.contains('fullscreen-active')) {
+            // Enter Fullscreen
+            container.classList.add('fullscreen-active');
+            btn.textContent = 'Sair da Tela Cheia';
+            document.body.style.overflow = 'hidden'; // Prevent scrolling background
+        } else {
+            // Exit Fullscreen
+            container.classList.remove('fullscreen-active');
+            btn.textContent = 'Ver tudo';
+            document.body.style.overflow = '';
+        }
+    }
 </script>
+</div>
 <?php renderFooter(); ?>

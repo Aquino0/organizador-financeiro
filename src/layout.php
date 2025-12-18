@@ -637,7 +637,7 @@ function renderFooter()
 
         <!-- Navbar Inferior (Mobile First) -->
         <nav
-            class="fixed bottom-0 w-full bg-white dark:bg-slate-800 border-t border-slate-200 dark:border-slate-700 pb-safe-area safe-area-bottom z-40">
+            class="fixed bottom-0 w-full bg-white dark:bg-slate-800 border-t border-slate-200 dark:border-slate-700 pb-safe-area safe-area-bottom z-50">
             <div class="flex justify-around items-center h-16">
                 <a href="dashboard.php"
                     class="flex flex-col items-center p-2 <?php echo $current_page == 'dashboard.php' ? 'text-blue-600 dark:text-blue-400' : 'text-slate-500 dark:text-slate-400'; ?>">

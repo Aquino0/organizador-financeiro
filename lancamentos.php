@@ -1390,4 +1390,5 @@ renderHeader('Lançamentos');
             }
         </script>
 
-        <?php renderFooter(); ?>
+    </div>
+    <?php renderFooter(); ?>
