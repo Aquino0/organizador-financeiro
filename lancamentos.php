@@ -1341,54 +1341,7 @@ renderHeader('Lançamentos');
             updateMonthLabel();
             fetchLancamentos();
 
-            async function toggleStatus(id, type, event) {
-                if (event) event.stopPropagation();
+// End of script
 
-                const btn = event ? event.currentTarget : document.querySelector(`button[onclick*="toggleStatus(${id}"]`);
-                if (!btn) return;
-
-                const iconInfo = btn.querySelector('svg');
-                const isCurrentlyPaid = btn.classList.contains('text-green-500');
-
-                // Optimistic UI Swap
-                if (isCurrentlyPaid) {
-                    // Turning OFF
-                    btn.classList.remove('text-green-500');
-                    btn.classList.add('text-slate-300', 'hover:text-red-500');
-                    btn.title = 'Marcar como Pago';
-                    iconInfo.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" d="M10 14H5.236a2 2 0 01-1.789-2.894l3.5-7A2 2 0 018.736 3h4.018a2 2 0 01.485.06l3.76.94m-7 10v5a2 2 0 002 2h.095c.5 0 .905-.405.905-.905 0-.714.211-1.412.608-2.006L17 13V4m-7 10h2m5-10h2a2 2 0 012 2v6a2 2 0 01-2 2h-2.5" />';
-                } else {
-                    // Turning ON
-                    btn.classList.add('text-green-500');
-                    btn.classList.remove('text-slate-300', 'hover:text-red-500');
-                    btn.title = 'Marcar como Não Pago';
-                    iconInfo.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5" />';
-                }
-
-                try {
-                    // Send inverted status
-                    const res = await fetch('api/toggle_status.php', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ id, tipo: type, status: !isCurrentlyPaid })
-                    });
-                    const json = await res.json();
-
-                    if (!json.success) {
-                        alert('Erro: ' + json.error);
-                        fetchLancamentos(); // Revert
-                    } else {
-                        // Background refresh to keep data consistent (balance, etc)
-                        // But we don't need to alert success
-                        setTimeout(fetchLancamentos, 500);
-                    }
-                } catch (e) {
-                    console.error(e);
-                    alert('Erro de conexão');
-                    fetchLancamentos();
-                }
-            }
-        </script>
-
-    </div>
-    <?php renderFooter(); ?>
+    </div >
+                <?php renderFooter(); ?>
