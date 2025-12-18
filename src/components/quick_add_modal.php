@@ -223,24 +223,40 @@
 <script>
     // Quick Add Logic
     function openQuickAddModal() {
-        const modal = document.getElementById('quickAddModal');
-        const dateInput = document.querySelector('#quickAddForm input[name="data"]');
+        try {
+            console.log('Opening Quick Add Modal...');
+            const modal = document.getElementById('quickAddModal');
+            if (!modal) {
+                alert('Erro: Modal não encontrado no DOM.');
+                return;
+            }
 
-        // Default to today
-        if (!dateInput.value) {
-            dateInput.value = new Date().toISOString().split('T')[0];
+            const dateInput = document.querySelector('#quickAddForm input[name="data"]');
+
+            // Default to today
+            if (dateInput && !dateInput.value) {
+                dateInput.value = new Date().toISOString().split('T')[0];
+            }
+
+            // Load Categories
+            const typeInput = document.querySelector('#quickAddForm input[name="tipo"]:checked');
+            if (typeInput) {
+                const type = typeInput.value;
+                loadQuickCats(type);
+            } else {
+                console.warn('Nenhum tipo selecionado');
+            }
+
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                document.getElementById('quickAddModalContent').classList.remove('scale-95');
+                document.getElementById('quickAddModalContent').classList.add('scale-100');
+            }, 10);
+        } catch (e) {
+            console.error(e);
+            alert('Erro ao abrir modal: ' + e.message);
         }
-
-        // Load Categories
-        const type = document.querySelector('#quickAddForm input[name="tipo"]:checked').value;
-        loadQuickCats(type);
-
-        modal.classList.remove('hidden');
-        setTimeout(() => {
-            modal.classList.remove('opacity-0');
-            document.getElementById('quickAddModalContent').classList.remove('scale-95');
-            document.getElementById('quickAddModalContent').classList.add('scale-100');
-        }, 10);
     }
 
     function closeQuickAddModal() {
