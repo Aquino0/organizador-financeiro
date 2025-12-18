@@ -896,16 +896,15 @@ renderHeader('Lançamentos');
                                 </div>
                             </div>
                         `;
-                             </svg >
-                        </div >
-                            <div>
-                                <!-- Smaller text -->
-                                <p class="text-sm font-bold text-slate-800 dark:text-white capitalize">${item.descricao}</p>
-                                <p class="text-[10px] text-slate-400 flex items-center gap-1">
-                                    <span class="w-1.5 h-1.5 rounded-full bg-slate-300"></span>
-                                    ${item.categoria} ${item.conta ? `• ${item.conta}` : ''}
-                                </p>
-                            </div>
+
+                        <div>
+                            <!-- Smaller text -->
+                            <p class="text-sm font-bold text-slate-800 dark:text-white capitalize">${item.descricao}</p>
+                            <p class="text-[10px] text-slate-400 flex items-center gap-1">
+                                <span class="w-1.5 h-1.5 rounded-full bg-slate-300"></span>
+                                ${item.categoria} ${item.conta ? `• ${item.conta}` : ''}
+                            </p>
+                        </div>
                     </div >
                     
                     <div class="flex items-center gap-3">
