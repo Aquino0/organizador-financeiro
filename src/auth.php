@@ -75,6 +75,8 @@ function requireAuth()
         $_SESSION['user_name'] = $user['nome'];
         $_SESSION['role'] = $user['role'];
     }
+    // Release session lock immediately to prevent blocking requests
+    session_write_close();
 }
 
 function requireAdmin()
