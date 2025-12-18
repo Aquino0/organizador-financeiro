@@ -26,8 +26,10 @@ if ($method === 'GET') {
     $stmt->execute([$user_id]);
     $all = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-    $receitas = array_filter($all, fn($c) => $c['tipo'] === 'receita');
-    $despesas = array_filter($all, fn($c) => $c['tipo'] === 'despesa');
+    $receitas = array_filter($all, function ($c) {
+        return $c['tipo'] === 'receita'; });
+    $despesas = array_filter($all, function ($c) {
+        return $c['tipo'] === 'despesa'; });
 
     jsonResponse([
         'receitas' => array_values($receitas),
