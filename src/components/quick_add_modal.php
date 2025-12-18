@@ -1,14 +1,14 @@
-<div id="quickAddModal"
+<div id="globalAddModal"
     class="fixed inset-0 bg-black/70 backdrop-blur-sm z-[100] hidden flex items-center justify-center p-4 opacity-0 transition-opacity duration-300"
     style="font-family: 'Inter', sans-serif;">
 
     <!-- Modal Card -->
     <!-- Removed overflow-hidden from here to allow button to hang out -->
     <div class="bg-[#1e293b] rounded-3xl shadow-2xl w-full max-w-md transform scale-95 transition-transform duration-300 relative border border-slate-700/50"
-        id="quickAddModalContent">
+        id="globalAddModalContent">
 
         <!-- Close Button -->
-        <button onclick="closeQuickAddModal()"
+        <button onclick="closeGlobalAddModal()"
             class="absolute top-5 right-5 text-slate-400 hover:text-white transition-colors z-10">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
                 stroke="currentColor" stroke-width="2">
@@ -18,16 +18,16 @@
 
         <!-- Added pb-12 to give space for the button visually if needed, but the button uses negative margin -->
         <div class="p-6 pt-8 pb-10">
-            <h2 id="quickModalTitle" class="text-xl font-bold text-white mb-6">Novo Lançamento</h2>
+            <h2 id="globalModalTitle" class="text-xl font-bold text-white mb-6">Novo Lançamento</h2>
 
-            <form id="quickAddForm" onsubmit="submitQuickAdd(event)">
-                <input type="hidden" name="id" id="quickAddId">
+            <form id="globalAddForm" onsubmit="submitGlobalAdd(event)">
+                <input type="hidden" name="id" id="globalAddId">
 
                 <!-- Type Selection (Radio) -->
                 <div class="flex items-center gap-6 mb-6">
                     <label class="group cursor-pointer flex items-center gap-2">
                         <input type="radio" name="tipo" value="despesa" class="peer sr-only" checked
-                            onchange="handleTypeChange('despesa')">
+                            onchange="handleGlobalTypeChange('despesa')">
                         <div
                             class="w-5 h-5 rounded-full border-2 border-slate-400 peer-checked:border-[#ef4444] peer-checked:bg-[#ef4444] transition-all relative">
                         </div>
@@ -36,7 +36,7 @@
 
                     <label class="group cursor-pointer flex items-center gap-2">
                         <input type="radio" name="tipo" value="receita" class="peer sr-only"
-                            onchange="handleTypeChange('receita')">
+                            onchange="handleGlobalTypeChange('receita')">
                         <div
                             class="w-5 h-5 rounded-full border-2 border-slate-400 peer-checked:border-[#22c55e] peer-checked:bg-[#22c55e] transition-all relative">
                         </div>
@@ -89,7 +89,7 @@
                         <label
                             class="block text-xs font-bold text-slate-400 mb-1.5 uppercase tracking-wide">Categoria</label>
                         <div class="relative">
-                            <select name="categoria" id="quickCategorySelect" required
+                            <select name="categoria" id="globalCategorySelect" required
                                 class="w-full bg-[#334155] text-white border border-green-500 rounded-lg px-4 py-3 focus:outline-none focus:ring-1 focus:ring-green-500 appearance-none font-medium text-sm truncate">
                                 <option value="">Carregando...</option>
                             </select>
@@ -108,12 +108,12 @@
                 <!-- Status Toggle (Paid) -->
                 <div class="flex justify-end mb-8">
                     <div class="bg-[#334155] rounded-full px-4 py-2 flex items-center gap-3 border border-slate-600">
-                        <span class="text-slate-300 text-sm font-medium">Status: <span id="statusLabel"
+                        <span class="text-slate-300 text-sm font-medium">Status: <span id="globalStatusLabel"
                                 class="text-white font-bold">A Pagar</span></span>
 
                         <label class="relative inline-flex items-center cursor-pointer">
-                            <input type="checkbox" name="pago" class="sr-only peer" id="statusCheckbox"
-                                onchange="toggleStatusLabel()">
+                            <input type="checkbox" name="pago" class="sr-only peer" id="globalStatusCheckbox"
+                                onchange="toggleGlobalStatusLabel()">
                             <div
                                 class="w-11 h-6 bg-slate-600 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-green-500">
                             </div>
@@ -124,9 +124,9 @@
                 <!-- Extra Options (Circular Buttons) -->
                 <div class="flex justify-between px-4 mb-8">
                     <!-- Repeat Button -->
-                    <button type="button" onclick="toggleRepeat()" class="flex flex-col items-center gap-2 group">
+                    <button type="button" onclick="toggleGlobalRepeat()" class="flex flex-col items-center gap-2 group">
                         <div class="w-12 h-12 rounded-full border border-slate-600 flex items-center justify-center text-slate-400 group-hover:border-blue-500 group-hover:text-blue-500 transition-colors"
-                            id="btnRepeatCircle">
+                            id="btnGlobalRepeatCircle">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
                                 stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -137,9 +137,9 @@
                     </button>
 
                     <!-- Obs Button -->
-                    <button type="button" onclick="toggleObs()" class="flex flex-col items-center gap-2 group">
+                    <button type="button" onclick="toggleGlobalObs()" class="flex flex-col items-center gap-2 group">
                         <div class="w-12 h-12 rounded-full border border-slate-600 flex items-center justify-center text-slate-400 group-hover:border-blue-500 group-hover:text-blue-500 transition-colors"
-                            id="btnObsCircle">
+                            id="btnGlobalObsCircle">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
                                 stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -179,14 +179,14 @@
                 <!-- Hidden Fields Container -->
                 <div id="hiddenFields" class="space-y-4 mb-6">
                     <!-- Obs Field -->
-                    <div id="quickObsField" class="hidden">
+                    <div id="globalObsField" class="hidden">
                         <textarea name="observacao" rows="2"
                             class="w-full bg-[#334155] text-white border border-slate-600 rounded-lg px-4 py-2 focus:outline-none focus:border-blue-500 text-sm"
                             placeholder="Observações adicionais..."></textarea>
                     </div>
 
                     <!-- Repeat Field -->
-                    <div id="quickRepeatField" class="hidden">
+                    <div id="globalRepeatField" class="hidden">
                         <div class="bg-[#334155] p-3 rounded-lg border border-slate-600">
                             <label class="block text-xs font-bold text-slate-400 mb-2 uppercase tracking-wide">Repetir
                                 Lançamento</label>
@@ -206,8 +206,8 @@
 
                 <!-- Done Button (Floating Check) -->
                 <div class="flex justify-center -mb-24 relative z-20">
-                    <button type="button" onclick="document.getElementById('quickAddForm').requestSubmit()"
-                        id="btnQuickSave"
+                    <button type="button" onclick="document.getElementById('globalAddForm').requestSubmit()"
+                        id="btnGlobalSave"
                         class="w-20 h-20 rounded-full bg-[#22c55e] hover:bg-green-600 text-white shadow-lg shadow-green-500/50 flex items-center justify-center transition-transform hover:scale-110 active:scale-95 disabled:opacity-75 disabled:cursor-not-allowed border-8 border-[#1e293b]">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24"
                             stroke="currentColor" stroke-width="3">
@@ -221,66 +221,68 @@
 </div>
 
 <script>
-    // Quick Add Logic
-    function openQuickAddModal() {
+    // Quick Add Logic (Global)
+    function openGlobalAddModal() {
         try {
-            console.log('Opening Quick Add Modal...');
-            const modal = document.getElementById('quickAddModal');
+            console.log('Opening Global Add Modal...');
+            // Force reset any stuck state
+            const modal = document.getElementById('globalAddModal');
             if (!modal) {
-                alert('Erro: Modal não encontrado no DOM.');
+                alert('Erro Fatal: Modal global não encontrado.');
                 return;
             }
 
-            const dateInput = document.querySelector('#quickAddForm input[name="data"]');
-
+            const dateInput = document.querySelector('#globalAddForm input[name="data"]');
+            
             // Default to today
             if (dateInput && !dateInput.value) {
                 dateInput.value = new Date().toISOString().split('T')[0];
             }
 
             // Load Categories
-            const typeInput = document.querySelector('#quickAddForm input[name="tipo"]:checked');
+            const typeInput = document.querySelector('#globalAddForm input[name="tipo"]:checked');
             if (typeInput) {
                 const type = typeInput.value;
-                loadQuickCats(type);
+                loadGlobalCats(type);
             } else {
                 console.warn('Nenhum tipo selecionado');
+                loadGlobalCats('despesa'); // Default
             }
 
             modal.classList.remove('hidden');
             setTimeout(() => {
                 modal.classList.remove('opacity-0');
-                document.getElementById('quickAddModalContent').classList.remove('scale-95');
-                document.getElementById('quickAddModalContent').classList.add('scale-100');
+                document.getElementById('globalAddModalContent').classList.remove('scale-95');
+                document.getElementById('globalAddModalContent').classList.add('scale-100');
             }, 10);
         } catch (e) {
             console.error(e);
-            alert('Erro ao abrir modal: ' + e.message);
+            alert('Erro ao abrir modal global: ' + e.message);
         }
     }
 
-    function closeQuickAddModal() {
-        const modal = document.getElementById('quickAddModal');
+    function closeGlobalAddModal() {
+        const modal = document.getElementById('globalAddModal');
         modal.classList.add('opacity-0');
-        document.getElementById('quickAddModalContent').classList.remove('scale-100');
-        document.getElementById('quickAddModalContent').classList.add('scale-95');
+        document.getElementById('globalAddModalContent').classList.remove('scale-100');
+        document.getElementById('globalAddModalContent').classList.add('scale-95');
         setTimeout(() => {
             modal.classList.add('hidden');
             // Reset form partly
-            document.querySelector('#quickAddForm input[name="descricao"]').value = '';
-            document.querySelector('#quickAddForm input[name="valor"]').value = '';
-
+            document.querySelector('#globalAddForm input[name="descricao"]').value = '';
+            document.querySelector('#globalAddForm input[name="valor"]').value = '';
+            
             // Reset toggles
-            document.getElementById('quickObsField').classList.add('hidden');
-            document.getElementById('quickRepeatField').classList.add('hidden');
-            document.getElementById('btnObsCircle').classList.remove('border-blue-500', 'text-blue-500');
-            document.getElementById('btnRepeatCircle').classList.remove('border-blue-500', 'text-blue-500');
+            document.getElementById('globalObsField').classList.add('hidden');
+            document.getElementById('globalRepeatField').classList.add('hidden');
+            document.getElementById('btnGlobalObsCircle').classList.remove('border-blue-500', 'text-blue-500');
+            document.getElementById('btnGlobalRepeatCircle').classList.remove('border-blue-500', 'text-blue-500');
         }, 300);
     }
 
-    function toggleObs() {
-        const field = document.getElementById('quickObsField');
-        const btn = document.getElementById('btnObsCircle');
+    function toggleGlobalObs() {
+        const field = document.getElementById('globalObsField');
+        const btn = document.getElementById('btnGlobalObsCircle');
 
         field.classList.toggle('hidden');
         if (!field.classList.contains('hidden')) {
@@ -290,9 +292,9 @@
         }
     }
 
-    function toggleRepeat() {
-        const field = document.getElementById('quickRepeatField');
-        const btn = document.getElementById('btnRepeatCircle');
+    function toggleGlobalRepeat() {
+        const field = document.getElementById('globalRepeatField');
+        const btn = document.getElementById('btnGlobalRepeatCircle');
 
         field.classList.toggle('hidden');
         if (!field.classList.contains('hidden')) {
@@ -302,19 +304,19 @@
         }
     }
 
-    async function loadQuickCats(type) {
-        const select = document.getElementById('quickCategorySelect');
+    async function loadGlobalCats(type) {
+        const select = document.getElementById('globalCategorySelect');
         select.innerHTML = '<option value="">Carregando...</option>';
 
         // Hardcoded Fallback (in case API fails consistently)
         const defaults = ['Alimentação', 'Transporte', 'Lazer', 'Saúde', 'Moradia', 'Educação', 'Outros'];
 
         try {
-            console.log('Fetching categories for:', type);
+            console.log('Fetching categories for (Global):', type);
             // Added credentials: include to ensure session cookies are passed
             const response = await fetch('api/categories.php', { credentials: 'include' });
             
-            // Debug: Check text before JSON if needed, but let's try standard flow with alert on error
+            // Debug: Check text before JSON if needed
             if (!response.ok) throw new Error(`HTTP Error ${response.status}`);
             
             const text = await response.text();
@@ -322,36 +324,35 @@
                 var data = JSON.parse(text);
             } catch (e) {
                 console.error('JSON Parse Error:', text);
-                throw new Error('Resposta inválida do servidor (não é JSON). Veja console.');
+                throw new Error('Erro JSON: ' + text.substring(0, 50));
             }
-            console.log('Categories Loaded:', data);
+            console.log('Categories Loaded (Global):', data);
 
             // API returns { receitas: [], despesas: [] }
-            // Ensure we handle case where keys might be missing
             let categories = [];
             if (data && type === 'receita') {
-                categories = data.receitas || [];
+                 categories = data.receitas || [];
             } else if (data) {
-                categories = data.despesas || [];
+                 categories = data.despesas || [];
             }
 
             select.innerHTML = '';
-
+            
             if (!categories || categories.length === 0) {
-                // Use Fallback if empty (better UX than just "Outros")
-                if (type === 'despesa') {
-                    defaults.forEach(cat => {
+                 // Use Fallback if empty
+                 if (type === 'despesa') {
+                     defaults.forEach(cat => {
                         const opt = document.createElement('option');
                         opt.value = cat;
                         opt.textContent = cat;
                         select.appendChild(opt);
-                    });
-                } else {
-                    const opt = document.createElement('option');
-                    opt.value = 'Outros';
-                    opt.textContent = 'Geral (Sem categorias)';
-                    select.appendChild(opt);
-                }
+                     });
+                 } else {
+                     const opt = document.createElement('option');
+                     opt.value = 'Outros';
+                     opt.textContent = 'Geral (Sem categorias)';
+                     select.appendChild(opt);
+                 }
             } else {
                 categories.forEach(cat => {
                     const opt = document.createElement('option');
@@ -361,15 +362,15 @@
                 });
             }
         } catch (e) {
-            console.error('Erro ao carregar categorias:', e);
+            console.error('Erro ao carregar categorias (Global):', e);
             select.innerHTML = '<option value="Outros">Erro (Usando Geral)</option>';
         }
     }
 
-    function toggleStatusLabel() {
-        const type = document.querySelector('#quickAddForm input[name="tipo"]:checked').value;
-        const paid = document.getElementById('statusCheckbox').checked;
-        const label = document.getElementById('statusLabel');
+    function toggleGlobalStatusLabel() {
+        const type = document.querySelector('#globalAddForm input[name="tipo"]:checked').value;
+        const paid = document.getElementById('globalStatusCheckbox').checked;
+        const label = document.getElementById('globalStatusLabel');
 
         if (paid) {
             label.textContent = type === 'receita' ? 'Recebido' : 'Pago';
@@ -382,14 +383,14 @@
         }
     }
 
-    function handleTypeChange(type) {
-        loadQuickCats(type);
-        toggleStatusLabel();
+    function handleGlobalTypeChange(type) {
+        loadGlobalCats(type);
+        toggleGlobalStatusLabel();
     }
 
-    async function submitQuickAdd(e) {
+    async function submitGlobalAdd(e) {
         e.preventDefault();
-        const btn = document.getElementById('btnQuickSave');
+        const btn = document.getElementById('btnGlobalSave');
         const orgText = btn.innerHTML;
         // btn.innerHTML = '...'; // Icon is complex, just disable opacity
         btn.classList.add('opacity-50', 'cursor-not-allowed');
@@ -397,7 +398,7 @@
 
         const formData = new FormData(e.target);
 
-        const isPaid = document.getElementById('statusCheckbox').checked;
+        const isPaid = document.getElementById('globalStatusCheckbox').checked;
         formData.set('pago', isPaid ? '1' : '0');
 
         const data = Object.fromEntries(formData.entries());
@@ -427,7 +428,7 @@
                     alert('Salvo com sucesso!');
                 }
 
-                closeQuickAddModal();
+                closeGlobalAddModal();
             } else {
                 if (typeof showToast === 'function') {
                     showToast('Erro: ' + (result.error || 'Erro desconhecido'), 'error');
@@ -449,7 +450,7 @@
     }
 
     // Close on background click
-    document.getElementById('quickAddModal').addEventListener('click', (e) => {
-        if (e.target === document.getElementById('quickAddModal')) closeQuickAddModal();
+    document.getElementById('globalAddModal').addEventListener('click', (e) => {
+        if (e.target === document.getElementById('globalAddModal')) closeGlobalAddModal();
     });
 </script>
