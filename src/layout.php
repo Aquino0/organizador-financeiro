@@ -651,7 +651,7 @@ function renderFooter()
 
                 <!-- FAB Button (Center) -->
                 <div class="relative -top-5">
-                    <button onclick="openQuickAddModal()"
+                    <button onclick="openGlobalAddModal()"
                         class="flex items-center justify-center w-14 h-14 rounded-full bg-blue-600 dark:bg-blue-500 text-white shadow-lg shadow-blue-600/30 hover:bg-blue-700 dark:hover:bg-blue-600 transition-all transform hover:scale-105 active:scale-95">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24"
                             stroke="currentColor">
