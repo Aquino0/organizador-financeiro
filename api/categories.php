@@ -10,7 +10,7 @@ $method = $_SERVER['REQUEST_METHOD'];
 
 // GET: List Categories
 if ($method === 'GET') {
-    file_put_contents('/Users/aquino/Desktop/CRM FINANCEIRO/debug_log.txt', "API Categories HIT. UserID: " . $user_id . "\n", FILE_APPEND);
+    // Debug logging removed for production compatibility
 
     // Include total usage sum for each category
     $stmt = $pdo->prepare("
@@ -67,7 +67,7 @@ if ($method === 'POST') {
 // PUT: Update Category (Name, Color, Order)
 if ($method === 'PUT') {
     $data = json_decode(file_get_contents('php://input'), true);
-    file_put_contents('/tmp/debug_crm.txt', "Time: " . date('Y-m-d H:i:s') . "\nUser: $user_id\nData: " . print_r($data, true) . "\n", FILE_APPEND);
+    // Logging removed
     // Batch update order?
     if (isset($data['order']) && is_array($data['order'])) {
         // Expects [{id: 1, ordem: 0}, {id: 2, ordem: 1}]

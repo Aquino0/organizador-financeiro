@@ -79,7 +79,9 @@ renderHeader('Configurações');
             renderList('listDespesas', data.despesas || [], 'despesa');
         } catch (e) {
             console.error(e);
-            alert('Erro ao carregar categorias: ' + e.message);
+            // Show first 100 chars of response to help debug
+            const errorPreview = (e.message || '').replace('Erro ao processar resposta do servidor.', '');
+             alert('Erro ao carregar categorias. Detalhes: ' + errorPreview.substring(0, 100));
         }
     }
 
