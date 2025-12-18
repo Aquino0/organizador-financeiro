@@ -834,35 +834,79 @@ renderHeader('Lançamentos');
                         el.className = 'animate-slide-in';
                         el.style.animationDelay = `${index * 0.05}s`; // 50ms stagger
 
-                        // Compact: py-3 px-4 instead of p-4
-                        el.innerHTML = `
-                <div class="bg-white dark:bg-slate-800 py-3 px-4 rounded-xl shadow-sm flex justify-between items-center transition-transform hover:scale-[1.005] group border border-slate-100 dark:border-slate-700 relative">
-                    
-                    <!-- Selection Checkbox -->
-                    <div class="selection-checkbox hidden mr-3">
-                        <input type="checkbox" class="w-5 h-5 rounded border-slate-300 text-red-500 focus:ring-red-500" 
-                            onchange="updateSelection()" 
-                            data-id="${item.id}" data-tipo="${item.tipo}">
-                    </div>
+                        // Swipe Logic Container
+                        el.className = 'animate-slide-in relative overflow-hidden rounded-xl mb-2 touch-pan-y'; // Added touch-pan-y
+                        el.style.animationDelay = `${index * 0.05}s`;
 
-                    <div class="flex items-center gap-3 flex-grow cursor-pointer" onclick='handleItemClick(event, ${JSON.stringify(item).replace(/'/g, "&#39;")})'>
-                        <!-- Smaller Icon: h-8 w-8 -->
-                        <div class="h-8 w-8 rounded-full ${iconBg} flex items-center justify-center flex-shrink-0">
-                             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                 ${isReceita
+                        // Structure: 
+                        // [Background Actions (Absolute)]
+                        // [Foreground Content (Relative, Swipeable)]
+
+                        el.innerHTML = `
+                            <!-- Background Actions -->
+                            <div class="swipe-actions absolute inset-0 flex justify-between items-center px-4 rounded-xl opacity-0 transition-opacity">
+                                <!-- Left Action (Edit/Blue) - Hidden initially, shown on swipe right -->
+                                <div class="action-left flex items-center gap-2 text-white font-bold bg-blue-500 absolute inset-y-0 left-0 pl-4 pr-12 rounded-l-xl -z-10 w-1/2 transform -translate-x-full transition-transform">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                        <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
+                                    </svg>
+                                    <span>Editar</span>
+                                </div>
+                                
+                                <!-- Right Action (Delete/Red) - Hidden initially, shown on swipe left -->
+                                <div class="action-right flex items-center justify-end gap-2 text-white font-bold bg-red-500 absolute inset-y-0 right-0 pr-4 pl-12 rounded-r-xl -z-10 w-1/2 transform translate-x-full transition-transform">
+                                    <span>Excluir</span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
+                                    </svg>
+                                </div>
+                            </div>
+
+                            <!-- Foreground Content -->
+                            <div class="swipe-content bg-white dark:bg-slate-800 py-3 px-4 rounded-xl shadow-sm flex justify-between items-center transition-transform hover:scale-[1.005] group border border-slate-100 dark:border-slate-700 relative z-10"
+                                ontouchstart="handleSwipeStart(event)"
+                                ontouchmove="handleSwipeMove(event)"
+                                ontouchend="handleSwipeEnd(event, ${item.id}, '${item.tipo}', this)"
+                                onclick="handleItemClick(event, ${JSON.stringify(item).replace(/'/g, "&#39;")})">
+                                
+                                <div class="flex items-center gap-3 flex-grow cursor-pointer user-select-none">
+                                    <!-- Smaller Icon: h-8 w-8 -->
+                                    <div class="h-8 w-8 rounded-full ${iconBg} flex items-center justify-center flex-shrink-0">
+                                         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                             ${isReceita
                                 ? '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />'
                                 : '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />'}
-                             </svg>
-                        </div>
-                        <div>
-                            <!-- Smaller text -->
-                            <p class="text-sm font-bold text-slate-800 dark:text-white capitalize">${item.descricao}</p>
-                            <p class="text-[10px] text-slate-400 flex items-center gap-1">
-                                <span class="w-1.5 h-1.5 rounded-full bg-slate-300"></span>
-                                ${item.categoria} ${item.conta ? `• ${item.conta}` : ''}
-                            </p>
-                        </div>
-                    </div>
+                                         </svg>
+                                    </div>
+                                    <div class="min-w-0">
+                                        <p class="font-medium text-slate-800 dark:text-white truncate text-sm">${item.descricao}</p>
+                                        <p class="text-[10px] text-slate-500 dark:text-slate-400 truncate">${item.categoria || 'Geral'} • ${item.conta}</p>
+                                    </div>
+                                </div>
+
+                                <div class="flex flex-col items-end gap-1 ml-4 cursor-pointer">
+                                    <span class="font-bold text-sm whitespace-nowrap ${isReceita ? 'text-green-600' : 'text-slate-800 dark:text-white'}">
+                                        ${isReceita ? '+ ' : '- '}R$ ${formattedVal}
+                                    </span>
+                                    <div class="h-5 w-5 flex items-center justify-center ${statusColor}" title="${isPaid ? 'Pago/Recebido' : 'Pendente'}">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            ${statusIcon}
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                             </svg >
+                        </div >
+                            <div>
+                                <!-- Smaller text -->
+                                <p class="text-sm font-bold text-slate-800 dark:text-white capitalize">${item.descricao}</p>
+                                <p class="text-[10px] text-slate-400 flex items-center gap-1">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-slate-300"></span>
+                                    ${item.categoria} ${item.conta ? `• ${item.conta}` : ''}
+                                </p>
+                            </div>
+                    </div >
                     
                     <div class="flex items-center gap-3">
                         <div class="text-right cursor-pointer" onclick='handleItemClick(event, ${JSON.stringify(item).replace(/'/g, "&#39;")})'>
@@ -871,15 +915,15 @@ renderHeader('Lançamentos');
                              </p>
                         </div>
                         
-                        <!-- Status Toggle Button (Smaller padding) -->
-                        <button onclick="toggleStatus(${item.id}, '${item.tipo}', event)" class="p-1.5 rounded-full hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors ${statusColor}" title="${isPaid ? 'Marcar como Não Pago' : 'Marcar como Pago'}">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="${isPaid ? 'currentColor' : 'none'}" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                ${statusIcon}
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-                `;
+                        <!--Status Toggle Button(Smaller padding)-- >
+                            <button onclick="toggleStatus(${item.id}, '${item.tipo}', event)" class="p-1.5 rounded-full hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors ${statusColor}" title="${isPaid ? 'Marcar como Não Pago' : 'Marcar como Pago'}">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="${isPaid ? 'currentColor' : 'none'}" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    ${statusIcon}
+                                </svg>
+                            </button>
+                    </div >
+                </div >
+                            `;
                         itemsCol.appendChild(el.firstElementChild);
                     });
 
@@ -904,14 +948,14 @@ renderHeader('Lançamentos');
                     : '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />';
 
                 document.getElementById('modalIcon').innerHTML = iconSvg;
-                document.getElementById('modalIconBg').className = `h-20 w-20 rounded-full flex items-center justify-center mb-4 shadow-sm transition-colors duration-300 ${isReceita ? 'bg-green-500' : 'bg-red-500'}`;
+                document.getElementById('modalIconBg').className = `h - 20 w - 20 rounded - full flex items - center justify - center mb - 4 shadow - sm transition - colors duration - 300 ${ isReceita ? 'bg-green-500' : 'bg-red-500' } `;
 
                 // Texts
                 document.getElementById('modalDesc').textContent = item.descricao;
                 const formattedVal = val.toLocaleString('pt-BR', { minimumFractionDigits: 2 });
                 const valEl = document.getElementById('modalValue');
                 valEl.textContent = (isReceita ? '+' : '-') + 'R$ ' + formattedVal;
-                valEl.className = `text-3xl font-bold mb-8 ${isReceita ? 'text-green-500' : 'text-slate-800 dark:text-white'}`;
+                valEl.className = `text - 3xl font - bold mb - 8 ${ isReceita ? 'text-green-500' : 'text-slate-800 dark:text-white' } `;
 
                 // Details
                 document.getElementById('modalCategory').textContent = item.categoria || '--';
@@ -919,7 +963,7 @@ renderHeader('Lançamentos');
 
                 // Format Date DD/MM/YYYY
                 const [y, m, d] = item.data.split('-');
-                document.getElementById('modalDate').textContent = `${d}/${m}/${y}`;
+                document.getElementById('modalDate').textContent = `${ d } /${m}/${ y } `;
 
                 document.getElementById('modalTags').textContent = '--'; // Assuming tags are not in item object yet
                 document.getElementById('modalAttachment').textContent = '--'; // Assuming attachment is not in item object yet
@@ -968,7 +1012,7 @@ renderHeader('Lançamentos');
                 // Context-aware default: If filtered by type, default to that type
                 if (filterState.tipo === 'receita' || filterState.tipo === 'despesa') {
                     currentType = filterState.tipo;
-                    const radio = document.querySelector(`input[name="tipo"][value="${currentType}"]`);
+                    const radio = document.querySelector(`input[name = "tipo"][value = "${currentType}"]`);
                     if (radio) radio.checked = true;
                 }
 
@@ -1223,7 +1267,7 @@ renderHeader('Lançamentos');
                 // Change title to "Duplicando [tipo]" to match image style slightly better or keep "Novo Lançamento (Cópia)"
                 // Image said "Duplicando despesa".
                 const typeLabel = currentItem.tipo === 'receita' ? 'Receita' : 'Despesa';
-                document.getElementById('modalTitle').textContent = `Duplicando ${typeLabel}`;
+                document.getElementById('modalTitle').textContent = `Duplicando ${ typeLabel } `;
 
                 document.getElementById('editId').value = ''; // Empty ID = Create New
 
@@ -1290,6 +1334,126 @@ renderHeader('Lançamentos');
                 } catch (e) {
                     console.error(e);
                     addNotification('Erro', 'Erro ao alterar status', 'error');
+                }
+            }
+
+            // --- Swipe Logic ---
+            let touchStartX = 0;
+            let touchStartY = 0;
+            let currentSwipeEl = null;
+            let currentActionsEl = null;
+            
+            function handleSwipeStart(e) {
+                touchStartX = e.touches[0].clientX;
+                touchStartY = e.touches[0].clientY;
+                currentSwipeEl = e.currentTarget;
+                currentActionsEl = currentSwipeEl.parentElement.querySelector('.swipe-actions');
+                
+                // Remove transition during drag for responsiveness
+                currentSwipeEl.style.transition = 'none';
+            }
+            
+            function handleSwipeMove(e) {
+                if (!currentSwipeEl) return;
+                
+                const touchX = e.touches[0].clientX;
+                const touchY = e.touches[0].clientY;
+                const deltaX = touchX - touchStartX;
+                const deltaY = touchY - touchStartY;
+                
+                // If scrolling vertically, ignore horizontal swipe
+                if (Math.abs(deltaY) > Math.abs(deltaX)) return;
+                
+                // Prevent page scroll if swiping horizontally
+                if (Math.abs(deltaX) > 10) e.preventDefault();
+                
+                // Limit swipe distance
+                if (Math.abs(deltaX) > 150) {
+                     return; 
+                }
+                
+                currentSwipeEl.style.transform = `translateX(${ deltaX }px)`;
+                
+                // Show actions background
+                if (currentActionsEl) {
+                    currentActionsEl.style.opacity = Math.min(Math.abs(deltaX) / 100, 1);
+                    
+                    if (deltaX > 0) { // Swiping Right (Edit)
+                        currentActionsEl.querySelector('.action-left').style.transform = `translateX(0)`;
+                        currentActionsEl.querySelector('.action-right').style.transform = `translateX(100 %)`;
+                    } else { // Swiping Left (Delete)
+                        currentActionsEl.querySelector('.action-left').style.transform = `translateX(-100 %)`;
+                        currentActionsEl.querySelector('.action-right').style.transform = `translateX(0)`;
+                    }
+                }
+            }
+            
+            function handleSwipeEnd(e, id, tipo, element) {
+                if (!currentSwipeEl) return;
+                
+                const touchX = e.changedTouches[0].clientX;
+                const deltaX = touchX - touchStartX;
+                
+                // Restore transition
+                currentSwipeEl.style.transition = 'transform 0.3s ease-out';
+                
+                // Threshold for action
+                const threshold = 80;
+                
+                if (deltaX > threshold) {
+                    // Trigger Edit
+                    // Find actual item data from allLancamentos
+                    const item = allLancamentos.find(i => i.id == id && i.tipo === tipo);
+                    if (item) openDetailModal(item); // Or dedicated edit
+                    
+                    // Reset visual
+                    setTimeout(() => {
+                        currentSwipeEl.style.transform = 'translateX(0)';
+                         if (currentActionsEl) currentActionsEl.style.opacity = '0';
+                    }, 100);
+                    
+                } else if (deltaX < -threshold) {
+                    // Trigger Delete
+                    if(confirm('Excluir este item?')) {
+                        // Optimistic delete
+                        const item = { id, tipo };
+                        /* Since we don't have direct access to 'item' object here for deleteCurrentItem logic reuse, 
+                           we can call delete API directly or mocked delete function. */
+                        deleteItemById(id, tipo);
+                    }
+                    
+                    // Reset visual (will be removed if deleted, but if cancelled...)
+                    currentSwipeEl.style.transform = 'translateX(0)';
+                     if (currentActionsEl) currentActionsEl.style.opacity = '0';
+                    
+                } else {
+                    // Snap back
+                    currentSwipeEl.style.transform = 'translateX(0)';
+                    if (currentActionsEl) currentActionsEl.style.opacity = '0';
+                }
+                
+                currentSwipeEl = null;
+                currentActionsEl = null;
+            }
+            
+            async function deleteItemById(id, tipo) {
+                const endpoint = tipo === 'receita' ? 'api/delete_receita.php' : 'api/delete_despesa.php';
+                 try {
+                    const response = await fetch(endpoint, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ id })
+                    });
+                    const result = await response.json();
+                    if (result.success) {
+                        addNotification('Sucesso', 'Item excluído.', 'success');
+                        fetchLancamentos();
+                    } else {
+                        addNotification('Erro', 'Erro ao excluir.', 'error');
+                    }
+                } catch (e) {
+                    console.error(e);
+                    addNotification('Erro', 'Erro de conexão.', 'error');
                 }
             }
 
