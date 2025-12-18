@@ -40,29 +40,33 @@ function renderHeader($title = 'ORGANIZADOR FINANCEIRO')
 
         <link rel="manifest" href="manifest.json">
         <meta name="theme-color" content="#3b82f6">
-        .safe-area-bottom {
-        padding-bottom: env(safe-area-inset-bottom);
-        }
+        <style>
+            .safe-area-bottom {
+                padding-bottom: env(safe-area-inset-bottom);
+            }
 
-        body {
-        font-family: 'Outfit', sans-serif;
-        }
+            body {
+                font-family: 'Outfit', sans-serif;
+            }
 
-        /* Animations */
-        @keyframes slideInUp {
-        from {
-        opacity: 0;
-        transform: translateY(20px);
-        }
-        to {
-        opacity: 1;
-        transform: translateY(0);
-        }
-        }
-        .animate-slide-in {
-        animation: slideInUp 0.5s ease-out forwards;
-        opacity: 0; /* Init hidden */
-        }
+            /* Animations */
+            @keyframes slideInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(20px);
+                }
+
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            .animate-slide-in {
+                animation: slideInUp 0.5s ease-out forwards;
+                opacity: 0;
+                /* Init hidden */
+            }
         </style>
         <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     </head>
