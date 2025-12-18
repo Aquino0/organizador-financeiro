@@ -67,4 +67,3 @@ try {
     echo "Erro de conexão com Neon PostgreSQL: " . $e->getMessage();
     exit;
 }
-?>

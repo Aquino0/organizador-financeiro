@@ -96,4 +96,3 @@ function getCurrentUserId()
     $user = getAuthUser();
     return $user ? $user['id'] : null;
 }
-?>
