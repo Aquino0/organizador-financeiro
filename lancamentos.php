@@ -1341,7 +1341,7 @@ renderHeader('Lançamentos');
             updateMonthLabel();
             fetchLancamentos();
 
-// End of script
+        </script>
 
-    </div >
-                <?php renderFooter(); ?>
+    </div>
+    <?php renderFooter(); ?>
