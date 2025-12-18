@@ -897,33 +897,7 @@ renderHeader('Lançamentos');
                             </div>
                         `;
 
-                        <div>
-                            <!-- Smaller text -->
-                            <p class="text-sm font-bold text-slate-800 dark:text-white capitalize">${item.descricao}</p>
-                            <p class="text-[10px] text-slate-400 flex items-center gap-1">
-                                <span class="w-1.5 h-1.5 rounded-full bg-slate-300"></span>
-                                ${item.categoria} ${item.conta ? `• ${item.conta}` : ''}
-                            </p>
-                        </div>
-                    </div >
-                    
-                    <div class="flex items-center gap-3">
-                        <div class="text-right cursor-pointer" onclick='handleItemClick(event, ${JSON.stringify(item).replace(/'/g, "&#39;")})'>
-                             <p class="text-sm font-bold ${isReceita ? 'text-green-500' : 'text-slate-800 dark:text-white'}">
-                                 ${isReceita ? '+' : '-'}R$ ${formattedVal}
-                             </p>
-                        </div>
-                        
-                        <!--Status Toggle Button(Smaller padding)-- >
-                            <button onclick="toggleStatus(${item.id}, '${item.tipo}', event)" class="p-1.5 rounded-full hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors ${statusColor}" title="${isPaid ? 'Marcar como Não Pago' : 'Marcar como Pago'}">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="${isPaid ? 'currentColor' : 'none'}" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                    ${statusIcon}
-                                </svg>
-                            </button>
-                    </div >
-                </div >
-                            `;
-                        itemsCol.appendChild(el.firstElementChild);
+                        itemsCol.appendChild(el);
                     });
 
                     // Add summary at the bottom of the list for that day
