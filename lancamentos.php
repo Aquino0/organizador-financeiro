@@ -830,6 +830,10 @@ renderHeader('Lançamentos');
                             : '<path stroke-linecap="round" stroke-linejoin="round" d="M10 14H5.236a2 2 0 01-1.789-2.894l3.5-7A2 2 0 018.736 3h4.018a2 2 0 01.485.06l3.76.94m-7 10v5a2 2 0 002 2h.095c.5 0 .905-.405.905-.905 0-.714.211-1.412.608-2.006L17 13V4m-7 10h2m5-10h2a2 2 0 012 2v6a2 2 0 01-2 2h-2.5" />'; // Thumb Down
 
                         const el = document.createElement('div');
+                        // Add slide-in animation class with stagger
+                        el.className = 'animate-slide-in';
+                        el.style.animationDelay = `${index * 0.05}s`; // 50ms stagger
+
                         // Compact: py-3 px-4 instead of p-4
                         el.innerHTML = `
                 <div class="bg-white dark:bg-slate-800 py-3 px-4 rounded-xl shadow-sm flex justify-between items-center transition-transform hover:scale-[1.005] group border border-slate-100 dark:border-slate-700 relative">
