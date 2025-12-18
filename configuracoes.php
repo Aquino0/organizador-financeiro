@@ -64,20 +64,33 @@ renderHeader('Configurações');
 <script>
     async function loadCategories() {
         try {
-            const res = await fetch('api/categories.php');
-            const data = await res.json();
+            const res = await fetch('api/categories.php', { credentials: 'include' });
+            if (!res.ok) throw new Error(`HTTP Error ${res.status}`);
 
-            renderList('listReceitas', data.receitas, 'receita');
-            renderList('listDespesas', data.despesas, 'despesa');
+            const text = await res.text();
+            try {
+                var data = JSON.parse(text);
+            } catch (e) {
+                console.error('JSON Error:', text);
+                throw new Error('Erro ao processar resposta do servidor.');
+            }
+
+            renderList('listReceitas', data.receitas || [], 'receita');
+            renderList('listDespesas', data.despesas || [], 'despesa');
         } catch (e) {
             console.error(e);
-            alert('Erro ao carregar categorias');
+            alert('Erro ao carregar categorias: ' + e.message);
         }
     }
 
     function renderList(elementId, items, type) {
         const list = document.getElementById(elementId);
         list.innerHTML = '';
+
+        if (!items || items.length === 0) {
+            list.innerHTML = '<li class="text-slate-400 text-sm px-3">Nenhuma categoria encontrada.</li>';
+            return;
+        }
 
         items.forEach(cat => {
             const li = document.createElement('li');
@@ -104,7 +117,8 @@ renderHeader('Configurações');
             const res = await fetch('api/categories.php', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ nome, tipo: type })
+                body: JSON.stringify({ nome, tipo: type }),
+                credentials: 'include'
             });
             const result = await res.json();
 
@@ -116,6 +130,7 @@ renderHeader('Configurações');
             }
         } catch (e) {
             console.error(e);
+            alert('Erro de conexão ao adicionar.');
         }
     }
 
@@ -123,16 +138,20 @@ renderHeader('Configurações');
         if (!confirm('Excluir categoria?')) return;
 
         try {
-            const res = await fetch(`api/categories.php?id=${id}`, { method: 'DELETE' });
+            const res = await fetch(`api/categories.php?id=${id}`, {
+                method: 'DELETE',
+                credentials: 'include'
+            });
             const result = await res.json();
 
             if (result.success) {
                 loadCategories();
             } else {
-                alert('Erro ao excluir');
+                alert('Erro ao excluir: ' + (result.error || 'Desconhecido'));
             }
         } catch (e) {
             console.error(e);
+            alert('Erro de conexão ao excluir.');
         }
     }
 
