@@ -15,15 +15,17 @@
 * Email: `admin@empresa.com`
 * Senha: `admin123`
 
-## Passo 2: Configuração da Conexão
-1. Abra o arquivo `src/db.php`.
-2. Edite as variáveis de conexão conforme seu ambiente:
-   ```php
-   $host = 'localhost';
-   $db   = 'ia_finance_crm'; // Nome do banco criado
-   $user = 'seu_usuario';    // Usuário do banco
-   $pass = 'sua_senha';      // Senha do banco
+## Passo 2: Configuração da Conexão (.env)
+1. Na raiz do projeto, crie um arquivo chamado `.env`.
+2. Adicione sua string de conexão completa (exemplo para Neon/PostgreSQL ou MySQL Local):
    ```
+   DATABASE_URL=postgresql://user:pass@host/dbname?sslmode=require
+   ```
+   Ou para MySQL local:
+   ```
+   DATABASE_URL=mysql://root:senha@localhost:3306/ia_finance_crm
+   ```
+3. O arquivo `src/db.php` já está configurado para ler essa variável automaticamente.
 
 ## Passo 3: Deploy na Hospedagem (Ex: cPanel, Hostinger)
 1. Faça upload de todos os arquivos para a pasta pública (ex: `public_html`).
@@ -49,3 +51,13 @@ O sistema já está configurado como PWA. Para instalar no celular:
 * `/assets` - Imagens e ícones
 * `index.php` - Tela de Login
 * `dashboard.php` - Painel Principal
+
+## Passo 5: Publicando no GitHub
+1. Crie um novo repositório vazio no GitHub: https://github.com/new
+2. Não marque nenhuma opção (README, .gitignore, License).
+3. No seu terminal (ou aqui mesmo), execute:
+   ```bash
+   git remote add origin <URL_DO_SEU_REPOSITORIO>
+   git branch -M main
+   git push -u origin main
+   ```
