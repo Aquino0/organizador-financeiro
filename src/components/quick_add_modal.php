@@ -308,7 +308,7 @@
 
         try {
             // Fix: Use absolute path and handle object response
-            const response = await fetch('/api/categories.php');
+            const response = await fetch('api/categories.php');
             const data = await response.json();
 
             // API returns { receitas: [], despesas: [] }
