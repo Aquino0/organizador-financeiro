@@ -483,7 +483,7 @@ renderHeader('Lançamentos');
                 </button>
             </div>
         </div>
-
+        </form>
 
         <script>
             // --- Obs and Repetir Toggle             Logic ---
@@ -943,6 +943,41 @@ renderHeader('Lançamentos');
             }
 
             // --- Modal Functions (ADD / EDIT) ---
+            // --- Modal Functions (ADD / EDIT) ---
+
+            // Global helper to load categories
+            async function loadCats(type) {
+                const catSelect = document.querySelector('select[name="categoria"]');
+                // Don't wipe if we are just switching types and maybe already loaded? 
+                // Actually better to show loading state to be sure.
+                catSelect.innerHTML = '<option>Carregando...</option>';
+                
+                try {
+                    // Added credentials: include for Vercel
+                    const res = await fetch('api/categories.php', { credentials: 'include' });
+                    const data = await res.json();
+                    const items = type === 'receita' ? data.receitas : data.despesas;
+
+                    catSelect.innerHTML = '';
+                    if (!items || items.length === 0) {
+                        const opt = document.createElement('option');
+                        opt.value = 'Outros';
+                        opt.textContent = 'Geral';
+                        catSelect.appendChild(opt);
+                    } else {
+                        items.forEach(c => {
+                            const opt = document.createElement('option');
+                            opt.value = c.nome;
+                            opt.textContent = c.nome;
+                            catSelect.appendChild(opt);
+                        });
+                    }
+                } catch (e) {
+                    console.error(e);
+                    catSelect.innerHTML = '<option value="Geral">Geral (Erro)</option>';
+                }
+            }
+
             async function openAddModal() {
                 // Reset mode to ADD
                 document.getElementById('modalTitle').textContent = 'Novo Lançamento';
@@ -974,35 +1009,14 @@ renderHeader('Lançamentos');
                     currentType = 'despesa';
                 }
 
-                // Fetch Function
-                const loadCats = async (type) => {
-                    const catSelect = document.querySelector('select[name="categoria"]');
-                    catSelect.innerHTML = '<option>Carregando...</option>';
-                    try {
-                        const res = await fetch('api/categories.php');
-                        const data = await res.json();
-                        const items = type === 'receita' ? data.receitas : data.despesas;
-
-                        catSelect.innerHTML = '';
-                        items.forEach(c => {
-                            const opt = document.createElement('option');
-                            opt.value = c.nome;
-                            opt.textContent = c.nome;
-                            catSelect.appendChild(opt);
-                        });
-                    } catch (e) {
-                        console.error(e);
-                        catSelect.innerHTML = '<option value="Geral">Geral</option>';
-                    }
-                };
+                // Listen for type change to reload categories (Global listener, careful not to duplicate)
+                // Better to assign onclick in HTML or verify if already assigned.
+                typeInputs.forEach(input => {
+                    input.onclick = () => loadCats(input.value);
+                });
 
                 // Load initially
                 await loadCats(currentType);
-
-                // Listen for type change to reload categories
-                typeInputs.forEach(input => {
-                    input.onchange = () => loadCats(input.value);
-                });
 
                 const modal = document.getElementById('addModal');
                 modal.classList.remove('hidden');
@@ -1164,7 +1178,7 @@ renderHeader('Lançamentos');
                 }
             }
 
-            function editCurrentItem() {
+            async function editCurrentItem() {
                 if (!currentItem) return;
 
                 // 1. Close Detail Modal
@@ -1178,7 +1192,13 @@ renderHeader('Lançamentos');
                 const radios = document.getElementsByName('tipo');
                 for (let r of radios) {
                     if (r.value === currentItem.tipo) r.checked = true;
+                    // Ensure click listener is attached
+                    r.onclick = () => loadCats(r.value);
                 }
+
+                // Load categories and WAIT before setting value to ensure option exists
+                // We use currentItem.tipo to load separate tables
+                await loadCats(currentItem.tipo);
 
                 // Set Fields
                 document.querySelector('input[name="descricao"]').value = currentItem.descricao;
@@ -1227,12 +1247,15 @@ renderHeader('Lançamentos');
                 const radios = document.getElementsByName('tipo');
                 for (let r of radios) {
                     if (r.value === currentItem.tipo) r.checked = true;
+                     r.onclick = () => loadCats(r.value);
                 }
 
+                // Load categories and WAIT
+                await loadCats(currentItem.tipo);
+
                 // Set Fields
-                document.querySelector('input[name="descricao"]').value = currentItem.descricao + ' (Cópia)'; // Optional: add suffix or exact copy? Image showed "JACA" so exact copy usually.
-                // Let's remove (Cópia) to match "Exact Copy" request context usually implying "Clone this state"
                 document.querySelector('input[name="descricao"]').value = currentItem.descricao;
+                document.querySelector('input[name="descricao"]').value = currentItem.descricao; // Ensure it sticks
 
                 document.querySelector('input[name="valor"]').value = currentItem.valor;
                 document.querySelector('input[name="data"]').value = currentItem.data;
