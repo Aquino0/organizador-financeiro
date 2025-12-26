@@ -417,7 +417,13 @@
                 body: JSON.stringify(data),
                 credentials: 'include'
             });
-            const result = await response.json();
+            const text = await response.text();
+            try {
+                var result = JSON.parse(text);
+            } catch (jsonErr) {
+                console.error('JSON Error:', text);
+                throw new Error('Resposta inválida do servidor: ' + text.substring(0, 100)); // Show preview
+            }
 
             if (result.success) {
                 if (typeof loadDashboardData === 'function') loadDashboardData();
@@ -439,10 +445,10 @@
             }
         } catch (err) {
             console.error(err);
-            if (typeof showToast === 'function') {
-                showToast('Erro de conexão. Verifique internet.', 'error');
+             if (typeof showToast === 'function') {
+                showToast('Erro: ' + err.message, 'error');
             } else {
-                alert('Erro de conexão.');
+                alert('Erro: ' + err.message);
             }
         } finally {
             btn.classList.remove('opacity-50', 'cursor-not-allowed');

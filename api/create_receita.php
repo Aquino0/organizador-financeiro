@@ -59,4 +59,3 @@ try {
     }
     jsonResponse(['error' => 'Erro ao adicionar receita: ' . $e->getMessage()], 500);
 }
-?>

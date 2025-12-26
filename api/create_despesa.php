@@ -55,4 +55,3 @@ try {
     }
     jsonResponse(['error' => 'Erro ao adicionar despesa: ' . $e->getMessage()], 500);
 }
-?>
