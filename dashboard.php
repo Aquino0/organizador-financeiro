@@ -11,7 +11,7 @@ renderHeader('Dashboard');
     <!-- Month Selector -->
     <div class="flex items-center justify-center gap-4 mb-8">
         <button onclick="changeMonth(-1)"
-            class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300 transition-colors shadow-sm bg-white dark:bg-slate-700">
+            class="active-press p-3 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300 transition-colors shadow-sm bg-white dark:bg-slate-700">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
                 stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
@@ -19,12 +19,12 @@ renderHeader('Dashboard');
         </button>
 
         <h2 id="monthLabel"
-            class="text-2xl font-bold text-slate-800 dark:text-white capitalize min-w-[200px] text-center">
+            class="text-xl sm:text-2xl font-bold text-slate-800 dark:text-white capitalize min-w-[160px] text-center select-none">
             Carregando...
         </h2>
 
         <button onclick="changeMonth(1)"
-            class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300 transition-colors shadow-sm bg-white dark:bg-slate-700">
+            class="active-press p-3 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300 transition-colors shadow-sm bg-white dark:bg-slate-700">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
                 stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
@@ -141,7 +141,7 @@ renderHeader('Dashboard');
             <!-- Let's keep actions visible for instant interactivity, but add skeleton for ranking -->
             <div class="grid grid-cols-2 gap-4">
                 <a href="lancamentos.php"
-                    class="flex flex-col items-center justify-center p-4 bg-green-50 dark:bg-green-900/30 border border-green-200 dark:border-green-800 rounded-xl hover:bg-green-100 dark:hover:bg-green-900/50 transition cursor-pointer">
+                    class="active-press flex flex-col items-center justify-center p-4 bg-green-50 dark:bg-green-900/30 border border-green-200 dark:border-green-800 rounded-xl hover:bg-green-100 dark:hover:bg-green-900/50 transition cursor-pointer">
                     <div
                         class="w-10 h-10 rounded-full bg-green-500 flex items-center justify-center text-white mb-2 shadow-lg shadow-green-500/30">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
@@ -153,7 +153,7 @@ renderHeader('Dashboard');
                     <span class="font-medium text-green-700 dark:text-green-400">Nova Receita</span>
                 </a>
                 <a href="lancamentos.php"
-                    class="flex flex-col items-center justify-center p-4 bg-red-50 dark:bg-red-900/30 border border-red-200 dark:border-red-800 rounded-xl hover:bg-red-100 dark:hover:bg-red-900/50 transition cursor-pointer">
+                    class="active-press flex flex-col items-center justify-center p-4 bg-red-50 dark:bg-red-900/30 border border-red-200 dark:border-red-800 rounded-xl hover:bg-red-100 dark:hover:bg-red-900/50 transition cursor-pointer">
                     <div
                         class="w-10 h-10 rounded-full bg-red-500 flex items-center justify-center text-white mb-2 shadow-lg shadow-red-500/30">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"

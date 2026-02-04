@@ -11,6 +11,8 @@ function renderHeader($title = 'ORGANIZADOR FINANCEIRO')
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
         <title><?php echo $title; ?></title>
+        <link rel="icon" type="image/jpeg" href="assets/custom_logo.jpg">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
         <link rel="manifest" href="/manifest.json">
         <meta name="theme-color" content="#10b981">
         <meta name="apple-mobile-web-app-capable" content="yes">
@@ -47,6 +49,53 @@ function renderHeader($title = 'ORGANIZADOR FINANCEIRO')
 
             body {
                 font-family: 'Outfit', sans-serif;
+                -webkit-tap-highlight-color: transparent;
+            }
+
+            /* Mobile Fluidity Improvements */
+            html {
+                scroll-behavior: smooth;
+            }
+
+            button,
+            a,
+            input,
+            select,
+            textarea {
+                touch-action: manipulation;
+            }
+
+            /* Prevent auto-zoom on iOS inputs */
+            @media screen and (max-width: 768px) {
+
+                input,
+                select,
+                textarea {
+                    font-size: 16px !important;
+                }
+            }
+
+            /* Active State Animation (Press effect) */
+            .active-press:active {
+                transform: scale(0.96);
+                transition: transform 0.1s;
+            }
+
+            /* Smooth Fade In */
+            .fade-in {
+                animation: fadeIn 0.3s ease-out forwards;
+            }
+
+            @keyframes fadeIn {
+                from {
+                    opacity: 0;
+                    transform: translateY(5px);
+                }
+
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
             }
         </style>
     </head>
@@ -58,10 +107,10 @@ function renderHeader($title = 'ORGANIZADOR FINANCEIRO')
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between h-16 items-center">
                     <div class="flex items-center gap-2">
-                        <!-- logo removed -->
+                        <!-- Logo -->
+                        <img src="assets/custom_logo.jpg" alt="Logo" class="h-8 w-8 rounded-lg">
                         <a href="dashboard.php"
-                            class="font-bold text-xl tracking-tight text-slate-800 dark:text-white hover:opacity-80 transition-opacity">Organizador
-                            Financeiro</a>
+                            class="font-bold text-xl tracking-tight text-slate-800 dark:text-white hover:opacity-80 transition-opacity">Organiza+</a>
                     </div>
                     <!-- Topbar Actions -->
                     <div class="flex items-center gap-2 sm:gap-4">
@@ -652,7 +701,7 @@ function renderFooter()
                 <!-- FAB Button (Center) -->
                 <div class="relative -top-5">
                     <button onclick="openGlobalAddModal()"
-                        class="flex items-center justify-center w-14 h-14 rounded-full bg-blue-600 dark:bg-blue-500 text-white shadow-lg shadow-blue-600/30 hover:bg-blue-700 dark:hover:bg-blue-600 transition-all transform hover:scale-105 active:scale-95">
+                        class="active-press flex items-center justify-center w-14 h-14 rounded-full bg-blue-600 dark:bg-blue-500 text-white shadow-lg shadow-blue-600/30 hover:bg-blue-700 dark:hover:bg-blue-600 transition-all transform hover:scale-105">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24"
                             stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />

@@ -15,7 +15,7 @@ renderHeader('Lançamentos');
         <div class="flex items-center gap-3 w-full md:w-auto">
             <h1 class="text-xl font-bold text-slate-800 dark:text-white">Lançamentos</h1>
             <button onclick="openGlobalAddModal()"
-                class="p-1 rounded-full text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors">
+                class="active-press p-2 rounded-full text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
                     stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -135,8 +135,8 @@ renderHeader('Lançamentos');
 
                 <!-- Icon -->
                 <div id="modalIconBg"
-                    class="h-20 w-20 rounded-full flex items-center justify-center mb-4 shadow-sm transition-colors duration-300">
-                    <svg id="modalIcon" xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-white" fill="none"
+                    class="h-24 w-24 rounded-full flex items-center justify-center mb-6 shadow-sm transition-colors duration-300">
+                    <svg id="modalIcon" xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-white" fill="none"
                         viewBox="0 0 24 24" stroke="currentColor">
                         <!-- Icon path set by JS -->
                     </svg>
@@ -247,7 +247,7 @@ renderHeader('Lançamentos');
 
         <!-- Close Button (Top Right) -->
         <button onclick="closeAddModal()"
-            class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 z-10 transition-colors">
+            class="active-press absolute top-4 right-4 p-2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 z-10 transition-colors">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
                 stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
@@ -799,18 +799,18 @@ renderHeader('Lançamentos');
                     // HTML do dia
                     const dayBlock = document.createElement('div');
                     // Reduced gap between date and items
-                    dayBlock.className = 'flex gap-3';
+                    dayBlock.className = 'flex gap-3 fade-in'; // Added fade-in animation
 
                     // Coluna do Dia (Esquerda)
                     const dateCol = document.createElement('div');
                     // Adjusted width and padding
-                    dateCol.className = 'flex-shrink-0 w-8 text-center pt-1';
+                    dateCol.className = 'flex-shrink-0 w-8 text-center pt-2';
                     dateCol.innerHTML = `<span class="text-xl font-bold text-slate-300 block">${day}</span>`;
 
                     // Lista de Itens (Direita)
                     const itemsCol = document.createElement('div');
                     // Reduced space between items
-                    itemsCol.className = 'flex-grow space-y-2';
+                    itemsCol.className = 'flex-grow space-y-3'; // Increased spacing
 
                     items.forEach((item, index) => {
                         const isReceita = item.tipo === 'receita';
@@ -819,8 +819,6 @@ renderHeader('Lançamentos');
                         const iconBg = isReceita ? 'bg-green-100 text-green-600' : 'bg-red-100 text-red-600';
 
                         // Status Logic
-                        // Ensure we catch all Postgres/PHP truthy variations
-                        // DEBUG: Log first few items to see what we get
                         if (index < 3) console.log('Item ID', item.id, 'Pago Raw:', item.pago, 'Type:', typeof item.pago);
 
                         const isPaid = item.pago === true || item.pago === 't' || item.pago === 'true' || item.pago === 1 || item.pago === '1';
@@ -830,30 +828,30 @@ renderHeader('Lançamentos');
                             : '<path stroke-linecap="round" stroke-linejoin="round" d="M10 14H5.236a2 2 0 01-1.789-2.894l3.5-7A2 2 0 018.736 3h4.018a2 2 0 01.485.06l3.76.94m-7 10v5a2 2 0 002 2h.095c.5 0 .905-.405.905-.905 0-.714.211-1.412.608-2.006L17 13V4m-7 10h2m5-10h2a2 2 0 012 2v6a2 2 0 01-2 2h-2.5" />'; // Thumb Down
 
                         const el = document.createElement('div');
-                        // Compact: py-3 px-4 instead of p-4
+                        // More generous padding for mobile (py-4 px-4)
                         el.innerHTML = `
-                <div class="bg-white dark:bg-slate-800 py-3 px-4 rounded-xl shadow-sm flex justify-between items-center transition-transform hover:scale-[1.005] group border border-slate-100 dark:border-slate-700 relative">
+                <div class="active-press bg-white dark:bg-slate-800 py-4 px-4 rounded-xl shadow-sm flex justify-between items-center transition-transform hover:scale-[1.005] group border border-slate-100 dark:border-slate-700 relative mb-1">
                     
                     <!-- Selection Checkbox -->
                     <div class="selection-checkbox hidden mr-3">
-                        <input type="checkbox" class="w-5 h-5 rounded border-slate-300 text-red-500 focus:ring-red-500" 
+                        <input type="checkbox" class="w-6 h-6 rounded border-slate-300 text-red-500 focus:ring-red-500" 
                             onchange="updateSelection()" 
                             data-id="${item.id}" data-tipo="${item.tipo}">
                     </div>
 
-                    <div class="flex items-center gap-3 flex-grow cursor-pointer" onclick='handleItemClick(event, ${JSON.stringify(item).replace(/'/g, "&#39;")})'>
-                        <!-- Smaller Icon: h-8 w-8 -->
-                        <div class="h-8 w-8 rounded-full ${iconBg} flex items-center justify-center flex-shrink-0">
-                             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <div class="flex items-center gap-4 flex-grow cursor-pointer" onclick='handleItemClick(event, ${JSON.stringify(item).replace(/'/g, "&#39;")})'>
+                        <!-- Larger Icon: h-10 w-10 -->
+                        <div class="h-10 w-10 rounded-full ${iconBg} flex items-center justify-center flex-shrink-0">
+                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                  ${isReceita
                                 ? '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />'
                                 : '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />'}
                              </svg>
                         </div>
                         <div>
-                            <!-- Smaller text -->
-                            <p class="text-sm font-bold text-slate-800 dark:text-white capitalize">${item.descricao}</p>
-                            <p class="text-[10px] text-slate-400 flex items-center gap-1">
+                            <!-- Larger text -->
+                            <p class="text-base font-bold text-slate-800 dark:text-white capitalize leading-tight">${item.descricao}</p>
+                            <p class="text-xs text-slate-400 flex items-center gap-1 mt-0.5">
                                 <span class="w-1.5 h-1.5 rounded-full bg-slate-300"></span>
                                 ${item.categoria} ${item.conta ? `• ${item.conta}` : ''}
                             </p>
@@ -862,14 +860,14 @@ renderHeader('Lançamentos');
                     
                     <div class="flex items-center gap-3">
                         <div class="text-right cursor-pointer" onclick='handleItemClick(event, ${JSON.stringify(item).replace(/'/g, "&#39;")})'>
-                             <p class="text-sm font-bold ${isReceita ? 'text-green-500' : 'text-slate-800 dark:text-white'}">
+                             <p class="text-base font-bold ${isReceita ? 'text-green-500' : 'text-slate-800 dark:text-white'}">
                                  ${isReceita ? '+' : '-'}R$ ${formattedVal}
                              </p>
                         </div>
                         
-                        <!-- Status Toggle Button (Smaller padding) -->
-                        <button onclick="toggleStatus(${item.id}, '${item.tipo}', event)" class="p-1.5 rounded-full hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors ${statusColor}" title="${isPaid ? 'Marcar como Não Pago' : 'Marcar como Pago'}">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="${isPaid ? 'currentColor' : 'none'}" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <!-- Status Toggle Button (Larger touch target) -->
+                        <button onclick="toggleStatus(${item.id}, '${item.tipo}', event)" class="active-press p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors ${statusColor}" title="${isPaid ? 'Marcar como Não Pago' : 'Marcar como Pago'}">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="${isPaid ? 'currentColor' : 'none'}" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                 ${statusIcon}
                             </svg>
                         </button>
@@ -951,7 +949,7 @@ renderHeader('Lançamentos');
                 // Don't wipe if we are just switching types and maybe already loaded? 
                 // Actually better to show loading state to be sure.
                 catSelect.innerHTML = '<option>Carregando...</option>';
-                
+
                 try {
                     // Added credentials: include for Vercel
                     const res = await fetch('api/categories.php', { credentials: 'include' });
@@ -1247,7 +1245,7 @@ renderHeader('Lançamentos');
                 const radios = document.getElementsByName('tipo');
                 for (let r of radios) {
                     if (r.value === currentItem.tipo) r.checked = true;
-                     r.onclick = () => loadCats(r.value);
+                    r.onclick = () => loadCats(r.value);
                 }
 
                 // Load categories and WAIT
