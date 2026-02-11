@@ -1,8 +1,14 @@
 <?php
 // src/layout.php
 
-function renderHeader($title = 'ORGANIZADOR FINANCEIRO')
+function renderHeader($title = 'Organiza+')
 {
+    // Force HTTPS for Open Graph URLs
+    $protocol = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') ? "https" : "https";
+    $host = $_SERVER['HTTP_HOST'];
+    $uri = $_SERVER['REQUEST_URI'];
+    $currentUrl = $protocol . "://" . $host . $uri;
+    $imageUrl = $protocol . "://" . $host . "/assets/logo.png?v=2"; // v=2 to bust cache
     ?>
     <!DOCTYPE html>
     <html lang="pt-BR" class="h-full bg-slate-100 dark:bg-slate-900">
@@ -13,18 +19,23 @@ function renderHeader($title = 'ORGANIZADOR FINANCEIRO')
         <title><?php echo $title; ?></title>
 
         <!-- Favicons -->
-        <link rel="icon" type="image/png" href="assets/logo.png">
-        <link rel="apple-touch-icon" href="assets/logo.png">
+        <link rel="icon" type="image/png" href="assets/logo.png?v=1">
+        <link rel="apple-touch-icon" href="assets/logo.png?v=1">
 
-        <!-- SEO & Open Graph -->
+        <!-- SEO & Open Graph (WhatsApp Preview) -->
         <meta name="description"
             content="Organize sua vida financeira de forma simples e inteligente com o Organizador Financeiro.">
         <meta property="og:title" content="<?php echo $title; ?>">
         <meta property="og:description"
             content="Organize sua vida financeira de forma simples e inteligente. Controle gastos, receitas e visualize seu futuro financeiro.">
-        <meta property="og:image" content="http://<?php echo $_SERVER['HTTP_HOST']; ?>/assets/logo.png">
-        <meta property="og:url" content="http://<?php echo $_SERVER['HTTP_HOST']; ?><?php echo $_SERVER['REQUEST_URI']; ?>">
+        <meta property="og:image" content="<?php echo $imageUrl; ?>">
+        <meta property="og:image:secure_url" content="<?php echo $imageUrl; ?>">
+        <meta property="og:image:type" content="image/png">
+        <meta property="og:image:width" content="512">
+        <meta property="og:image:height" content="512">
+        <meta property="og:url" content="<?php echo $currentUrl; ?>">
         <meta property="og:type" content="website">
+        <meta property="og:site_name" content="Organiza+">
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
         <link rel="manifest" href="manifest.json">

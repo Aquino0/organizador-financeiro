@@ -16,23 +16,35 @@ if (isLoggedIn()) {
 <html lang="pt-BR">
 
 <head>
+    <?php
+    $protocol = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') ? "https" : "https";
+    $host = $_SERVER['HTTP_HOST'];
+    $uri = $_SERVER['REQUEST_URI'];
+    $currentUrl = $protocol . "://" . $host . $uri;
+    $imageUrl = $protocol . "://" . $host . "/assets/logo.png?v=2";
+    ?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Organizador Financeiro - Login</title>
+    <title>Organiza+ - Login</title>
 
     <!-- Favicons -->
-    <link rel="icon" type="image/png" href="assets/logo.png">
-    <link rel="apple-touch-icon" href="assets/logo.png">
+    <link rel="icon" type="image/png" href="assets/logo.png?v=1">
+    <link rel="apple-touch-icon" href="assets/logo.png?v=1">
     <link rel="manifest" href="manifest.json">
 
-    <!-- SEO & Open Graph -->
+    <!-- SEO & Open Graph (WhatsApp Preview) -->
     <meta name="description" content="Organize sua vida financeira de forma simples e inteligente.">
-    <meta property="og:title" content="Organizador Financeiro">
+    <meta property="og:title" content="Organiza+">
     <meta property="og:description"
         content="Organize sua vida financeira de forma simples e inteligente. Controle gastos, receitas e visualize seu futuro financeiro.">
-    <meta property="og:image" content="http://<?php echo $_SERVER['HTTP_HOST']; ?>/assets/logo.png">
-    <meta property="og:url" content="http://<?php echo $_SERVER['HTTP_HOST']; ?><?php echo $_SERVER['REQUEST_URI']; ?>">
+    <meta property="og:image" content="<?php echo $imageUrl; ?>">
+    <meta property="og:image:secure_url" content="<?php echo $imageUrl; ?>">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="512">
+    <meta property="og:image:height" content="512">
+    <meta property="og:url" content="<?php echo $currentUrl; ?>">
     <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Organiza+">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -294,7 +306,7 @@ if (isLoggedIn()) {
                             </svg>
                         </div>
                         <h1 class="text-2xl font-bold text-foreground">
-                            Organizador Financeiro
+                            Organiza+
                         </h1>
                         <p class="text-muted-foreground mt-2">
                             Entre para continuar
