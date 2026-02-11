@@ -134,7 +134,7 @@ function renderHeader($title = 'Organiza+')
                     <div class="flex items-center gap-2">
                         <!-- Logo (Texto apenas) -->
                         <a href="dashboard.php"
-                            class="font-bold text-xl tracking-tight text-slate-800 dark:text-white hover:opacity-80 transition-opacity">
+                            class="font-bold text-3xl tracking-tight text-slate-800 dark:text-white hover:opacity-80 transition-opacity">
                             Organiza<span class="text-green-500 font-extrabold">+</span>
                         </a>
                     </div>
