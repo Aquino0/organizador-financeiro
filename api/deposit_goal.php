@@ -1,7 +1,7 @@
 <?php
 // api/deposit_goal.php
 require_once __DIR__ . '/../src/auth.php';
-require_once __DIR__ . '/../src/db_connect.php';
+require_once __DIR__ . '/../src/db.php';
 
 header('Content-Type: application/json');
 
@@ -28,7 +28,7 @@ if ($amount <= 0) {
 }
 
 try {
-    $pdo = getPDO();
+    // $pdo available from src/db.php
 
     // Atualizar saldo da meta
     $stmt = $pdo->prepare("
