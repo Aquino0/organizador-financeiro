@@ -8,7 +8,7 @@ function renderHeader($title = 'Organiza+')
     $host = $_SERVER['HTTP_HOST'];
     $uri = $_SERVER['REQUEST_URI'];
     $currentUrl = $protocol . "://" . $host . $uri;
-    $imageUrl = $protocol . "://" . $host . "/assets/logo_social.png?v=3"; // v=3 (social optimized)
+    $imageUrl = $protocol . "://" . $host . "/assets/logo_social.png?v=4"; // v=4 (new logo)
     ?>
     <!DOCTYPE html>
     <html lang="pt-BR" class="h-full bg-slate-100 dark:bg-slate-900">
@@ -19,8 +19,8 @@ function renderHeader($title = 'Organiza+')
         <title><?php echo $title; ?></title>
 
         <!-- Favicons -->
-        <link rel="icon" type="image/png" href="assets/logo.png?v=1">
-        <link rel="apple-touch-icon" href="assets/logo.png?v=1">
+        <link rel="icon" type="image/png" href="assets/logo.png?v=2">
+        <link rel="apple-touch-icon" href="assets/logo.png?v=2">
 
         <!-- SEO & Open Graph (WhatsApp Preview) -->
         <meta name="description"
