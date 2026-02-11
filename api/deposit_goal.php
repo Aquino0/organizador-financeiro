@@ -5,7 +5,7 @@ require_once __DIR__ . '/../src/db.php';
 
 header('Content-Type: application/json');
 
-if (!isAuthenticated()) {
+if (!isLoggedIn()) {
     http_response_code(401);
     echo json_encode(['error' => 'Não autorizado']);
     exit;
