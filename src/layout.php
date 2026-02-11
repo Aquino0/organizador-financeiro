@@ -8,7 +8,7 @@ function renderHeader($title = 'Organiza+')
     $host = $_SERVER['HTTP_HOST'];
     $uri = $_SERVER['REQUEST_URI'];
     $currentUrl = $protocol . "://" . $host . $uri;
-    $imageUrl = $protocol . "://" . $host . "/assets/logo.png?v=2"; // v=2 to bust cache
+    $imageUrl = $protocol . "://" . $host . "/assets/logo_social.png?v=3"; // v=3 (social optimized)
     ?>
     <!DOCTYPE html>
     <html lang="pt-BR" class="h-full bg-slate-100 dark:bg-slate-900">

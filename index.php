@@ -21,7 +21,7 @@ if (isLoggedIn()) {
     $host = $_SERVER['HTTP_HOST'];
     $uri = $_SERVER['REQUEST_URI'];
     $currentUrl = $protocol . "://" . $host . $uri;
-    $imageUrl = $protocol . "://" . $host . "/assets/logo.png?v=2";
+    $imageUrl = $protocol . "://" . $host . "/assets/logo_social.png?v=3";
     ?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
