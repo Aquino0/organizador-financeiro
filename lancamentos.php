@@ -145,7 +145,7 @@ renderHeader('Lançamentos');
                 <!-- Description & Value -->
                 <h2 id="modalDesc" class="text-xl font-bold text-slate-800 dark:text-white mb-1 capitalize">Descricao
                 </h2>
-                <h3 id="modalValue" class="text-2xl font-bold mb-8">R$ 0,00</h3>
+                <h3 id="modalValue" class="text-2xl font-bold mb-8 blur-sensitive">R$ 0,00</h3>
 
                 <!-- Action Buttons Row -->
                 <div class="flex items-center justify-center gap-3">
@@ -782,13 +782,13 @@ renderHeader('Lançamentos');
                     <div class="flex flex-col items-end gap-1 mt-2 pr-2 opacity-70">
                         <div class="flex items-center gap-2">
                              <span class="text-[10px] text-slate-500 uppercase tracking-wider">Saldo acumulado</span>
-                             <span class="font-bold text-xs ${closingBalance >= 0 ? 'text-blue-600' : 'text-red-600'}">
+                             <span class="font-bold text-xs blur-sensitive ${closingBalance >= 0 ? 'text-blue-600' : 'text-red-600'}">
                                  R$ ${closingBalance.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                              </span>
                         </div>
                         <div class="flex items-center gap-2">
                              <span class="text-[10px] text-slate-400 uppercase tracking-wider">Saldo previsto</span>
-                             <span class="font-bold text-xs ${closingPrevisto >= 0 ? 'text-slate-600 dark:text-slate-300' : 'text-red-400'}">
+                             <span class="font-bold text-xs blur-sensitive ${closingPrevisto >= 0 ? 'text-slate-600 dark:text-slate-300' : 'text-red-400'}">
                                  R$ ${closingPrevisto.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                              </span>
                         </div>

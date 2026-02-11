@@ -78,7 +78,8 @@ renderHeader('Orçamento Anual');
             </div>
             <div class="relative z-10">
                 <p class="text-sm font-medium text-emerald-700 dark:text-emerald-400 mb-1">Renda Anual</p>
-                <h3 id="valIncome" class="text-2xl font-bold text-emerald-800 dark:text-emerald-300">Carregando...</h3>
+                <h3 id="valIncome" class="text-2xl font-bold text-emerald-800 dark:text-emerald-300 blur-sensitive">
+                    Carregando...</h3>
                 <div class="flex items-center gap-1 mt-3">
                     <div
                         class="bg-emerald-200/50 text-emerald-700 dark:bg-emerald-800 dark:text-emerald-300 px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wide">
@@ -107,7 +108,8 @@ renderHeader('Orçamento Anual');
             </div>
             <div class="relative z-10">
                 <p class="text-sm font-medium text-rose-700 dark:text-rose-400 mb-1">Despesas Anuais</p>
-                <h3 id="valExpenses" class="text-2xl font-bold text-rose-800 dark:text-rose-300">Carregando...</h3>
+                <h3 id="valExpenses" class="text-2xl font-bold text-rose-800 dark:text-rose-300 blur-sensitive">
+                    Carregando...</h3>
                 <div class="flex items-center gap-1 mt-3">
                     <div
                         class="bg-rose-200/50 text-rose-700 dark:bg-rose-800 dark:text-rose-300 px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wide">
@@ -135,7 +137,8 @@ renderHeader('Orçamento Anual');
             </div>
             <div class="relative z-10">
                 <p class="text-sm font-medium text-blue-700 dark:text-blue-400 mb-1">Saldo Acumulado</p>
-                <h3 id="valBalance" class="text-2xl font-bold text-blue-800 dark:text-blue-300">Carregando...</h3>
+                <h3 id="valBalance" class="text-2xl font-bold text-blue-800 dark:text-blue-300 blur-sensitive">
+                    Carregando...</h3>
                 <div class="flex items-center gap-1 mt-3">
                     <div
                         class="bg-blue-200/50 text-blue-700 dark:bg-blue-800 dark:text-blue-300 px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wide">
@@ -165,7 +168,8 @@ renderHeader('Orçamento Anual');
             </div>
             <div class="relative z-10">
                 <p class="text-sm font-medium text-amber-700 dark:text-amber-400 mb-1">Reserva Anual</p>
-                <h3 id="valReserveTotal" class="text-2xl font-bold text-[#C27803] dark:text-amber-500">R$ 0,00</h3>
+                <h3 id="valReserveTotal" class="text-2xl font-bold text-[#C27803] dark:text-amber-500 blur-sensitive">R$
+                    0,00</h3>
                 <div class="flex items-center gap-1 mt-3">
                     <div
                         class="bg-amber-200/50 text-amber-800 dark:bg-amber-800 dark:text-amber-300 px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wide">

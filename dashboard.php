@@ -32,7 +32,6 @@ renderHeader('Dashboard');
         </button>
     </div>
 
-    <!-- Skeleton KPIs (Hidden by default, toggled via JS) -->
     <div id="skeletonKPIs" class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8 hidden">
         <!-- 3 Generic Skeleton Cards -->
         <?php for ($i = 0; $i < 3; $i++): ?>
@@ -57,7 +56,8 @@ renderHeader('Dashboard');
                 <div>
                     <p class="text-sm font-medium text-slate-500 dark:text-emerald-200 uppercase tracking-wider">Renda
                         Mensal</p>
-                    <h3 class="text-3xl font-bold text-emerald-600 dark:text-emerald-400 mt-2" id="totalReceitas">R$
+                    <h3 class="text-3xl font-bold text-emerald-600 dark:text-emerald-400 mt-2 blur-sensitive"
+                        id="totalReceitas">R$
                         0,00</h3>
                 </div>
                 <div class="p-3 bg-white dark:bg-emerald-800 rounded-xl text-emerald-500 shadow-sm">
@@ -77,7 +77,8 @@ renderHeader('Dashboard');
                 <div>
                     <p class="text-sm font-medium text-slate-500 dark:text-rose-200 uppercase tracking-wider">Despesas
                         Mensais</p>
-                    <h3 class="text-3xl font-bold text-rose-600 dark:text-rose-400 mt-2" id="totalDespesas">R$ 0,00</h3>
+                    <h3 class="text-3xl font-bold text-rose-600 dark:text-rose-400 mt-2 blur-sensitive"
+                        id="totalDespesas">R$ 0,00</h3>
                 </div>
                 <div class="p-3 bg-white dark:bg-rose-800 rounded-xl text-rose-500 shadow-sm">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
@@ -96,7 +97,8 @@ renderHeader('Dashboard');
                 <div>
                     <p class="text-sm font-medium text-slate-500 dark:text-blue-200 uppercase tracking-wider">Saldo
                         Acumulado</p>
-                    <h3 class="text-3xl font-bold text-blue-600 dark:text-blue-400 mt-2" id="balancoGeral">R$ 0,00</h3>
+                    <h3 class="text-3xl font-bold text-blue-600 dark:text-blue-400 mt-2 blur-sensitive"
+                        id="balancoGeral">R$ 0,00</h3>
                 </div>
                 <div class="p-3 bg-white dark:bg-blue-800 rounded-xl text-blue-500 shadow-sm">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"

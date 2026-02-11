@@ -122,7 +122,98 @@ function renderHeader($title = 'Organiza+')
                     transform: translateY(0);
                 }
             }
+
+            /* Privacy Mode Blur */
+            body.privacy-mode .blur-sensitive {
+                filter: blur(6px);
+                cursor: pointer;
+                user-select: none;
+                transition: filter 0.3s ease;
+            }
+
+            body.privacy-mode .blur-sensitive:hover {
+                filter: blur(0);
+            }
+
+            /* Privacy Mode Blur */
+            body.privacy-mode .blur-sensitive {
+                filter: blur(6px);
+                cursor: pointer;
+                user-select: none;
+                transition: filter 0.3s ease;
+            }
+
+            body.privacy-mode .blur-sensitive:hover {
+                filter: blur(0);
+            }
         </style>
+
+        <script>
+            // Privacy Mode Logic
+            function togglePrivacyMode() {
+                const body = document.body;
+                body.classList.toggle('privacy-mode');
+
+                const isPrivacyOn = body.classList.contains('privacy-mode');
+                localStorage.setItem('privacyMode', isPrivacyOn);
+                updatePrivacyIcon(isPrivacyOn);
+            }
+
+            function updatePrivacyIcon(isPrivacyOn) {
+                const icon = document.getElementById('privacyIcon');
+                if (icon) {
+                    if (isPrivacyOn) {
+                        icon.classList.remove('fa-eye');
+                        icon.classList.add('fa-eye-slash');
+                    } else {
+                        icon.classList.remove('fa-eye-slash');
+                        icon.classList.add('fa-eye');
+                    }
+                }
+            }
+
+            // Apply on load
+            document.addEventListener('DOMContentLoaded', () => {
+                const isPrivacyOn = localStorage.getItem('privacyMode') === 'true';
+                if (isPrivacyOn) {
+                    document.body.classList.add('privacy-mode');
+                }
+                updatePrivacyIcon(isPrivacyOn);
+            });
+        </script>
+        <script>
+            // Privacy Mode Logic
+            function togglePrivacyMode() {
+                const body = document.body;
+                body.classList.toggle('privacy-mode');
+
+                const isPrivacyOn = body.classList.contains('privacy-mode');
+                localStorage.setItem('privacyMode', isPrivacyOn);
+                updatePrivacyIcon(isPrivacyOn);
+            }
+
+            function updatePrivacyIcon(isPrivacyOn) {
+                const icon = document.getElementById('privacyIcon');
+                if (icon) {
+                    if (isPrivacyOn) {
+                        icon.classList.remove('fa-eye');
+                        icon.classList.add('fa-eye-slash');
+                    } else {
+                        icon.classList.remove('fa-eye-slash');
+                        icon.classList.add('fa-eye');
+                    }
+                }
+            }
+
+            // Apply on load
+            document.addEventListener('DOMContentLoaded', () => {
+                const isPrivacyOn = localStorage.getItem('privacyMode') === 'true';
+                if (isPrivacyOn) {
+                    document.body.classList.add('privacy-mode');
+                }
+                updatePrivacyIcon(isPrivacyOn);
+            });
+        </script>
     </head>
 
     <body class="h-full flex flex-col text-slate-800 dark:text-slate-100 bg-slate-50 dark:bg-slate-900">
@@ -140,6 +231,13 @@ function renderHeader($title = 'Organiza+')
                     </div>
                     <!-- Topbar Actions -->
                     <div class="flex items-center gap-2 sm:gap-4">
+
+                        <!-- Privacy Toggle Btn -->
+                        <button id="privacyToggle" onclick="togglePrivacyMode()"
+                            class="p-2 text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-white transition-colors rounded-full hover:bg-slate-100 dark:hover:bg-slate-700/50"
+                            title="Ocultar valores">
+                            <i class="fa-regular fa-eye" id="privacyIcon"></i>
+                        </button>
 
                         <!-- Btn Adicionar (Redireciona para Lançamentos) -->
                         <a href="lancamentos.php"
