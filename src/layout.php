@@ -11,9 +11,23 @@ function renderHeader($title = 'ORGANIZADOR FINANCEIRO')
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
         <title><?php echo $title; ?></title>
-        <link rel="icon" type="image/jpeg" href="assets/custom_logo.jpg">
+
+        <!-- Favicons -->
+        <link rel="icon" type="image/png" href="assets/logo.png">
+        <link rel="apple-touch-icon" href="assets/logo.png">
+
+        <!-- SEO & Open Graph -->
+        <meta name="description"
+            content="Organize sua vida financeira de forma simples e inteligente com o Organizador Financeiro.">
+        <meta property="og:title" content="<?php echo $title; ?>">
+        <meta property="og:description"
+            content="Organize sua vida financeira de forma simples e inteligente. Controle gastos, receitas e visualize seu futuro financeiro.">
+        <meta property="og:image" content="http://<?php echo $_SERVER['HTTP_HOST']; ?>/assets/logo.png">
+        <meta property="og:url" content="http://<?php echo $_SERVER['HTTP_HOST']; ?><?php echo $_SERVER['REQUEST_URI']; ?>">
+        <meta property="og:type" content="website">
+
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-        <link rel="manifest" href="/manifest.json">
+        <link rel="manifest" href="manifest.json">
         <meta name="theme-color" content="#10b981">
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">

@@ -19,7 +19,20 @@ if (isLoggedIn()) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Organizador Financeiro - Login</title>
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" href="assets/logo.png">
+    <link rel="apple-touch-icon" href="assets/logo.png">
+    <link rel="manifest" href="manifest.json">
+
+    <!-- SEO & Open Graph -->
     <meta name="description" content="Organize sua vida financeira de forma simples e inteligente.">
+    <meta property="og:title" content="Organizador Financeiro">
+    <meta property="og:description"
+        content="Organize sua vida financeira de forma simples e inteligente. Controle gastos, receitas e visualize seu futuro financeiro.">
+    <meta property="og:image" content="http://<?php echo $_SERVER['HTTP_HOST']; ?>/assets/logo.png">
+    <meta property="og:url" content="http://<?php echo $_SERVER['HTTP_HOST']; ?><?php echo $_SERVER['REQUEST_URI']; ?>">
+    <meta property="og:type" content="website">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
