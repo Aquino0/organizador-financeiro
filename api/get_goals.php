@@ -15,6 +15,24 @@ $user_id = getCurrentUserId();
 
 try {
     $pdo = getPDO();
+
+    // Auto-fix: Criar tabela se não existir (evita erro em produção)
+    $pdo->exec("
+        CREATE TABLE IF NOT EXISTS financial_goals (
+            id INT AUTO_INCREMENT PRIMARY KEY,
+            user_id INT NOT NULL,
+            title VARCHAR(255) NOT NULL,
+            target_amount DECIMAL(10, 2) NOT NULL,
+            current_amount DECIMAL(10, 2) DEFAULT 0.00,
+            deadline DATE NULL,
+            color VARCHAR(50) DEFAULT 'blue', 
+            icon VARCHAR(50) DEFAULT '🎯', 
+            status VARCHAR(20) DEFAULT 'active',
+            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+    ");
+
     $stmt = $pdo->prepare("
         SELECT * FROM financial_goals 
         WHERE user_id = :user_id 
