@@ -122,7 +122,7 @@ function renderHeader($title = 'ORGANIZADOR FINANCEIRO')
                 <div class="flex justify-between h-16 items-center">
                     <div class="flex items-center gap-2">
                         <!-- Logo -->
-                        <img src="assets/custom_logo.jpg" alt="Logo" class="h-8 w-8 rounded-lg">
+                        <img src="assets/logo.png" alt="Logo" class="h-8 w-auto rounded-lg">
                         <a href="dashboard.php"
                             class="font-bold text-xl tracking-tight text-slate-800 dark:text-white hover:opacity-80 transition-opacity">Organiza+</a>
                     </div>
