@@ -132,10 +132,11 @@ function renderHeader($title = 'Organiza+')
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between h-16 items-center">
                     <div class="flex items-center gap-2">
-                        <!-- Logo -->
-                        <img src="assets/logo.png" alt="Logo" class="h-8 w-auto rounded-lg">
+                        <!-- Logo (Texto apenas) -->
                         <a href="dashboard.php"
-                            class="font-bold text-xl tracking-tight text-slate-800 dark:text-white hover:opacity-80 transition-opacity">Organiza+</a>
+                            class="font-bold text-xl tracking-tight text-slate-800 dark:text-white hover:opacity-80 transition-opacity">
+                            Organiza<span class="text-green-500 font-extrabold">+</span>
+                        </a>
                     </div>
                     <!-- Topbar Actions -->
                     <div class="flex items-center gap-2 sm:gap-4">
