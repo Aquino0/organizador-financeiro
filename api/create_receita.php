@@ -23,12 +23,19 @@ $categoria = sanitize($data['categoria']);
 $base_date = $data['data'];
 $conta = isset($data['conta']) ? sanitize($data['conta']) : 'Carteira';
 $pago = isset($data['pago']) ? (bool) $data['pago'] : false; // Default false so unchecked (missing) means not paid
-$repetir = isset($data['repetir']) ? intval($data['repetir']) : 1;
 
-if ($repetir < 1)
-    $repetir = 1;
-if ($repetir > 60)
-    $repetir = 60; // Limit
+$repeat_mode = isset($data['repeat_mode']) ? sanitize($data['repeat_mode']) : (isset($data['global_repeat_mode']) ? sanitize($data['global_repeat_mode']) : 'parcelado');
+$frequencia = isset($data['frequencia']) ? sanitize($data['frequencia']) : 'Mensal';
+
+$repetir = 1;
+if ($repeat_mode === 'fixa') {
+    $repetir = 12; // 12 default for infinite fixed costs in loop insertions
+} else {
+    $repetir = isset($data['repetir']) ? intval($data['repetir']) : 1;
+}
+
+if ($repetir < 1) $repetir = 1;
+if ($repetir > 60) $repetir = 60; // Limit
 
 try {
     $pdo->beginTransaction();
@@ -36,15 +43,28 @@ try {
     $stmt = $pdo->prepare("INSERT INTO receitas (user_id, descricao, valor, categoria, data, conta, pago) VALUES (?, ?, ?, ?, ?, ?, ?)");
 
     for ($i = 0; $i < $repetir; $i++) {
-        // Calculate date for this iteration
-        // Be careful with day overflow (e.g. Jan 31 + 1 month -> Feb 28 or Mar 3 depending on logic)
-        // PHP's strtotime handles it reasonably well usually, but keep simple for now
-        $current_date = date('Y-m-d', strtotime($base_date . " +$i month"));
+        // Calculate date for this iteration based on frequency
+        $current_date = $base_date;
+        $freq_lower = strtolower($frequencia);
 
-        // Append (X/Y) to description if repeating
+        switch ($freq_lower) {
+            case 'diário': $current_date = date('Y-m-d', strtotime($base_date . " +$i day")); break;
+            case 'semanal': $current_date = date('Y-m-d', strtotime($base_date . " +$i week")); break;
+            case 'quinzena': $current_date = date('Y-m-d', strtotime($base_date . " + " . ($i * 15) . " day")); break;
+            case 'mensal': $current_date = date('Y-m-d', strtotime($base_date . " +$i month")); break;
+            case 'bimestral': $current_date = date('Y-m-d', strtotime($base_date . " + " . ($i * 2) . " month")); break;
+            case 'trimestral': $current_date = date('Y-m-d', strtotime($base_date . " + " . ($i * 3) . " month")); break;
+            case 'semestral': $current_date = date('Y-m-d', strtotime($base_date . " + " . ($i * 6) . " month")); break;
+            case 'anual': $current_date = date('Y-m-d', strtotime($base_date . " +$i year")); break;
+            default: $current_date = date('Y-m-d', strtotime($base_date . " +$i month")); break;
+        }
+
+        // Append (X/Y) to description if repeating AND parcelado
         $desc_final = $descricao;
-        if ($repetir > 1) {
+        if ($repetir > 1 && $repeat_mode !== 'fixa') {
             $desc_final .= " (" . ($i + 1) . "/$repetir)";
+        } else if ($repeat_mode === 'fixa') {
+            $desc_final .= " (Fixa)";
         }
 
         $stmt->execute([$user_id, $desc_final, $valor, $categoria, $current_date, $conta, $pago ? 1 : 0]);

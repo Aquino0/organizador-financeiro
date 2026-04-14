@@ -14,7 +14,7 @@ if ($method === 'GET') {
 
     // Include total usage sum for each category
     $stmt = $pdo->prepare("
-        SELECT c.id, c.nome, c.tipo, c.cor, c.ordem,
+        SELECT c.id, c.nome, c.tipo, c.cor, c.ordem, c.icone, c.parent_id,
         (
             CASE 
                 WHEN c.tipo = 'receita' THEN (SELECT COALESCE(SUM(valor), 0) FROM receitas r WHERE r.user_id = c.user_id AND r.categoria = c.nome)
@@ -47,15 +47,17 @@ if ($method === 'POST') {
     $nome = trim($data['nome'] ?? '');
     $tipo = $data['tipo'] ?? 'despesa'; // receita or despesa
     $cor = $data['cor'] ?? '#64748b';
+    $icone = trim($data['icone'] ?? '');
+    $parent_id = isset($data['parent_id']) && intval($data['parent_id']) > 0 ? intval($data['parent_id']) : null;
 
     if (empty($nome) || !in_array($tipo, ['receita', 'despesa'])) {
         jsonResponse(['error' => 'Dados inválidos'], 400);
     }
 
     try {
-        $stmt = $pdo->prepare("INSERT INTO categories (user_id, nome, tipo, cor) VALUES (?, ?, ?, ?)");
-        $stmt->execute([$user_id, $nome, $tipo, $cor]);
-        jsonResponse(['success' => true, 'id' => $pdo->lastInsertId(), 'nome' => $nome, 'tipo' => $tipo, 'cor' => $cor]);
+        $stmt = $pdo->prepare("INSERT INTO categories (user_id, nome, tipo, cor, icone, parent_id) VALUES (?, ?, ?, ?, ?, ?)");
+        $stmt->execute([$user_id, $nome, $tipo, $cor, $icone, $parent_id]);
+        jsonResponse(['success' => true, 'id' => $pdo->lastInsertId(), 'nome' => $nome, 'tipo' => $tipo, 'cor' => $cor, 'icone' => $icone, 'parent_id' => $parent_id]);
     } catch (PDOException $e) {
         if ($e->getCode() == 23000) { // Duplicate
             jsonResponse(['error' => 'Categoria já existe'], 409);
@@ -101,6 +103,14 @@ if ($method === 'PUT') {
     if (isset($data['cor'])) {
         $fields[] = "cor = ?";
         $params[] = $data['cor']; // Hex color
+    }
+    if (isset($data['icone'])) {
+        $fields[] = "icone = ?";
+        $params[] = trim($data['icone']);
+    }
+    if (isset($data['parent_id'])) {
+        $fields[] = "parent_id = ?";
+        $params[] = intval($data['parent_id']) > 0 ? intval($data['parent_id']) : null;
     }
     if (isset($data['ordem'])) {
         $fields[] = "ordem = ?";

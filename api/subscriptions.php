@@ -78,6 +78,15 @@ try {
     } elseif ($method === 'POST') {
         $data = json_decode(file_get_contents('php://input'), true);
 
+        // Convert the 2-digit day back to a standard Y-m-d format for database
+        if (isset($data['next_billing_date'])) {
+            $rawDate = trim($data['next_billing_date']);
+            if (strlen($rawDate) <= 2) {
+                $day = str_pad($rawDate, 2, '0', STR_PAD_LEFT);
+                $data['next_billing_date'] = date('Y-m-') . $day;
+            }
+        }
+
         // CREATE or UPDATE
         if (isset($data['id']) && !empty($data['id'])) {
             // Update details or renew

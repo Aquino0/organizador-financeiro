@@ -261,7 +261,10 @@ renderHeader('Comparativo Mensal');
     let currentData = null; // Store fetched data
 
     function getMonthName(date) {
-        return date.toLocaleDateString('pt-BR', { month: 'long', year: 'numeric' });
+        const month = date.toLocaleDateString('pt-BR', { month: 'long' });
+        const year = date.getFullYear();
+        const capitalizedMonth = month.charAt(0).toUpperCase() + month.slice(1);
+        return `${capitalizedMonth} ${year}`;
     }
 
     async function changeMonth(delta) {

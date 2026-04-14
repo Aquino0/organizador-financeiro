@@ -67,7 +67,7 @@ VALUES (:user_id, :title, :target, :current, :deadline, :color, :icon)
             'user_id' => $user_id,
             'title' => $data['title'],
             'target' => $data['target_amount'],
-            'current' => $data['initial_amount'] ?? 0,
+            'current' => ($data['initial_amount'] === '' || $data['initial_amount'] === null) ? 0 : floatval($data['initial_amount']),
             'deadline' => !empty($data['deadline']) ? $data['deadline'] : null,
             'color' => $data['color'] ?? 'blue',
             'icon' => $data['icon'] ?? '🎯'

@@ -102,65 +102,76 @@ renderHeader('Despesas Fixas');
                             class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 font-medium">
                     </div>
 
-                    <div class="flex gap-4">
-                        <div class="w-1/2">
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <div class="w-full sm:flex-1 min-w-0">
                             <label class="block text-xs font-bold text-slate-500 uppercase mb-1">Valor</label>
                             <input type="number" step="0.01" name="amount" id="subAmount" required placeholder="0.00"
-                                class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 font-bold">
+                                class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 font-bold max-w-full">
                         </div>
-                        <div class="w-1/2">
+                        <div class="w-full sm:flex-1 min-w-0">
                             <label class="block text-xs font-bold text-slate-500 uppercase mb-1">Ícone</label>
                             <select name="icon" id="subIcon"
                                 class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 text-xl text-center cursor-pointer">
                                 <option value="📦">📦</option>
                                 <option value="🏠">🏠</option>
                                 <option value="💡">💡</option>
+                                <option value="💧">💧</option>
+                                <option value="🔥">🔥</option>
                                 <option value="🌐">🌐</option>
-                                <option value="🎓">🎓</option>
-                                <option value="🏋️">🏋️</option>
-                                <option value="🚗">🚗</option>
-                                <option value="🍔">🍔</option>
+                                <option value="📱">📱</option>
+                                <option value="📺">📺</option>
                                 <option value="🎬">🎬</option>
+                                <option value="🎵">🎵</option>
+                                <option value="🎮">🎮</option>
+                                <option value="🎓">🎓</option>
+                                <option value="🖋️">🖋️</option>
+                                <option value="🏋️">🏋️</option>
+                                <option value="🚴">🚴</option>
+                                <option value="🚗">🚗</option>
+                                <option value="🚆">🚆</option>
+                                <option value="🛒">🛒</option>
+                                <option value="🍔">🍔</option>
                                 <option value="💳">💳</option>
+                                <option value="🛡️">🛡️</option>
                                 <option value="🏥">🏥</option>
+                                <option value="💈">💈</option>
+                                <option value="👕">👕</option>
                                 <option value="🐶">🐶</option>
                                 <option value="👶">👶</option>
                                 <option value="✈️">✈️</option>
+                                <option value="🧹">🧹</option>
+                                <option value="🛠️">🛠️</option>
+                                <option value="🪴">🪴</option>
                             </select>
                         </div>
                     </div>
 
                     <div>
-                        <label class="block text-xs font-bold text-slate-500 uppercase mb-1">Vencimento</label>
-                        <input type="date" name="next_billing_date" id="subDate" required
-                            class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                        <label class="block text-xs font-bold text-slate-500 uppercase mb-1">Dia do Vencimento</label>
+                        <select name="next_billing_date" id="subDate" required
+                            class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 appearance-none max-w-full text-center">
+                            <?php for($i=1; $i<=31; $i++): ?>
+                                <option value="<?php echo sprintf('%02d', $i); ?>">Dia <?php echo sprintf('%02d', $i); ?></option>
+                            <?php endfor; ?>
+                        </select>
                     </div>
 
-                    <div class="flex gap-4">
-                        <div class="w-1/2">
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <div class="w-full sm:flex-1 min-w-0">
                             <label class="block text-xs font-bold text-slate-500 uppercase mb-1">Ciclo</label>
                             <select name="billing_cycle" id="subCycle"
-                                class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                                class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 appearance-none">
                                 <option value="monthly">Mensal</option>
-                                <option value="yearly">Anual</option>
                             </select>
                         </div>
-                        <div class="w-1/2">
+                        <div class="w-full sm:flex-1 min-w-0">
                             <label class="block text-xs font-bold text-slate-500 uppercase mb-1">Categoria
                                 (Nome)</label>
                             <input type="text" list="categoryList" name="category" id="subCategory"
                                 placeholder="Ex: Habitação"
-                                class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                                class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 max-w-full">
                             <datalist id="categoryList">
-                                <option value="Habitação">
-                                <option value="Contas">
-                                <option value="Internet/TV">
-                                <option value="Educação">
-                                <option value="Saúde">
-                                <option value="Cartão">
-                                <option value="Veículo">
-                                <option value="Lazer">
-                                <option value="Outro">
+                                <!-- Preenchido dinamicamente via JS pelas categorias cadastradas -->
                             </datalist>
                         </div>
                     </div>
@@ -197,6 +208,23 @@ renderHeader('Despesas Fixas');
             }
 
             renderList(data.subscriptions);
+
+            // Carregar as categorias centralizadas da aba Cadastro
+            try {
+                const catRes = await fetch('api/categories.php');
+                const catData = await catRes.json();
+                if (catData && catData.despesas) {
+                    const datalist = document.getElementById('categoryList');
+                    datalist.innerHTML = '';
+                    // Popula as opções do banco
+                    catData.despesas.forEach(c => {
+                        const opt = document.createElement('option');
+                        opt.value = c.nome;
+                        datalist.appendChild(opt);
+                    });
+                }
+            } catch (err) { console.error('Aviso: Erro ao buscar categorias', err); }
+
         } catch (e) {
             console.error(e);
             list.innerHTML = '<div class="p-10 text-center text-red-500">Erro ao carregar dados.</div>';
@@ -233,11 +261,11 @@ renderHeader('Despesas Fixas');
             const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
 
             let dateBadgeClass = 'bg-slate-100 text-slate-500 dark:bg-slate-700 dark:text-slate-400';
-            let dateText = `${parts[2]}/${parts[1]}/${parts[0]}`; // Direct string formatting to avoid ANY timezone offset
+            let dateText = `Dia ${parts[2]}`; 
 
             if (diffDays < 0) {
                 dateBadgeClass = 'bg-red-100 text-red-600 dark:bg-red-900/30 dark:text-red-400 font-bold';
-                dateText = `Venceu dia ${dateText}`;
+                dateText = `Venceu dia ${parts[2]}`;
             } else if (diffDays <= 3) {
                 dateBadgeClass = 'bg-amber-100 text-amber-600 dark:bg-amber-900/30 dark:text-amber-400 font-bold';
                 dateText = diffDays === 0 ? 'Vence HOJE' : `Vence em ${diffDays} dias`;
@@ -254,7 +282,6 @@ renderHeader('Despesas Fixas');
                             <span class="text-xs px-2 py-0.5 rounded ${dateBadgeClass}">
                                 ${dateText}
                             </span>
-                            <span class="text-xs text-slate-400 font-medium">${categoryName}</span>
                         </div>
                     </div>
                 </div>
@@ -263,7 +290,6 @@ renderHeader('Despesas Fixas');
                         <div class="font-bold text-slate-800 dark:text-white blur-sensitive text-lg">
                             R$ ${parseFloat(sub.amount).toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                         </div>
-                         <div class="text-xs text-slate-400 capitalize">${sub.billing_cycle === 'monthly' ? 'Mensal' : 'Anual'}</div>
                     </div>
                     <div class="flex items-center gap-1">
                          <button onclick='renewSub(${sub.id})' class="p-2 text-green-500 hover:bg-green-50 rounded-lg dark:hover:bg-green-900/30" title="Pagar (Jogar p/ próximo mês)">
@@ -289,8 +315,8 @@ renderHeader('Despesas Fixas');
         document.getElementById('subId').value = '';
         document.getElementById('modalSubTitle').textContent = 'Nova Despesa Fixa';
         document.getElementById('btnDeleteSub').classList.add('hidden');
-        document.getElementById('subDate').valueAsDate = new Date();
-        document.getElementById('subCategory').value = 'Contas';
+        document.getElementById('subDate').value = String(new Date().getDate()).padStart(2, '0');
+        document.getElementById('subCategory').value = '';
         document.getElementById('subIcon').value = '💡';
         toggleModal('modalSub', true);
     }
@@ -300,7 +326,10 @@ renderHeader('Despesas Fixas');
         document.getElementById('subName').value = sub.service_name;
         document.getElementById('subAmount').value = sub.amount;
         document.getElementById('subCycle').value = sub.billing_cycle;
-        document.getElementById('subDate').value = sub.next_billing_date;
+        
+        let subDay = sub.next_billing_date.split('-')[2] || '01';
+        document.getElementById('subDate').value = subDay;
+        
         document.getElementById('subCategory').value = sub.category || '';
         document.getElementById('subIcon').value = sub.icon || '📦';
 

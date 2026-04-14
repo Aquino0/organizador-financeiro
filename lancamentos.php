@@ -7,13 +7,12 @@ require_once 'src/layout.php';
 renderHeader('Lançamentos');
 ?>
 
-<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-
+<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-0 pb-6">
     <!-- Top Bar: Title + Date Nav -->
     <div
-        class="bg-white dark:bg-slate-800 rounded-2xl shadow-sm p-4 mb-6 flex flex-col md:flex-row justify-between items-center gap-4">
-        <div class="flex items-center gap-3 w-full md:w-auto">
-            <h1 class="text-xl font-bold text-slate-800 dark:text-white">Lançamentos</h1>
+        class="sticky top-0 z-30 bg-white dark:bg-slate-800 rounded-2xl shadow-sm p-4 mb-6 flex items-center justify-between gap-2 md:gap-4">
+        <div class="flex items-center gap-1.5 sm:gap-3 flex-shrink-0">
+            <h1 class="text-base sm:text-xl font-bold text-slate-800 dark:text-white">Lançamentos</h1>
             <button onclick="openGlobalAddModal()"
                 class="active-press p-2 rounded-full text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
@@ -24,16 +23,16 @@ renderHeader('Lançamentos');
             </button>
         </div>
 
-        <div class="flex items-center gap-4">
-            <button id="prevMonth" class="p-2 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-full text-slate-500">
+        <div class="flex items-center gap-1 sm:gap-4 flex-shrink-0">
+            <button id="prevMonth" class="p-1 sm:p-2 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-full text-slate-500">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
                     stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
                 </svg>
             </button>
             <span id="currentMonthLabel"
-                class="text-lg font-medium text-slate-700 dark:text-slate-200 capitalize w-32 text-center">Carregando...</span>
-            <button id="nextMonth" class="p-2 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-full text-slate-500">
+                class="text-sm sm:text-lg font-medium text-slate-700 dark:text-slate-200 capitalize w-24 sm:w-32 text-center">Carregando...</span>
+            <button id="nextMonth" class="p-1 sm:p-2 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-full text-slate-500">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
                     stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
@@ -41,7 +40,7 @@ renderHeader('Lançamentos');
             </button>
         </div>
 
-        <div class="flex items-center gap-2">
+        <div class="flex items-center gap-2 flex-shrink-0">
 
             <!-- Kebab Menu (Options) -->
             <div class="relative">
@@ -71,19 +70,19 @@ renderHeader('Lançamentos');
 
     <!-- Tabs: Todos | Receitas | Despesas -->
     <div class="bg-slate-100 dark:bg-slate-800/50 p-1.5 rounded-xl mb-6 flex gap-1">
-        <button onclick="setTabFilter('all')" id="tab-all"
-            class="flex-1 py-2 rounded-lg text-sm font-bold transition-all shadow-sm bg-white dark:bg-slate-600 text-slate-800 dark:text-white">
-            Todos
-        </button>
-        <button onclick="setTabFilter('receita')" id="tab-receita"
-            class="flex-1 py-2 rounded-lg text-sm font-medium transition-all text-slate-500 dark:text-slate-400 hover:bg-white/50 dark:hover:bg-slate-700/50">
-            Receitas
-        </button>
-        <button onclick="setTabFilter('despesa')" id="tab-despesa"
-            class="flex-1 py-2 rounded-lg text-sm font-medium transition-all text-slate-500 dark:text-slate-400 hover:bg-white/50 dark:hover:bg-slate-700/50">
-            Despesas
-        </button>
-    </div>
+            <button onclick="setTabFilter('all')" id="tab-all"
+                class="flex-1 py-2 rounded-lg text-sm font-bold transition-all shadow-sm bg-white dark:bg-slate-600 text-slate-800 dark:text-white">
+                Todos
+            </button>
+            <button onclick="setTabFilter('receita')" id="tab-receita"
+                class="flex-1 py-2 rounded-lg text-sm font-medium transition-all text-slate-500 dark:text-slate-400 hover:bg-white/50 dark:hover:bg-slate-700/50">
+                Receitas
+            </button>
+            <button onclick="setTabFilter('despesa')" id="tab-despesa"
+                class="flex-1 py-2 rounded-lg text-sm font-medium transition-all text-slate-500 dark:text-slate-400 hover:bg-white/50 dark:hover:bg-slate-700/50">
+                Despesas
+            </button>
+        </div>
 
     <!-- Search Bar -->
     <div class="relative mb-6">
@@ -299,7 +298,7 @@ renderHeader('Lançamentos');
                     </div>
 
                     <!-- Row: Value | Date -->
-                    <div class="grid grid-cols-2 gap-4">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div class="relative">
                             <label class="block text-xs text-slate-400 mb-1 ml-1 uppercase tracking-wider">Valor</label>
                             <div class="relative">
@@ -313,91 +312,101 @@ renderHeader('Lançamentos');
 
                         <div class="relative">
                             <label class="block text-xs text-slate-400 mb-1 ml-1 uppercase tracking-wider">Data</label>
-                            <input type="date" name="data" required
-                                class="w-full px-4 py-3 rounded-lg border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-700 dark:text-white focus:ring-2 focus:ring-green-500 focus:border-transparent outline-none transition-all font-medium text-center">
+                            <div class="flex items-center gap-2">
+                                <input type="date" name="data" required
+                                    class="flex-1 px-4 py-3 rounded-lg border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-700 dark:text-white focus:ring-2 focus:ring-green-500 focus:border-transparent outline-none transition-all font-medium text-center">
+                                
+                                <!-- Status Toggle Icon (Thumbs Up/Down) -->
+                                <label class="cursor-pointer select-none">
+                                    <input type="checkbox" name="pago" value="1" class="sr-only peer" checked>
+                                    <!-- Thumbs UP (Pago) -->
+                                    <div class="hidden peer-checked:flex w-10 h-10 items-center justify-center text-green-600 dark:text-green-500 hover:scale-110 transition-transform">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
+                                            <path d="M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-2z"/>
+                                        </svg>
+                                    </div>
+                                    <!-- Thumbs DOWN (Pendente) -->
+                                    <div class="flex peer-checked:hidden w-10 h-10 items-center justify-center text-slate-400 dark:text-slate-500 hover:text-red-500 transition-all hover:scale-110">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
+                                            <path d="M22 3h-4v12h4V3zm-22 11c0 1.1.9 2 2 2h6.31l-.95 4.57-.03.32c0 .41.17.79.44 1.06L9.83 23l6.59-6.59c.36-.36.58-.85.58-1.41V5c0-1.1-.9-2-2-2H6c-.83 0-1.54.5-1.84 1.22l-3.02 7.05c-.09.23-.14.47-.14.73v2z"/>
+                                        </svg>
+                                    </div>
+                                </label>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- Row: Account | Category -->
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="relative">
-                            <label
-                                class="block text-xs text-slate-400 mb-1 ml-1 uppercase tracking-wider">Conta/Cartão</label>
-                            <select name="conta"
-                                class="w-full px-4 py-3 rounded-lg border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-700 dark:text-white focus:ring-2 focus:ring-green-500 focus:border-transparent outline-none transition-all appearance-none cursor-pointer">
-                                <option value="Dinheiro">Carteira</option>
-                                <option value="Banco">Banco Principal</option>
-                                <option value="Nubank">Nubank</option>
-                                <option value="Inter">Inter</option>
-                            </select>
-                            <!-- Chevron -->
-                            <div
-                                class="absolute inset-y-0 right-0 flex items-center px-3 pointer-events-none text-slate-400">
-                                <svg class="w-4 h-4 mt-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M19 9l-7 7-7-7"></path>
-                                </svg>
-                            </div>
-                        </div>
-
-                        <div class="relative">
-                            <label
-                                class="block text-xs text-slate-400 mb-1 ml-1 uppercase tracking-wider">Categoria</label>
-                            <select name="categoria"
-                                class="w-full px-4 py-3 rounded-lg border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-700 dark:text-white focus:ring-2 focus:ring-green-500 focus:border-transparent outline-none transition-all appearance-none cursor-pointer">
-                                <option value="Geral">Geral</option>
-                                <option value="Salário">Salário</option>
-                                <option value="Alimentação">Alimentação</option>
-                                <option value="Transporte">Transporte</option>
-                                <option value="Moradia">Moradia</option>
-                                <option value="Lazer">Lazer</option>
-                                <option value="Saúde">Saúde</option>
-                                <option value="Outros">Outros</option>
-                            </select>
-                            <!-- Chevron -->
-                            <div
-                                class="absolute inset-y-0 right-0 flex items-center px-3 pointer-events-none text-slate-400">
-                                <svg class="w-4 h-4 mt-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M19 9l-7 7-7-7"></path>
-                                </svg>
-                            </div>
+                    <!-- Row: Category -->
+                    <div class="relative">
+                        <label
+                            class="block text-xs text-slate-400 mb-1 ml-1 uppercase tracking-wider">Categoria</label>
+                        <select name="categoria"
+                            class="w-full px-4 py-3 rounded-lg border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-700 dark:text-white focus:ring-2 focus:ring-green-500 focus:border-transparent outline-none transition-all appearance-none cursor-pointer">
+                            <option value="Geral">Geral</option>
+                            <option value="Salário">Salário</option>
+                            <option value="Alimentação">Alimentação</option>
+                            <option value="Transporte">Transporte</option>
+                            <option value="Moradia">Moradia</option>
+                            <option value="Lazer">Lazer</option>
+                            <option value="Saúde">Saúde</option>
+                            <option value="Outros">Outros</option>
+                        </select>
+                        <!-- Chevron -->
+                        <div
+                            class="absolute inset-y-0 right-0 flex items-center px-3 pointer-events-none text-slate-400">
+                            <svg class="w-4 h-4 mt-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7"></path>
+                            </svg>
                         </div>
                     </div>
                 </div>
 
-                <!-- Status Toggle (Pago/Recebido) -->
-                <div class="flex items-center justify-end mt-4 mr-1">
-                    <div
-                        class="flex items-center gap-3 bg-slate-50 dark:bg-slate-700/50 px-4 py-2 rounded-full border border-slate-100 dark:border-slate-600">
-                        <span class="text-sm font-medium text-slate-500 dark:text-slate-400">
-                            Status: <span id="statusLabel" class="font-bold text-slate-800 dark:text-white">Pago</span>
-                        </span>
 
-                        <label class="inline-flex items-center cursor-pointer relative">
-                            <input type="checkbox" name="pago" value="1" class="sr-only peer" checked
-                                onchange="document.getElementById('statusLabel').textContent = this.checked ? 'Pago' : 'Pendente'">
-                            <div
-                                class="w-11 h-6 bg-slate-300 peer-focus:outline-none rounded-full peer dark:bg-slate-600 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-green-500">
+                <!-- Repetir Section -->
+                <div id="repetirFields"
+                    class="mt-4 bg-slate-50 dark:bg-slate-700/50 p-4 rounded-xl border border-slate-100 dark:border-slate-600 space-y-4">
+                    
+                    <label class="block text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wide">Repetir</label>
+
+                    <div class="flex flex-col gap-3">
+                        <label class="flex items-center gap-2 cursor-pointer group">
+                            <input type="radio" name="repeat_mode" value="fixa" class="peer sr-only" checked onchange="toggleRepeatSubfields()">
+                            <div class="w-5 h-5 rounded-full border-2 border-slate-300 peer-checked:bg-green-500 peer-checked:border-transparent flex items-center justify-center transition-all">
+                                <svg class="w-3 h-3 text-white hidden peer-checked:block" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                                </svg>
                             </div>
+                            <span class="text-sm font-medium text-slate-600 dark:text-slate-300">é uma despesa fixa</span>
+                        </label>
+
+                        <label class="flex items-center gap-2 cursor-pointer group">
+                            <input type="radio" name="repeat_mode" value="parcelado" class="peer sr-only" onchange="toggleRepeatSubfields()">
+                            <div class="w-5 h-5 rounded-full border-2 border-slate-300 peer-checked:bg-green-500 peer-checked:border-transparent flex items-center justify-center transition-all">
+                                <svg class="w-3 h-3 text-white hidden peer-checked:block" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                                </svg>
+                            </div>
+                            <span class="text-sm font-medium text-slate-600 dark:text-slate-300">é um lançamento parcelado em</span>
                         </label>
                     </div>
-                </div>
-                <!-- Hidden Repetir Fields -->
-                <div id="repetirFields"
-                    class="hidden mt-4 bg-slate-50 dark:bg-slate-700/50 p-4 rounded-xl border border-slate-100 dark:border-slate-600 transition-all duration-300">
-                    <div class="flex gap-4">
-                        <div class="flex-1">
-                            <label
-                                class="block text-xs text-slate-400 mb-1 ml-1 uppercase tracking-wider">Frequência</label>
+
+                    <div id="repeatSubfields" class="space-y-3">
+                        <div>
                             <select name="frequencia"
                                 class="w-full px-4 py-2 rounded-lg border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-700 dark:text-white outline-none">
-                                <option value="mensal">Mensal</option>
+                                <option value="Anual">Anual</option>
+                                <option value="Semestral">Semestral</option>
+                                <option value="Trimestral">Trimestral</option>
+                                <option value="Bimestral">Bimestral</option>
+                                <option value="Mensal" selected>Mensal</option>
+                                <option value="Quinzena">Quinzena</option>
+                                <option value="Semanal">Semanal</option>
+                                <option value="Diário">Diário</option>
                             </select>
                         </div>
-                        <div class="w-1/3">
-                            <label class="block text-xs text-slate-400 mb-1 ml-1 uppercase tracking-wider">Vezes</label>
-                            <input type="number" name="repetir" value="1" min="1" max="60"
+                        <div id="repeatTimesContainer" class="hidden">
+                            <input type="number" name="repetir" placeholder="Quantidade de vezes" min="2" max="60" value="2"
                                 class="w-full px-4 py-2 rounded-lg border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-700 dark:text-white outline-none text-center">
                         </div>
                     </div>
@@ -415,20 +424,7 @@ renderHeader('Lançamentos');
         <!-- Bottom Section: Action Icons & Submit -->
         <div class="flex flex-col items-center gap-6 mt-8 mb-4">
             <!-- Action Icons Row -->
-            <div class="flex justify-center gap-8">
-                <!-- Repetir Button -->
-                <button type="button" onclick="toggleRepetir()" id="btnRepetir"
-                    class="flex flex-col items-center gap-2 group transition-opacity">
-                    <div
-                        class="w-12 h-12 rounded-full border border-slate-200 dark:border-slate-600 flex items-center justify-center text-slate-400 group-hover:bg-slate-50 dark:group-hover:bg-slate-700 transition-colors">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-                        </svg>
-                    </div>
-                    <span class="text-xs text-slate-400">Repetir</span>
-                </button>
+
 
                 <!-- Observação -->
                 <button type="button" onclick="toggleObs()" id="btnObs" class="flex flex-col items-center gap-2 group">
@@ -443,33 +439,7 @@ renderHeader('Lançamentos');
                     <span class="text-xs text-slate-400 group-hover:text-blue-500">Observação</span>
                 </button>
 
-                <!-- Anexo (Placeholder) -->
-                <button type="button"
-                    class="flex flex-col items-center gap-2 group opacity-50 hover:opacity-100 transition-opacity">
-                    <div
-                        class="w-12 h-12 rounded-full border border-slate-200 dark:border-slate-600 flex items-center justify-center text-slate-400 group-hover:bg-slate-50 dark:group-hover:bg-slate-700 transition-colors">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13" />
-                        </svg>
-                    </div>
-                    <span class="text-xs text-slate-400">Anexo</span>
-                </button>
 
-                <!-- Tags (Placeholder) -->
-                <button type="button"
-                    class="flex flex-col items-center gap-2 group opacity-50 hover:opacity-100 transition-opacity">
-                    <div
-                        class="w-12 h-12 rounded-full border border-slate-200 dark:border-slate-600 flex items-center justify-center text-slate-400 group-hover:bg-slate-50 dark:group-hover:bg-slate-700 transition-colors">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
-                        </svg>
-                    </div>
-                    <span class="text-xs text-slate-400">Tags</span>
-                </button>
             </div>
 
             <!-- Submit Button -->
@@ -517,6 +487,19 @@ renderHeader('Lançamentos');
                     btn.querySelector('div').classList.add('border-slate-200', 'dark:border-slate-600');
                     btn.querySelector('div').classList.remove('border-blue-500', 'text-blue-500');
                     input.value = 1; // Reset to 1
+                }
+            }
+
+            function toggleRepeatSubfields() {
+                const mode = document.querySelector('input[name="repeat_mode"]:checked').value;
+                const timesContainer = document.getElementById('repeatTimesContainer');
+                const input = document.querySelector('input[name="repetir"]');
+                
+                if (mode === 'parcelado') {
+                    timesContainer.classList.remove('hidden');
+                    if (input && input.value == 1) input.value = 2; // Default starting installments
+                } else {
+                    timesContainer.classList.add('hidden');
                 }
             }
         </script>

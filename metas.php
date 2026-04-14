@@ -69,10 +69,11 @@ renderHeader('Metas e Sonhos');
                 <div class="space-y-4">
                     <!-- Icon e Titulo Row -->
                     <div class="flex gap-3">
-                        <div class="w-1/4">
-                            <label class="block text-xs font-bold text-slate-500 uppercase mb-1">Ícone</label>
+                        <div class="w-[30%] sm:w-1/4 text-center">
+                            <label class="block text-xs font-bold text-slate-500 uppercase mb-1 text-left">Ícone</label>
                             <select name="icon" id="goalIcon"
-                                class="w-full text-2xl h-[46px] rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-500 text-center">
+                                class="w-full text-xl sm:text-2xl py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-500 text-center appearance-none cursor-pointer"
+                                style="text-align-last: center;">
                                 <option value="🎯">🎯</option>
                                 <option value="✈️">✈️</option>
                                 <option value="🚗">🚗</option>
@@ -84,7 +85,7 @@ renderHeader('Metas e Sonhos');
                                 <option value="🏖️">🏖️</option>
                             </select>
                         </div>
-                        <div class="w-3/4">
+                        <div class="w-[70%] sm:w-3/4">
                             <label class="block text-xs font-bold text-slate-500 uppercase mb-1">Nome da Meta</label>
                             <input type="text" name="title" id="goalTitle" required placeholder="Ex: Viagem Europa"
                                 class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 font-medium">
@@ -108,17 +109,17 @@ renderHeader('Metas e Sonhos');
                     </div>
 
                     <!-- Prazo e Cor Row -->
-                    <div class="flex gap-3">
-                        <div class="w-1/2">
+                    <div class="flex flex-col sm:flex-row gap-3">
+                        <div class="w-full sm:flex-1 min-w-0">
                             <label class="block text-xs font-bold text-slate-500 uppercase mb-1">Prazo
                                 (Opcional)</label>
                             <input type="date" name="deadline" id="goalDeadline"
-                                class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm">
+                                class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm appearance-none">
                         </div>
-                        <div class="w-1/2">
+                        <div class="w-full sm:flex-1 min-w-0">
                             <label class="block text-xs font-bold text-slate-500 uppercase mb-1">Cor</label>
                             <select name="color" id="goalColor"
-                                class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm">
+                                class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm appearance-none">
                                 <option value="blue">Azul</option>
                                 <option value="green">Verde</option>
                                 <option value="purple">Roxo</option>

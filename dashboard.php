@@ -140,33 +140,7 @@ renderHeader('Dashboard');
         <!-- Quick Actions & Ranking -->
         <div class="space-y-6">
             <!-- Actions (Keep visible or skeleton? Let's keep visible as they are static mostly, or skeleton if strict) -->
-            <!-- Let's keep actions visible for instant interactivity, but add skeleton for ranking -->
-            <div class="grid grid-cols-2 gap-4">
-                <a href="lancamentos.php"
-                    class="active-press flex flex-col items-center justify-center p-4 bg-green-50 dark:bg-green-900/30 border border-green-200 dark:border-green-800 rounded-xl hover:bg-green-100 dark:hover:bg-green-900/50 transition cursor-pointer">
-                    <div
-                        class="w-10 h-10 rounded-full bg-green-500 flex items-center justify-center text-white mb-2 shadow-lg shadow-green-500/30">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-                        </svg>
-                    </div>
-                    <span class="font-medium text-green-700 dark:text-green-400">Nova Receita</span>
-                </a>
-                <a href="lancamentos.php"
-                    class="active-press flex flex-col items-center justify-center p-4 bg-red-50 dark:bg-red-900/30 border border-red-200 dark:border-red-800 rounded-xl hover:bg-red-100 dark:hover:bg-red-900/50 transition cursor-pointer">
-                    <div
-                        class="w-10 h-10 rounded-full bg-red-500 flex items-center justify-center text-white mb-2 shadow-lg shadow-red-500/30">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-                        </svg>
-                    </div>
-                    <span class="font-medium text-red-700 dark:text-red-400">Nova Despesa</span>
-                </a>
-            </div>
+            <!-- Let's keep actions visible for instant interactivity, but add skeleton for ranking -iv>
 
             <!-- Ranking -->
             <div class="relative">
@@ -198,7 +172,10 @@ renderHeader('Dashboard');
     let financeChart = null;
 
     function getMonthName(date) {
-        return date.toLocaleDateString('pt-BR', { month: 'long', year: 'numeric' });
+        const month = date.toLocaleDateString('pt-BR', { month: 'long' });
+        const year = date.getFullYear();
+        const capitalizedMonth = month.charAt(0).toUpperCase() + month.slice(1);
+        return `${capitalizedMonth} ${year}`;
     }
 
     function changeMonth(delta) {
