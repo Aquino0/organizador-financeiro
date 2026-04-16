@@ -1186,7 +1186,7 @@ renderHeader('Lançamentos');
                 document.querySelector('input[name="valor"]').value = currentItem.valor;
                 document.querySelector('input[name="data"]').value = currentItem.data;
                 document.querySelector('select[name="categoria"]').value = currentItem.categoria;
-                document.querySelector('select[name="conta"]').value = currentItem.conta || 'Banco'; // placeholder logic
+                // document.querySelector('select[name="conta"]').value = currentItem.conta || 'Banco'; // placeholder logic
 
                 // Handle Observacao
                 const obsEl = document.querySelector('textarea[name="observacao"]');
@@ -1241,7 +1241,7 @@ renderHeader('Lançamentos');
                 document.querySelector('input[name="valor"]').value = currentItem.valor;
                 document.querySelector('input[name="data"]').value = currentItem.data;
                 document.querySelector('select[name="categoria"]').value = currentItem.categoria;
-                document.querySelector('select[name="conta"]').value = currentItem.conta || 'Banco';
+                // document.querySelector('select[name="conta"]').value = currentItem.conta || 'Banco';
 
                 const obsEl = document.querySelector('textarea[name="observacao"]');
                 obsEl.value = currentItem.observacao || '';
