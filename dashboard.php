@@ -1,7 +1,7 @@
 <?php
 require_once 'src/auth.php';
 require_once 'src/layout.php';
-requireAuth();
+requireActiveSubscription();
 
 renderHeader('Dashboard');
 ?>

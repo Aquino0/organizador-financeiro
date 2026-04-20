@@ -98,3 +98,36 @@ function getCurrentUserId()
     $user = getAuthUser();
     return $user ? $user['id'] : null;
 }
+
+function requireActiveSubscription()
+{
+    requireAuth();
+    $authUser = getAuthUser();
+    
+    // O(A) Dono(a) não paga
+    if ($authUser && $authUser['role'] === 'admin') {
+        return;
+    }
+    
+    global $pdo;
+    if (!$pdo) {
+        require_once __DIR__ . '/db.php';
+    }
+    
+    $userId = getCurrentUserId();
+    $stmt = $pdo->prepare("SELECT subscription_status, current_period_end FROM users WHERE id = ?");
+    $stmt->execute([$userId]);
+    $user = $stmt->fetch();
+    
+    if ($user && $user['subscription_status'] === 'active' && !empty($user['current_period_end'])) {
+        if (strtotime($user['current_period_end']) < time()) {
+            $pdo->prepare("UPDATE users SET subscription_status = 'free' WHERE id = ?")->execute([$userId]);
+            $user['subscription_status'] = 'free'; // Força a logica local a cair pro if debaixo
+        }
+    }
+    
+    if (!$user || ($user['subscription_status'] !== 'active' && $user['subscription_status'] !== 'lifetime')) {
+        header('Location: /planos.php');
+        exit;
+    }
+}

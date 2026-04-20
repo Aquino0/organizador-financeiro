@@ -1,7 +1,7 @@
 <?php
 // assinaturas.php
-require_once 'src/auth.php';
-requireAuth();
+require_once __DIR__ . '/src/auth.php';
+requireActiveSubscription();
 require_once 'src/layout.php';
 
 renderHeader('Despesas Fixas');

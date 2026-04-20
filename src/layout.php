@@ -443,6 +443,19 @@ function renderHeader($title = 'Organiza+')
                                         </svg>
                                         Minha Conta
                                     </button>
+                                    
+                                    <?php if(isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
+                                    <a href="admin_users.php"
+                                        class="w-full text-left px-4 py-2 text-sm text-amber-600 dark:text-amber-500 hover:bg-amber-50 dark:hover:bg-amber-900/20 flex items-center gap-2 border-t border-slate-100 dark:border-slate-700">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+                                            stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                                        </svg>
+                                        Painel Admin
+                                    </a>
+                                    <?php endif; ?>
+
                                     <button onclick="logout()"
                                         class="w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-red-50 dark:hover:bg-red-900/20 flex items-center gap-2">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
@@ -480,6 +493,8 @@ function renderHeader($title = 'Organiza+')
                     <div class="flex border-b border-slate-200 dark:border-slate-700 mb-6">
                         <button onclick="switchTab('perfil')" id="tab-perfil"
                             class="flex-1 pb-3 text-sm font-medium text-blue-600 border-b-2 border-blue-600 transition-colors">Perfil</button>
+                        <button onclick="switchTab('assinatura')" id="tab-assinatura"
+                            class="flex-1 pb-3 text-sm font-medium text-slate-500 hover:text-slate-700 border-b-2 border-transparent transition-colors">Assinatura</button>
                         <button onclick="switchTab('seguranca')" id="tab-seguranca"
                             class="flex-1 pb-3 text-sm font-medium text-slate-500 hover:text-slate-700 border-b-2 border-transparent transition-colors">Segurança</button>
                     </div>
@@ -545,6 +560,17 @@ function renderHeader($title = 'Organiza+')
                         </form>
                     </div>
 
+                    <!-- Content Assinatura -->
+                    <div id="content-assinatura" class="hidden space-y-4">
+                        <div class="bg-blue-50 dark:bg-slate-700/50 p-4 rounded-xl border border-blue-100 dark:border-slate-600 text-center">
+                            <h3 class="text-sm font-bold text-slate-800 dark:text-white mb-2">Painel do Assinante</h3>
+                            <p class="text-xs text-slate-600 dark:text-slate-300 mb-4">Veja quando sua assinatura expira, altere a forma de pagamento, baixe recibos ou altere seu plano.</p>
+                            <a href="api/create_portal_session.php" class="inline-block w-full py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors">
+                                Gerenciar Assinatura
+                            </a>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -566,25 +592,22 @@ function renderHeader($title = 'Organiza+')
                 const colors = ['text-blue-600', 'border-blue-600'];
                 const grays = ['text-slate-500', 'border-transparent'];
 
-                if (tab === 'perfil') {
-                    document.getElementById('content-perfil').classList.remove('hidden');
-                    document.getElementById('content-seguranca').classList.add('hidden');
-
-                    document.getElementById('tab-perfil').classList.add(...colors);
-                    document.getElementById('tab-perfil').classList.remove(...grays);
-
-                    document.getElementById('tab-seguranca').classList.remove(...colors);
-                    document.getElementById('tab-seguranca').classList.add(...grays);
-                } else {
-                    document.getElementById('content-perfil').classList.add('hidden');
-                    document.getElementById('content-seguranca').classList.remove('hidden');
-
-                    document.getElementById('tab-seguranca').classList.add(...colors);
-                    document.getElementById('tab-seguranca').classList.remove(...grays);
-
-                    document.getElementById('tab-perfil').classList.remove(...colors);
-                    document.getElementById('tab-perfil').classList.add(...grays);
-                }
+                ['perfil', 'seguranca', 'assinatura'].forEach(t => {
+                    const content = document.getElementById('content-' + t);
+                    const btn = document.getElementById('tab-' + t);
+                    
+                    if (!content || !btn) return;
+                    
+                    if (t === tab) {
+                        content.classList.remove('hidden');
+                        btn.classList.add(...colors);
+                        btn.classList.remove(...grays);
+                    } else {
+                        content.classList.add('hidden');
+                        btn.classList.add(...grays);
+                        btn.classList.remove(...colors);
+                    }
+                });
             }
 
             function previewImage(input) {

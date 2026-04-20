@@ -1,0 +1,1859 @@
+[Wed Apr 15 23:10:42 2026] PHP 8.3.28 Development Server (http://localhost:8000) started
+[Wed Apr 15 23:10:54 2026] [::1]:52578 Accepted
+[Wed Apr 15 23:10:54 2026] [::1]:52578 [200]: HEAD /
+[Wed Apr 15 23:10:54 2026] [::1]:52578 Closing
+[Wed Apr 15 23:11:14 2026] [::1]:52579 Accepted
+[Wed Apr 15 23:11:14 2026] [::1]:52579 [200]: GET /dashboard.php
+[Wed Apr 15 23:11:14 2026] [::1]:52579 Closing
+[Wed Apr 15 23:11:14 2026] [::1]:52580 Accepted
+[Wed Apr 15 23:11:15 2026] [::1]:52582 Accepted
+[Wed Apr 15 23:11:15 2026] [::1]:52582 [200]: GET /manifest.json
+[Wed Apr 15 23:11:15 2026] [::1]:52582 Closing
+[Wed Apr 15 23:11:15 2026] [::1]:52583 Accepted
+[Wed Apr 15 23:11:15 2026] [::1]:52583 [200]: GET /manifest.json
+[Wed Apr 15 23:11:15 2026] [::1]:52583 Closing
+[Wed Apr 15 23:11:17 2026] [::1]:52580 [200]: GET /api/check_overdue.php
+[Wed Apr 15 23:11:17 2026] [::1]:52580 Closing
+[Wed Apr 15 23:11:17 2026] [::1]:52584 Accepted
+[Wed Apr 15 23:11:17 2026] [::1]:52585 Accepted
+[Wed Apr 15 23:11:17 2026] [::1]:52584 [200]: GET /api/dashboard_stats.php?mes=2026-04
+[Wed Apr 15 23:11:17 2026] [::1]:52584 Closing
+[Wed Apr 15 23:11:17 2026] [::1]:52586 Accepted
+[Wed Apr 15 23:11:18 2026] [::1]:52585 [200]: GET /api/list_receitas.php?mes=2026-04
+[Wed Apr 15 23:11:18 2026] [::1]:52585 Closing
+[Wed Apr 15 23:11:18 2026] [::1]:52588 Accepted
+[Wed Apr 15 23:11:18 2026] [::1]:52586 [200]: GET /api/list_despesas.php?mes=2026-04
+[Wed Apr 15 23:11:18 2026] [::1]:52586 Closing
+[Wed Apr 15 23:11:18 2026] [::1]:52589 Accepted
+[Wed Apr 15 23:11:18 2026] [::1]:52588 [200]: GET /assets/logo.png?v=2
+[Wed Apr 15 23:11:18 2026] [::1]:52589 [200]: GET /assets/logo.png
+[Wed Apr 15 23:11:18 2026] [::1]:52588 Closing
+[Wed Apr 15 23:11:18 2026] [::1]:52589 Closing
+[Wed Apr 15 23:11:25 2026] [::1]:52594 Accepted
+[Wed Apr 15 23:11:25 2026] [::1]:52594 [200]: GET /lancamentos.php
+[Wed Apr 15 23:11:25 2026] [::1]:52594 Closing
+[Wed Apr 15 23:11:25 2026] [::1]:52595 Accepted
+[Wed Apr 15 23:11:25 2026] [::1]:52596 Accepted
+[Wed Apr 15 23:11:25 2026] [::1]:52595 [200]: GET /api/list_lancamentos.php?mes=2026-04&t=1776305485403
+[Wed Apr 15 23:11:25 2026] [::1]:52595 Closing
+[Wed Apr 15 23:11:25 2026] [::1]:52596 [200]: GET /manifest.json
+[Wed Apr 15 23:11:25 2026] [::1]:52597 Accepted
+[Wed Apr 15 23:11:26 2026] [::1]:52597 [200]: GET /api/check_overdue.php
+[Wed Apr 15 23:11:26 2026] [::1]:52597 Closing
+[Wed Apr 15 23:11:26 2026] [::1]:52598 Accepted
+[Wed Apr 15 23:11:26 2026] [::1]:52596 Closing
+[Wed Apr 15 23:11:26 2026] [::1]:52598 [200]: GET /assets/logo.png
+[Wed Apr 15 23:11:26 2026] [::1]:52598 Closing
+[Wed Apr 15 23:11:40 2026] [::1]:52600 Accepted
+[Wed Apr 15 23:11:40 2026] [::1]:52600 [200]: GET /api/categories.php
+[Wed Apr 15 23:11:40 2026] [::1]:52600 Closing
+[Wed Apr 15 23:11:50 2026] [::1]:52601 Accepted
+[Wed Apr 15 23:11:50 2026] [::1]:52601 [200]: GET /api/categories.php
+[Wed Apr 15 23:11:50 2026] [::1]:52601 Closing
+[Wed Apr 15 23:11:54 2026] [::1]:52603 Accepted
+[Wed Apr 15 23:11:54 2026] [::1]:52603 [200]: GET /api/list_lancamentos.php?mes=2026-03&t=1776305514392
+[Wed Apr 15 23:11:54 2026] [::1]:52603 Closing
+[Wed Apr 15 23:11:59 2026] [::1]:52604 Accepted
+[Wed Apr 15 23:11:59 2026] [::1]:52604 [200]: GET /configuracoes.php
+[Wed Apr 15 23:11:59 2026] [::1]:52604 Closing
+[Wed Apr 15 23:11:59 2026] [::1]:52605 Accepted
+[Wed Apr 15 23:11:59 2026] [::1]:52606 Accepted
+[Wed Apr 15 23:11:59 2026] [::1]:52606 [200]: GET /manifest.json
+[Wed Apr 15 23:11:59 2026] [::1]:52606 Closing
+[Wed Apr 15 23:12:00 2026] [::1]:52605 [200]: GET /api/check_overdue.php
+[Wed Apr 15 23:12:00 2026] [::1]:52605 Closing
+[Wed Apr 15 23:12:00 2026] [::1]:52607 Accepted
+[Wed Apr 15 23:12:00 2026] [::1]:52608 Accepted
+[Wed Apr 15 23:12:00 2026] [::1]:52607 [200]: GET /api/categories.php
+[Wed Apr 15 23:12:00 2026] [::1]:52607 Closing
+[Wed Apr 15 23:12:00 2026] [::1]:52608 [200]: GET /assets/logo.png
+[Wed Apr 15 23:12:00 2026] [::1]:52608 Closing
+[Wed Apr 15 23:12:42 2026] [::1]:52611 Accepted
+[Wed Apr 15 23:12:42 2026] [::1]:52611 [200]: GET /dashboard.php
+[Wed Apr 15 23:12:42 2026] [::1]:52611 Closing
+[Wed Apr 15 23:12:42 2026] [::1]:52612 Accepted
+[Wed Apr 15 23:12:42 2026] [::1]:52613 Accepted
+[Wed Apr 15 23:12:42 2026] [::1]:52613 [200]: GET /manifest.json
+[Wed Apr 15 23:12:42 2026] [::1]:52613 Closing
+[Wed Apr 15 23:12:43 2026] [::1]:52612 [200]: GET /api/check_overdue.php
+[Wed Apr 15 23:12:43 2026] [::1]:52612 Closing
+[Wed Apr 15 23:12:43 2026] [::1]:52614 Accepted
+[Wed Apr 15 23:12:43 2026] [::1]:52615 Accepted
+[Wed Apr 15 23:12:43 2026] [::1]:52614 [200]: GET /api/dashboard_stats.php?mes=2026-04
+[Wed Apr 15 23:12:43 2026] [::1]:52614 Closing
+[Wed Apr 15 23:12:43 2026] [::1]:52616 Accepted
+[Wed Apr 15 23:12:43 2026] [::1]:52615 [200]: GET /api/list_receitas.php?mes=2026-04
+[Wed Apr 15 23:12:43 2026] [::1]:52615 Closing
+[Wed Apr 15 23:12:43 2026] [::1]:52617 Accepted
+[Wed Apr 15 23:12:43 2026] [::1]:52616 [200]: GET /api/list_despesas.php?mes=2026-04
+[Wed Apr 15 23:12:43 2026] [::1]:52616 Closing
+[Wed Apr 15 23:12:43 2026] [::1]:52618 Accepted
+[Wed Apr 15 23:12:43 2026] [::1]:52617 [200]: GET /assets/logo.png
+[Wed Apr 15 23:12:43 2026] [::1]:52618 [200]: GET /dashboard.php
+[Wed Apr 15 23:12:43 2026] [::1]:52618 Closing
+[Wed Apr 15 23:12:43 2026] [::1]:52617 Closing
+[Wed Apr 15 23:12:43 2026] [::1]:52620 Accepted
+[Wed Apr 15 23:12:43 2026] [::1]:52620 [200]: GET /manifest.json
+[Wed Apr 15 23:12:43 2026] [::1]:52620 Closing
+[Wed Apr 15 23:12:43 2026] [::1]:52621 Accepted
+[Wed Apr 15 23:12:43 2026] [::1]:52621 [200]: GET /api/check_overdue.php
+[Wed Apr 15 23:12:43 2026] [::1]:52621 Closing
+[Wed Apr 15 23:12:43 2026] [::1]:52622 Accepted
+[Wed Apr 15 23:12:43 2026] [::1]:52623 Accepted
+[Wed Apr 15 23:12:44 2026] [::1]:52622 [200]: GET /api/dashboard_stats.php?mes=2026-04
+[Wed Apr 15 23:12:44 2026] [::1]:52622 Closing
+[Wed Apr 15 23:12:44 2026] [::1]:52624 Accepted
+[Wed Apr 15 23:12:44 2026] [::1]:52623 [200]: GET /api/list_receitas.php?mes=2026-04
+[Wed Apr 15 23:12:44 2026] [::1]:52623 Closing
+[Wed Apr 15 23:12:44 2026] [::1]:52625 Accepted
+[Wed Apr 15 23:12:44 2026] [::1]:52624 [200]: GET /api/list_despesas.php?mes=2026-04
+[Wed Apr 15 23:12:44 2026] [::1]:52624 Closing
+[Wed Apr 15 23:12:44 2026] [::1]:52625 [200]: GET /assets/logo.png
+[Wed Apr 15 23:12:44 2026] [::1]:52625 Closing
+[Wed Apr 15 23:12:51 2026] [::1]:52630 Accepted
+[Wed Apr 15 23:12:51 2026] [::1]:52631 Accepted
+[Wed Apr 15 23:12:51 2026] [::1]:52630 [200]: GET /dashboard.php
+[Wed Apr 15 23:12:51 2026] [::1]:52630 Closing
+[Wed Apr 15 23:12:51 2026] [::1]:52632 Accepted
+[Wed Apr 15 23:12:51 2026] [::1]:52632 [200]: GET /manifest.json
+[Wed Apr 15 23:12:51 2026] [::1]:52632 Closing
+[Wed Apr 15 23:12:51 2026] [::1]:52631 [200]: GET /api/check_overdue.php
+[Wed Apr 15 23:12:51 2026] [::1]:52631 Closing
+[Wed Apr 15 23:12:51 2026] [::1]:52633 Accepted
+[Wed Apr 15 23:12:51 2026] [::1]:52634 Accepted
+[Wed Apr 15 23:12:52 2026] [::1]:52633 [200]: GET /api/dashboard_stats.php?mes=2026-04
+[Wed Apr 15 23:12:52 2026] [::1]:52633 Closing
+[Wed Apr 15 23:12:52 2026] [::1]:52635 Accepted
+[Wed Apr 15 23:12:52 2026] [::1]:52634 [200]: GET /api/list_receitas.php?mes=2026-04
+[Wed Apr 15 23:12:52 2026] [::1]:52634 Closing
+[Wed Apr 15 23:12:52 2026] [::1]:52636 Accepted
+[Wed Apr 15 23:12:52 2026] [::1]:52635 [200]: GET /api/list_despesas.php?mes=2026-04
+[Wed Apr 15 23:12:52 2026] [::1]:52635 Closing
+[Wed Apr 15 23:12:52 2026] [::1]:52636 [200]: GET /assets/logo.png
+[Wed Apr 15 23:12:52 2026] [::1]:52636 Closing
+[Wed Apr 15 23:16:11 2026] [::1]:52681 Accepted
+[Wed Apr 15 23:16:11 2026] [::1]:52681 [200]: GET /api/categories.php
+[Wed Apr 15 23:16:11 2026] [::1]:52681 Closing
+[Wed Apr 15 23:16:13 2026] [::1]:52682 Accepted
+[Wed Apr 15 23:16:13 2026] [::1]:52682 [200]: GET /api/categories.php
+[Wed Apr 15 23:16:13 2026] [::1]:52682 Closing
+[Wed Apr 15 23:16:14 2026] [::1]:52683 Accepted
+[Wed Apr 15 23:16:15 2026] [::1]:52683 [200]: GET /api/categories.php
+[Wed Apr 15 23:16:15 2026] [::1]:52683 Closing
+[Wed Apr 15 23:20:03 2026] [::1]:52719 Accepted
+[Wed Apr 15 23:20:03 2026] [::1]:52719 [200]: GET /lancamentos.php
+[Wed Apr 15 23:20:03 2026] [::1]:52719 Closing
+[Wed Apr 15 23:20:03 2026] [::1]:52720 Accepted
+[Wed Apr 15 23:20:03 2026] [::1]:52721 Accepted
+[Wed Apr 15 23:20:03 2026] [::1]:52721 [200]: GET /manifest.json
+[Wed Apr 15 23:20:03 2026] [::1]:52721 Closing
+[Wed Apr 15 23:20:04 2026] [::1]:52720 [200]: GET /api/list_lancamentos.php?mes=2026-04&t=1776306003688
+[Wed Apr 15 23:20:04 2026] [::1]:52720 Closing
+[Wed Apr 15 23:20:04 2026] [::1]:52722 Accepted
+[Wed Apr 15 23:20:04 2026] [::1]:52723 Accepted
+[Wed Apr 15 23:20:04 2026] [::1]:52722 [200]: GET /api/check_overdue.php
+[Wed Apr 15 23:20:04 2026] [::1]:52722 Closing
+[Wed Apr 15 23:20:04 2026] [::1]:52723 [200]: GET /assets/logo.png
+[Wed Apr 15 23:20:04 2026] [::1]:52723 Closing
+[Wed Apr 15 23:20:14 2026] [::1]:52725 Accepted
+[Wed Apr 15 23:20:14 2026] [::1]:52725 [200]: GET /api/categories.php
+[Wed Apr 15 23:20:14 2026] [::1]:52725 Closing
+[Wed Apr 15 23:20:28 2026] [::1]:52728 Accepted
+[Wed Apr 15 23:20:32 2026] [::1]:52728 [200]: POST /api/create_despesa.php
+[Wed Apr 15 23:20:32 2026] [::1]:52728 Closing
+[Wed Apr 15 23:20:32 2026] [::1]:52729 Accepted
+[Wed Apr 15 23:20:32 2026] [::1]:52729 [200]: GET /api/list_lancamentos.php?mes=2026-04&t=1776306032047
+[Wed Apr 15 23:20:32 2026] [::1]:52729 Closing
+[Thu Apr 16 10:36:03 2026] [::1]:54216 Accepted
+[Thu Apr 16 10:36:03 2026] [::1]:54216 [200]: GET /dashboard.php
+[Thu Apr 16 10:36:03 2026] [::1]:54216 Closing
+[Thu Apr 16 10:36:03 2026] [::1]:54217 Accepted
+[Thu Apr 16 10:36:04 2026] [::1]:54219 Accepted
+[Thu Apr 16 10:36:04 2026] [::1]:54219 [200]: GET /manifest.json
+[Thu Apr 16 10:36:04 2026] [::1]:54219 Closing
+[Thu Apr 16 10:36:04 2026] [::1]:54220 Accepted
+[Thu Apr 16 10:36:04 2026] [::1]:54220 [200]: GET /manifest.json
+[Thu Apr 16 10:36:04 2026] [::1]:54220 Closing
+[Thu Apr 16 10:36:05 2026] [::1]:54217 [200]: GET /api/check_overdue.php
+[Thu Apr 16 10:36:05 2026] [::1]:54217 Closing
+[Thu Apr 16 10:36:05 2026] [::1]:54221 Accepted
+[Thu Apr 16 10:36:05 2026] [::1]:54222 Accepted
+[Thu Apr 16 10:36:05 2026] [::1]:54221 [200]: GET /api/dashboard_stats.php?mes=2026-04
+[Thu Apr 16 10:36:05 2026] [::1]:54221 Closing
+[Thu Apr 16 10:36:05 2026] [::1]:54223 Accepted
+[Thu Apr 16 10:36:05 2026] [::1]:54222 [200]: GET /api/list_receitas.php?mes=2026-04
+[Thu Apr 16 10:36:05 2026] [::1]:54222 Closing
+[Thu Apr 16 10:36:05 2026] [::1]:54225 Accepted
+[Thu Apr 16 10:36:06 2026] [::1]:54223 [200]: GET /api/list_despesas.php?mes=2026-04
+[Thu Apr 16 10:36:06 2026] [::1]:54223 Closing
+[Thu Apr 16 10:36:06 2026] [::1]:54225 [200]: GET /assets/logo.png
+[Thu Apr 16 10:36:06 2026] [::1]:54225 Closing
+[Thu Apr 16 10:56:01 2026] [::1]:54371 Accepted
+[Thu Apr 16 10:56:01 2026] [::1]:54372 Accepted
+[Thu Apr 16 10:56:01 2026] [::1]:54371 [200]: GET /dashboard.php
+[Thu Apr 16 10:56:01 2026] [::1]:54371 Closing
+[Thu Apr 16 10:56:01 2026] [::1]:54374 Accepted
+[Thu Apr 16 10:56:01 2026] [::1]:54374 [200]: GET /manifest.json
+[Thu Apr 16 10:56:01 2026] [::1]:54374 Closing
+[Thu Apr 16 10:56:01 2026] [::1]:54375 Accepted
+[Thu Apr 16 10:56:01 2026] [::1]:54375 [200]: GET /manifest.json
+[Thu Apr 16 10:56:01 2026] [::1]:54375 Closing
+[Thu Apr 16 10:56:01 2026] [::1]:54372 [200]: GET /assets/bg_despesas.jpg
+[Thu Apr 16 10:56:01 2026] [::1]:54372 Closing
+[Thu Apr 16 10:56:01 2026] [::1]:54376 Accepted
+[Thu Apr 16 10:56:05 2026] [::1]:54376 [200]: GET /api/check_overdue.php
+[Thu Apr 16 10:56:05 2026] [::1]:54376 Closing
+[Thu Apr 16 10:56:05 2026] [::1]:54377 Accepted
+[Thu Apr 16 10:56:05 2026] [::1]:54378 Accepted
+[Thu Apr 16 10:56:05 2026] [::1]:54377 [200]: GET /api/dashboard_stats.php?mes=2026-04
+[Thu Apr 16 10:56:05 2026] [::1]:54377 Closing
+[Thu Apr 16 10:56:05 2026] [::1]:54379 Accepted
+[Thu Apr 16 10:56:06 2026] [::1]:54378 [200]: GET /api/list_receitas.php?mes=2026-04
+[Thu Apr 16 10:56:06 2026] [::1]:54378 Closing
+[Thu Apr 16 10:56:06 2026] [::1]:54381 Accepted
+[Thu Apr 16 10:56:06 2026] [::1]:54379 [200]: GET /api/list_despesas.php?mes=2026-04
+[Thu Apr 16 10:56:06 2026] [::1]:54379 Closing
+[Thu Apr 16 10:56:06 2026] [::1]:54381 [200]: GET /assets/logo.png
+[Thu Apr 16 10:56:06 2026] [::1]:54381 Closing
+[Thu Apr 16 10:57:26 2026] [::1]:54396 Accepted
+[Thu Apr 16 10:57:26 2026] [::1]:54397 Accepted
+[Thu Apr 16 10:57:26 2026] [::1]:54396 [200]: GET /dashboard.php
+[Thu Apr 16 10:57:26 2026] [::1]:54396 Closing
+[Thu Apr 16 10:57:26 2026] [::1]:54399 Accepted
+[Thu Apr 16 10:57:26 2026] [::1]:54399 [200]: GET /manifest.json
+[Thu Apr 16 10:57:26 2026] [::1]:54399 Closing
+[Thu Apr 16 10:57:27 2026] [::1]:54401 Accepted
+[Thu Apr 16 10:57:27 2026] [::1]:54401 [200]: GET /manifest.json
+[Thu Apr 16 10:57:27 2026] [::1]:54401 Closing
+[Thu Apr 16 10:57:27 2026] [::1]:54397 [200]: GET /assets/bg_despesas.jpg
+[Thu Apr 16 10:57:27 2026] [::1]:54397 Closing
+[Thu Apr 16 10:57:27 2026] [::1]:54402 Accepted
+[Thu Apr 16 10:57:27 2026] [::1]:54403 Accepted
+[Thu Apr 16 10:57:27 2026] [::1]:54402 [200]: GET /api/check_overdue.php
+[Thu Apr 16 10:57:27 2026] [::1]:54402 Closing
+[Thu Apr 16 10:57:27 2026] [::1]:54404 Accepted
+[Thu Apr 16 10:57:27 2026] [::1]:54403 [200]: GET /api/list_receitas.php?mes=2026-04
+[Thu Apr 16 10:57:27 2026] [::1]:54403 Closing
+[Thu Apr 16 10:57:27 2026] [::1]:54405 Accepted
+[Thu Apr 16 10:57:28 2026] [::1]:54404 [200]: GET /api/list_despesas.php?mes=2026-04
+[Thu Apr 16 10:57:28 2026] [::1]:54404 Closing
+[Thu Apr 16 10:57:28 2026] [::1]:54406 Accepted
+[Thu Apr 16 10:57:28 2026] [::1]:54405 [200]: GET /api/dashboard_stats.php?mes=2026-04
+[Thu Apr 16 10:57:28 2026] [::1]:54405 Closing
+[Thu Apr 16 10:57:28 2026] [::1]:54407 Accepted
+[Thu Apr 16 10:57:28 2026] [::1]:54406 [200]: GET /assets/logo.png
+[Thu Apr 16 10:57:28 2026] [::1]:54407 [200]: GET /assets/logo.png?v=2
+[Thu Apr 16 10:57:28 2026] [::1]:54406 Closing
+[Thu Apr 16 10:57:28 2026] [::1]:54407 Closing
+[Thu Apr 16 11:04:41 2026] [::1]:54456 Accepted
+[Thu Apr 16 11:04:41 2026] [::1]:54456 [200]: GET /lancamentos.php
+[Thu Apr 16 11:04:41 2026] [::1]:54456 Closing
+[Thu Apr 16 11:04:41 2026] [::1]:54457 Accepted
+[Thu Apr 16 11:04:41 2026] [::1]:54458 Accepted
+[Thu Apr 16 11:04:41 2026] [::1]:54458 [200]: GET /manifest.json
+[Thu Apr 16 11:04:41 2026] [::1]:54458 Closing
+[Thu Apr 16 11:04:41 2026] [::1]:54460 Accepted
+[Thu Apr 16 11:04:41 2026] [::1]:54460 [200]: GET /manifest.json
+[Thu Apr 16 11:04:41 2026] [::1]:54460 Closing
+[Thu Apr 16 11:04:44 2026] [::1]:54457 [200]: GET /api/list_lancamentos.php?mes=2026-04&t=1776348281917
+[Thu Apr 16 11:04:44 2026] [::1]:54457 Closing
+[Thu Apr 16 11:04:44 2026] [::1]:54461 Accepted
+[Thu Apr 16 11:04:44 2026] [::1]:54463 Accepted
+[Thu Apr 16 11:04:44 2026] [::1]:54461 [200]: GET /api/check_overdue.php
+[Thu Apr 16 11:04:44 2026] [::1]:54461 Closing
+[Thu Apr 16 11:04:44 2026] [::1]:54463 [200]: GET /assets/logo.png
+[Thu Apr 16 11:04:44 2026] [::1]:54463 Closing
+[Thu Apr 16 11:04:49 2026] [::1]:54468 Accepted
+[Thu Apr 16 11:04:49 2026] [::1]:54468 [200]: GET /api/categories.php
+[Thu Apr 16 11:04:49 2026] [::1]:54468 Closing
+[Thu Apr 16 11:04:51 2026] [::1]:54471 Accepted
+[Thu Apr 16 11:04:52 2026] [::1]:54471 [200]: GET /api/categories.php
+[Thu Apr 16 11:04:52 2026] [::1]:54471 Closing
+[Thu Apr 16 11:04:59 2026] [::1]:54472 Accepted
+[Thu Apr 16 11:05:01 2026] [::1]:54472 [200]: POST /api/create_despesa.php
+[Thu Apr 16 11:05:01 2026] [::1]:54472 Closing
+[Thu Apr 16 11:05:01 2026] [::1]:54473 Accepted
+[Thu Apr 16 11:05:02 2026] [::1]:54473 [200]: GET /api/list_lancamentos.php?mes=2026-04&t=1776348301774
+[Thu Apr 16 11:05:02 2026] [::1]:54473 Closing
+[Thu Apr 16 11:06:15 2026] [::1]:54490 Accepted
+[Thu Apr 16 11:06:15 2026] [::1]:54490 [200]: GET /api/categories.php
+[Thu Apr 16 11:06:15 2026] [::1]:54490 Closing
+[Thu Apr 16 11:06:19 2026] [::1]:54491 Accepted
+[Thu Apr 16 11:06:20 2026] [::1]:54491 [200]: GET /api/categories.php
+[Thu Apr 16 11:06:20 2026] [::1]:54491 Closing
+[Thu Apr 16 11:06:20 2026] [::1]:54492 Accepted
+[Thu Apr 16 11:06:20 2026] [::1]:54492 [200]: GET /api/categories.php
+[Thu Apr 16 11:06:20 2026] [::1]:54492 Closing
+[Thu Apr 16 11:06:21 2026] [::1]:54493 Accepted
+[Thu Apr 16 11:06:21 2026] [::1]:54493 [200]: GET /api/categories.php
+[Thu Apr 16 11:06:21 2026] [::1]:54493 Closing
+[Thu Apr 16 11:06:21 2026] [::1]:54494 Accepted
+[Thu Apr 16 11:06:22 2026] [::1]:54494 [200]: GET /api/categories.php
+[Thu Apr 16 11:06:22 2026] [::1]:54494 Closing
+[Thu Apr 16 11:08:23 2026] [::1]:54501 Accepted
+[Thu Apr 16 11:08:23 2026] [::1]:54501 [200]: GET /api/categories.php
+[Thu Apr 16 11:08:23 2026] [::1]:54501 Closing
+[Thu Apr 16 22:43:54 2026] [::1]:58160 Accepted
+[Thu Apr 16 22:43:54 2026] [::1]:58161 Accepted
+[Thu Apr 16 22:43:54 2026] [::1]:58160 [200]: GET /dashboard.php
+[Thu Apr 16 22:43:54 2026] [::1]:58160 Closing
+[Thu Apr 16 22:43:55 2026] [::1]:58161 [200]: GET /api/check_overdue.php
+[Thu Apr 16 22:43:55 2026] [::1]:58161 Closing
+[Thu Apr 16 22:43:55 2026] [::1]:58163 Accepted
+[Thu Apr 16 22:43:55 2026] [::1]:58164 Accepted
+[Thu Apr 16 22:43:56 2026] [::1]:58163 [200]: GET /api/dashboard_stats.php?mes=2026-04
+[Thu Apr 16 22:43:56 2026] [::1]:58163 Closing
+[Thu Apr 16 22:43:56 2026] [::1]:58165 Accepted
+[Thu Apr 16 22:43:56 2026] [::1]:58164 [200]: GET /api/list_receitas.php?mes=2026-04
+[Thu Apr 16 22:43:56 2026] [::1]:58164 Closing
+[Thu Apr 16 22:43:56 2026] [::1]:58168 Accepted
+[Thu Apr 16 22:43:56 2026] [::1]:58165 [200]: GET /api/list_despesas.php?mes=2026-04
+[Thu Apr 16 22:43:56 2026] [::1]:58165 Closing
+[Thu Apr 16 22:43:56 2026] [::1]:58168 [200]: GET /assets/logo.png
+[Thu Apr 16 22:43:56 2026] [::1]:58168 Closing
+[Thu Apr 16 22:50:38 2026] [::1]:58241 Accepted
+[Thu Apr 16 22:50:38 2026] [::1]:58241 [200]: GET /dashboard.php - Uncaught Error: Call to a member function prepare() on null in /Users/aquino/Desktop/PJT REACT/CRM FINANCEIRO/src/auth.php:110
+Stack trace:
+#0 /Users/aquino/Desktop/PJT REACT/CRM FINANCEIRO/dashboard.php(4): requireActiveSubscription()
+#1 {main}
+  thrown in /Users/aquino/Desktop/PJT REACT/CRM FINANCEIRO/src/auth.php on line 110
+[Thu Apr 16 22:50:38 2026] [::1]:58241 Closing
+[Thu Apr 16 22:50:38 2026] [::1]:58242 Accepted
+[Thu Apr 16 22:50:38 2026] [::1]:58242 [404]: GET /favicon.ico - No such file or directory
+[Thu Apr 16 22:50:38 2026] [::1]:58242 Closing
+[Thu Apr 16 22:52:28 2026] [::1]:58273 Accepted
+[Thu Apr 16 22:52:28 2026] [::1]:58274 Accepted
+[Thu Apr 16 22:52:28 2026] [::1]:58273 [302]: GET /dashboard.php
+[Thu Apr 16 22:52:28 2026] [::1]:58273 Closing
+[Thu Apr 16 22:52:28 2026] [::1]:58274 [200]: GET /planos.php - Uncaught Error: Call to a member function prepare() on null in /Users/aquino/Desktop/PJT REACT/CRM FINANCEIRO/planos.php:9
+Stack trace:
+#0 {main}
+  thrown in /Users/aquino/Desktop/PJT REACT/CRM FINANCEIRO/planos.php on line 9
+[Thu Apr 16 22:52:28 2026] [::1]:58274 Closing
+[Thu Apr 16 22:52:36 2026] [::1]:58276 Accepted
+[Thu Apr 16 22:52:36 2026] [::1]:58276 [200]: GET /planos.php - Uncaught Error: Call to a member function prepare() on null in /Users/aquino/Desktop/PJT REACT/CRM FINANCEIRO/planos.php:9
+Stack trace:
+#0 {main}
+  thrown in /Users/aquino/Desktop/PJT REACT/CRM FINANCEIRO/planos.php on line 9
+[Thu Apr 16 22:52:36 2026] [::1]:58276 Closing
+[Thu Apr 16 22:52:36 2026] [::1]:58277 Accepted
+[Thu Apr 16 22:52:36 2026] [::1]:58277 [404]: GET /favicon.ico - No such file or directory
+[Thu Apr 16 22:52:36 2026] [::1]:58277 Closing
+[Thu Apr 16 22:53:31 2026] [::1]:58287 Accepted
+[Thu Apr 16 22:53:31 2026] [::1]:58287 [200]: GET /planos.php
+[Thu Apr 16 22:53:31 2026] [::1]:58287 Closing
+[Thu Apr 16 22:53:31 2026] [::1]:58288 Accepted
+[Thu Apr 16 22:53:31 2026] [::1]:58290 Accepted
+[Thu Apr 16 22:53:31 2026] [::1]:58290 [200]: GET /manifest.json
+[Thu Apr 16 22:53:31 2026] [::1]:58290 Closing
+[Thu Apr 16 22:53:31 2026] [::1]:58292 Accepted
+[Thu Apr 16 22:53:31 2026] [::1]:58292 [200]: GET /manifest.json
+[Thu Apr 16 22:53:31 2026] [::1]:58292 Closing
+[Thu Apr 16 22:53:31 2026] [::1]:58288 [200]: GET /api/check_overdue.php
+[Thu Apr 16 22:53:31 2026] [::1]:58288 Closing
+[Thu Apr 16 22:53:31 2026] [::1]:58293 Accepted
+[Thu Apr 16 22:53:31 2026] [::1]:58293 [200]: GET /assets/logo.png
+[Thu Apr 16 22:53:31 2026] [::1]:58293 Closing
+[Thu Apr 16 22:54:31 2026] [::1]:58301 Accepted
+[Thu Apr 16 22:54:31 2026] [::1]:58301 [200]: GET /planos.php
+[Thu Apr 16 22:54:31 2026] [::1]:58301 Closing
+[Thu Apr 16 22:54:31 2026] [::1]:58302 Accepted
+[Thu Apr 16 22:54:31 2026] [::1]:58303 Accepted
+[Thu Apr 16 22:54:31 2026] [::1]:58303 [200]: GET /manifest.json
+[Thu Apr 16 22:54:31 2026] [::1]:58303 Closing
+[Thu Apr 16 22:54:31 2026] [::1]:58304 Accepted
+[Thu Apr 16 22:54:31 2026] [::1]:58304 [200]: GET /manifest.json
+[Thu Apr 16 22:54:31 2026] [::1]:58304 Closing
+[Thu Apr 16 22:54:32 2026] [::1]:58302 [200]: GET /api/check_overdue.php
+[Thu Apr 16 22:54:32 2026] [::1]:58302 Closing
+[Thu Apr 16 22:54:32 2026] [::1]:58305 Accepted
+[Thu Apr 16 22:54:32 2026] [::1]:58305 [200]: GET /assets/logo.png
+[Thu Apr 16 22:54:32 2026] [::1]:58305 Closing
+[Thu Apr 16 22:54:33 2026] [::1]:58306 Accepted
+[Thu Apr 16 22:54:33 2026] [::1]:58307 Accepted
+[Thu Apr 16 22:54:33 2026] [::1]:58306 [302]: GET /dashboard.php
+[Thu Apr 16 22:54:33 2026] [::1]:58306 Closing
+[Thu Apr 16 22:54:34 2026] [::1]:58307 [200]: GET /planos.php
+[Thu Apr 16 22:54:34 2026] [::1]:58307 Closing
+[Thu Apr 16 22:54:34 2026] [::1]:58308 Accepted
+[Thu Apr 16 22:54:34 2026] [::1]:58308 [200]: GET /manifest.json
+[Thu Apr 16 22:54:34 2026] [::1]:58308 Closing
+[Thu Apr 16 22:54:34 2026] [::1]:58309 Accepted
+[Thu Apr 16 22:54:34 2026] [::1]:58309 [200]: GET /manifest.json
+[Thu Apr 16 22:54:34 2026] [::1]:58309 Closing
+[Thu Apr 16 22:54:34 2026] [::1]:58310 Accepted
+[Thu Apr 16 22:54:34 2026] [::1]:58310 [200]: GET /api/check_overdue.php
+[Thu Apr 16 22:54:34 2026] [::1]:58310 Closing
+[Thu Apr 16 22:54:34 2026] [::1]:58311 Accepted
+[Thu Apr 16 22:54:34 2026] [::1]:58311 [200]: GET /assets/logo.png
+[Thu Apr 16 22:54:34 2026] [::1]:58311 Closing
+[Thu Apr 16 22:54:34 2026] [::1]:58312 Accepted
+[Thu Apr 16 22:54:35 2026] [::1]:58312 [302]: GET /dashboard.php
+[Thu Apr 16 22:54:35 2026] [::1]:58312 Closing
+[Thu Apr 16 22:54:35 2026] [::1]:58313 Accepted
+[Thu Apr 16 22:54:35 2026] [::1]:58313 [200]: GET /planos.php
+[Thu Apr 16 22:54:35 2026] [::1]:58313 Closing
+[Thu Apr 16 22:54:35 2026] [::1]:58314 Accepted
+[Thu Apr 16 22:54:35 2026] [::1]:58314 [200]: GET /manifest.json
+[Thu Apr 16 22:54:35 2026] [::1]:58314 Closing
+[Thu Apr 16 22:54:35 2026] [::1]:58315 Accepted
+[Thu Apr 16 22:54:35 2026] [::1]:58315 [200]: GET /api/check_overdue.php
+[Thu Apr 16 22:54:35 2026] [::1]:58315 Closing
+[Thu Apr 16 22:54:35 2026] [::1]:58316 Accepted
+[Thu Apr 16 22:54:35 2026] [::1]:58316 [200]: GET /assets/logo.png
+[Thu Apr 16 22:54:35 2026] [::1]:58316 Closing
+[Thu Apr 16 22:54:37 2026] [::1]:58317 Accepted
+[Thu Apr 16 22:54:37 2026] [::1]:58317 [302]: GET /metas.php
+[Thu Apr 16 22:54:37 2026] [::1]:58317 Closing
+[Thu Apr 16 22:54:37 2026] [::1]:58318 Accepted
+[Thu Apr 16 22:54:38 2026] [::1]:58318 [200]: GET /planos.php
+[Thu Apr 16 22:54:38 2026] [::1]:58318 Closing
+[Thu Apr 16 22:54:38 2026] [::1]:58319 Accepted
+[Thu Apr 16 22:54:38 2026] [::1]:58319 [200]: GET /manifest.json
+[Thu Apr 16 22:54:38 2026] [::1]:58319 Closing
+[Thu Apr 16 22:54:38 2026] [::1]:58320 Accepted
+[Thu Apr 16 22:54:38 2026] [::1]:58320 [200]: GET /manifest.json
+[Thu Apr 16 22:54:38 2026] [::1]:58320 Closing
+[Thu Apr 16 22:54:38 2026] [::1]:58321 Accepted
+[Thu Apr 16 22:54:38 2026] [::1]:58321 [200]: GET /api/check_overdue.php
+[Thu Apr 16 22:54:38 2026] [::1]:58321 Closing
+[Thu Apr 16 22:54:38 2026] [::1]:58322 Accepted
+[Thu Apr 16 22:54:38 2026] [::1]:58322 [200]: GET /assets/logo.png
+[Thu Apr 16 22:54:38 2026] [::1]:58322 Closing
+[Thu Apr 16 22:54:38 2026] [::1]:58323 Accepted
+[Thu Apr 16 22:54:38 2026] [::1]:58323 [302]: GET /assinaturas.php
+[Thu Apr 16 22:54:38 2026] [::1]:58323 Closing
+[Thu Apr 16 22:54:38 2026] [::1]:58324 Accepted
+[Thu Apr 16 22:54:39 2026] [::1]:58324 [200]: GET /planos.php
+[Thu Apr 16 22:54:39 2026] [::1]:58324 Closing
+[Thu Apr 16 22:54:39 2026] [::1]:58325 Accepted
+[Thu Apr 16 22:54:39 2026] [::1]:58325 [200]: GET /manifest.json
+[Thu Apr 16 22:54:39 2026] [::1]:58325 Closing
+[Thu Apr 16 22:54:39 2026] [::1]:58326 Accepted
+[Thu Apr 16 22:54:39 2026] [::1]:58326 [200]: GET /manifest.json
+[Thu Apr 16 22:54:39 2026] [::1]:58326 Closing
+[Thu Apr 16 22:54:39 2026] [::1]:58327 Accepted
+[Thu Apr 16 22:54:39 2026] [::1]:58327 [200]: GET /api/check_overdue.php
+[Thu Apr 16 22:54:39 2026] [::1]:58327 Closing
+[Thu Apr 16 22:54:39 2026] [::1]:58328 Accepted
+[Thu Apr 16 22:54:39 2026] [::1]:58328 [200]: GET /assets/logo.png
+[Thu Apr 16 22:54:39 2026] [::1]:58328 Closing
+[Thu Apr 16 23:20:05 2026] [::1]:58590 Accepted
+[Thu Apr 16 23:20:07 2026] [::1]:58590 [302]: GET /dashboard.php
+[Thu Apr 16 23:20:07 2026] [::1]:58590 Closing
+[Thu Apr 16 23:20:07 2026] [::1]:58591 Accepted
+[Thu Apr 16 23:20:07 2026] [::1]:58591 [200]: GET /planos.php
+[Thu Apr 16 23:20:07 2026] [::1]:58591 Closing
+[Thu Apr 16 23:20:07 2026] [::1]:58594 Accepted
+[Thu Apr 16 23:20:07 2026] [::1]:58594 [200]: GET /manifest.json
+[Thu Apr 16 23:20:07 2026] [::1]:58594 Closing
+[Thu Apr 16 23:20:07 2026] [::1]:58595 Accepted
+[Thu Apr 16 23:20:07 2026] [::1]:58595 [200]: GET /manifest.json
+[Thu Apr 16 23:20:07 2026] [::1]:58595 Closing
+[Thu Apr 16 23:20:07 2026] [::1]:58596 Accepted
+[Thu Apr 16 23:20:07 2026] [::1]:58596 [200]: GET /api/check_overdue.php
+[Thu Apr 16 23:20:07 2026] [::1]:58596 Closing
+[Thu Apr 16 23:20:07 2026] [::1]:58597 Accepted
+[Thu Apr 16 23:20:07 2026] [::1]:58597 [200]: GET /assets/logo.png
+[Thu Apr 16 23:20:07 2026] [::1]:58597 Closing
+[Thu Apr 16 23:20:09 2026] [::1]:58599 Accepted
+[Thu Apr 16 23:20:09 2026] [::1]:58599 [200]: GET /planos.php
+[Thu Apr 16 23:20:09 2026] [::1]:58599 Closing
+[Thu Apr 16 23:20:09 2026] [::1]:58600 Accepted
+[Thu Apr 16 23:20:09 2026] [::1]:58602 Accepted
+[Thu Apr 16 23:20:09 2026] [::1]:58602 [200]: GET /manifest.json
+[Thu Apr 16 23:20:09 2026] [::1]:58602 Closing
+[Thu Apr 16 23:20:10 2026] [::1]:58603 Accepted
+[Thu Apr 16 23:20:10 2026] [::1]:58603 [200]: GET /manifest.json
+[Thu Apr 16 23:20:10 2026] [::1]:58603 Closing
+[Thu Apr 16 23:20:10 2026] [::1]:58600 [200]: GET /api/check_overdue.php
+[Thu Apr 16 23:20:10 2026] [::1]:58600 Closing
+[Thu Apr 16 23:20:10 2026] [::1]:58604 Accepted
+[Thu Apr 16 23:20:10 2026] [::1]:58605 Accepted
+[Thu Apr 16 23:20:10 2026] [::1]:58604 [200]: GET /assets/logo.png?v=2
+[Thu Apr 16 23:20:10 2026] [::1]:58605 [200]: GET /assets/logo.png
+[Thu Apr 16 23:20:10 2026] [::1]:58604 Closing
+[Thu Apr 16 23:20:10 2026] [::1]:58605 Closing
+[Thu Apr 16 23:20:11 2026] [::1]:58606 Accepted
+[Thu Apr 16 23:20:13 2026] [::1]:58606 [303]: GET /api/create_checkout_session.php?plan=yearly
+[Thu Apr 16 23:20:13 2026] [::1]:58606 Closing
+[Thu Apr 16 23:20:13 2026] [::1]:58607 Accepted
+[Thu Apr 16 23:20:57 2026] [::1]:58607 [200]: GET /sucesso.php?session_id=cs_test_a1uMov1hGCtjqpjiLtFsGPXeCkghdpUH4ftiZ8RUBTod4a49tifG069OSU
+[Thu Apr 16 23:20:57 2026] [::1]:58607 Closing
+[Thu Apr 16 23:20:57 2026] [::1]:58629 Accepted
+[Thu Apr 16 23:20:57 2026] [::1]:58630 Accepted
+[Thu Apr 16 23:20:57 2026] [::1]:58631 Accepted
+[Thu Apr 16 23:20:57 2026] [::1]:58631 [200]: GET /manifest.json
+[Thu Apr 16 23:20:57 2026] [::1]:58631 Closing
+[Thu Apr 16 23:20:58 2026] [::1]:58632 Accepted
+[Thu Apr 16 23:20:58 2026] [::1]:58632 [200]: GET /manifest.json
+[Thu Apr 16 23:20:58 2026] [::1]:58632 Closing
+[Thu Apr 16 23:20:58 2026] [::1]:58629 [200]: GET /api/check_overdue.php
+[Thu Apr 16 23:20:58 2026] [::1]:58629 Closing
+[Thu Apr 16 23:20:58 2026] [::1]:58630 [200]: GET /assets/logo.png
+[Thu Apr 16 23:20:58 2026] [::1]:58630 Closing
+[Thu Apr 16 23:21:00 2026] [::1]:58633 Accepted
+[Thu Apr 16 23:21:00 2026] [::1]:58633 [302]: GET /dashboard.php
+[Thu Apr 16 23:21:00 2026] [::1]:58633 Closing
+[Thu Apr 16 23:21:00 2026] [::1]:58634 Accepted
+[Thu Apr 16 23:21:01 2026] [::1]:58634 [200]: GET /planos.php
+[Thu Apr 16 23:21:01 2026] [::1]:58634 Closing
+[Thu Apr 16 23:21:01 2026] [::1]:58635 Accepted
+[Thu Apr 16 23:21:01 2026] [::1]:58635 [200]: GET /api/check_overdue.php
+[Thu Apr 16 23:21:01 2026] [::1]:58635 Closing
+[Thu Apr 16 23:21:01 2026] [::1]:58636 Accepted
+[Thu Apr 16 23:21:01 2026] [::1]:58636 [200]: GET /manifest.json
+[Thu Apr 16 23:21:01 2026] [::1]:58636 Closing
+[Thu Apr 16 23:21:01 2026] [::1]:58637 Accepted
+[Thu Apr 16 23:21:01 2026] [::1]:58637 [200]: GET /assets/logo.png
+[Thu Apr 16 23:21:01 2026] [::1]:58637 Closing
+[Thu Apr 16 23:21:03 2026] [::1]:58638 Accepted
+[Thu Apr 16 23:21:04 2026] [::1]:58638 [302]: GET /dashboard.php
+[Thu Apr 16 23:21:04 2026] [::1]:58638 Closing
+[Thu Apr 16 23:21:04 2026] [::1]:58639 Accepted
+[Thu Apr 16 23:21:04 2026] [::1]:58639 [200]: GET /planos.php
+[Thu Apr 16 23:21:04 2026] [::1]:58639 Closing
+[Thu Apr 16 23:21:04 2026] [::1]:58640 Accepted
+[Thu Apr 16 23:21:04 2026] [::1]:58640 [200]: GET /manifest.json
+[Thu Apr 16 23:21:04 2026] [::1]:58640 Closing
+[Thu Apr 16 23:21:04 2026] [::1]:58641 Accepted
+[Thu Apr 16 23:21:04 2026] [::1]:58641 [200]: GET /api/check_overdue.php
+[Thu Apr 16 23:21:04 2026] [::1]:58641 Closing
+[Thu Apr 16 23:21:04 2026] [::1]:58642 Accepted
+[Thu Apr 16 23:21:04 2026] [::1]:58642 [200]: GET /assets/logo.png
+[Thu Apr 16 23:21:04 2026] [::1]:58642 Closing
+[Mon Apr 20 17:03:32 2026] [::1]:55647 Accepted
+[Mon Apr 20 17:03:32 2026] [::1]:55648 Accepted
+[Mon Apr 20 17:03:32 2026] [::1]:55647 [302]: GET /planos.php
+[Mon Apr 20 17:03:32 2026] [::1]:55647 Closing
+[Mon Apr 20 17:03:32 2026] [::1]:55648 [200]: GET /index.php
+[Mon Apr 20 17:03:32 2026] [::1]:55648 Closing
+[Mon Apr 20 17:03:32 2026] [::1]:55649 Accepted
+[Mon Apr 20 17:03:32 2026] [::1]:55649 [200]: GET /manifest.json
+[Mon Apr 20 17:03:32 2026] [::1]:55649 Closing
+[Mon Apr 20 17:03:33 2026] [::1]:55657 Accepted
+[Mon Apr 20 17:03:33 2026] [::1]:55658 Accepted
+[Mon Apr 20 17:03:33 2026] [::1]:55657 [200]: GET /assets/logo.png?v=1
+[Mon Apr 20 17:03:33 2026] [::1]:55658 [200]: GET /assets/logo.png
+[Mon Apr 20 17:03:33 2026] [::1]:55657 Closing
+[Mon Apr 20 17:03:33 2026] [::1]:55658 Closing
+[Mon Apr 20 17:03:51 2026] [::1]:55693 Accepted
+[Mon Apr 20 17:03:53 2026] [::1]:55693 [200]: POST /api/login.php
+[Mon Apr 20 17:03:53 2026] [::1]:55693 Closing
+[Mon Apr 20 17:03:53 2026] [::1]:55695 Accepted
+[Mon Apr 20 17:03:53 2026] [::1]:55695 [200]: GET /dashboard.php
+[Mon Apr 20 17:03:53 2026] [::1]:55695 Closing
+[Mon Apr 20 17:03:53 2026] [::1]:55696 Accepted
+[Mon Apr 20 17:03:53 2026] [::1]:55697 Accepted
+[Mon Apr 20 17:03:53 2026] [::1]:55697 [200]: GET /manifest.json
+[Mon Apr 20 17:03:53 2026] [::1]:55697 Closing
+[Mon Apr 20 17:03:53 2026] [::1]:55698 Accepted
+[Mon Apr 20 17:03:53 2026] [::1]:55698 [200]: GET /manifest.json
+[Mon Apr 20 17:03:53 2026] [::1]:55698 Closing
+[Mon Apr 20 17:03:54 2026] [::1]:55696 [200]: GET /api/check_overdue.php
+[Mon Apr 20 17:03:54 2026] [::1]:55696 Closing
+[Mon Apr 20 17:03:54 2026] [::1]:55699 Accepted
+[Mon Apr 20 17:03:54 2026] [::1]:55700 Accepted
+[Mon Apr 20 17:03:54 2026] [::1]:55699 [200]: GET /api/dashboard_stats.php?mes=2026-04
+[Mon Apr 20 17:03:54 2026] [::1]:55699 Closing
+[Mon Apr 20 17:03:54 2026] [::1]:55701 Accepted
+[Mon Apr 20 17:03:55 2026] [::1]:55700 [200]: GET /api/list_receitas.php?mes=2026-04
+[Mon Apr 20 17:03:55 2026] [::1]:55700 Closing
+[Mon Apr 20 17:03:55 2026] [::1]:55702 Accepted
+[Mon Apr 20 17:03:55 2026] [::1]:55701 [200]: GET /api/list_despesas.php?mes=2026-04
+[Mon Apr 20 17:03:55 2026] [::1]:55701 Closing
+[Mon Apr 20 17:03:55 2026] [::1]:55702 [200]: GET /assets/logo.png
+[Mon Apr 20 17:03:55 2026] [::1]:55702 Closing
+[Mon Apr 20 17:04:00 2026] [::1]:55703 Accepted
+[Mon Apr 20 17:04:00 2026] [::1]:55703 [200]: GET /lancamentos.php
+[Mon Apr 20 17:04:00 2026] [::1]:55703 Closing
+[Mon Apr 20 17:04:00 2026] [::1]:55704 Accepted
+[Mon Apr 20 17:04:00 2026] [::1]:55706 Accepted
+[Mon Apr 20 17:04:00 2026] [::1]:55706 [200]: GET /manifest.json
+[Mon Apr 20 17:04:00 2026] [::1]:55706 Closing
+[Mon Apr 20 17:04:01 2026] [::1]:55704 [200]: GET /api/list_lancamentos.php?mes=2026-04&t=1776715441293
+[Mon Apr 20 17:04:01 2026] [::1]:55704 Closing
+[Mon Apr 20 17:04:01 2026] [::1]:55707 Accepted
+[Mon Apr 20 17:04:01 2026] [::1]:55708 Accepted
+[Mon Apr 20 17:04:02 2026] [::1]:55707 [200]: GET /api/check_overdue.php
+[Mon Apr 20 17:04:02 2026] [::1]:55707 Closing
+[Mon Apr 20 17:04:02 2026] [::1]:55708 [200]: GET /assets/logo.png
+[Mon Apr 20 17:04:02 2026] [::1]:55708 Closing
+[Mon Apr 20 17:04:13 2026] [::1]:55711 Accepted
+[Mon Apr 20 17:04:14 2026] [::1]:55711 [200]: GET /dashboard.php
+[Mon Apr 20 17:04:14 2026] [::1]:55711 Closing
+[Mon Apr 20 17:04:14 2026] [::1]:55712 Accepted
+[Mon Apr 20 17:04:14 2026] [::1]:55713 Accepted
+[Mon Apr 20 17:04:14 2026] [::1]:55713 [200]: GET /manifest.json
+[Mon Apr 20 17:04:14 2026] [::1]:55713 Closing
+[Mon Apr 20 17:04:14 2026] [::1]:55714 Accepted
+[Mon Apr 20 17:04:14 2026] [::1]:55714 [200]: GET /manifest.json
+[Mon Apr 20 17:04:14 2026] [::1]:55714 Closing
+[Mon Apr 20 17:04:14 2026] [::1]:55712 [200]: GET /api/check_overdue.php
+[Mon Apr 20 17:04:14 2026] [::1]:55712 Closing
+[Mon Apr 20 17:04:14 2026] [::1]:55715 Accepted
+[Mon Apr 20 17:04:14 2026] [::1]:55716 Accepted
+[Mon Apr 20 17:04:14 2026] [::1]:55715 [200]: GET /api/dashboard_stats.php?mes=2026-04
+[Mon Apr 20 17:04:14 2026] [::1]:55715 Closing
+[Mon Apr 20 17:04:14 2026] [::1]:55717 Accepted
+[Mon Apr 20 17:04:14 2026] [::1]:55716 [200]: GET /api/list_receitas.php?mes=2026-04
+[Mon Apr 20 17:04:14 2026] [::1]:55716 Closing
+[Mon Apr 20 17:04:14 2026] [::1]:55718 Accepted
+[Mon Apr 20 17:04:15 2026] [::1]:55717 [200]: GET /api/list_despesas.php?mes=2026-04
+[Mon Apr 20 17:04:15 2026] [::1]:55717 Closing
+[Mon Apr 20 17:04:15 2026] [::1]:55718 [200]: GET /assets/logo.png
+[Mon Apr 20 17:04:15 2026] [::1]:55718 Closing
+[Mon Apr 20 17:06:01 2026] [::1]:55733 Accepted
+[Mon Apr 20 17:06:01 2026] [::1]:55733 [302]: GET /dashboard.php
+[Mon Apr 20 17:06:01 2026] [::1]:55733 Closing
+[Mon Apr 20 17:06:01 2026] [::1]:55734 Accepted
+[Mon Apr 20 17:06:01 2026] [::1]:55734 [200]: GET /planos.php
+[Mon Apr 20 17:06:01 2026] [::1]:55734 Closing
+[Mon Apr 20 17:06:01 2026] [::1]:55736 Accepted
+[Mon Apr 20 17:06:01 2026] [::1]:55736 [200]: GET /manifest.json
+[Mon Apr 20 17:06:01 2026] [::1]:55736 Closing
+[Mon Apr 20 17:06:01 2026] [::1]:55738 Accepted
+[Mon Apr 20 17:06:01 2026] [::1]:55738 [200]: GET /manifest.json
+[Mon Apr 20 17:06:01 2026] [::1]:55738 Closing
+[Mon Apr 20 17:06:01 2026] [::1]:55739 Accepted
+[Mon Apr 20 17:06:02 2026] [::1]:55739 [200]: GET /api/check_overdue.php
+[Mon Apr 20 17:06:02 2026] [::1]:55739 Closing
+[Mon Apr 20 17:06:02 2026] [::1]:55740 Accepted
+[Mon Apr 20 17:06:02 2026] [::1]:55741 Accepted
+[Mon Apr 20 17:06:02 2026] [::1]:55740 [200]: GET /assets/logo.png
+[Mon Apr 20 17:06:02 2026] [::1]:55741 [200]: GET /assets/logo.png?v=2
+[Mon Apr 20 17:06:02 2026] [::1]:55740 Closing
+[Mon Apr 20 17:06:02 2026] [::1]:55741 Closing
+[Mon Apr 20 17:06:04 2026] [::1]:55742 Accepted
+[Mon Apr 20 17:06:04 2026] [::1]:55742 [302]: GET /dashboard.php
+[Mon Apr 20 17:06:04 2026] [::1]:55742 Closing
+[Mon Apr 20 17:06:04 2026] [::1]:55743 Accepted
+[Mon Apr 20 17:06:04 2026] [::1]:55743 [200]: GET /planos.php
+[Mon Apr 20 17:06:04 2026] [::1]:55743 Closing
+[Mon Apr 20 17:06:04 2026] [::1]:55744 Accepted
+[Mon Apr 20 17:06:04 2026] [::1]:55744 [200]: GET /manifest.json
+[Mon Apr 20 17:06:04 2026] [::1]:55744 Closing
+[Mon Apr 20 17:06:04 2026] [::1]:55745 Accepted
+[Mon Apr 20 17:06:04 2026] [::1]:55745 [200]: GET /api/check_overdue.php
+[Mon Apr 20 17:06:04 2026] [::1]:55745 Closing
+[Mon Apr 20 17:06:04 2026] [::1]:55746 Accepted
+[Mon Apr 20 17:06:04 2026] [::1]:55746 [200]: GET /assets/logo.png
+[Mon Apr 20 17:06:04 2026] [::1]:55746 Closing
+[Mon Apr 20 17:06:07 2026] [::1]:55747 Accepted
+[Mon Apr 20 17:06:09 2026] [::1]:55747 [303]: GET /api/create_checkout_session.php?plan=monthly
+[Mon Apr 20 17:06:09 2026] [::1]:55747 Closing
+[Mon Apr 20 17:06:09 2026] [::1]:55748 Accepted
+[Mon Apr 20 17:08:29 2026] [::1]:55748 Closed without sending a request; it was probably just an unused speculative preconnection
+[Mon Apr 20 17:08:29 2026] [::1]:55748 Closing
+[Mon Apr 20 17:10:43 2026] [::1]:55820 Accepted
+[Mon Apr 20 17:10:43 2026] [::1]:55820 [200]: GET /sucesso.php?session_id=cs_test_a1RwUPbNuN9iC3cL4bSBpOedi7xs5ZkzRot3VnBBNqkyO0yVJTKFBnqXf7
+[Mon Apr 20 17:10:43 2026] [::1]:55820 Closing
+[Mon Apr 20 17:10:43 2026] [::1]:55821 Accepted
+[Mon Apr 20 17:10:43 2026] [::1]:55822 Accepted
+[Mon Apr 20 17:10:43 2026] [::1]:55822 [200]: GET /manifest.json
+[Mon Apr 20 17:10:43 2026] [::1]:55822 Closing
+[Mon Apr 20 17:10:43 2026] [::1]:55823 Accepted
+[Mon Apr 20 17:10:43 2026] [::1]:55823 [200]: GET /manifest.json
+[Mon Apr 20 17:10:43 2026] [::1]:55823 Closing
+[Mon Apr 20 17:10:43 2026] [::1]:55821 [200]: GET /api/check_overdue.php
+[Mon Apr 20 17:10:43 2026] [::1]:55821 Closing
+[Mon Apr 20 17:10:43 2026] [::1]:55824 Accepted
+[Mon Apr 20 17:10:43 2026] [::1]:55824 [200]: GET /assets/logo.png
+[Mon Apr 20 17:10:43 2026] [::1]:55824 Closing
+[Mon Apr 20 17:10:52 2026] [::1]:55827 Accepted
+[Mon Apr 20 17:10:52 2026] [::1]:55827 [302]: GET /dashboard.php
+[Mon Apr 20 17:10:52 2026] [::1]:55827 Closing
+[Mon Apr 20 17:10:52 2026] [::1]:55828 Accepted
+[Mon Apr 20 17:10:53 2026] [::1]:55828 [200]: GET /planos.php
+[Mon Apr 20 17:10:53 2026] [::1]:55828 Closing
+[Mon Apr 20 17:10:53 2026] [::1]:55829 Accepted
+[Mon Apr 20 17:10:53 2026] [::1]:55829 [200]: GET /api/check_overdue.php
+[Mon Apr 20 17:10:53 2026] [::1]:55829 Closing
+[Mon Apr 20 17:10:53 2026] [::1]:55830 Accepted
+[Mon Apr 20 17:10:53 2026] [::1]:55830 [200]: GET /manifest.json
+[Mon Apr 20 17:10:53 2026] [::1]:55830 Closing
+[Mon Apr 20 17:10:53 2026] [::1]:55831 Accepted
+[Mon Apr 20 17:10:53 2026] [::1]:55831 [200]: GET /assets/logo.png
+[Mon Apr 20 17:10:53 2026] [::1]:55831 Closing
+[Mon Apr 20 17:10:59 2026] [::1]:55832 Accepted
+[Mon Apr 20 17:10:59 2026] [::1]:55832 [302]: GET /dashboard.php
+[Mon Apr 20 17:10:59 2026] [::1]:55832 Closing
+[Mon Apr 20 17:10:59 2026] [::1]:55833 Accepted
+[Mon Apr 20 17:10:59 2026] [::1]:55833 [200]: GET /planos.php
+[Mon Apr 20 17:10:59 2026] [::1]:55833 Closing
+[Mon Apr 20 17:10:59 2026] [::1]:55834 Accepted
+[Mon Apr 20 17:10:59 2026] [::1]:55834 [200]: GET /manifest.json
+[Mon Apr 20 17:10:59 2026] [::1]:55834 Closing
+[Mon Apr 20 17:10:59 2026] [::1]:55835 Accepted
+[Mon Apr 20 17:10:59 2026] [::1]:55835 [200]: GET /api/check_overdue.php
+[Mon Apr 20 17:10:59 2026] [::1]:55835 Closing
+[Mon Apr 20 17:10:59 2026] [::1]:55836 Accepted
+[Mon Apr 20 17:10:59 2026] [::1]:55836 [200]: GET /assets/logo.png
+[Mon Apr 20 17:10:59 2026] [::1]:55836 Closing
+[Mon Apr 20 17:11:11 2026] [::1]:55837 Accepted
+[Mon Apr 20 17:11:11 2026] [::1]:55837 [200]: GET /planos.php
+[Mon Apr 20 17:11:11 2026] [::1]:55837 Closing
+[Mon Apr 20 17:11:11 2026] [::1]:55838 Accepted
+[Mon Apr 20 17:11:11 2026] [::1]:55839 Accepted
+[Mon Apr 20 17:11:11 2026] [::1]:55839 [200]: GET /manifest.json
+[Mon Apr 20 17:11:11 2026] [::1]:55839 Closing
+[Mon Apr 20 17:11:11 2026] [::1]:55840 Accepted
+[Mon Apr 20 17:11:11 2026] [::1]:55840 [200]: GET /manifest.json
+[Mon Apr 20 17:11:11 2026] [::1]:55840 Closing
+[Mon Apr 20 17:11:11 2026] [::1]:55838 [200]: GET /api/check_overdue.php
+[Mon Apr 20 17:11:11 2026] [::1]:55838 Closing
+[Mon Apr 20 17:11:11 2026] [::1]:55841 Accepted
+[Mon Apr 20 17:11:11 2026] [::1]:55842 Accepted
+[Mon Apr 20 17:11:11 2026] [::1]:55841 [200]: GET /assets/logo.png?v=2
+[Mon Apr 20 17:11:11 2026] [::1]:55842 [200]: GET /assets/logo.png
+[Mon Apr 20 17:11:11 2026] [::1]:55841 Closing
+[Mon Apr 20 17:11:11 2026] [::1]:55842 Closing
+[Mon Apr 20 17:11:34 2026] [::1]:55846 Accepted
+[Mon Apr 20 17:11:35 2026] [::1]:55846 [303]: GET /api/create_checkout_session.php?plan=yearly
+[Mon Apr 20 17:11:35 2026] [::1]:55846 Closing
+[Mon Apr 20 17:11:35 2026] [::1]:55847 Accepted
+[Mon Apr 20 17:12:00 2026] [::1]:55847 [200]: GET /sucesso.php?session_id=cs_test_a1l8ByoyAciY3moFETtcJhZ1JLrWlt3gPYaEKyfXNSx0qDyyKG4qTjI3AG
+[Mon Apr 20 17:12:00 2026] [::1]:55847 Closing
+[Mon Apr 20 17:12:00 2026] [::1]:55859 Accepted
+[Mon Apr 20 17:12:00 2026] [::1]:55860 Accepted
+[Mon Apr 20 17:12:00 2026] [::1]:55861 Accepted
+[Mon Apr 20 17:12:00 2026] [::1]:55861 [200]: GET /manifest.json
+[Mon Apr 20 17:12:00 2026] [::1]:55861 Closing
+[Mon Apr 20 17:12:00 2026] [::1]:55862 Accepted
+[Mon Apr 20 17:12:00 2026] [::1]:55862 [200]: GET /manifest.json
+[Mon Apr 20 17:12:00 2026] [::1]:55862 Closing
+[Mon Apr 20 17:12:00 2026] [::1]:55859 [200]: GET /api/check_overdue.php
+[Mon Apr 20 17:12:00 2026] [::1]:55859 Closing
+[Mon Apr 20 17:12:00 2026] [::1]:55860 [200]: GET /assets/logo.png
+[Mon Apr 20 17:12:00 2026] [::1]:55860 Closing
+[Mon Apr 20 17:12:12 2026] [::1]:55863 Accepted
+[Mon Apr 20 17:12:12 2026] [::1]:55863 [302]: GET /dashboard.php
+[Mon Apr 20 17:12:12 2026] [::1]:55863 Closing
+[Mon Apr 20 17:12:12 2026] [::1]:55864 Accepted
+[Mon Apr 20 17:12:12 2026] [::1]:55864 [200]: GET /planos.php
+[Mon Apr 20 17:12:12 2026] [::1]:55864 Closing
+[Mon Apr 20 17:12:12 2026] [::1]:55865 Accepted
+[Mon Apr 20 17:12:12 2026] [::1]:55865 [200]: GET /api/check_overdue.php
+[Mon Apr 20 17:12:12 2026] [::1]:55865 Closing
+[Mon Apr 20 17:12:12 2026] [::1]:55866 Accepted
+[Mon Apr 20 17:12:12 2026] [::1]:55866 [200]: GET /manifest.json
+[Mon Apr 20 17:12:13 2026] [::1]:55866 Closing
+[Mon Apr 20 17:12:13 2026] [::1]:55867 Accepted
+[Mon Apr 20 17:12:13 2026] [::1]:55867 [200]: GET /assets/logo.png
+[Mon Apr 20 17:12:13 2026] [::1]:55867 Closing
+[Mon Apr 20 17:12:15 2026] [::1]:55868 Accepted
+[Mon Apr 20 17:12:15 2026] [::1]:55868 [302]: GET /dashboard.php
+[Mon Apr 20 17:12:15 2026] [::1]:55868 Closing
+[Mon Apr 20 17:12:15 2026] [::1]:55870 Accepted
+[Mon Apr 20 17:12:16 2026] [::1]:55870 [200]: GET /planos.php
+[Mon Apr 20 17:12:16 2026] [::1]:55870 Closing
+[Mon Apr 20 17:12:16 2026] [::1]:55871 Accepted
+[Mon Apr 20 17:12:16 2026] [::1]:55872 Accepted
+[Mon Apr 20 17:12:16 2026] [::1]:55871 [200]: GET /manifest.json
+[Mon Apr 20 17:12:16 2026] [::1]:55872 [200]: GET /api/check_overdue.php
+[Mon Apr 20 17:12:16 2026] [::1]:55872 Closing
+[Mon Apr 20 17:12:16 2026] [::1]:55871 Closing
+[Mon Apr 20 17:12:16 2026] [::1]:55873 Accepted
+[Mon Apr 20 17:12:16 2026] [::1]:55873 [200]: GET /assets/logo.png
+[Mon Apr 20 17:12:16 2026] [::1]:55873 Closing
+[Mon Apr 20 17:14:11 2026] [::1]:55906 Accepted
+[Mon Apr 20 17:14:13 2026] [::1]:55906 [303]: GET /api/create_checkout_session.php?plan=monthly
+[Mon Apr 20 17:14:13 2026] [::1]:55906 Closing
+[Mon Apr 20 17:14:13 2026] [::1]:55907 Accepted
+[Mon Apr 20 17:14:36 2026] [::1]:55907 [200]: GET /sucesso.php?session_id=cs_test_a12sVDoHQ19M98WlAudOInRmyN1Q4C27Pof6qp0KcNecMpXNq4tQhea1yt
+[Mon Apr 20 17:14:36 2026] [::1]:55907 Closing
+[Mon Apr 20 17:14:36 2026] [::1]:55918 Accepted
+[Mon Apr 20 17:14:36 2026] [::1]:55920 Accepted
+[Mon Apr 20 17:14:36 2026] [::1]:55920 [200]: GET /manifest.json
+[Mon Apr 20 17:14:36 2026] [::1]:55920 Closing
+[Mon Apr 20 17:14:36 2026] [::1]:55921 Accepted
+[Mon Apr 20 17:14:36 2026] [::1]:55921 [200]: GET /manifest.json
+[Mon Apr 20 17:14:36 2026] [::1]:55921 Closing
+[Mon Apr 20 17:14:36 2026] [::1]:55918 [200]: GET /api/check_overdue.php
+[Mon Apr 20 17:14:36 2026] [::1]:55918 Closing
+[Mon Apr 20 17:14:36 2026] [::1]:55922 Accepted
+[Mon Apr 20 17:14:36 2026] [::1]:55922 [200]: GET /assets/logo.png
+[Mon Apr 20 17:14:36 2026] [::1]:55922 Closing
+[Mon Apr 20 17:14:41 2026] [::1]:55923 Accepted
+[Mon Apr 20 17:14:41 2026] [::1]:55923 [200]: GET /dashboard.php
+[Mon Apr 20 17:14:41 2026] [::1]:55923 Closing
+[Mon Apr 20 17:14:41 2026] [::1]:55924 Accepted
+[Mon Apr 20 17:14:41 2026] [::1]:55925 Accepted
+[Mon Apr 20 17:14:41 2026] [::1]:55925 [200]: GET /manifest.json
+[Mon Apr 20 17:14:41 2026] [::1]:55925 Closing
+[Mon Apr 20 17:14:41 2026] [::1]:55924 [200]: GET /api/check_overdue.php
+[Mon Apr 20 17:14:41 2026] [::1]:55924 Closing
+[Mon Apr 20 17:14:41 2026] [::1]:55926 Accepted
+[Mon Apr 20 17:14:41 2026] [::1]:55927 Accepted
+[Mon Apr 20 17:14:41 2026] [::1]:55926 [200]: GET /api/dashboard_stats.php?mes=2026-04
+[Mon Apr 20 17:14:41 2026] [::1]:55926 Closing
+[Mon Apr 20 17:14:41 2026] [::1]:55928 Accepted
+[Mon Apr 20 17:14:42 2026] [::1]:55927 [200]: GET /api/list_receitas.php?mes=2026-04
+[Mon Apr 20 17:14:42 2026] [::1]:55927 Closing
+[Mon Apr 20 17:14:42 2026] [::1]:55929 Accepted
+[Mon Apr 20 17:14:42 2026] [::1]:55928 [200]: GET /api/list_despesas.php?mes=2026-04
+[Mon Apr 20 17:14:42 2026] [::1]:55928 Closing
+[Mon Apr 20 17:14:42 2026] [::1]:55929 [200]: GET /assets/logo.png
+[Mon Apr 20 17:14:42 2026] [::1]:55929 Closing
+[Mon Apr 20 17:17:57 2026] [::1]:55963 Accepted
+[Mon Apr 20 17:17:57 2026] [::1]:55964 Accepted
+[Mon Apr 20 17:17:57 2026] [::1]:55963 [200]: GET /dashboard.php
+[Mon Apr 20 17:17:57 2026] [::1]:55963 Closing
+[Mon Apr 20 17:17:57 2026] [::1]:55965 Accepted
+[Mon Apr 20 17:17:57 2026] [::1]:55965 [200]: GET /manifest.json
+[Mon Apr 20 17:17:57 2026] [::1]:55965 Closing
+[Mon Apr 20 17:17:57 2026] [::1]:55968 Accepted
+[Mon Apr 20 17:17:57 2026] [::1]:55968 [200]: GET /manifest.json
+[Mon Apr 20 17:17:57 2026] [::1]:55968 Closing
+[Mon Apr 20 17:17:57 2026] [::1]:55964 [200]: GET /api/check_overdue.php
+[Mon Apr 20 17:17:57 2026] [::1]:55964 Closing
+[Mon Apr 20 17:17:57 2026] [::1]:55969 Accepted
+[Mon Apr 20 17:17:57 2026] [::1]:55970 Accepted
+[Mon Apr 20 17:17:58 2026] [::1]:55969 [200]: GET /api/list_despesas.php?mes=2026-04
+[Mon Apr 20 17:17:58 2026] [::1]:55969 Closing
+[Mon Apr 20 17:17:58 2026] [::1]:55971 Accepted
+[Mon Apr 20 17:17:58 2026] [::1]:55970 [200]: GET /api/list_receitas.php?mes=2026-04
+[Mon Apr 20 17:17:58 2026] [::1]:55970 Closing
+[Mon Apr 20 17:17:58 2026] [::1]:55972 Accepted
+[Mon Apr 20 17:17:58 2026] [::1]:55971 [200]: GET /api/dashboard_stats.php?mes=2026-04
+[Mon Apr 20 17:17:58 2026] [::1]:55971 Closing
+[Mon Apr 20 17:17:58 2026] [::1]:55973 Accepted
+[Mon Apr 20 17:17:58 2026] [::1]:55972 [200]: GET /assets/logo.png
+[Mon Apr 20 17:17:58 2026] [::1]:55973 [200]: GET /assets/logo.png?v=2
+[Mon Apr 20 17:17:58 2026] [::1]:55972 Closing
+[Mon Apr 20 17:17:58 2026] [::1]:55973 Closing
+[Mon Apr 20 17:18:25 2026] [::1]:55975 Accepted
+[Mon Apr 20 17:18:26 2026] [::1]:55975 [303]: GET /api/create_portal_session.php
+[Mon Apr 20 17:18:26 2026] [::1]:55975 Closing
+[Mon Apr 20 17:18:26 2026] [::1]:55976 Accepted
+[Mon Apr 20 17:20:47 2026] [::1]:55976 Closed without sending a request; it was probably just an unused speculative preconnection
+[Mon Apr 20 17:20:47 2026] [::1]:55976 Closing
+[Mon Apr 20 17:25:43 2026] [::1]:56042 Accepted
+[Mon Apr 20 17:25:45 2026] [::1]:56042 [200]: GET /dashboard.php
+[Mon Apr 20 17:25:45 2026] [::1]:56042 Closing
+[Mon Apr 20 17:25:45 2026] [::1]:56043 Accepted
+[Mon Apr 20 17:25:45 2026] [::1]:56045 Accepted
+[Mon Apr 20 17:25:45 2026] [::1]:56045 [200]: GET /manifest.json
+[Mon Apr 20 17:25:45 2026] [::1]:56045 Closing
+[Mon Apr 20 17:25:45 2026] [::1]:56046 Accepted
+[Mon Apr 20 17:25:45 2026] [::1]:56046 [200]: GET /manifest.json
+[Mon Apr 20 17:25:45 2026] [::1]:56046 Closing
+[Mon Apr 20 17:25:45 2026] [::1]:56043 [200]: GET /api/check_overdue.php
+[Mon Apr 20 17:25:45 2026] [::1]:56043 Closing
+[Mon Apr 20 17:25:45 2026] [::1]:56047 Accepted
+[Mon Apr 20 17:25:45 2026] [::1]:56048 Accepted
+[Mon Apr 20 17:25:46 2026] [::1]:56047 [200]: GET /api/dashboard_stats.php?mes=2026-04
+[Mon Apr 20 17:25:46 2026] [::1]:56047 Closing
+[Mon Apr 20 17:25:46 2026] [::1]:56049 Accepted
+[Mon Apr 20 17:25:46 2026] [::1]:56048 [200]: GET /api/list_receitas.php?mes=2026-04
+[Mon Apr 20 17:25:46 2026] [::1]:56048 Closing
+[Mon Apr 20 17:25:46 2026] [::1]:56050 Accepted
+[Mon Apr 20 17:25:46 2026] [::1]:56049 [200]: GET /api/list_despesas.php?mes=2026-04
+[Mon Apr 20 17:25:46 2026] [::1]:56049 Closing
+[Mon Apr 20 17:25:46 2026] [::1]:56050 [200]: GET /assets/logo.png
+[Mon Apr 20 17:25:46 2026] [::1]:56050 Closing
+[Mon Apr 20 17:33:58 2026] [::1]:56191 Accepted
+[Mon Apr 20 17:33:58 2026] [::1]:56191 [200]: GET /dashboard.php
+[Mon Apr 20 17:33:58 2026] [::1]:56191 Closing
+[Mon Apr 20 17:33:58 2026] [::1]:56192 Accepted
+[Mon Apr 20 17:33:58 2026] [::1]:56193 Accepted
+[Mon Apr 20 17:33:58 2026] [::1]:56193 [200]: GET /manifest.json
+[Mon Apr 20 17:33:58 2026] [::1]:56193 Closing
+[Mon Apr 20 17:33:58 2026] [::1]:56194 Accepted
+[Mon Apr 20 17:33:58 2026] [::1]:56194 [200]: GET /manifest.json
+[Mon Apr 20 17:33:58 2026] [::1]:56194 Closing
+[Mon Apr 20 17:33:58 2026] [::1]:56192 [200]: GET /api/check_overdue.php
+[Mon Apr 20 17:33:58 2026] [::1]:56192 Closing
+[Mon Apr 20 17:33:58 2026] [::1]:56195 Accepted
+[Mon Apr 20 17:33:58 2026] [::1]:56196 Accepted
+[Mon Apr 20 17:33:58 2026] [::1]:56195 [200]: GET /api/dashboard_stats.php?mes=2026-04
+[Mon Apr 20 17:33:58 2026] [::1]:56195 Closing
+[Mon Apr 20 17:33:58 2026] [::1]:56197 Accepted
+[Mon Apr 20 17:33:59 2026] [::1]:56196 [200]: GET /api/list_receitas.php?mes=2026-04
+[Mon Apr 20 17:33:59 2026] [::1]:56196 Closing
+[Mon Apr 20 17:33:59 2026] [::1]:56200 Accepted
+[Mon Apr 20 17:33:59 2026] [::1]:56197 [200]: GET /api/list_despesas.php?mes=2026-04
+[Mon Apr 20 17:33:59 2026] [::1]:56197 Closing
+[Mon Apr 20 17:33:59 2026] [::1]:56200 [200]: GET /assets/logo.png
+[Mon Apr 20 17:33:59 2026] [::1]:56200 Closing
+[Mon Apr 20 17:34:02 2026] [::1]:56203 Accepted
+[Mon Apr 20 17:34:02 2026] [::1]:56203 [200]: GET /dashboard.php
+[Mon Apr 20 17:34:02 2026] [::1]:56203 Closing
+[Mon Apr 20 17:34:02 2026] [::1]:56204 Accepted
+[Mon Apr 20 17:34:02 2026] [::1]:56205 Accepted
+[Mon Apr 20 17:34:02 2026] [::1]:56205 [200]: GET /manifest.json
+[Mon Apr 20 17:34:02 2026] [::1]:56205 Closing
+[Mon Apr 20 17:34:03 2026] [::1]:56207 Accepted
+[Mon Apr 20 17:34:03 2026] [::1]:56207 [200]: GET /manifest.json
+[Mon Apr 20 17:34:03 2026] [::1]:56207 Closing
+[Mon Apr 20 17:34:03 2026] [::1]:56204 [200]: GET /api/check_overdue.php
+[Mon Apr 20 17:34:03 2026] [::1]:56204 Closing
+[Mon Apr 20 17:34:03 2026] [::1]:56208 Accepted
+[Mon Apr 20 17:34:03 2026] [::1]:56209 Accepted
+[Mon Apr 20 17:34:03 2026] [::1]:56208 [200]: GET /api/list_despesas.php?mes=2026-04
+[Mon Apr 20 17:34:03 2026] [::1]:56208 Closing
+[Mon Apr 20 17:34:03 2026] [::1]:56210 Accepted
+[Mon Apr 20 17:34:03 2026] [::1]:56209 [200]: GET /api/dashboard_stats.php?mes=2026-04
+[Mon Apr 20 17:34:03 2026] [::1]:56209 Closing
+[Mon Apr 20 17:34:03 2026] [::1]:56211 Accepted
+[Mon Apr 20 17:34:04 2026] [::1]:56210 [200]: GET /api/list_receitas.php?mes=2026-04
+[Mon Apr 20 17:34:04 2026] [::1]:56210 Closing
+[Mon Apr 20 17:34:04 2026] [::1]:56212 Accepted
+[Mon Apr 20 17:34:04 2026] [::1]:56211 [200]: GET /assets/logo.png?v=2
+[Mon Apr 20 17:34:04 2026] [::1]:56212 [200]: GET /assets/logo.png
+[Mon Apr 20 17:34:04 2026] [::1]:56211 Closing
+[Mon Apr 20 17:34:04 2026] [::1]:56212 Closing
+[Mon Apr 20 17:34:10 2026] [::1]:56214 Accepted
+[Mon Apr 20 17:34:10 2026] [::1]:56215 Accepted
+[Mon Apr 20 17:34:10 2026] [::1]:56214 [302]: GET /index.php?logout=true
+[Mon Apr 20 17:34:10 2026] [::1]:56214 Closing
+[Mon Apr 20 17:34:10 2026] [::1]:56215 [200]: GET /index.php
+[Mon Apr 20 17:34:10 2026] [::1]:56215 Closing
+[Mon Apr 20 17:34:10 2026] [::1]:56217 Accepted
+[Mon Apr 20 17:34:10 2026] [::1]:56217 [200]: GET /manifest.json
+[Mon Apr 20 17:34:10 2026] [::1]:56217 Closing
+[Mon Apr 20 17:34:10 2026] [::1]:56220 Accepted
+[Mon Apr 20 17:34:10 2026] [::1]:56220 [200]: GET /assets/logo.png
+[Mon Apr 20 17:34:10 2026] [::1]:56220 Closing
+[Mon Apr 20 17:34:22 2026] [::1]:56222 Accepted
+[Mon Apr 20 17:34:22 2026] [::1]:56222 [200]: POST /api/login.php
+[Mon Apr 20 17:34:22 2026] [::1]:56222 Closing
+[Mon Apr 20 17:34:23 2026] [::1]:56223 Accepted
+[Mon Apr 20 17:34:23 2026] [::1]:56223 [302]: GET /dashboard.php
+[Mon Apr 20 17:34:23 2026] [::1]:56223 Closing
+[Mon Apr 20 17:34:23 2026] [::1]:56224 Accepted
+[Mon Apr 20 17:34:23 2026] [::1]:56224 [200]: GET /planos.php
+[Mon Apr 20 17:34:23 2026] [::1]:56224 Closing
+[Mon Apr 20 17:34:23 2026] [::1]:56225 Accepted
+[Mon Apr 20 17:34:23 2026] [::1]:56225 [200]: GET /manifest.json
+[Mon Apr 20 17:34:23 2026] [::1]:56225 Closing
+[Mon Apr 20 17:34:23 2026] [::1]:56226 Accepted
+[Mon Apr 20 17:34:23 2026] [::1]:56226 [200]: GET /manifest.json
+[Mon Apr 20 17:34:23 2026] [::1]:56226 Closing
+[Mon Apr 20 17:34:23 2026] [::1]:56227 Accepted
+[Mon Apr 20 17:34:23 2026] [::1]:56227 [200]: GET /api/check_overdue.php
+[Mon Apr 20 17:34:23 2026] [::1]:56227 Closing
+[Mon Apr 20 17:34:23 2026] [::1]:56228 Accepted
+[Mon Apr 20 17:34:23 2026] [::1]:56228 [200]: GET /assets/logo.png
+[Mon Apr 20 17:34:23 2026] [::1]:56228 Closing
+[Mon Apr 20 17:35:02 2026] [::1]:56234 Accepted
+[Mon Apr 20 17:35:02 2026] [::1]:56234 [200]: GET /configuracoes.php
+[Mon Apr 20 17:35:02 2026] [::1]:56234 Closing
+[Mon Apr 20 17:35:02 2026] [::1]:56235 Accepted
+[Mon Apr 20 17:35:02 2026] [::1]:56236 Accepted
+[Mon Apr 20 17:35:02 2026] [::1]:56237 Accepted
+[Mon Apr 20 17:35:02 2026] [::1]:56237 [200]: GET /manifest.json
+[Mon Apr 20 17:35:02 2026] [::1]:56237 Closing
+[Mon Apr 20 17:35:02 2026] [::1]:56238 Accepted
+[Mon Apr 20 17:35:02 2026] [::1]:56238 [200]: GET /manifest.json
+[Mon Apr 20 17:35:02 2026] [::1]:56238 Closing
+[Mon Apr 20 17:35:03 2026] [::1]:56235 [200]: GET /api/check_overdue.php
+[Mon Apr 20 17:35:03 2026] [::1]:56235 Closing
+[Mon Apr 20 17:35:03 2026] [::1]:56239 Accepted
+[Mon Apr 20 17:35:03 2026] [::1]:56236 [200]: GET /api/categories.php
+[Mon Apr 20 17:35:03 2026] [::1]:56236 Closing
+[Mon Apr 20 17:35:03 2026] [::1]:56239 [200]: GET /assets/logo.png
+[Mon Apr 20 17:35:03 2026] [::1]:56239 Closing
+[Mon Apr 20 17:35:15 2026] [::1]:56240 Accepted
+[Mon Apr 20 17:35:15 2026] [::1]:56240 [200]: GET /api/create_portal_session.php
+[Mon Apr 20 17:35:15 2026] [::1]:56240 Closing
+[Mon Apr 20 17:35:15 2026] [::1]:56241 Accepted
+[Mon Apr 20 17:35:15 2026] [::1]:56241 [404]: GET /favicon.ico - No such file or directory
+[Mon Apr 20 17:35:15 2026] [::1]:56241 Closing
+[Mon Apr 20 17:35:20 2026] [::1]:56243 Accepted
+[Mon Apr 20 17:35:20 2026] [::1]:56243 [200]: GET /configuracoes.php
+[Mon Apr 20 17:35:20 2026] [::1]:56243 Closing
+[Mon Apr 20 17:35:20 2026] [::1]:56244 Accepted
+[Mon Apr 20 17:35:20 2026] [::1]:56245 Accepted
+[Mon Apr 20 17:35:20 2026] [::1]:56244 [200]: GET /api/check_overdue.php
+[Mon Apr 20 17:35:20 2026] [::1]:56244 Closing
+[Mon Apr 20 17:35:20 2026] [::1]:56246 Accepted
+[Mon Apr 20 17:35:20 2026] [::1]:56245 [200]: GET /api/categories.php
+[Mon Apr 20 17:35:20 2026] [::1]:56245 Closing
+[Mon Apr 20 17:35:20 2026] [::1]:56246 [200]: GET /assets/logo.png
+[Mon Apr 20 17:35:20 2026] [::1]:56246 Closing
+[Mon Apr 20 17:35:24 2026] [::1]:56247 Accepted
+[Mon Apr 20 17:35:24 2026] [::1]:56247 [302]: GET /dashboard.php
+[Mon Apr 20 17:35:24 2026] [::1]:56247 Closing
+[Mon Apr 20 17:35:24 2026] [::1]:56248 Accepted
+[Mon Apr 20 17:35:24 2026] [::1]:56248 [200]: GET /planos.php
+[Mon Apr 20 17:35:24 2026] [::1]:56248 Closing
+[Mon Apr 20 17:35:24 2026] [::1]:56249 Accepted
+[Mon Apr 20 17:35:24 2026] [::1]:56249 [200]: GET /manifest.json
+[Mon Apr 20 17:35:24 2026] [::1]:56249 Closing
+[Mon Apr 20 17:35:24 2026] [::1]:56250 Accepted
+[Mon Apr 20 17:35:25 2026] [::1]:56250 [200]: GET /api/check_overdue.php
+[Mon Apr 20 17:35:25 2026] [::1]:56250 Closing
+[Mon Apr 20 17:35:25 2026] [::1]:56251 Accepted
+[Mon Apr 20 17:35:25 2026] [::1]:56251 [200]: GET /assets/logo.png
+[Mon Apr 20 17:35:25 2026] [::1]:56251 Closing
+[Mon Apr 20 17:37:09 2026] [::1]:56271 Accepted
+[Mon Apr 20 17:37:09 2026] [::1]:56272 Accepted
+[Mon Apr 20 17:37:09 2026] [::1]:56271 [200]: GET /planos.php
+[Mon Apr 20 17:37:09 2026] [::1]:56271 Closing
+[Mon Apr 20 17:37:09 2026] [::1]:56273 Accepted
+[Mon Apr 20 17:37:09 2026] [::1]:56273 [200]: GET /manifest.json
+[Mon Apr 20 17:37:09 2026] [::1]:56273 Closing
+[Mon Apr 20 17:37:09 2026] [::1]:56272 [200]: GET /api/check_overdue.php
+[Mon Apr 20 17:37:09 2026] [::1]:56272 Closing
+[Mon Apr 20 17:37:09 2026] [::1]:56274 Accepted
+[Mon Apr 20 17:37:09 2026] [::1]:56274 [200]: GET /assets/logo.png
+[Mon Apr 20 17:37:09 2026] [::1]:56274 Closing
+[Mon Apr 20 17:37:13 2026] [::1]:56275 Accepted
+[Mon Apr 20 17:37:13 2026] [::1]:56275 [200]: GET /planos.php
+[Mon Apr 20 17:37:13 2026] [::1]:56275 Closing
+[Mon Apr 20 17:37:13 2026] [::1]:56276 Accepted
+[Mon Apr 20 17:37:13 2026] [::1]:56277 Accepted
+[Mon Apr 20 17:37:13 2026] [::1]:56277 [200]: GET /manifest.json
+[Mon Apr 20 17:37:13 2026] [::1]:56277 Closing
+[Mon Apr 20 17:37:14 2026] [::1]:56278 Accepted
+[Mon Apr 20 17:37:14 2026] [::1]:56278 [200]: GET /manifest.json
+[Mon Apr 20 17:37:14 2026] [::1]:56278 Closing
+[Mon Apr 20 17:37:14 2026] [::1]:56276 [200]: GET /api/check_overdue.php
+[Mon Apr 20 17:37:14 2026] [::1]:56276 Closing
+[Mon Apr 20 17:37:14 2026] [::1]:56279 Accepted
+[Mon Apr 20 17:37:14 2026] [::1]:56280 Accepted
+[Mon Apr 20 17:37:14 2026] [::1]:56279 [200]: GET /assets/logo.png
+[Mon Apr 20 17:37:14 2026] [::1]:56280 [200]: GET /assets/logo.png?v=2
+[Mon Apr 20 17:37:14 2026] [::1]:56279 Closing
+[Mon Apr 20 17:37:14 2026] [::1]:56280 Closing
+[Mon Apr 20 17:37:18 2026] [::1]:56281 Accepted
+[Mon Apr 20 17:37:18 2026] [::1]:56281 [200]: GET /lancamentos.php
+[Mon Apr 20 17:37:18 2026] [::1]:56281 Closing
+[Mon Apr 20 17:37:18 2026] [::1]:56282 Accepted
+[Mon Apr 20 17:37:18 2026] [::1]:56283 Accepted
+[Mon Apr 20 17:37:18 2026] [::1]:56284 Accepted
+[Mon Apr 20 17:37:18 2026] [::1]:56284 [200]: GET /manifest.json
+[Mon Apr 20 17:37:18 2026] [::1]:56284 Closing
+[Mon Apr 20 17:37:19 2026] [::1]:56282 [200]: GET /api/list_lancamentos.php?mes=2026-04&t=1776717438759
+[Mon Apr 20 17:37:19 2026] [::1]:56282 Closing
+[Mon Apr 20 17:37:19 2026] [::1]:56285 Accepted
+[Mon Apr 20 17:37:19 2026] [::1]:56283 [200]: GET /api/check_overdue.php
+[Mon Apr 20 17:37:19 2026] [::1]:56283 Closing
+[Mon Apr 20 17:37:19 2026] [::1]:56285 [200]: GET /assets/logo.png
+[Mon Apr 20 17:37:19 2026] [::1]:56285 Closing
+[Mon Apr 20 17:37:28 2026] [::1]:56287 Accepted
+[Mon Apr 20 17:37:29 2026] [::1]:56287 [200]: GET /api/categories.php
+[Mon Apr 20 17:37:29 2026] [::1]:56287 Closing
+[Mon Apr 20 17:37:31 2026] [::1]:56288 Accepted
+[Mon Apr 20 17:37:32 2026] [::1]:56288 [200]: GET /api/categories.php
+[Mon Apr 20 17:37:32 2026] [::1]:56288 Closing
+[Mon Apr 20 17:37:41 2026] [::1]:56289 Accepted
+[Mon Apr 20 17:37:44 2026] [::1]:56289 [200]: POST /api/create_receita.php
+[Mon Apr 20 17:37:44 2026] [::1]:56289 Closing
+[Mon Apr 20 17:37:44 2026] [::1]:56290 Accepted
+[Mon Apr 20 17:37:44 2026] [::1]:56290 [200]: GET /api/list_lancamentos.php?mes=2026-04&t=1776717464367
+[Mon Apr 20 17:37:44 2026] [::1]:56290 Closing
+[Mon Apr 20 17:40:50 2026] [::1]:56311 Accepted
+[Mon Apr 20 17:40:50 2026] [::1]:56311 [200]: GET /dashboard.php
+[Mon Apr 20 17:40:50 2026] [::1]:56311 Closing
+[Mon Apr 20 17:40:50 2026] [::1]:56312 Accepted
+[Mon Apr 20 17:40:50 2026] [::1]:56313 Accepted
+[Mon Apr 20 17:40:50 2026] [::1]:56313 [200]: GET /manifest.json
+[Mon Apr 20 17:40:50 2026] [::1]:56313 Closing
+[Mon Apr 20 17:40:50 2026] [::1]:56314 Accepted
+[Mon Apr 20 17:40:50 2026] [::1]:56314 [200]: GET /manifest.json
+[Mon Apr 20 17:40:50 2026] [::1]:56314 Closing
+[Mon Apr 20 17:40:50 2026] [::1]:56312 [200]: GET /api/check_overdue.php
+[Mon Apr 20 17:40:50 2026] [::1]:56312 Closing
+[Mon Apr 20 17:40:50 2026] [::1]:56315 Accepted
+[Mon Apr 20 17:40:50 2026] [::1]:56316 Accepted
+[Mon Apr 20 17:40:50 2026] [::1]:56315 [200]: GET /api/dashboard_stats.php?mes=2026-04
+[Mon Apr 20 17:40:50 2026] [::1]:56315 Closing
+[Mon Apr 20 17:40:50 2026] [::1]:56317 Accepted
+[Mon Apr 20 17:40:51 2026] [::1]:56316 [200]: GET /api/list_receitas.php?mes=2026-04
+[Mon Apr 20 17:40:51 2026] [::1]:56316 Closing
+[Mon Apr 20 17:40:51 2026] [::1]:56318 Accepted
+[Mon Apr 20 17:40:51 2026] [::1]:56317 [200]: GET /api/list_despesas.php?mes=2026-04
+[Mon Apr 20 17:40:51 2026] [::1]:56317 Closing
+[Mon Apr 20 17:40:51 2026] [::1]:56318 [200]: GET /assets/logo.png
+[Mon Apr 20 17:40:51 2026] [::1]:56318 Closing
+[Mon Apr 20 17:41:34 2026] [::1]:56319 Accepted
+[Mon Apr 20 17:41:35 2026] [::1]:56319 [200]: POST /api/update_profile.php
+[Mon Apr 20 17:41:35 2026] [::1]:56319 Closing
+[Mon Apr 20 17:41:36 2026] [::1]:56320 Accepted
+[Mon Apr 20 17:41:36 2026] [::1]:56320 [200]: GET /dashboard.php
+[Mon Apr 20 17:41:36 2026] [::1]:56320 Closing
+[Mon Apr 20 17:41:36 2026] [::1]:56321 Accepted
+[Mon Apr 20 17:41:36 2026] [::1]:56322 Accepted
+[Mon Apr 20 17:41:36 2026] [::1]:56322 [200]: GET /manifest.json
+[Mon Apr 20 17:41:36 2026] [::1]:56322 Closing
+[Mon Apr 20 17:41:36 2026] [::1]:56323 Accepted
+[Mon Apr 20 17:41:36 2026] [::1]:56323 [200]: GET /manifest.json
+[Mon Apr 20 17:41:36 2026] [::1]:56323 Closing
+[Mon Apr 20 17:41:36 2026] [::1]:56324 Accepted
+[Mon Apr 20 17:41:36 2026] [::1]:56321 [200]: GET /api/check_overdue.php
+[Mon Apr 20 17:41:36 2026] [::1]:56321 Closing
+[Mon Apr 20 17:41:36 2026] [::1]:56325 Accepted
+[Mon Apr 20 17:41:36 2026] [::1]:56324 [200]: GET /api/dashboard_stats.php?mes=2026-04
+[Mon Apr 20 17:41:36 2026] [::1]:56324 Closing
+[Mon Apr 20 17:41:36 2026] [::1]:56326 Accepted
+[Mon Apr 20 17:41:36 2026] [::1]:56325 [200]: GET /api/list_receitas.php?mes=2026-04
+[Mon Apr 20 17:41:36 2026] [::1]:56325 Closing
+[Mon Apr 20 17:41:36 2026] [::1]:56327 Accepted
+[Mon Apr 20 17:41:37 2026] [::1]:56326 [200]: GET /api/list_despesas.php?mes=2026-04
+[Mon Apr 20 17:41:37 2026] [::1]:56326 Closing
+[Mon Apr 20 17:41:37 2026] [::1]:56328 Accepted
+[Mon Apr 20 17:41:37 2026] [::1]:56327 [200]: GET /assets/logo.png?v=2
+[Mon Apr 20 17:41:37 2026] [::1]:56328 [200]: GET /assets/logo.png
+[Mon Apr 20 17:41:37 2026] [::1]:56327 Closing
+[Mon Apr 20 17:41:37 2026] [::1]:56328 Closing
+[Mon Apr 20 17:42:06 2026] [::1]:56333 Accepted
+[Mon Apr 20 17:42:06 2026] [::1]:56333 [200]: POST /api/update_profile.php
+[Mon Apr 20 17:42:06 2026] [::1]:56333 Closing
+[Mon Apr 20 17:42:08 2026] [::1]:56334 Accepted
+[Mon Apr 20 17:42:08 2026] [::1]:56334 [200]: GET /dashboard.php
+[Mon Apr 20 17:42:08 2026] [::1]:56334 Closing
+[Mon Apr 20 17:42:08 2026] [::1]:56335 Accepted
+[Mon Apr 20 17:42:08 2026] [::1]:56336 Accepted
+[Mon Apr 20 17:42:08 2026] [::1]:56337 Accepted
+[Mon Apr 20 17:42:08 2026] [::1]:56337 [200]: GET /manifest.json
+[Mon Apr 20 17:42:08 2026] [::1]:56337 Closing
+[Mon Apr 20 17:42:08 2026] [::1]:56338 Accepted
+[Mon Apr 20 17:42:08 2026] [::1]:56338 [200]: GET /manifest.json
+[Mon Apr 20 17:42:08 2026] [::1]:56338 Closing
+[Mon Apr 20 17:42:08 2026] [::1]:56335 [200]: GET /api/check_overdue.php
+[Mon Apr 20 17:42:08 2026] [::1]:56335 Closing
+[Mon Apr 20 17:42:08 2026] [::1]:56339 Accepted
+[Mon Apr 20 17:42:08 2026] [::1]:56336 [200]: GET /api/dashboard_stats.php?mes=2026-04
+[Mon Apr 20 17:42:08 2026] [::1]:56336 Closing
+[Mon Apr 20 17:42:08 2026] [::1]:56340 Accepted
+[Mon Apr 20 17:42:08 2026] [::1]:56339 [200]: GET /api/list_receitas.php?mes=2026-04
+[Mon Apr 20 17:42:08 2026] [::1]:56339 Closing
+[Mon Apr 20 17:42:08 2026] [::1]:56341 Accepted
+[Mon Apr 20 17:42:09 2026] [::1]:56340 [200]: GET /api/list_despesas.php?mes=2026-04
+[Mon Apr 20 17:42:09 2026] [::1]:56340 Closing
+[Mon Apr 20 17:42:09 2026] [::1]:56342 Accepted
+[Mon Apr 20 17:42:09 2026] [::1]:56341 [200]: GET /assets/logo.png?v=2
+[Mon Apr 20 17:42:09 2026] [::1]:56342 [200]: GET /assets/logo.png
+[Mon Apr 20 17:42:09 2026] [::1]:56341 Closing
+[Mon Apr 20 17:42:09 2026] [::1]:56342 Closing
+[Mon Apr 20 17:42:11 2026] [::1]:56343 Accepted
+[Mon Apr 20 17:42:11 2026] [::1]:56343 [200]: GET /dashboard.php
+[Mon Apr 20 17:42:11 2026] [::1]:56343 Closing
+[Mon Apr 20 17:42:11 2026] [::1]:56344 Accepted
+[Mon Apr 20 17:42:11 2026] [::1]:56345 Accepted
+[Mon Apr 20 17:42:11 2026] [::1]:56346 Accepted
+[Mon Apr 20 17:42:11 2026] [::1]:56346 [200]: GET /manifest.json
+[Mon Apr 20 17:42:11 2026] [::1]:56346 Closing
+[Mon Apr 20 17:42:12 2026] [::1]:56347 Accepted
+[Mon Apr 20 17:42:12 2026] [::1]:56347 [200]: GET /manifest.json
+[Mon Apr 20 17:42:12 2026] [::1]:56347 Closing
+[Mon Apr 20 17:42:12 2026] [::1]:56344 [200]: GET /api/check_overdue.php
+[Mon Apr 20 17:42:12 2026] [::1]:56344 Closing
+[Mon Apr 20 17:42:12 2026] [::1]:56348 Accepted
+[Mon Apr 20 17:42:12 2026] [::1]:56345 [200]: GET /api/list_despesas.php?mes=2026-04
+[Mon Apr 20 17:42:12 2026] [::1]:56345 Closing
+[Mon Apr 20 17:42:12 2026] [::1]:56349 Accepted
+[Mon Apr 20 17:42:12 2026] [::1]:56348 [200]: GET /api/dashboard_stats.php?mes=2026-04
+[Mon Apr 20 17:42:12 2026] [::1]:56348 Closing
+[Mon Apr 20 17:42:12 2026] [::1]:56350 Accepted
+[Mon Apr 20 17:42:12 2026] [::1]:56349 [200]: GET /api/list_receitas.php?mes=2026-04
+[Mon Apr 20 17:42:12 2026] [::1]:56349 Closing
+[Mon Apr 20 17:42:12 2026] [::1]:56351 Accepted
+[Mon Apr 20 17:42:12 2026] [::1]:56350 [200]: GET /assets/logo.png?v=2
+[Mon Apr 20 17:42:12 2026] [::1]:56351 [200]: GET /assets/logo.png
+[Mon Apr 20 17:42:12 2026] [::1]:56350 Closing
+[Mon Apr 20 17:42:12 2026] [::1]:56351 Closing
+[Mon Apr 20 17:42:20 2026] [::1]:56355 Accepted
+[Mon Apr 20 17:42:20 2026] [::1]:56355 [200]: GET /lancamentos.php
+[Mon Apr 20 17:42:20 2026] [::1]:56355 Closing
+[Mon Apr 20 17:42:20 2026] [::1]:56356 Accepted
+[Mon Apr 20 17:42:20 2026] [::1]:56357 Accepted
+[Mon Apr 20 17:42:20 2026] [::1]:56358 Accepted
+[Mon Apr 20 17:42:20 2026] [::1]:56358 [200]: GET /manifest.json
+[Mon Apr 20 17:42:20 2026] [::1]:56358 Closing
+[Mon Apr 20 17:42:21 2026] [::1]:56359 Accepted
+[Mon Apr 20 17:42:21 2026] [::1]:56359 [200]: GET /manifest.json
+[Mon Apr 20 17:42:21 2026] [::1]:56359 Closing
+[Mon Apr 20 17:42:21 2026] [::1]:56356 [200]: GET /api/list_lancamentos.php?mes=2026-04&t=1776717741094
+[Mon Apr 20 17:42:21 2026] [::1]:56356 Closing
+[Mon Apr 20 17:42:21 2026] [::1]:56360 Accepted
+[Mon Apr 20 17:42:21 2026] [::1]:56357 [200]: GET /api/check_overdue.php
+[Mon Apr 20 17:42:21 2026] [::1]:56357 Closing
+[Mon Apr 20 17:42:21 2026] [::1]:56360 [200]: GET /assets/logo.png
+[Mon Apr 20 17:42:21 2026] [::1]:56360 Closing
+[Mon Apr 20 17:57:36 2026] [::1]:56550 Accepted
+[Mon Apr 20 17:57:38 2026] [::1]:56550 [200]: GET /api/create_portal_session.php
+[Mon Apr 20 17:57:38 2026] [::1]:56550 Closing
+[Mon Apr 20 17:57:38 2026] [::1]:56551 Accepted
+[Mon Apr 20 17:57:38 2026] [::1]:56551 [404]: GET /favicon.ico - No such file or directory
+[Mon Apr 20 17:57:38 2026] [::1]:56551 Closing
+[Mon Apr 20 17:57:40 2026] [::1]:56557 Accepted
+[Mon Apr 20 17:57:40 2026] [::1]:56557 [200]: GET /lancamentos.php
+[Mon Apr 20 17:57:40 2026] [::1]:56557 Closing
+[Mon Apr 20 17:57:40 2026] [::1]:56558 Accepted
+[Mon Apr 20 17:57:40 2026] [::1]:56559 Accepted
+[Mon Apr 20 17:57:41 2026] [::1]:56558 [200]: GET /api/list_lancamentos.php?mes=2026-04&t=1776718661109
+[Mon Apr 20 17:57:41 2026] [::1]:56558 Closing
+[Mon Apr 20 17:57:41 2026] [::1]:56560 Accepted
+[Mon Apr 20 17:57:42 2026] [::1]:56559 [200]: GET /api/check_overdue.php
+[Mon Apr 20 17:57:42 2026] [::1]:56559 Closing
+[Mon Apr 20 17:57:42 2026] [::1]:56560 [200]: GET /assets/logo.png
+[Mon Apr 20 17:57:42 2026] [::1]:56560 Closing
+[Mon Apr 20 17:57:48 2026] [::1]:56564 Accepted
+[Mon Apr 20 17:57:48 2026] [::1]:56564 [200]: GET /configuracoes.php
+[Mon Apr 20 17:57:48 2026] [::1]:56564 Closing
+[Mon Apr 20 17:57:48 2026] [::1]:56565 Accepted
+[Mon Apr 20 17:57:48 2026] [::1]:56566 Accepted
+[Mon Apr 20 17:57:48 2026] [::1]:56566 [200]: GET /manifest.json
+[Mon Apr 20 17:57:48 2026] [::1]:56566 Closing
+[Mon Apr 20 17:57:48 2026] [::1]:56565 [200]: GET /api/check_overdue.php
+[Mon Apr 20 17:57:48 2026] [::1]:56565 Closing
+[Mon Apr 20 17:57:48 2026] [::1]:56567 Accepted
+[Mon Apr 20 17:57:48 2026] [::1]:56568 Accepted
+[Mon Apr 20 17:57:48 2026] [::1]:56567 [200]: GET /api/categories.php
+[Mon Apr 20 17:57:48 2026] [::1]:56567 Closing
+[Mon Apr 20 17:57:48 2026] [::1]:56568 [200]: GET /assets/logo.png
+[Mon Apr 20 17:57:48 2026] [::1]:56568 Closing
+[Mon Apr 20 17:57:49 2026] [::1]:56569 Accepted
+[Mon Apr 20 17:57:49 2026] [::1]:56569 [200]: GET /lancamentos.php
+[Mon Apr 20 17:57:49 2026] [::1]:56569 Closing
+[Mon Apr 20 17:57:49 2026] [::1]:56570 Accepted
+[Mon Apr 20 17:57:49 2026] [::1]:56571 Accepted
+[Mon Apr 20 17:57:49 2026] [::1]:56572 Accepted
+[Mon Apr 20 17:57:49 2026] [::1]:56572 [200]: GET /manifest.json
+[Mon Apr 20 17:57:49 2026] [::1]:56572 Closing
+[Mon Apr 20 17:57:50 2026] [::1]:56570 [200]: GET /api/list_lancamentos.php?mes=2026-04&t=1776718670008
+[Mon Apr 20 17:57:50 2026] [::1]:56570 Closing
+[Mon Apr 20 17:57:50 2026] [::1]:56573 Accepted
+[Mon Apr 20 17:57:50 2026] [::1]:56571 [200]: GET /api/check_overdue.php
+[Mon Apr 20 17:57:50 2026] [::1]:56571 Closing
+[Mon Apr 20 17:57:50 2026] [::1]:56573 [200]: GET /assets/logo.png
+[Mon Apr 20 17:57:50 2026] [::1]:56573 Closing
+[Mon Apr 20 17:57:57 2026] [::1]:56575 Accepted
+[Mon Apr 20 17:57:58 2026] [::1]:56575 [200]: GET /usuarios.php
+[Mon Apr 20 17:57:58 2026] [::1]:56575 Closing
+[Mon Apr 20 17:57:58 2026] [::1]:56576 Accepted
+[Mon Apr 20 17:57:58 2026] [::1]:56577 Accepted
+[Mon Apr 20 17:57:58 2026] [::1]:56577 [200]: GET /manifest.json
+[Mon Apr 20 17:57:58 2026] [::1]:56577 Closing
+[Mon Apr 20 17:57:58 2026] [::1]:56576 [200]: GET /api/list_usuarios.php
+[Mon Apr 20 17:57:58 2026] [::1]:56576 Closing
+[Mon Apr 20 17:57:58 2026] [::1]:56578 Accepted
+[Mon Apr 20 17:57:58 2026] [::1]:56579 Accepted
+[Mon Apr 20 17:57:58 2026] [::1]:56578 [200]: GET /api/check_overdue.php
+[Mon Apr 20 17:57:58 2026] [::1]:56578 Closing
+[Mon Apr 20 17:57:58 2026] [::1]:56579 [200]: GET /assets/logo.png
+[Mon Apr 20 17:57:58 2026] [::1]:56579 Closing
+[Mon Apr 20 18:00:51 2026] [::1]:56606 Accepted
+[Mon Apr 20 18:00:51 2026] [::1]:56607 Accepted
+[Mon Apr 20 18:00:51 2026] [::1]:56606 [200]: GET /usuarios.php
+[Mon Apr 20 18:00:51 2026] [::1]:56606 Closing
+[Mon Apr 20 18:00:51 2026] [::1]:56609 Accepted
+[Mon Apr 20 18:00:51 2026] [::1]:56609 [200]: GET /manifest.json
+[Mon Apr 20 18:00:51 2026] [::1]:56609 Closing
+[Mon Apr 20 18:00:52 2026] [::1]:56612 Accepted
+[Mon Apr 20 18:00:52 2026] [::1]:56612 [200]: GET /manifest.json
+[Mon Apr 20 18:00:52 2026] [::1]:56612 Closing
+[Mon Apr 20 18:00:52 2026] [::1]:56607 [200]: GET /api/list_usuarios.php
+[Mon Apr 20 18:00:52 2026] [::1]:56607 Closing
+[Mon Apr 20 18:00:52 2026] [::1]:56614 Accepted
+[Mon Apr 20 18:00:52 2026] [::1]:56615 Accepted
+[Mon Apr 20 18:00:52 2026] [::1]:56614 [200]: GET /api/check_overdue.php
+[Mon Apr 20 18:00:52 2026] [::1]:56614 Closing
+[Mon Apr 20 18:00:52 2026] [::1]:56616 Accepted
+[Mon Apr 20 18:00:52 2026] [::1]:56615 [200]: GET /assets/logo.png
+[Mon Apr 20 18:00:52 2026] [::1]:56616 [200]: GET /assets/logo.png?v=2
+[Mon Apr 20 18:00:52 2026] [::1]:56615 Closing
+[Mon Apr 20 18:00:52 2026] [::1]:56616 Closing
+[Mon Apr 20 18:01:06 2026] [::1]:56617 Accepted
+[Mon Apr 20 18:01:06 2026] [::1]:56617 [200]: GET /dashboard.php
+[Mon Apr 20 18:01:06 2026] [::1]:56617 Closing
+[Mon Apr 20 18:01:06 2026] [::1]:56618 Accepted
+[Mon Apr 20 18:01:06 2026] [::1]:56619 Accepted
+[Mon Apr 20 18:01:06 2026] [::1]:56620 Accepted
+[Mon Apr 20 18:01:06 2026] [::1]:56620 [200]: GET /manifest.json
+[Mon Apr 20 18:01:06 2026] [::1]:56620 Closing
+[Mon Apr 20 18:01:06 2026] [::1]:56618 [200]: GET /api/check_overdue.php
+[Mon Apr 20 18:01:06 2026] [::1]:56618 Closing
+[Mon Apr 20 18:01:06 2026] [::1]:56621 Accepted
+[Mon Apr 20 18:01:06 2026] [::1]:56619 [200]: GET /api/dashboard_stats.php?mes=2026-04
+[Mon Apr 20 18:01:06 2026] [::1]:56619 Closing
+[Mon Apr 20 18:01:06 2026] [::1]:56622 Accepted
+[Mon Apr 20 18:01:07 2026] [::1]:56621 [200]: GET /api/list_receitas.php?mes=2026-04
+[Mon Apr 20 18:01:07 2026] [::1]:56621 Closing
+[Mon Apr 20 18:01:07 2026] [::1]:56623 Accepted
+[Mon Apr 20 18:01:07 2026] [::1]:56622 [200]: GET /api/list_despesas.php?mes=2026-04
+[Mon Apr 20 18:01:07 2026] [::1]:56622 Closing
+[Mon Apr 20 18:01:07 2026] [::1]:56623 [200]: GET /assets/logo.png
+[Mon Apr 20 18:01:07 2026] [::1]:56623 Closing
+[Mon Apr 20 18:01:12 2026] [::1]:56624 Accepted
+[Mon Apr 20 18:01:12 2026] [::1]:56624 [200]: GET /dashboard.php
+[Mon Apr 20 18:01:12 2026] [::1]:56624 Closing
+[Mon Apr 20 18:01:12 2026] [::1]:56625 Accepted
+[Mon Apr 20 18:01:12 2026] [::1]:56626 Accepted
+[Mon Apr 20 18:01:12 2026] [::1]:56627 Accepted
+[Mon Apr 20 18:01:12 2026] [::1]:56627 [200]: GET /manifest.json
+[Mon Apr 20 18:01:12 2026] [::1]:56627 Closing
+[Mon Apr 20 18:01:12 2026] [::1]:56628 Accepted
+[Mon Apr 20 18:01:12 2026] [::1]:56628 [200]: GET /manifest.json
+[Mon Apr 20 18:01:12 2026] [::1]:56628 Closing
+[Mon Apr 20 18:01:12 2026] [::1]:56625 [200]: GET /api/check_overdue.php
+[Mon Apr 20 18:01:12 2026] [::1]:56625 Closing
+[Mon Apr 20 18:01:12 2026] [::1]:56629 Accepted
+[Mon Apr 20 18:01:12 2026] [::1]:56626 [200]: GET /api/list_despesas.php?mes=2026-04
+[Mon Apr 20 18:01:12 2026] [::1]:56626 Closing
+[Mon Apr 20 18:01:12 2026] [::1]:56630 Accepted
+[Mon Apr 20 18:01:13 2026] [::1]:56629 [200]: GET /api/dashboard_stats.php?mes=2026-04
+[Mon Apr 20 18:01:13 2026] [::1]:56629 Closing
+[Mon Apr 20 18:01:13 2026] [::1]:56631 Accepted
+[Mon Apr 20 18:01:13 2026] [::1]:56630 [200]: GET /api/list_receitas.php?mes=2026-04
+[Mon Apr 20 18:01:13 2026] [::1]:56630 Closing
+[Mon Apr 20 18:01:13 2026] [::1]:56632 Accepted
+[Mon Apr 20 18:01:13 2026] [::1]:56631 [200]: GET /assets/logo.png
+[Mon Apr 20 18:01:13 2026] [::1]:56632 [200]: GET /assets/logo.png?v=2
+[Mon Apr 20 18:01:13 2026] [::1]:56631 Closing
+[Mon Apr 20 18:01:13 2026] [::1]:56632 Closing
+[Mon Apr 20 18:01:21 2026] [::1]:56634 Accepted
+[Mon Apr 20 18:01:21 2026] [::1]:56634 [200]: GET /usuarios.php
+[Mon Apr 20 18:01:21 2026] [::1]:56634 Closing
+[Mon Apr 20 18:01:21 2026] [::1]:56635 Accepted
+[Mon Apr 20 18:01:21 2026] [::1]:56636 Accepted
+[Mon Apr 20 18:01:21 2026] [::1]:56637 Accepted
+[Mon Apr 20 18:01:21 2026] [::1]:56637 [200]: GET /manifest.json
+[Mon Apr 20 18:01:21 2026] [::1]:56637 Closing
+[Mon Apr 20 18:01:22 2026] [::1]:56635 [200]: GET /api/list_usuarios.php
+[Mon Apr 20 18:01:22 2026] [::1]:56635 Closing
+[Mon Apr 20 18:01:22 2026] [::1]:56638 Accepted
+[Mon Apr 20 18:01:22 2026] [::1]:56636 [200]: GET /api/check_overdue.php
+[Mon Apr 20 18:01:22 2026] [::1]:56636 Closing
+[Mon Apr 20 18:01:22 2026] [::1]:56638 [200]: GET /assets/logo.png
+[Mon Apr 20 18:01:22 2026] [::1]:56638 Closing
+[Mon Apr 20 18:01:26 2026] [::1]:56639 Accepted
+[Mon Apr 20 18:01:26 2026] [::1]:56639 [200]: GET /api/categories.php
+[Mon Apr 20 18:01:26 2026] [::1]:56639 Closing
+[Mon Apr 20 18:03:49 2026] [::1]:56656 Accepted
+[Mon Apr 20 18:03:49 2026] [::1]:56656 [200]: GET /configuracoes.php
+[Mon Apr 20 18:03:49 2026] [::1]:56656 Closing
+[Mon Apr 20 18:03:49 2026] [::1]:56657 Accepted
+[Mon Apr 20 18:03:49 2026] [::1]:56658 Accepted
+[Mon Apr 20 18:03:49 2026] [::1]:56658 [200]: GET /manifest.json
+[Mon Apr 20 18:03:49 2026] [::1]:56658 Closing
+[Mon Apr 20 18:03:49 2026] [::1]:56659 Accepted
+[Mon Apr 20 18:03:49 2026] [::1]:56659 [200]: GET /manifest.json
+[Mon Apr 20 18:03:49 2026] [::1]:56659 Closing
+[Mon Apr 20 18:03:50 2026] [::1]:56657 [200]: GET /api/check_overdue.php
+[Mon Apr 20 18:03:50 2026] [::1]:56657 Closing
+[Mon Apr 20 18:03:50 2026] [::1]:56661 Accepted
+[Mon Apr 20 18:03:50 2026] [::1]:56663 Accepted
+[Mon Apr 20 18:03:50 2026] [::1]:56661 [200]: GET /api/categories.php
+[Mon Apr 20 18:03:50 2026] [::1]:56661 Closing
+[Mon Apr 20 18:03:50 2026] [::1]:56663 [200]: GET /assets/logo.png
+[Mon Apr 20 18:03:50 2026] [::1]:56663 Closing
+[Mon Apr 20 18:03:56 2026] [::1]:56664 Accepted
+[Mon Apr 20 18:03:56 2026] [::1]:56664 [302]: GET /index.php?logout=true
+[Mon Apr 20 18:03:56 2026] [::1]:56664 Closing
+[Mon Apr 20 18:03:56 2026] [::1]:56665 Accepted
+[Mon Apr 20 18:03:56 2026] [::1]:56665 [200]: GET /index.php
+[Mon Apr 20 18:03:56 2026] [::1]:56665 Closing
+[Mon Apr 20 18:03:56 2026] [::1]:56666 Accepted
+[Mon Apr 20 18:03:56 2026] [::1]:56666 [200]: GET /manifest.json
+[Mon Apr 20 18:03:56 2026] [::1]:56666 Closing
+[Mon Apr 20 18:03:57 2026] [::1]:56667 Accepted
+[Mon Apr 20 18:03:57 2026] [::1]:56667 [200]: GET /assets/logo.png
+[Mon Apr 20 18:03:57 2026] [::1]:56667 Closing
+[Mon Apr 20 18:04:03 2026] [::1]:56669 Accepted
+[Mon Apr 20 18:04:03 2026] [::1]:56669 [200]: POST /api/login.php
+[Mon Apr 20 18:04:03 2026] [::1]:56669 Closing
+[Mon Apr 20 18:04:03 2026] [::1]:56670 Accepted
+[Mon Apr 20 18:04:03 2026] [::1]:56670 [200]: GET /dashboard.php
+[Mon Apr 20 18:04:03 2026] [::1]:56670 Closing
+[Mon Apr 20 18:04:03 2026] [::1]:56671 Accepted
+[Mon Apr 20 18:04:03 2026] [::1]:56672 Accepted
+[Mon Apr 20 18:04:03 2026] [::1]:56673 Accepted
+[Mon Apr 20 18:04:03 2026] [::1]:56673 [200]: GET /manifest.json
+[Mon Apr 20 18:04:03 2026] [::1]:56673 Closing
+[Mon Apr 20 18:04:04 2026] [::1]:56671 [200]: GET /api/check_overdue.php
+[Mon Apr 20 18:04:04 2026] [::1]:56671 Closing
+[Mon Apr 20 18:04:04 2026] [::1]:56674 Accepted
+[Mon Apr 20 18:04:04 2026] [::1]:56672 [200]: GET /api/dashboard_stats.php?mes=2026-04
+[Mon Apr 20 18:04:04 2026] [::1]:56672 Closing
+[Mon Apr 20 18:04:04 2026] [::1]:56675 Accepted
+[Mon Apr 20 18:04:04 2026] [::1]:56674 [200]: GET /api/list_receitas.php?mes=2026-04
+[Mon Apr 20 18:04:04 2026] [::1]:56674 Closing
+[Mon Apr 20 18:04:04 2026] [::1]:56676 Accepted
+[Mon Apr 20 18:04:04 2026] [::1]:56675 [200]: GET /api/list_despesas.php?mes=2026-04
+[Mon Apr 20 18:04:04 2026] [::1]:56675 Closing
+[Mon Apr 20 18:04:04 2026] [::1]:56676 [200]: GET /assets/logo.png
+[Mon Apr 20 18:04:04 2026] [::1]:56676 Closing
+[Mon Apr 20 18:04:06 2026] [::1]:56677 Accepted
+[Mon Apr 20 18:04:06 2026] [::1]:56677 [200]: GET /usuarios.php
+[Mon Apr 20 18:04:06 2026] [::1]:56677 Closing
+[Mon Apr 20 18:04:06 2026] [::1]:56678 Accepted
+[Mon Apr 20 18:04:06 2026] [::1]:56679 Accepted
+[Mon Apr 20 18:04:06 2026] [::1]:56679 [200]: GET /manifest.json
+[Mon Apr 20 18:04:06 2026] [::1]:56679 Closing
+[Mon Apr 20 18:04:06 2026] [::1]:56678 [200]: GET /api/list_usuarios.php
+[Mon Apr 20 18:04:06 2026] [::1]:56678 Closing
+[Mon Apr 20 18:04:06 2026] [::1]:56680 Accepted
+[Mon Apr 20 18:04:06 2026] [::1]:56681 Accepted
+[Mon Apr 20 18:04:06 2026] [::1]:56680 [200]: GET /api/check_overdue.php
+[Mon Apr 20 18:04:06 2026] [::1]:56680 Closing
+[Mon Apr 20 18:04:06 2026] [::1]:56681 [200]: GET /assets/logo.png
+[Mon Apr 20 18:04:06 2026] [::1]:56681 Closing
+[Mon Apr 20 18:04:16 2026] [::1]:56682 Accepted
+[Mon Apr 20 18:04:16 2026] [::1]:56682 [200]: GET /usuarios.php
+[Mon Apr 20 18:04:16 2026] [::1]:56682 Closing
+[Mon Apr 20 18:04:16 2026] [::1]:56683 Accepted
+[Mon Apr 20 18:04:16 2026] [::1]:56684 Accepted
+[Mon Apr 20 18:04:16 2026] [::1]:56685 Accepted
+[Mon Apr 20 18:04:16 2026] [::1]:56685 [200]: GET /manifest.json
+[Mon Apr 20 18:04:16 2026] [::1]:56685 Closing
+[Mon Apr 20 18:04:16 2026] [::1]:56686 Accepted
+[Mon Apr 20 18:04:16 2026] [::1]:56686 [200]: GET /manifest.json
+[Mon Apr 20 18:04:16 2026] [::1]:56686 Closing
+[Mon Apr 20 18:04:16 2026] [::1]:56683 [200]: GET /api/list_usuarios.php
+[Mon Apr 20 18:04:16 2026] [::1]:56683 Closing
+[Mon Apr 20 18:04:16 2026] [::1]:56687 Accepted
+[Mon Apr 20 18:04:16 2026] [::1]:56684 [200]: GET /api/check_overdue.php
+[Mon Apr 20 18:04:16 2026] [::1]:56684 Closing
+[Mon Apr 20 18:04:16 2026] [::1]:56688 Accepted
+[Mon Apr 20 18:04:16 2026] [::1]:56687 [200]: GET /assets/logo.png
+[Mon Apr 20 18:04:16 2026] [::1]:56688 [200]: GET /assets/logo.png?v=2
+[Mon Apr 20 18:04:16 2026] [::1]:56687 Closing
+[Mon Apr 20 18:04:16 2026] [::1]:56688 Closing
+[Mon Apr 20 18:04:54 2026] [::1]:56693 Accepted
+[Mon Apr 20 18:04:54 2026] [::1]:56693 [200]: GET /configuracoes.php
+[Mon Apr 20 18:04:54 2026] [::1]:56693 Closing
+[Mon Apr 20 18:04:54 2026] [::1]:56694 Accepted
+[Mon Apr 20 18:04:54 2026] [::1]:56695 Accepted
+[Mon Apr 20 18:04:54 2026] [::1]:56696 Accepted
+[Mon Apr 20 18:04:54 2026] [::1]:56696 [200]: GET /manifest.json
+[Mon Apr 20 18:04:54 2026] [::1]:56696 Closing
+[Mon Apr 20 18:04:54 2026] [::1]:56694 [200]: GET /api/check_overdue.php
+[Mon Apr 20 18:04:54 2026] [::1]:56694 Closing
+[Mon Apr 20 18:04:54 2026] [::1]:56697 Accepted
+[Mon Apr 20 18:04:54 2026] [::1]:56695 [200]: GET /api/categories.php
+[Mon Apr 20 18:04:54 2026] [::1]:56695 Closing
+[Mon Apr 20 18:04:54 2026] [::1]:56697 [200]: GET /assets/logo.png
+[Mon Apr 20 18:04:54 2026] [::1]:56697 Closing
+[Mon Apr 20 18:04:58 2026] [::1]:56698 Accepted
+[Mon Apr 20 18:04:58 2026] [::1]:56698 [200]: GET /admin_users.php
+[Mon Apr 20 18:04:58 2026] [::1]:56698 Closing
+[Mon Apr 20 18:04:58 2026] [::1]:56699 Accepted
+[Mon Apr 20 18:04:58 2026] [::1]:56700 Accepted
+[Mon Apr 20 18:04:58 2026] [::1]:56700 [200]: GET /manifest.json
+[Mon Apr 20 18:04:58 2026] [::1]:56700 Closing
+[Mon Apr 20 18:04:58 2026] [::1]:56699 [200]: GET /api/check_overdue.php
+[Mon Apr 20 18:04:58 2026] [::1]:56699 Closing
+[Mon Apr 20 18:04:58 2026] [::1]:56701 Accepted
+[Mon Apr 20 18:04:58 2026] [::1]:56701 [200]: GET /assets/logo.png
+[Mon Apr 20 18:04:58 2026] [::1]:56701 Closing
+[Mon Apr 20 18:05:16 2026] [::1]:56702 Accepted
+[Mon Apr 20 18:05:16 2026] [::1]:56702 [200]: POST /api/admin_add_bonus.php
+[Mon Apr 20 18:05:16 2026] [::1]:56702 Closing
+[Mon Apr 20 18:05:18 2026] [::1]:56703 Accepted
+[Mon Apr 20 18:05:19 2026] [::1]:56703 [200]: GET /admin_users.php
+[Mon Apr 20 18:05:19 2026] [::1]:56703 Closing
+[Mon Apr 20 18:05:19 2026] [::1]:56704 Accepted
+[Mon Apr 20 18:05:19 2026] [::1]:56705 Accepted
+[Mon Apr 20 18:05:19 2026] [::1]:56705 [200]: GET /manifest.json
+[Mon Apr 20 18:05:19 2026] [::1]:56705 Closing
+[Mon Apr 20 18:05:19 2026] [::1]:56704 [200]: GET /api/check_overdue.php
+[Mon Apr 20 18:05:19 2026] [::1]:56704 Closing
+[Mon Apr 20 18:05:19 2026] [::1]:56706 Accepted
+[Mon Apr 20 18:05:19 2026] [::1]:56707 Accepted
+[Mon Apr 20 18:05:19 2026] [::1]:56706 [200]: GET /assets/logo.png?v=2
+[Mon Apr 20 18:05:19 2026] [::1]:56707 [200]: GET /assets/logo.png
+[Mon Apr 20 18:05:19 2026] [::1]:56706 Closing
+[Mon Apr 20 18:05:19 2026] [::1]:56707 Closing
+[Mon Apr 20 18:05:48 2026] [::1]:56716 Accepted
+[Mon Apr 20 18:05:48 2026] [::1]:56716 [200]: GET /dashboard.php
+[Mon Apr 20 18:05:48 2026] [::1]:56716 Closing
+[Mon Apr 20 18:05:48 2026] [::1]:56717 Accepted
+[Mon Apr 20 18:05:48 2026] [::1]:56718 Accepted
+[Mon Apr 20 18:05:48 2026] [::1]:56719 Accepted
+[Mon Apr 20 18:05:48 2026] [::1]:56719 [200]: GET /manifest.json
+[Mon Apr 20 18:05:48 2026] [::1]:56719 Closing
+[Mon Apr 20 18:05:49 2026] [::1]:56717 [200]: GET /api/check_overdue.php
+[Mon Apr 20 18:05:49 2026] [::1]:56717 Closing
+[Mon Apr 20 18:05:49 2026] [::1]:56721 Accepted
+[Mon Apr 20 18:05:49 2026] [::1]:56718 [200]: GET /api/dashboard_stats.php?mes=2026-04
+[Mon Apr 20 18:05:49 2026] [::1]:56718 Closing
+[Mon Apr 20 18:05:49 2026] [::1]:56722 Accepted
+[Mon Apr 20 18:05:49 2026] [::1]:56721 [200]: GET /api/list_receitas.php?mes=2026-04
+[Mon Apr 20 18:05:49 2026] [::1]:56721 Closing
+[Mon Apr 20 18:05:49 2026] [::1]:56723 Accepted
+[Mon Apr 20 18:05:49 2026] [::1]:56722 [200]: GET /api/list_despesas.php?mes=2026-04
+[Mon Apr 20 18:05:49 2026] [::1]:56722 Closing
+[Mon Apr 20 18:05:49 2026] [::1]:56723 [200]: GET /assets/logo.png
+[Mon Apr 20 18:05:49 2026] [::1]:56723 Closing
+[Mon Apr 20 18:05:50 2026] [::1]:56725 Accepted
+[Mon Apr 20 18:05:50 2026] [::1]:56725 [200]: GET /usuarios.php
+[Mon Apr 20 18:05:50 2026] [::1]:56725 Closing
+[Mon Apr 20 18:05:50 2026] [::1]:56726 Accepted
+[Mon Apr 20 18:05:50 2026] [::1]:56727 Accepted
+[Mon Apr 20 18:05:50 2026] [::1]:56728 Accepted
+[Mon Apr 20 18:05:50 2026] [::1]:56728 [200]: GET /manifest.json
+[Mon Apr 20 18:05:50 2026] [::1]:56728 Closing
+[Mon Apr 20 18:05:51 2026] [::1]:56726 [200]: GET /api/list_usuarios.php
+[Mon Apr 20 18:05:51 2026] [::1]:56726 Closing
+[Mon Apr 20 18:05:51 2026] [::1]:56729 Accepted
+[Mon Apr 20 18:05:51 2026] [::1]:56727 [200]: GET /api/check_overdue.php
+[Mon Apr 20 18:05:51 2026] [::1]:56727 Closing
+[Mon Apr 20 18:05:51 2026] [::1]:56729 [200]: GET /assets/logo.png
+[Mon Apr 20 18:05:51 2026] [::1]:56729 Closing
+[Mon Apr 20 18:05:56 2026] [::1]:56732 Accepted
+[Mon Apr 20 18:05:56 2026] [::1]:56732 [200]: GET /configuracoes.php
+[Mon Apr 20 18:05:56 2026] [::1]:56732 Closing
+[Mon Apr 20 18:05:56 2026] [::1]:56733 Accepted
+[Mon Apr 20 18:05:56 2026] [::1]:56734 Accepted
+[Mon Apr 20 18:05:56 2026] [::1]:56735 Accepted
+[Mon Apr 20 18:05:56 2026] [::1]:56735 [200]: GET /manifest.json
+[Mon Apr 20 18:05:56 2026] [::1]:56735 Closing
+[Mon Apr 20 18:05:56 2026] [::1]:56733 [200]: GET /api/check_overdue.php
+[Mon Apr 20 18:05:56 2026] [::1]:56733 Closing
+[Mon Apr 20 18:05:56 2026] [::1]:56736 Accepted
+[Mon Apr 20 18:05:57 2026] [::1]:56734 [200]: GET /api/categories.php
+[Mon Apr 20 18:05:57 2026] [::1]:56734 Closing
+[Mon Apr 20 18:05:57 2026] [::1]:56736 [200]: GET /assets/logo.png
+[Mon Apr 20 18:05:57 2026] [::1]:56736 Closing
+[Mon Apr 20 18:06:29 2026] [::1]:56739 Accepted
+[Mon Apr 20 18:06:29 2026] [::1]:56739 [302]: GET /index.php?logout=true
+[Mon Apr 20 18:06:29 2026] [::1]:56739 Closing
+[Mon Apr 20 18:06:29 2026] [::1]:56740 Accepted
+[Mon Apr 20 18:06:29 2026] [::1]:56740 [200]: GET /index.php
+[Mon Apr 20 18:06:29 2026] [::1]:56740 Closing
+[Mon Apr 20 18:06:29 2026] [::1]:56741 Accepted
+[Mon Apr 20 18:06:29 2026] [::1]:56741 [200]: GET /manifest.json
+[Mon Apr 20 18:06:29 2026] [::1]:56741 Closing
+[Mon Apr 20 18:06:30 2026] [::1]:56742 Accepted
+[Mon Apr 20 18:06:30 2026] [::1]:56742 [200]: GET /assets/logo.png
+[Mon Apr 20 18:06:30 2026] [::1]:56742 Closing
+[Mon Apr 20 18:06:37 2026] [::1]:56743 Accepted
+[Mon Apr 20 18:06:37 2026] [::1]:56743 [200]: POST /api/login.php
+[Mon Apr 20 18:06:37 2026] [::1]:56743 Closing
+[Mon Apr 20 18:06:37 2026] [::1]:56744 Accepted
+[Mon Apr 20 18:06:37 2026] [::1]:56744 [200]: GET /dashboard.php
+[Mon Apr 20 18:06:37 2026] [::1]:56744 Closing
+[Mon Apr 20 18:06:37 2026] [::1]:56745 Accepted
+[Mon Apr 20 18:06:37 2026] [::1]:56746 Accepted
+[Mon Apr 20 18:06:37 2026] [::1]:56746 [200]: GET /manifest.json
+[Mon Apr 20 18:06:37 2026] [::1]:56746 Closing
+[Mon Apr 20 18:06:38 2026] [::1]:56745 [200]: GET /api/check_overdue.php
+[Mon Apr 20 18:06:38 2026] [::1]:56745 Closing
+[Mon Apr 20 18:06:38 2026] [::1]:56747 Accepted
+[Mon Apr 20 18:06:38 2026] [::1]:56748 Accepted
+[Mon Apr 20 18:06:38 2026] [::1]:56747 [200]: GET /api/dashboard_stats.php?mes=2026-04
+[Mon Apr 20 18:06:38 2026] [::1]:56747 Closing
+[Mon Apr 20 18:06:38 2026] [::1]:56749 Accepted
+[Mon Apr 20 18:06:38 2026] [::1]:56748 [200]: GET /api/list_receitas.php?mes=2026-04
+[Mon Apr 20 18:06:38 2026] [::1]:56748 Closing
+[Mon Apr 20 18:06:38 2026] [::1]:56750 Accepted
+[Mon Apr 20 18:06:38 2026] [::1]:56749 [200]: GET /api/list_despesas.php?mes=2026-04
+[Mon Apr 20 18:06:38 2026] [::1]:56749 Closing
+[Mon Apr 20 18:06:38 2026] [::1]:56750 [200]: GET /assets/logo.png
+[Mon Apr 20 18:06:38 2026] [::1]:56750 Closing
+[Mon Apr 20 18:06:45 2026] [::1]:56751 Accepted
+[Mon Apr 20 18:06:46 2026] [::1]:56751 [303]: GET /api/create_portal_session.php
+[Mon Apr 20 18:06:46 2026] [::1]:56751 Closing
+[Mon Apr 20 18:06:46 2026] [::1]:56752 Accepted
+[Mon Apr 20 18:07:17 2026] [::1]:56752 [200]: GET /dashboard.php
+[Mon Apr 20 18:07:17 2026] [::1]:56752 Closing
+[Mon Apr 20 18:07:17 2026] [::1]:56776 Accepted
+[Mon Apr 20 18:07:17 2026] [::1]:56777 Accepted
+[Mon Apr 20 18:07:17 2026] [::1]:56777 [200]: GET /manifest.json
+[Mon Apr 20 18:07:17 2026] [::1]:56777 Closing
+[Mon Apr 20 18:07:17 2026] [::1]:56776 [200]: GET /api/check_overdue.php
+[Mon Apr 20 18:07:17 2026] [::1]:56776 Closing
+[Mon Apr 20 18:07:17 2026] [::1]:56778 Accepted
+[Mon Apr 20 18:07:17 2026] [::1]:56779 Accepted
+[Mon Apr 20 18:07:17 2026] [::1]:56778 [200]: GET /api/dashboard_stats.php?mes=2026-04
+[Mon Apr 20 18:07:17 2026] [::1]:56778 Closing
+[Mon Apr 20 18:07:17 2026] [::1]:56780 Accepted
+[Mon Apr 20 18:07:17 2026] [::1]:56779 [200]: GET /api/list_receitas.php?mes=2026-04
+[Mon Apr 20 18:07:17 2026] [::1]:56779 Closing
+[Mon Apr 20 18:07:17 2026] [::1]:56781 Accepted
+[Mon Apr 20 18:07:18 2026] [::1]:56780 [200]: GET /api/list_despesas.php?mes=2026-04
+[Mon Apr 20 18:07:18 2026] [::1]:56780 Closing
+[Mon Apr 20 18:07:18 2026] [::1]:56781 [200]: GET /assets/logo.png
+[Mon Apr 20 18:07:18 2026] [::1]:56781 Closing
+[Mon Apr 20 18:07:34 2026] [::1]:56782 Accepted
+[Mon Apr 20 18:07:34 2026] [::1]:56782 [302]: GET /index.php?logout=true
+[Mon Apr 20 18:07:34 2026] [::1]:56782 Closing
+[Mon Apr 20 18:07:34 2026] [::1]:56783 Accepted
+[Mon Apr 20 18:07:34 2026] [::1]:56783 [200]: GET /index.php
+[Mon Apr 20 18:07:34 2026] [::1]:56783 Closing
+[Mon Apr 20 18:07:34 2026] [::1]:56784 Accepted
+[Mon Apr 20 18:07:34 2026] [::1]:56784 [200]: GET /manifest.json
+[Mon Apr 20 18:07:34 2026] [::1]:56784 Closing
+[Mon Apr 20 18:07:34 2026] [::1]:56785 Accepted
+[Mon Apr 20 18:07:34 2026] [::1]:56785 [200]: GET /assets/logo.png
+[Mon Apr 20 18:07:34 2026] [::1]:56785 Closing
+[Mon Apr 20 18:07:56 2026] [::1]:56788 Accepted
+[Mon Apr 20 18:07:56 2026] [::1]:56788 [401]: POST /api/login.php
+[Mon Apr 20 18:07:56 2026] [::1]:56788 Closing
+[Mon Apr 20 18:08:04 2026] [::1]:56789 Accepted
+[Mon Apr 20 18:08:05 2026] [::1]:56789 [200]: GET /register.php
+[Mon Apr 20 18:08:05 2026] [::1]:56789 Closing
+[Mon Apr 20 18:08:05 2026] [::1]:56790 Accepted
+[Mon Apr 20 18:08:05 2026] [::1]:56790 [200]: GET /assets/logo.png
+[Mon Apr 20 18:08:05 2026] [::1]:56790 Closing
+[Mon Apr 20 18:08:05 2026] [::1]:56791 Accepted
+[Mon Apr 20 18:08:05 2026] [::1]:56791 [404]: GET /favicon.ico - No such file or directory
+[Mon Apr 20 18:08:05 2026] [::1]:56791 Closing
+[Mon Apr 20 18:08:37 2026] [::1]:56794 Accepted
+[Mon Apr 20 18:08:37 2026] [::1]:56794 [200]: POST /api/register.php
+[Mon Apr 20 18:08:37 2026] [::1]:56794 Closing
+[Mon Apr 20 18:08:39 2026] [::1]:56795 Accepted
+[Mon Apr 20 18:08:39 2026] [::1]:56795 [200]: GET /index.php
+[Mon Apr 20 18:08:39 2026] [::1]:56795 Closing
+[Mon Apr 20 18:08:39 2026] [::1]:56796 Accepted
+[Mon Apr 20 18:08:39 2026] [::1]:56797 Accepted
+[Mon Apr 20 18:08:39 2026] [::1]:56798 Accepted
+[Mon Apr 20 18:08:39 2026] [::1]:56798 [200]: GET /manifest.json
+[Mon Apr 20 18:08:39 2026] [::1]:56798 Closing
+[Mon Apr 20 18:08:40 2026] [::1]:56796 [200]: GET /assets/logo.png
+[Mon Apr 20 18:08:40 2026] [::1]:56796 Closing
+[Mon Apr 20 18:08:57 2026] [::1]:56797 [200]: POST /api/login.php
+[Mon Apr 20 18:08:57 2026] [::1]:56797 Closing
+[Mon Apr 20 18:08:57 2026] [::1]:56801 Accepted
+[Mon Apr 20 18:08:57 2026] [::1]:56801 [302]: GET /dashboard.php
+[Mon Apr 20 18:08:57 2026] [::1]:56801 Closing
+[Mon Apr 20 18:08:57 2026] [::1]:56802 Accepted
+[Mon Apr 20 18:08:58 2026] [::1]:56802 [200]: GET /planos.php
+[Mon Apr 20 18:08:58 2026] [::1]:56802 Closing
+[Mon Apr 20 18:08:58 2026] [::1]:56803 Accepted
+[Mon Apr 20 18:08:58 2026] [::1]:56803 [200]: GET /manifest.json
+[Mon Apr 20 18:08:58 2026] [::1]:56803 Closing
+[Mon Apr 20 18:08:58 2026] [::1]:56804 Accepted
+[Mon Apr 20 18:08:58 2026] [::1]:56804 [200]: GET /manifest.json
+[Mon Apr 20 18:08:58 2026] [::1]:56804 Closing
+[Mon Apr 20 18:08:58 2026] [::1]:56805 Accepted
+[Mon Apr 20 18:08:58 2026] [::1]:56805 [200]: GET /api/check_overdue.php
+[Mon Apr 20 18:08:58 2026] [::1]:56805 Closing
+[Mon Apr 20 18:08:58 2026] [::1]:56806 Accepted
+[Mon Apr 20 18:08:58 2026] [::1]:56806 [200]: GET /assets/logo.png
+[Mon Apr 20 18:08:58 2026] [::1]:56806 Closing
+[Mon Apr 20 18:13:06 2026] [::1]:56834 Accepted
+[Mon Apr 20 18:13:06 2026] [::1]:56835 Accepted
+[Mon Apr 20 18:13:06 2026] [::1]:56834 [200]: GET /planos.php
+[Mon Apr 20 18:13:06 2026] [::1]:56834 Closing
+[Mon Apr 20 18:13:06 2026] [::1]:56837 Accepted
+[Mon Apr 20 18:13:07 2026] [::1]:56837 [200]: GET /manifest.json
+[Mon Apr 20 18:13:07 2026] [::1]:56837 Closing
+[Mon Apr 20 18:13:07 2026] [::1]:56840 Accepted
+[Mon Apr 20 18:13:07 2026] [::1]:56840 [200]: GET /manifest.json
+[Mon Apr 20 18:13:07 2026] [::1]:56840 Closing
+[Mon Apr 20 18:13:08 2026] [::1]:56835 [200]: GET /api/check_overdue.php
+[Mon Apr 20 18:13:08 2026] [::1]:56835 Closing
+[Mon Apr 20 18:13:08 2026] [::1]:56841 Accepted
+[Mon Apr 20 18:13:08 2026] [::1]:56841 [200]: GET /assets/logo.png
+[Mon Apr 20 18:13:08 2026] [::1]:56841 Closing
+[Mon Apr 20 18:13:08 2026] [::1]:56842 Accepted
+[Mon Apr 20 18:13:08 2026] [::1]:56842 [200]: GET /assets/logo.png?v=2
+[Mon Apr 20 18:13:08 2026] [::1]:56842 Closing
+[Mon Apr 20 18:14:30 2026] [::1]:56848 Accepted
+[Mon Apr 20 18:14:30 2026] [::1]:56848 [200]: POST /api/start_trial.php
+[Mon Apr 20 18:14:30 2026] [::1]:56848 Closing
+[Mon Apr 20 18:14:30 2026] [::1]:56849 Accepted
+[Mon Apr 20 18:14:30 2026] [::1]:56849 [200]: GET /dashboard.php
+[Mon Apr 20 18:14:30 2026] [::1]:56849 Closing
+[Mon Apr 20 18:14:30 2026] [::1]:56850 Accepted
+[Mon Apr 20 18:14:30 2026] [::1]:56851 Accepted
+[Mon Apr 20 18:14:30 2026] [::1]:56851 [200]: GET /manifest.json
+[Mon Apr 20 18:14:30 2026] [::1]:56851 Closing
+[Mon Apr 20 18:14:30 2026] [::1]:56852 Accepted
+[Mon Apr 20 18:14:30 2026] [::1]:56852 [200]: GET /manifest.json
+[Mon Apr 20 18:14:30 2026] [::1]:56852 Closing
+[Mon Apr 20 18:14:31 2026] [::1]:56850 [200]: GET /api/check_overdue.php
+[Mon Apr 20 18:14:31 2026] [::1]:56850 Closing
+[Mon Apr 20 18:14:31 2026] [::1]:56853 Accepted
+[Mon Apr 20 18:14:31 2026] [::1]:56854 Accepted
+[Mon Apr 20 18:14:31 2026] [::1]:56853 [200]: GET /api/dashboard_stats.php?mes=2026-04
+[Mon Apr 20 18:14:31 2026] [::1]:56853 Closing
+[Mon Apr 20 18:14:31 2026] [::1]:56855 Accepted
+[Mon Apr 20 18:14:31 2026] [::1]:56854 [200]: GET /api/list_receitas.php?mes=2026-04
+[Mon Apr 20 18:14:31 2026] [::1]:56854 Closing
+[Mon Apr 20 18:14:31 2026] [::1]:56856 Accepted
+[Mon Apr 20 18:14:31 2026] [::1]:56855 [200]: GET /api/list_despesas.php?mes=2026-04
+[Mon Apr 20 18:14:31 2026] [::1]:56855 Closing
+[Mon Apr 20 18:14:31 2026] [::1]:56856 [200]: GET /assets/logo.png
+[Mon Apr 20 18:14:31 2026] [::1]:56856 Closing
+[Mon Apr 20 18:14:40 2026] [::1]:56857 Accepted
+[Mon Apr 20 18:14:41 2026] [::1]:56857 [200]: GET /api/create_portal_session.php
+[Mon Apr 20 18:14:41 2026] [::1]:56857 Closing
+[Mon Apr 20 18:14:41 2026] [::1]:56858 Accepted
+[Mon Apr 20 18:14:41 2026] [::1]:56858 [404]: GET /favicon.ico - No such file or directory
+[Mon Apr 20 18:14:41 2026] [::1]:56858 Closing
+[Mon Apr 20 18:14:43 2026] [::1]:56859 Accepted
+[Mon Apr 20 18:14:43 2026] [::1]:56859 [200]: GET /dashboard.php
+[Mon Apr 20 18:14:43 2026] [::1]:56859 Closing
+[Mon Apr 20 18:14:43 2026] [::1]:56860 Accepted
+[Mon Apr 20 18:14:43 2026] [::1]:56860 [200]: GET /api/check_overdue.php
+[Mon Apr 20 18:14:43 2026] [::1]:56860 Closing
+[Mon Apr 20 18:14:43 2026] [::1]:56861 Accepted
+[Mon Apr 20 18:14:43 2026] [::1]:56862 Accepted
+[Mon Apr 20 18:14:44 2026] [::1]:56861 [200]: GET /api/dashboard_stats.php?mes=2026-04
+[Mon Apr 20 18:14:44 2026] [::1]:56861 Closing
+[Mon Apr 20 18:14:44 2026] [::1]:56863 Accepted
+[Mon Apr 20 18:14:44 2026] [::1]:56862 [200]: GET /api/list_receitas.php?mes=2026-04
+[Mon Apr 20 18:14:44 2026] [::1]:56862 Closing
+[Mon Apr 20 18:14:44 2026] [::1]:56864 Accepted
+[Mon Apr 20 18:14:44 2026] [::1]:56863 [200]: GET /api/list_despesas.php?mes=2026-04
+[Mon Apr 20 18:14:44 2026] [::1]:56863 Closing
+[Mon Apr 20 18:14:44 2026] [::1]:56864 [200]: GET /assets/logo.png
+[Mon Apr 20 18:14:44 2026] [::1]:56864 Closing
+[Mon Apr 20 18:14:48 2026] [::1]:56867 Accepted
+[Mon Apr 20 18:14:48 2026] [::1]:56867 [302]: GET /index.php?logout=true
+[Mon Apr 20 18:14:48 2026] [::1]:56867 Closing
+[Mon Apr 20 18:14:48 2026] [::1]:56868 Accepted
+[Mon Apr 20 18:14:48 2026] [::1]:56868 [200]: GET /index.php
+[Mon Apr 20 18:14:48 2026] [::1]:56868 Closing
+[Mon Apr 20 18:14:48 2026] [::1]:56869 Accepted
+[Mon Apr 20 18:14:48 2026] [::1]:56869 [200]: GET /manifest.json
+[Mon Apr 20 18:14:48 2026] [::1]:56869 Closing
+[Mon Apr 20 18:14:48 2026] [::1]:56870 Accepted
+[Mon Apr 20 18:14:48 2026] [::1]:56870 [200]: GET /assets/logo.png
+[Mon Apr 20 18:14:48 2026] [::1]:56870 Closing
+[Mon Apr 20 18:14:56 2026] [::1]:56871 Accepted
+[Mon Apr 20 18:14:56 2026] [::1]:56871 [200]: POST /api/login.php
+[Mon Apr 20 18:14:56 2026] [::1]:56871 Closing
+[Mon Apr 20 18:14:56 2026] [::1]:56872 Accepted
+[Mon Apr 20 18:14:56 2026] [::1]:56872 [200]: GET /dashboard.php
+[Mon Apr 20 18:14:56 2026] [::1]:56872 Closing
+[Mon Apr 20 18:14:56 2026] [::1]:56873 Accepted
+[Mon Apr 20 18:14:56 2026] [::1]:56874 Accepted
+[Mon Apr 20 18:14:56 2026] [::1]:56875 Accepted
+[Mon Apr 20 18:14:56 2026] [::1]:56875 [200]: GET /manifest.json
+[Mon Apr 20 18:14:56 2026] [::1]:56875 Closing
+[Mon Apr 20 18:14:57 2026] [::1]:56876 Accepted
+[Mon Apr 20 18:14:57 2026] [::1]:56876 [200]: GET /manifest.json
+[Mon Apr 20 18:14:57 2026] [::1]:56876 Closing
+[Mon Apr 20 18:14:57 2026] [::1]:56873 [200]: GET /api/check_overdue.php
+[Mon Apr 20 18:14:57 2026] [::1]:56873 Closing
+[Mon Apr 20 18:14:57 2026] [::1]:56877 Accepted
+[Mon Apr 20 18:14:57 2026] [::1]:56874 [200]: GET /api/dashboard_stats.php?mes=2026-04
+[Mon Apr 20 18:14:57 2026] [::1]:56874 Closing
+[Mon Apr 20 18:14:57 2026] [::1]:56878 Accepted
+[Mon Apr 20 18:14:57 2026] [::1]:56877 [200]: GET /api/list_receitas.php?mes=2026-04
+[Mon Apr 20 18:14:57 2026] [::1]:56877 Closing
+[Mon Apr 20 18:14:57 2026] [::1]:56879 Accepted
+[Mon Apr 20 18:14:57 2026] [::1]:56878 [200]: GET /api/list_despesas.php?mes=2026-04
+[Mon Apr 20 18:14:57 2026] [::1]:56878 Closing
+[Mon Apr 20 18:14:57 2026] [::1]:56879 [200]: GET /assets/logo.png
+[Mon Apr 20 18:14:57 2026] [::1]:56879 Closing
+[Mon Apr 20 18:15:04 2026] [::1]:56880 Accepted
+[Mon Apr 20 18:15:04 2026] [::1]:56880 [200]: GET /usuarios.php
+[Mon Apr 20 18:15:04 2026] [::1]:56880 Closing
+[Mon Apr 20 18:15:04 2026] [::1]:56881 Accepted
+[Mon Apr 20 18:15:04 2026] [::1]:56882 Accepted
+[Mon Apr 20 18:15:04 2026] [::1]:56883 Accepted
+[Mon Apr 20 18:15:04 2026] [::1]:56883 [200]: GET /manifest.json
+[Mon Apr 20 18:15:04 2026] [::1]:56883 Closing
+[Mon Apr 20 18:15:04 2026] [::1]:56884 Accepted
+[Mon Apr 20 18:15:04 2026] [::1]:56884 [200]: GET /manifest.json
+[Mon Apr 20 18:15:04 2026] [::1]:56884 Closing
+[Mon Apr 20 18:15:05 2026] [::1]:56881 [200]: GET /api/list_usuarios.php
+[Mon Apr 20 18:15:05 2026] [::1]:56881 Closing
+[Mon Apr 20 18:15:05 2026] [::1]:56885 Accepted
+[Mon Apr 20 18:15:05 2026] [::1]:56882 [200]: GET /api/check_overdue.php
+[Mon Apr 20 18:15:05 2026] [::1]:56882 Closing
+[Mon Apr 20 18:15:05 2026] [::1]:56885 [200]: GET /assets/logo.png
+[Mon Apr 20 18:15:05 2026] [::1]:56885 Closing
+[Mon Apr 20 18:15:18 2026] [::1]:56886 Accepted
+[Mon Apr 20 18:15:18 2026] [::1]:56886 [200]: POST /api/delete_user.php
+[Mon Apr 20 18:15:18 2026] [::1]:56886 Closing
+[Mon Apr 20 18:15:18 2026] [::1]:56887 Accepted
+[Mon Apr 20 18:15:18 2026] [::1]:56887 [200]: GET /api/list_usuarios.php
+[Mon Apr 20 18:15:18 2026] [::1]:56887 Closing
+[Mon Apr 20 18:15:23 2026] [::1]:56888 Accepted
+[Mon Apr 20 18:15:23 2026] [::1]:56888 [200]: POST /api/delete_user.php
+[Mon Apr 20 18:15:23 2026] [::1]:56888 Closing
+[Mon Apr 20 18:15:23 2026] [::1]:56889 Accepted
+[Mon Apr 20 18:15:23 2026] [::1]:56889 [200]: GET /api/list_usuarios.php
+[Mon Apr 20 18:15:23 2026] [::1]:56889 Closing
+[Mon Apr 20 18:15:37 2026] [::1]:56890 Accepted
+[Mon Apr 20 18:15:37 2026] [::1]:56890 [200]: POST /api/delete_user.php
+[Mon Apr 20 18:15:37 2026] [::1]:56890 Closing
+[Mon Apr 20 18:15:37 2026] [::1]:56891 Accepted
+[Mon Apr 20 18:15:37 2026] [::1]:56891 [200]: GET /api/list_usuarios.php
+[Mon Apr 20 18:15:37 2026] [::1]:56891 Closing
+[Mon Apr 20 18:15:45 2026] [::1]:56897 Accepted
+[Mon Apr 20 18:15:45 2026] [::1]:56897 [200]: GET /configuracoes.php
+[Mon Apr 20 18:15:45 2026] [::1]:56897 Closing
+[Mon Apr 20 18:15:45 2026] [::1]:56898 Accepted
+[Mon Apr 20 18:15:45 2026] [::1]:56899 Accepted
+[Mon Apr 20 18:15:45 2026] [::1]:56899 [200]: GET /manifest.json
+[Mon Apr 20 18:15:45 2026] [::1]:56899 Closing
+[Mon Apr 20 18:15:45 2026] [::1]:56900 Accepted
+[Mon Apr 20 18:15:45 2026] [::1]:56900 [200]: GET /manifest.json
+[Mon Apr 20 18:15:45 2026] [::1]:56900 Closing
+[Mon Apr 20 18:15:45 2026] [::1]:56898 [200]: GET /api/check_overdue.php
+[Mon Apr 20 18:15:45 2026] [::1]:56898 Closing
+[Mon Apr 20 18:15:45 2026] [::1]:56901 Accepted
+[Mon Apr 20 18:15:45 2026] [::1]:56902 Accepted
+[Mon Apr 20 18:15:45 2026] [::1]:56901 [200]: GET /api/categories.php
+[Mon Apr 20 18:15:45 2026] [::1]:56901 Closing
+[Mon Apr 20 18:15:45 2026] [::1]:56902 [200]: GET /assets/logo.png
+[Mon Apr 20 18:15:45 2026] [::1]:56902 Closing
+[Mon Apr 20 18:15:48 2026] [::1]:56905 Accepted
+[Mon Apr 20 18:15:48 2026] [::1]:56905 [200]: GET /admin_users.php
+[Mon Apr 20 18:15:48 2026] [::1]:56905 Closing
+[Mon Apr 20 18:15:48 2026] [::1]:56906 Accepted
+[Mon Apr 20 18:15:48 2026] [::1]:56907 Accepted
+[Mon Apr 20 18:15:48 2026] [::1]:56907 [200]: GET /manifest.json
+[Mon Apr 20 18:15:48 2026] [::1]:56907 Closing
+[Mon Apr 20 18:15:48 2026] [::1]:56906 [200]: GET /api/check_overdue.php
+[Mon Apr 20 18:15:48 2026] [::1]:56906 Closing
+[Mon Apr 20 18:15:48 2026] [::1]:56908 Accepted
+[Mon Apr 20 18:15:48 2026] [::1]:56908 [200]: GET /assets/logo.png
+[Mon Apr 20 18:15:48 2026] [::1]:56908 Closing
+[Mon Apr 20 18:27:40 2026] [::1]:57021 Accepted
+[Mon Apr 20 18:27:42 2026] [::1]:57021 [200]: POST /api/admin_grant_lifetime.php
+[Mon Apr 20 18:27:42 2026] [::1]:57021 Closing
+[Mon Apr 20 18:27:44 2026] [::1]:57023 Accepted
+[Mon Apr 20 18:27:44 2026] [::1]:57023 [200]: GET /admin_users.php
+[Mon Apr 20 18:27:44 2026] [::1]:57023 Closing
+[Mon Apr 20 18:27:44 2026] [::1]:57024 Accepted
+[Mon Apr 20 18:27:44 2026] [::1]:57026 Accepted
+[Mon Apr 20 18:27:44 2026] [::1]:57026 [200]: GET /manifest.json
+[Mon Apr 20 18:27:44 2026] [::1]:57026 Closing
+[Mon Apr 20 18:27:45 2026] [::1]:57024 [200]: GET /api/check_overdue.php
+[Mon Apr 20 18:27:45 2026] [::1]:57024 Closing
+[Mon Apr 20 18:27:45 2026] [::1]:57028 Accepted
+[Mon Apr 20 18:27:45 2026] [::1]:57029 Accepted
+[Mon Apr 20 18:27:45 2026] [::1]:57028 [200]: GET /assets/logo.png?v=2
+[Mon Apr 20 18:27:45 2026] [::1]:57029 [200]: GET /assets/logo.png
+[Mon Apr 20 18:27:45 2026] [::1]:57028 Closing
+[Mon Apr 20 18:27:45 2026] [::1]:57029 Closing
+[Mon Apr 20 18:30:44 2026] [::1]:57051 Accepted
+[Mon Apr 20 18:30:44 2026] [::1]:57052 Accepted
+[Mon Apr 20 18:30:45 2026] [::1]:57051 [200]: GET /admin_users.php
+[Mon Apr 20 18:30:45 2026] [::1]:57051 Closing
+[Mon Apr 20 18:30:45 2026] [::1]:57054 Accepted
+[Mon Apr 20 18:30:45 2026] [::1]:57054 [200]: GET /manifest.json
+[Mon Apr 20 18:30:45 2026] [::1]:57054 Closing
+[Mon Apr 20 18:30:45 2026] [::1]:57055 Accepted
+[Mon Apr 20 18:30:45 2026] [::1]:57055 [200]: GET /manifest.json
+[Mon Apr 20 18:30:45 2026] [::1]:57055 Closing
+[Mon Apr 20 18:30:45 2026] [::1]:57052 [200]: GET /api/check_overdue.php
+[Mon Apr 20 18:30:45 2026] [::1]:57052 Closing
+[Mon Apr 20 18:30:45 2026] [::1]:57056 Accepted
+[Mon Apr 20 18:30:45 2026] [::1]:57057 Accepted
+[Mon Apr 20 18:30:45 2026] [::1]:57056 [200]: GET /assets/logo.png?v=2
+[Mon Apr 20 18:30:45 2026] [::1]:57056 Closing
+[Mon Apr 20 18:30:45 2026] [::1]:57057 [200]: GET /assets/logo.png
+[Mon Apr 20 18:30:45 2026] [::1]:57057 Closing
+[Mon Apr 20 18:31:13 2026] [::1]:57062 Accepted
+[Mon Apr 20 18:31:15 2026] [::1]:57062 [200]: POST /api/admin_revoke_access.php
+[Mon Apr 20 18:31:15 2026] [::1]:57062 Closing
+[Mon Apr 20 18:31:16 2026] [::1]:57063 Accepted
+[Mon Apr 20 18:31:16 2026] [::1]:57063 [200]: GET /admin_users.php
+[Mon Apr 20 18:31:16 2026] [::1]:57063 Closing
+[Mon Apr 20 18:31:16 2026] [::1]:57064 Accepted
+[Mon Apr 20 18:31:16 2026] [::1]:57065 Accepted
+[Mon Apr 20 18:31:16 2026] [::1]:57065 [200]: GET /manifest.json
+[Mon Apr 20 18:31:16 2026] [::1]:57065 Closing
+[Mon Apr 20 18:31:16 2026] [::1]:57066 Accepted
+[Mon Apr 20 18:31:16 2026] [::1]:57066 [200]: GET /manifest.json
+[Mon Apr 20 18:31:17 2026] [::1]:57066 Closing
+[Mon Apr 20 18:31:17 2026] [::1]:57064 [200]: GET /api/check_overdue.php
+[Mon Apr 20 18:31:17 2026] [::1]:57064 Closing
+[Mon Apr 20 18:31:17 2026] [::1]:57068 Accepted
+[Mon Apr 20 18:31:17 2026] [::1]:57069 Accepted
+[Mon Apr 20 18:31:17 2026] [::1]:57068 [200]: GET /assets/logo.png?v=2
+[Mon Apr 20 18:31:17 2026] [::1]:57069 [200]: GET /assets/logo.png
+[Mon Apr 20 18:31:17 2026] [::1]:57068 Closing
+[Mon Apr 20 18:31:17 2026] [::1]:57069 Closing
