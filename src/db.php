@@ -1,4 +1,5 @@
 <?php
+set_time_limit(300);
 // src/db.php
 
 // Simple .env parser to avoid dependencies

@@ -92,22 +92,40 @@
                     </div>
                 </div>
 
-                <!-- Row: Category -->
-                <div class="mb-6">
-                    <label
-                        class="block text-xs font-bold text-slate-500 dark:text-slate-400 mb-1.5 uppercase tracking-wide">Categoria</label>
-                    <div class="relative">
-                        <select name="categoria" id="globalCategorySelect" required
-                            class="w-full bg-slate-50 dark:bg-slate-700 text-slate-800 dark:text-white border border-slate-200 dark:border-slate-600 rounded-lg px-4 py-3 focus:outline-none focus:ring-1 focus:ring-blue-500 appearance-none font-medium text-sm truncate">
-                            <option value="">Carregando...</option>
-                        </select>
-                        <!-- Search Icon (Visual) -->
-                        <div class="absolute right-3 top-3.5 pointer-events-none text-slate-400">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                            </svg>
+                <!-- Row: Category & Account -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+                    <div>
+                        <label
+                            class="block text-xs font-bold text-slate-500 dark:text-slate-400 mb-1.5 uppercase tracking-wide">Categoria</label>
+                        <div class="relative">
+                            <select name="categoria" id="globalCategorySelect" required
+                                class="w-full bg-slate-50 dark:bg-slate-700 text-slate-800 dark:text-white border border-slate-200 dark:border-slate-600 rounded-lg px-4 py-3 focus:outline-none focus:ring-1 focus:ring-blue-500 appearance-none font-medium text-sm truncate">
+                                <option value="">Carregando...</option>
+                            </select>
+                            <div class="absolute right-3 top-3.5 pointer-events-none text-slate-400">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <label
+                            class="block text-xs font-bold text-slate-500 dark:text-slate-400 mb-1.5 uppercase tracking-wide">Conta</label>
+                        <div class="relative">
+                            <select name="conta" id="globalContaSelect"
+                                class="w-full bg-slate-50 dark:bg-slate-700 text-slate-800 dark:text-white border border-slate-200 dark:border-slate-600 rounded-lg px-4 py-3 focus:outline-none focus:ring-1 focus:ring-blue-500 appearance-none font-medium text-sm truncate">
+                                <option value="">Carteira / Débito</option>
+                            </select>
+                            <div class="absolute right-3 top-3.5 pointer-events-none text-slate-400">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                                </svg>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -160,17 +178,7 @@
 
                         <div class="flex flex-col gap-3">
                             <label class="flex items-center gap-2 cursor-pointer group">
-                                <input type="radio" name="global_repeat_mode" value="fixa" class="peer sr-only" checked onchange="toggleGlobalRepeatSubfields()">
-                                <div class="w-5 h-5 rounded-full border-2 border-slate-300 peer-checked:bg-green-500 peer-checked:border-transparent flex items-center justify-center transition-all">
-                                    <svg class="w-3 h-3 text-white hidden peer-checked:block" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                                    </svg>
-                                </div>
-                                <span class="text-sm font-medium text-slate-600 dark:text-slate-300">é uma despesa fixa</span>
-                            </label>
-
-                            <label class="flex items-center gap-2 cursor-pointer group">
-                                <input type="radio" name="global_repeat_mode" value="parcelado" class="peer sr-only" onchange="toggleGlobalRepeatSubfields()">
+                                <input type="radio" name="global_repeat_mode" value="parcelado" class="peer sr-only" checked onchange="toggleGlobalRepeatSubfields()">
                                 <div class="w-5 h-5 rounded-full border-2 border-slate-300 peer-checked:bg-green-500 peer-checked:border-transparent flex items-center justify-center transition-all">
                                     <svg class="w-3 h-3 text-white hidden peer-checked:block" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
@@ -237,14 +245,16 @@
                 dateInput.value = new Date().toISOString().split('T')[0];
             }
 
-            // Load Categories
+            // Load Categories & Contas
             const typeInput = document.querySelector('#globalAddForm input[name="tipo"]:checked');
             if (typeInput) {
                 const type = typeInput.value;
                 loadGlobalCats(type);
+                loadGlobalContas(type);
             } else {
                 console.warn('Nenhum tipo selecionado');
                 loadGlobalCats('despesa'); // Default
+                loadGlobalContas('despesa'); // Default
             }
 
             modal.classList.remove('hidden');
@@ -396,8 +406,36 @@
         }
     }
 
+    async function loadGlobalContas(type) {
+        const select = document.getElementById('globalContaSelect');
+        select.innerHTML = '<option value="">Carteira / Dinheiro</option><option value="Conta Corrente">Conta Corrente</option>';
+        
+        if (type === 'despesa') {
+            try {
+                const res = await fetch('api/list_cartoes.php', { credentials: 'include' });
+                if (res.ok) {
+                    const cards = await res.json();
+                    if (cards.length > 0) {
+                        const optgroup = document.createElement('optgroup');
+                        optgroup.label = "💳 Cartões de Crédito";
+                        cards.forEach(c => {
+                            const opt = document.createElement('option');
+                            opt.value = "cartao_" + c.id;
+                            opt.textContent = c.nome;
+                            optgroup.appendChild(opt);
+                        });
+                        select.appendChild(optgroup);
+                    }
+                }
+            } catch (e) {
+                console.error("Erro ao carregar cartões:", e);
+            }
+        }
+    }
+
     function handleGlobalTypeChange(type) {
         loadGlobalCats(type);
+        loadGlobalContas(type);
         toggleGlobalStatusLabel();
     }
 

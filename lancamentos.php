@@ -371,17 +371,7 @@ renderHeader('Lançamentos');
 
                     <div class="flex flex-col gap-3">
                         <label class="flex items-center gap-2 cursor-pointer group">
-                            <input type="radio" name="repeat_mode" value="fixa" class="peer sr-only" checked onchange="toggleRepeatSubfields()">
-                            <div class="w-5 h-5 rounded-full border-2 border-slate-300 peer-checked:bg-green-500 peer-checked:border-transparent flex items-center justify-center transition-all">
-                                <svg class="w-3 h-3 text-white hidden peer-checked:block" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                                </svg>
-                            </div>
-                            <span class="text-sm font-medium text-slate-600 dark:text-slate-300">é uma despesa fixa</span>
-                        </label>
-
-                        <label class="flex items-center gap-2 cursor-pointer group">
-                            <input type="radio" name="repeat_mode" value="parcelado" class="peer sr-only" onchange="toggleRepeatSubfields()">
+                            <input type="radio" name="repeat_mode" value="parcelado" class="peer sr-only" checked onchange="toggleRepeatSubfields()">
                             <div class="w-5 h-5 rounded-full border-2 border-slate-300 peer-checked:bg-green-500 peer-checked:border-transparent flex items-center justify-center transition-all">
                                 <svg class="w-3 h-3 text-white hidden peer-checked:block" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />

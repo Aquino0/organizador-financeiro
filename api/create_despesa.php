@@ -37,10 +37,16 @@ if ($repeat_mode === 'fixa') {
 if ($repetir < 1) $repetir = 1;
 if ($repetir > 60) $repetir = 60; // Limit
 
+$cartao_id = null;
+if (strpos($conta, 'cartao_') === 0) {
+    $cartao_id = intval(str_replace('cartao_', '', $conta));
+    $conta = 'Cartão de Crédito'; // Rótulo amigável
+}
+
 try {
     $pdo->beginTransaction();
 
-    $stmt = $pdo->prepare("INSERT INTO despesas (user_id, descricao, valor, categoria, data, conta, pago) VALUES (?, ?, ?, ?, ?, ?, ?)");
+    $stmt = $pdo->prepare("INSERT INTO despesas (user_id, descricao, valor, categoria, data, conta, pago, cartao_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
 
     for ($i = 0; $i < $repetir; $i++) {
         // Calculate date for this iteration based on frequency
@@ -59,15 +65,13 @@ try {
             default: $current_date = date('Y-m-d', strtotime($base_date . " +$i month")); break;
         }
 
-        // Append (X/Y) to description if repeating AND parcelado
+        // Append (X/Y) to description if repeating
         $desc_final = $descricao;
-        if ($repetir > 1 && $repeat_mode !== 'fixa') {
+        if ($repetir > 1) {
             $desc_final .= " (" . ($i + 1) . "/$repetir)";
-        } else if ($repeat_mode === 'fixa') {
-            $desc_final .= " (Fixa)";
         }
 
-        $stmt->execute([$user_id, $desc_final, $valor, $categoria, $current_date, $conta, $pago ? 1 : 0]);
+        $stmt->execute([$user_id, $desc_final, $valor, $categoria, $current_date, $conta, $pago ? 1 : 0, $cartao_id]);
     }
 
     $pdo->commit();

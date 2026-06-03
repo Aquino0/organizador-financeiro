@@ -42,24 +42,77 @@ try {
 
     $sql = "
     SELECT * FROM (
-        SELECT id, 'receita' as tipo, descricao, valor, categoria, data, created_at, pago, observacao, conta 
+        SELECT id, 'receita' as tipo, descricao, valor, categoria, data, created_at, pago, observacao, conta, NULL as cartao_id
         FROM receitas WHERE user_id = ? AND is_forecast = FALSE AND data BETWEEN ? AND ?
         UNION ALL
-        SELECT id, 'despesa' as tipo, descricao, valor, categoria, data, created_at, pago, observacao, conta
-        FROM despesas WHERE user_id = ? AND is_forecast = FALSE AND data BETWEEN ? AND ?
+        SELECT id, 'despesa' as tipo, descricao, valor, categoria, data, created_at, pago, observacao, conta, cartao_id
+        FROM despesas WHERE user_id = ? AND is_forecast = FALSE AND data BETWEEN ? AND ? AND cartao_id IS NULL
     ) as combined
     ORDER BY data DESC, created_at DESC
     ";
     $stmt = $pdo->prepare($sql);
-    $stmt->execute([
-        $user_id,
-        $start_date,
-        $end_date,
-        $user_id,
-        $start_date,
-        $end_date
-    ]);
+    $stmt->execute([$user_id, $start_date, $end_date, $user_id, $start_date, $end_date]);
     $lancamentos = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    // Fetch Invoices for this month
+    $stmtCards = $pdo->prepare("SELECT * FROM cartoes WHERE user_id = ?");
+    $stmtCards->execute([$user_id]);
+    $cartoes = $stmtCards->fetchAll(PDO::FETCH_ASSOC);
+
+    foreach ($cartoes as $cartao) {
+        $vencimento_dia = str_pad($cartao['vencimento'], 2, '0', STR_PAD_LEFT);
+        $fechamento_dia = str_pad($cartao['fechamento'], 2, '0', STR_PAD_LEFT);
+        
+        $data_vencimento = $filtro_mes . '-' . $vencimento_dia; // Ex: 2026-06-10
+        
+        // Se o fechamento é menor que o vencimento (Ex: F: 03, V: 10), o período da fatura de Junho (venc 10/06) 
+        // vai de 04/05 até 03/06
+        // Se o fechamento é maior que o vencimento (Ex: F: 25, V: 05), a fatura de Junho (venc 05/06)
+        // vai de 26/04 até 25/05
+        
+        $data_fechamento_atual = '';
+        $data_fechamento_anterior = '';
+        
+        if ($cartao['fechamento'] < $cartao['vencimento']) {
+            $data_fechamento_atual = $filtro_mes . '-' . $fechamento_dia;
+            $data_fechamento_anterior = date('Y-m-d', strtotime($data_fechamento_atual . ' -1 month'));
+        } else {
+            $data_fechamento_atual = date('Y-m-d', strtotime($filtro_mes . '-01 -1 month')) ; // Mês anterior
+            $data_fechamento_atual = date('Y-m-', strtotime($data_fechamento_atual)) . $fechamento_dia;
+            $data_fechamento_anterior = date('Y-m-d', strtotime($data_fechamento_atual . ' -1 month'));
+        }
+        
+        // Intervalo: > fechamento_anterior AND <= fechamento_atual
+        $stmtFatura = $pdo->prepare("SELECT COALESCE(SUM(valor), 0) FROM despesas WHERE cartao_id = ? AND data > ? AND data <= ?");
+        $stmtFatura->execute([$cartao['id'], $data_fechamento_anterior, $data_fechamento_atual]);
+        $total_fatura = (float) $stmtFatura->fetchColumn();
+        
+        if ($total_fatura > 0) {
+            // Verificar se esta fatura já foi paga (checando se existe um lançamento manual de pagamento, por ora vamos assumir falso)
+            // Inject virtual expense
+            $lancamentos[] = [
+                'id' => 'fatura_' . $cartao['id'],
+                'tipo' => 'despesa',
+                'descricao' => 'Fatura ' . $cartao['nome'],
+                'valor' => $total_fatura,
+                'categoria' => 'Cartão de Crédito',
+                'data' => $data_vencimento,
+                'created_at' => date('Y-m-d H:i:s'),
+                'pago' => false,
+                'observacao' => 'Gerado automaticamente',
+                'conta' => 'Cartão de Crédito',
+                'cartao_id' => $cartao['id']
+            ];
+        }
+    }
+    
+    // Re-sort array by date DESC
+    usort($lancamentos, function($a, $b) {
+        if ($a['data'] === $b['data']) {
+            return $b['created_at'] <=> $a['created_at'];
+        }
+        return $b['data'] <=> $a['data'];
+    });
 
     // 3. Processar acumulado e previsto
     $lancamentos_processed = [];

@@ -59,12 +59,10 @@ try {
             default: $current_date = date('Y-m-d', strtotime($base_date . " +$i month")); break;
         }
 
-        // Append (X/Y) to description if repeating AND parcelado
+        // Append (X/Y) to description if repeating
         $desc_final = $descricao;
-        if ($repetir > 1 && $repeat_mode !== 'fixa') {
+        if ($repetir > 1) {
             $desc_final .= " (" . ($i + 1) . "/$repetir)";
-        } else if ($repeat_mode === 'fixa') {
-            $desc_final .= " (Fixa)";
         }
 
         $stmt->execute([$user_id, $desc_final, $valor, $categoria, $current_date, $conta, $pago ? 1 : 0]);
