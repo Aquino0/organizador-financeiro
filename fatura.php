@@ -67,6 +67,48 @@ renderHeader("Fatura do Cartão");
     </div>
 </div>
 
+<!-- Modal Edição -->
+<div id="editModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white dark:bg-slate-800 rounded-3xl shadow-2xl w-full max-w-md p-6">
+        <div class="flex justify-between items-center mb-6">
+            <h2 class="text-xl font-bold text-slate-800 dark:text-white">Editar Compra</h2>
+            <button onclick="fecharModalEdicao()" class="text-slate-400 hover:text-slate-600 dark:hover:text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+
+        <form id="editForm" onsubmit="salvarEdicao(event)">
+            <input type="hidden" name="id" id="editId">
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Descrição</label>
+                    <input type="text" name="descricao" id="editDescricao" required class="w-full bg-slate-50 dark:bg-slate-700 text-slate-800 dark:text-white border border-slate-200 dark:border-slate-600 rounded-xl px-4 py-3 outline-none focus:border-blue-500">
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Valor (R$)</label>
+                        <input type="number" step="0.01" name="valor" id="editValor" required class="w-full bg-slate-50 dark:bg-slate-700 text-slate-800 dark:text-white border border-slate-200 dark:border-slate-600 rounded-xl px-4 py-3 outline-none focus:border-blue-500">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Data</label>
+                        <input type="date" name="data" id="editData" required class="w-full bg-slate-50 dark:bg-slate-700 text-slate-800 dark:text-white border border-slate-200 dark:border-slate-600 rounded-xl px-4 py-3 outline-none focus:border-blue-500">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Categoria</label>
+                    <input type="text" name="categoria" id="editCategoria" required class="w-full bg-slate-50 dark:bg-slate-700 text-slate-800 dark:text-white border border-slate-200 dark:border-slate-600 rounded-xl px-4 py-3 outline-none focus:border-blue-500">
+                </div>
+            </div>
+            
+            <button type="submit" class="w-full mt-8 bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-xl transition-colors">
+                Salvar Alterações
+            </button>
+        </form>
+    </div>
+</div>
+
 <script>
     const cartaoId = <?php echo $cartao_id; ?>;
     const mesInput = document.getElementById('faturaMes');
@@ -155,6 +197,9 @@ renderHeader("Fatura do Cartão");
                         </div>
                         <div class="flex items-center gap-4">
                             <span class="text-slate-800 dark:text-white font-bold whitespace-nowrap">R$ ${valStr}</span>
+                            <button onclick="abrirModalEdicao(${c.id}, '${c.descricao.replace(/'/g, "\\'")}', ${c.valor}, '${c.categoria.replace(/'/g, "\\'")}', '${c.data}')" class="opacity-0 group-hover:opacity-100 text-slate-400 hover:text-blue-500 transition-all p-2">
+                                <i class="fa-solid fa-pen"></i>
+                            </button>
                             <button onclick="excluirCompraFatura(${c.id})" class="opacity-0 group-hover:opacity-100 text-slate-400 hover:text-red-500 transition-all p-2">
                                 <i class="fa-solid fa-trash"></i>
                             </button>
@@ -223,6 +268,42 @@ renderHeader("Fatura do Cartão");
             }
         } catch (e) {
             alert('Erro de conexão ao excluir');
+        }
+    }
+
+    function abrirModalEdicao(id, descricao, valor, categoria, data) {
+        document.getElementById('editId').value = id;
+        document.getElementById('editDescricao').value = descricao;
+        document.getElementById('editValor').value = valor;
+        document.getElementById('editCategoria').value = categoria;
+        document.getElementById('editData').value = data;
+        document.getElementById('editModal').classList.remove('hidden');
+    }
+
+    function fecharModalEdicao() {
+        document.getElementById('editModal').classList.add('hidden');
+    }
+
+    async function salvarEdicao(e) {
+        e.preventDefault();
+        const data = Object.fromEntries(new FormData(e.target).entries());
+        
+        try {
+            const res = await fetch('api/update_despesa.php', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify(data)
+            });
+            const result = await res.json();
+            if (result.success) {
+                fecharModalEdicao();
+                loadFatura();
+                if (typeof showToast !== 'undefined') showToast('Compra atualizada!');
+            } else {
+                alert(result.error);
+            }
+        } catch (err) {
+            alert('Erro de conexão ao atualizar');
         }
     }
 
