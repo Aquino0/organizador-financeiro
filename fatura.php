@@ -229,8 +229,7 @@ renderHeader("Fatura do Cartão");
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify({
                     cartao_id: cartaoId,
-                    data_inicio: currentFaturaData.data_inicio,
-                    data_fim: currentFaturaData.data_fechamento
+                    fatura_mes: currentFaturaData.fatura_mes
                 })
             });
 

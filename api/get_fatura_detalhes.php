@@ -27,22 +27,19 @@ try {
     $fechamento_dia = str_pad($cartao['fechamento'], 2, '0', STR_PAD_LEFT);
     $vencimento_dia = str_pad($cartao['vencimento'], 2, '0', STR_PAD_LEFT);
     
-    // Lógica de datas (idêntica a list_lancamentos)
-    $data_fechamento_atual = '';
-    $data_fechamento_anterior = '';
-    
-    if ($cartao['fechamento'] < $cartao['vencimento']) {
-        $data_fechamento_atual = $filtro_mes . '-' . $fechamento_dia;
-        $data_fechamento_anterior = date('Y-m-d', strtotime($data_fechamento_atual . ' -1 month'));
-    } else {
-        $data_fechamento_atual = date('Y-m-d', strtotime($filtro_mes . '-01 -1 month')) ; 
-        $data_fechamento_atual = date('Y-m-', strtotime($data_fechamento_atual)) . $fechamento_dia;
-        $data_fechamento_anterior = date('Y-m-d', strtotime($data_fechamento_atual . ' -1 month'));
-    }
+    // A data de início e fim será simplesmente o primeiro e último dia do mês
+    $data_inicio = $filtro_mes . '-01';
+    $data_fechamento_atual = date('Y-m-t', strtotime($data_inicio));
 
-    // Buscar despesas dessa fatura específica
-    $stmtFat = $pdo->prepare("SELECT id, descricao, valor, categoria, data, created_at, observacao, pago FROM despesas WHERE cartao_id = ? AND data > ? AND data <= ? ORDER BY data DESC, created_at DESC");
-    $stmtFat->execute([$cartao_id, $data_fechamento_anterior, $data_fechamento_atual]);
+    // Buscar despesas dessa fatura (que agora é simplesmente o mês da despesa)
+    $stmtFat = $pdo->prepare("
+        SELECT id, descricao, valor, categoria, data, created_at, observacao, pago 
+        FROM despesas 
+        WHERE cartao_id = ? 
+        AND TO_CHAR(data, 'YYYY-MM') = ? 
+        ORDER BY data DESC, created_at DESC
+    ");
+    $stmtFat->execute([$cartao_id, $filtro_mes]);
     $compras = $stmtFat->fetchAll(PDO::FETCH_ASSOC);
 
     // Soma total e checagem de pagamento
@@ -62,7 +59,7 @@ try {
     jsonResponse([
         'cartao' => $cartao,
         'fatura_mes' => $filtro_mes,
-        'data_inicio' => $data_fechamento_anterior,
+        'data_inicio' => $data_inicio,
         'data_fechamento' => $data_fechamento_atual,
         'data_vencimento' => $filtro_mes . '-' . $vencimento_dia,
         'total' => $total,

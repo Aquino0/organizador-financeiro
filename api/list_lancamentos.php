@@ -64,42 +64,30 @@ try {
         $fechamento_dia = str_pad($cartao['fechamento'], 2, '0', STR_PAD_LEFT);
         
         $data_vencimento = $filtro_mes . '-' . $vencimento_dia; // Ex: 2026-06-10
-        
-        // Se o fechamento é menor que o vencimento (Ex: F: 03, V: 10), o período da fatura de Junho (venc 10/06) 
-        // vai de 04/05 até 03/06
-        // Se o fechamento é maior que o vencimento (Ex: F: 25, V: 05), a fatura de Junho (venc 05/06)
-        // vai de 26/04 até 25/05
-        
-        $data_fechamento_atual = '';
-        $data_fechamento_anterior = '';
-        
-        if ($cartao['fechamento'] < $cartao['vencimento']) {
-            $data_fechamento_atual = $filtro_mes . '-' . $fechamento_dia;
-            $data_fechamento_anterior = date('Y-m-d', strtotime($data_fechamento_atual . ' -1 month'));
-        } else {
-            $data_fechamento_atual = date('Y-m-d', strtotime($filtro_mes . '-01 -1 month')) ; // Mês anterior
-            $data_fechamento_atual = date('Y-m-', strtotime($data_fechamento_atual)) . $fechamento_dia;
-            $data_fechamento_anterior = date('Y-m-d', strtotime($data_fechamento_atual . ' -1 month'));
-        }
-        
-        // Intervalo: > fechamento_anterior AND <= fechamento_atual
-        $stmtFatura = $pdo->prepare("SELECT COALESCE(SUM(valor), 0) FROM despesas WHERE cartao_id = ? AND data > ? AND data <= ?");
-        $stmtFatura->execute([$cartao['id'], $data_fechamento_anterior, $data_fechamento_atual]);
-        $total_fatura = (float) $stmtFatura->fetchColumn();
-        
-        if ($total_fatura > 0) {
-            // Verificar se esta fatura já foi paga (checando se existe um lançamento manual de pagamento, por ora vamos assumir falso)
-            // Inject virtual expense
+        // Buscar todas as despesas deste cartão no mês do filtro
+        $stmtFat = $pdo->prepare("
+            SELECT SUM(valor) as total, COUNT(*) as qtd, BOOL_AND(pago) as todas_pagas
+            FROM despesas 
+            WHERE cartao_id = ? 
+            AND TO_CHAR(data, 'YYYY-MM') = ?
+        ");
+        $stmtFat->execute([$cartao['id'], $filtro_mes]);
+        $fatData = $stmtFat->fetch(PDO::FETCH_ASSOC);
+
+        if ($fatData && $fatData['qtd'] > 0) {
+            $vencDia = str_pad($cartao['vencimento'], 2, '0', STR_PAD_LEFT);
+            $dataVencimento = $filtro_mes . '-' . $vencDia;
+
             $lancamentos[] = [
                 'id' => 'fatura_' . $cartao['id'],
                 'tipo' => 'despesa',
-                'descricao' => 'Fatura ' . $cartao['nome'],
-                'valor' => $total_fatura,
+                'descricao' => 'Fatura Cartão ' . $cartao['nome'],
+                'valor' => (float)$fatData['total'],
+                'data' => $dataVencimento,
                 'categoria' => 'Cartão de Crédito',
-                'data' => $data_vencimento,
+                'pago' => (int)$fatData['todas_pagas'], // 1 se todas pagas, 0 caso contrário
+                'observacao' => 'Fatura com ' . $fatData['qtd'] . ' compras.',
                 'created_at' => date('Y-m-d H:i:s'),
-                'pago' => false,
-                'observacao' => 'Gerado automaticamente',
                 'conta' => 'Cartão de Crédito',
                 'cartao_id' => $cartao['id']
             ];
