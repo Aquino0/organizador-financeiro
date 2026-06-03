@@ -134,18 +134,6 @@
 
                 <!-- Extra Options (Circular Buttons) -->
                 <div class="flex justify-center gap-12 px-4 mb-8">
-                    <!-- Repeat Button -->
-                    <button type="button" onclick="toggleGlobalRepeat()" class="flex flex-col items-center gap-2 group">
-                        <div class="w-12 h-12 rounded-full border border-slate-200 dark:border-slate-600 flex items-center justify-center text-slate-500 dark:text-slate-400 group-hover:border-blue-500 group-hover:text-blue-500 transition-colors"
-                            id="btnGlobalRepeatCircle">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-                            </svg>
-                        </div>
-                        <span class="text-[10px] text-slate-400 uppercase tracking-wider">Repetir</span>
-                    </button>
 
                     <!-- Obs Button -->
                     <button type="button" onclick="toggleGlobalObs()" class="flex flex-col items-center gap-2 group">
@@ -171,43 +159,7 @@
                             placeholder="Observações adicionais..."></textarea>
                     </div>
 
-                    <!-- Repeat Field -->
-                    <div id="globalRepeatField" class="hidden mt-4 bg-slate-50 dark:bg-slate-700/50 p-4 rounded-xl border border-slate-100 dark:border-slate-600 space-y-4">
-                        
-                        <label class="block text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wide">Repetir</label>
 
-                        <div class="flex flex-col gap-3">
-                            <label class="flex items-center gap-2 cursor-pointer group">
-                                <input type="radio" name="global_repeat_mode" value="parcelado" class="peer sr-only" checked onchange="toggleGlobalRepeatSubfields()">
-                                <div class="w-5 h-5 rounded-full border-2 border-slate-300 peer-checked:bg-green-500 peer-checked:border-transparent flex items-center justify-center transition-all">
-                                    <svg class="w-3 h-3 text-white hidden peer-checked:block" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                                    </svg>
-                                </div>
-                                <span class="text-sm font-medium text-slate-600 dark:text-slate-300">é um lançamento parcelado em</span>
-                            </label>
-                        </div>
-
-                        <div id="globalRepeatSubfields" class="space-y-3">
-                            <div>
-                                <select name="frequencia"
-                                    class="w-full px-4 py-2 rounded-lg border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-700 text-slate-700 dark:text-white outline-none">
-                                    <option value="Anual">Anual</option>
-                                    <option value="Semestral">Semestral</option>
-                                    <option value="Trimestral">Trimestral</option>
-                                    <option value="Bimestral">Bimestral</option>
-                                    <option value="Mensal" selected>Mensal</option>
-                                    <option value="Quinzena">Quinzena</option>
-                                    <option value="Semanal">Semanal</option>
-                                    <option value="Diário">Diário</option>
-                                </select>
-                            </div>
-                            <div id="globalRepeatTimesContainer" class="hidden">
-                                <input type="number" name="repetir" placeholder="Quantidade de vezes" min="2" max="60" value="2"
-                                    class="w-full px-4 py-2 rounded-lg border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-700 text-slate-700 dark:text-white outline-none text-center">
-                            </div>
-                        </div>
-                    </div>
                 </div>
 
                 <!-- Done Button (Floating Check) -->
@@ -282,9 +234,7 @@
 
             // Reset toggles
             document.getElementById('globalObsField').classList.add('hidden');
-            document.getElementById('globalRepeatField').classList.add('hidden');
             document.getElementById('btnGlobalObsCircle').classList.remove('border-blue-500', 'text-blue-500');
-            document.getElementById('btnGlobalRepeatCircle').classList.remove('border-blue-500', 'text-blue-500');
         }, 300);
     }
 
@@ -297,29 +247,6 @@
             btn.classList.add('border-blue-500', 'text-blue-500');
         } else {
             btn.classList.remove('border-blue-500', 'text-blue-500');
-        }
-    }
-
-    function toggleGlobalRepeat() {
-        const field = document.getElementById('globalRepeatField');
-        const btn = document.getElementById('btnGlobalRepeatCircle');
-
-        field.classList.toggle('hidden');
-        if (!field.classList.contains('hidden')) {
-            btn.classList.add('border-blue-500', 'text-blue-500');
-        } else {
-            btn.classList.remove('border-blue-500', 'text-blue-500');
-        }
-    }
-
-    function toggleGlobalRepeatSubfields() {
-        const mode = document.querySelector('input[name="global_repeat_mode"]:checked').value;
-        const timesContainer = document.getElementById('globalRepeatTimesContainer');
-        
-        if (mode === 'parcelado') {
-            timesContainer.classList.remove('hidden');
-        } else {
-            timesContainer.classList.add('hidden');
         }
     }
 
