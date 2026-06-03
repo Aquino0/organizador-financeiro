@@ -299,7 +299,7 @@ function renderHeader($title = 'Organiza+')
 
                         <!-- Btn Adicionar (Redireciona para Lançamentos) -->
                         <a href="lancamentos.php"
-                            class="flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700/50 rounded-lg transition-colors">
+                            class="hidden flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700/50 rounded-lg transition-colors">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
                                 stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
@@ -307,8 +307,8 @@ function renderHeader($title = 'Organiza+')
                             <span class="hidden sm:inline">Adicionar</span>
                         </a>
 
-                        <!-- Btn Exportar -->
-                        <div class="relative group hidden sm:block">
+                        <!-- Btn Exportar (Ocultado temporariamente a pedido) -->
+                        <div class="relative group hidden">
                             <button
                                 class="flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700/50 rounded-lg transition-colors">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
