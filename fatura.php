@@ -140,7 +140,7 @@ renderHeader("Fatura do Cartão");
                 const valStr = parseFloat(c.valor).toLocaleString('pt-BR', {minimumFractionDigits: 2});
                 
                 html += `
-                    <div class="flex items-center justify-between p-4 sm:p-5 hover:bg-slate-50 dark:hover:bg-slate-700/20 transition-colors">
+                    <div class="flex items-center justify-between p-4 sm:p-5 hover:bg-slate-50 dark:hover:bg-slate-700/20 transition-colors group">
                         <div class="flex items-center gap-4">
                             <div class="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-700 flex items-center justify-center text-slate-500 dark:text-slate-400 flex-shrink-0">
                                 <i class="fa-solid fa-tag"></i>
@@ -153,8 +153,11 @@ renderHeader("Fatura do Cartão");
                                 </div>
                             </div>
                         </div>
-                        <div class="text-right">
+                        <div class="flex items-center gap-4">
                             <span class="text-slate-800 dark:text-white font-bold whitespace-nowrap">R$ ${valStr}</span>
+                            <button onclick="excluirCompraFatura(${c.id})" class="opacity-0 group-hover:opacity-100 text-slate-400 hover:text-red-500 transition-all p-2">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
                         </div>
                     </div>
                 `;
@@ -199,6 +202,27 @@ renderHeader("Fatura do Cartão");
             alert('Erro ao pagar fatura');
             btn.innerHTML = oldHtml;
             btn.disabled = false;
+        }
+    }
+
+    async function excluirCompraFatura(id) {
+        if (!confirm('Deseja excluir esta compra da fatura? Isso não pode ser desfeito.')) return;
+        
+        try {
+            const res = await fetch('api/delete_despesa.php', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({ id: id })
+            });
+            const data = await res.json();
+            if (data.success) {
+                if (typeof showToast !== 'undefined') showToast('Compra excluída com sucesso!');
+                loadFatura();
+            } else {
+                alert(data.error || 'Erro ao excluir');
+            }
+        } catch (e) {
+            alert('Erro de conexão ao excluir');
         }
     }
 

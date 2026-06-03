@@ -17,6 +17,11 @@ if (!isset($data['id'])) {
 }
 
 $id = $data['id'];
+
+if (is_string($id) && strpos($id, 'fatura_') === 0) {
+    jsonResponse(['error' => 'A fatura é gerada automaticamente. Acesse a aba Cartões para excluir as compras individuais.'], 400);
+}
+
 $user_id = getCurrentUserId();
 
 try {
