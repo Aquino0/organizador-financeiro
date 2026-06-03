@@ -363,44 +363,6 @@ renderHeader('Lançamentos');
                 </div>
 
 
-                <!-- Repetir Section -->
-                <div id="repetirFields"
-                    class="mt-4 bg-slate-50 dark:bg-slate-700/50 p-4 rounded-xl border border-slate-100 dark:border-slate-600 space-y-4">
-                    
-                    <label class="block text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wide">Repetir</label>
-
-                    <div class="flex flex-col gap-3">
-                        <label class="flex items-center gap-2 cursor-pointer group">
-                            <input type="radio" name="repeat_mode" value="parcelado" class="peer sr-only" checked onchange="toggleRepeatSubfields()">
-                            <div class="w-5 h-5 rounded-full border-2 border-slate-300 peer-checked:bg-green-500 peer-checked:border-transparent flex items-center justify-center transition-all">
-                                <svg class="w-3 h-3 text-white hidden peer-checked:block" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                                </svg>
-                            </div>
-                            <span class="text-sm font-medium text-slate-600 dark:text-slate-300">é um lançamento parcelado em</span>
-                        </label>
-                    </div>
-
-                    <div id="repeatSubfields" class="space-y-3">
-                        <div>
-                            <select name="frequencia"
-                                class="w-full px-4 py-2 rounded-lg border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-700 dark:text-white outline-none">
-                                <option value="Anual">Anual</option>
-                                <option value="Semestral">Semestral</option>
-                                <option value="Trimestral">Trimestral</option>
-                                <option value="Bimestral">Bimestral</option>
-                                <option value="Mensal" selected>Mensal</option>
-                                <option value="Quinzena">Quinzena</option>
-                                <option value="Semanal">Semanal</option>
-                                <option value="Diário">Diário</option>
-                            </select>
-                        </div>
-                        <div id="repeatTimesContainer" class="hidden">
-                            <input type="number" name="repetir" placeholder="Quantidade de vezes" min="2" max="60" value="2"
-                                class="w-full px-4 py-2 rounded-lg border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-700 dark:text-white outline-none text-center">
-                        </div>
-                    </div>
-                </div>
 
                 <!-- Hidden Obs Field -->
                 <div id="obsField" class="hidden mt-4 transition-all duration-300">
@@ -459,39 +421,6 @@ renderHeader('Lançamentos');
                     field.classList.add('hidden');
                     btn.querySelector('div').classList.add('border-slate-200', 'dark:border-slate-600');
                     btn.querySelector('div').classList.remove('border-blue-500', 'text-blue-500');
-                }
-            }
-
-            function toggleRepetir() {
-                const field = document.getElementById('repetirFields');
-                const btn = document.getElementById('btnRepetir');
-                const input = document.querySelector('input[name="repetir"]');
-
-                if (field.classList.contains('hidden')) {
-                    field.classList.remove('hidden');
-                    btn.querySelector('div').classList.remove('border-slate-200', 'dark:border-slate-600');
-                    btn.querySelector('div').classList.add('border-blue-500', 'text-blue-500');
-                    if (input.value == 1) input.value = 2; // Default to 2 if opening
-                } else {
-                    field.classList.add('hidden');
-                    btn.querySelector('div').classList.add('border-slate-200', 'dark:border-slate-600');
-                    btn.querySelector('div').classList.remove('border-blue-500', 'text-blue-500');
-                    input.value = 1; // Reset to 1
-                }
-            }
-
-            function toggleRepeatSubfields() {
-                const mode = document.querySelector('input[name="repeat_mode"]:checked').value;
-                const timesContainer = document.getElementById('repeatTimesContainer');
-                const input = document.querySelector('input[name="repetir"]');
-                
-                if (mode === 'parcelado') {
-                    timesContainer.classList.remove('hidden');
-                    if (input && input.value == 1) input.value = 2; // Default starting installments
-                } else {
-                    timesContainer.classList.add('hidden');
-                }
-            }
         </script>
 
         <!-- Filter Modal -->
