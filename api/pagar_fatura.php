@@ -29,7 +29,7 @@ try {
     }
 
     // Marcar todas as compras do mês como pagas
-    $stmtUpd = $pdo->prepare("UPDATE despesas SET pago = 1 WHERE cartao_id = ? AND TO_CHAR(data, 'YYYY-MM') = ?");
+    $stmtUpd = $pdo->prepare("UPDATE despesas SET pago = TRUE WHERE cartao_id = ? AND TO_CHAR(data, 'YYYY-MM') = ?");
     $stmtUpd->execute([$cartao_id, $fatura_mes]);
     
     jsonResponse(['success' => true]);
